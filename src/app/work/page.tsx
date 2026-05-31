@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+import { cdnUrl } from "@/config/cdn";
 
 export const metadata: Metadata = {
   title: "Our Work — FlarePix",
@@ -119,7 +120,7 @@ export default async function WorkPage({
                   playsInline
                   className="h-full w-full object-cover"
                 >
-                  <source src={v.src} type="video/mp4" />
+                  <source src={cdnUrl(v.src)} type="video/mp4" />
                 </video>
               </div>
             ))}
@@ -143,7 +144,7 @@ export default async function WorkPage({
                 className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
               >
                 <img
-                  src={p.src}
+                  src={cdnUrl(p.src)}
                   alt={p.alt}
                   className="h-full w-full object-cover"
                   loading="lazy"

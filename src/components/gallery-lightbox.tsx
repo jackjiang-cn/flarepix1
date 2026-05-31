@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cdnUrl } from "@/config/cdn";
 
 type GalleryItem = {
   src: string;
@@ -77,7 +78,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
                     playsInline
                     className="w-full h-auto"
                   >
-                    <source src={item.src} type="video/mp4" />
+                    <source src={cdnUrl(item.src)} type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 backdrop-blur">
@@ -90,7 +91,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
               ) : (
                 <>
                   <img
-                    src={item.src}
+                    src={cdnUrl(item.src)}
                     alt={item.alt || ""}
                     className="w-full h-auto"
                     loading="lazy"
@@ -108,13 +109,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
 
         {selected && (selected.type === "video" ? (
           <VideoModal
-            src={selected.src}
+            src={cdnUrl(selected.src)}
             title={selected.title || "Video"}
             onClose={() => setSelected(null)}
           />
         ) : (
           <ImageModal
-            src={selected.src}
+            src={cdnUrl(selected.src)}
             alt={selected.alt || ""}
             onClose={() => setSelected(null)}
           />
@@ -141,7 +142,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
                   playsInline
                   className="h-full w-full object-cover transition-transform group-hover:scale-105"
                 >
-                  <source src={item.src} type="video/mp4" />
+                  <source src={cdnUrl(item.src)} type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 backdrop-blur">
@@ -154,7 +155,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
             ) : (
               <>
                 <img
-                  src={item.src}
+                  src={cdnUrl(item.src)}
                   alt={item.alt || ""}
                   className="h-full w-full object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
@@ -172,13 +173,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
 
       {selected && (selected.type === "video" ? (
         <VideoModal
-          src={selected.src}
+          src={cdnUrl(selected.src)}
           title={selected.title || "Video"}
           onClose={() => setSelected(null)}
         />
       ) : (
         <ImageModal
-          src={selected.src}
+          src={cdnUrl(selected.src)}
           alt={selected.alt || ""}
           onClose={() => setSelected(null)}
         />

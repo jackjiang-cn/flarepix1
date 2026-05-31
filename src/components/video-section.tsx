@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import CtaButton from "./cta-button";
+import { cdnUrl } from "@/config/cdn";
 
 function VideoModal({ src, title, onClose }: { src: string; title: string; onClose: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,7 +61,7 @@ export default function VideoSection() {
             playsInline
             className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
           >
-            <source src="/works/brand-film/brand-film-07.m4v" type="video/mp4" />
+            <source src={cdnUrl("/works/brand-film/brand-film-07.m4v")} type="video/mp4" />
           </video>
 
           {/* Play icon overlay */}
@@ -100,7 +101,7 @@ export default function VideoSection() {
 
       {showModal && (
         <VideoModal
-          src="/works/brand-film/brand-film-07.m4v"
+          src={cdnUrl("/works/brand-film/brand-film-07.m4v")}
           title="Brand Film Production"
           onClose={() => setShowModal(false)}
         />

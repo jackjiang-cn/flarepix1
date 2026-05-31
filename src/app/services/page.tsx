@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { videoCategories, photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
+import { cdnUrl } from "@/config/cdn";
 
 // Video production categories from config
 // videoProductionCategories imported from @/config/categories
@@ -75,7 +76,7 @@ export default function ServicesPage() {
                       playsInline
                       className="w-full aspect-video object-cover"
                     >
-                      <source src={previewVideo} type="video/mp4" />
+                      <source src={cdnUrl(previewVideo)} type="video/mp4" />
                     </video>
                   </div>
                   <div className="p-4">
@@ -117,7 +118,7 @@ export default function ServicesPage() {
                 >
                   <div className="bg-[var(--background)] p-2">
                     <img
-                      src={previewImg}
+                      src={cdnUrl(previewImg)}
                       alt={cat.label}
                       className="w-full h-auto"
                       loading="lazy"
@@ -170,7 +171,7 @@ export default function ServicesPage() {
                   playsInline
                   className="h-full w-full object-cover"
                 >
-                  <source src="/works/brand-film/brand-film-07.m4v" type="video/mp4" />
+                  <source src={cdnUrl("/works/brand-film/brand-film-07.m4v")} type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -210,7 +211,7 @@ export default function ServicesPage() {
                     className="overflow-hidden rounded-lg bg-[var(--background)] aspect-[4/5]"
                   >
                     <img
-                      src={src}
+                      src={cdnUrl(src)}
                       alt=""
                       className="h-full w-full object-cover"
                       loading="lazy"
@@ -253,7 +254,7 @@ export default function ServicesPage() {
                   className="h-full w-full object-cover"
                 >
                   <source
-                    src="/works/ai/videos/ai-video-01.mp4"
+                    src={cdnUrl("/works/ai/videos/ai-video-01.mp4")}
                     type="video/mp4"
                   />
                 </video>

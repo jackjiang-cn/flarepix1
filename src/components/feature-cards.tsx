@@ -1,4 +1,5 @@
 import CtaButton from "./cta-button";
+import { cdnUrl } from "@/config/cdn";
 
 const features = [
   {
@@ -32,7 +33,7 @@ export default function FeatureCards() {
           {/* CTA card with background image */}
           <div
             className="relative min-h-[200px] overflow-hidden rounded-xl bg-cover bg-center"
-            style={{ backgroundImage: "url('/works/photo/kids/kids_1.jpg')" }}
+            style={{ backgroundImage: `url('${cdnUrl("/works/photo/kids/kids_1.jpg")}')` }}
           >
             <div className="absolute bottom-4 left-4">
               <p className="mb-3 text-lg font-semibold text-white">Ready to start?</p>

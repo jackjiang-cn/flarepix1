@@ -1,3 +1,5 @@
+import { cdnUrl } from "@/config/cdn";
+
 const logos = [
   { src: "/works/clients/anker.png", alt: "Anker" },
   { src: "/works/clients/baseus.png", alt: "Baseus" },
@@ -32,7 +34,7 @@ export default function BrandMarquee() {
           {[...logos, ...logos].map((logo, i) => (
             <img
               key={`${logo.alt}-${i}`}
-              src={logo.src}
+              src={cdnUrl(logo.src)}
               alt={logo.alt}
               className="h-8 w-auto object-contain opacity-50 invert brightness-0"
               loading="lazy"
