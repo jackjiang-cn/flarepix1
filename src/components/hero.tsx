@@ -1,4 +1,5 @@
 import CtaButton from "./cta-button";
+import { cdnUrl } from "@/config/cdn";
 
 /*
  * Hero image workflow
@@ -32,10 +33,10 @@ export default function Hero() {
           loop
           muted
           playsInline
-          poster="/works/hero-reel.jpg"
+          poster={cdnUrl("/works/hero-reel.jpg")}
           className="h-full w-full object-cover opacity-30"
         >
-          <source src="/works/hero-reel.mp4" type="video/mp4" />
+          <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
         </video>
       </div>
 
@@ -68,7 +69,7 @@ export default function Hero() {
             {heroImages.map((img, i) => (
               <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
                 <img
-                  src={img.src}
+                  src={cdnUrl(img.src)}
                   alt={img.alt}
                   className="w-full h-auto block"
                   loading="eager"

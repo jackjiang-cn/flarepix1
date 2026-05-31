@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import CtaButton from "./cta-button";
 import { videoProductionCategories, videoProductionSources } from "@/config/categories";
+import { cdnUrl } from "@/config/cdn";
 
 type Props = {
   configUrl?: string;
@@ -40,7 +41,7 @@ function VideoModal({ src, title, onClose }: { src: string; title: string; onClo
           autoPlay
           className="w-full rounded-lg"
         >
-          <source src={src} type="video/mp4" />
+          <source src={cdnUrl(src)} type="video/mp4" />
         </video>
         <p className="mt-2 text-center text-white">{title}</p>
       </div>
@@ -223,7 +224,7 @@ export default function VideoCarousel({ configUrl = "/content/display-order.json
                   playsInline
                   className="h-full w-full object-cover transition-transform group-hover:scale-105"
                 >
-                  <source src={v.src} type="video/mp4" />
+                  <source src={cdnUrl(v.src)} type="video/mp4" />
                 </video>
                 {/* Play icon overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">

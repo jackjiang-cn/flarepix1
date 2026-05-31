@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { cdnUrl } from "@/config/cdn";
 
 const items = [
   {
@@ -47,7 +48,7 @@ export default function WhyUs() {
           style={{ minHeight: openIndex !== null ? `${400 + openIndex * 50}px` : "400px" }}
         >
           <img
-            src="/works/photo/mens/mens_9.jpg"
+            src={cdnUrl("/works/photo/mens/mens_9.jpg")}
             alt="FlarePix studio workflow"
             className="h-full w-full object-cover object-center"
           />

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import CtaButton from "./cta-button";
+import { cdnUrl } from "@/config/cdn";
 
 const aiImages = [
   { src: "/works/ai/images/ai-image-01.webp", alt: "AI product image" },
@@ -43,7 +44,7 @@ function ImageModal({ src, alt, onClose }: { src: string; alt: string; onClose: 
           </svg>
         </button>
         <img
-          src={src}
+          src={cdnUrl(src)}
           alt={alt}
           className="max-h-[85vh] w-auto rounded-lg object-contain"
         />
@@ -85,7 +86,7 @@ function VideoModal({ src, title, onClose }: { src: string; title: string; onClo
           autoPlay
           className="h-auto w-full max-h-[85vh] object-contain rounded-lg"
         >
-          <source src={src} type="video/mp4" />
+          <source src={cdnUrl(src)} type="video/mp4" />
         </video>
         <p className="mt-2 text-center text-white">{title}</p>
       </div>
@@ -124,7 +125,7 @@ export default function AiShowcase() {
               className="group relative overflow-hidden rounded-lg bg-[var(--background)] aspect-[4/5]"
             >
               <img
-                src={img.src}
+                src={cdnUrl(img.src)}
                 alt={img.alt}
                 className="h-full w-full object-cover transition-transform group-hover:scale-105"
                 loading="lazy"
@@ -158,7 +159,7 @@ export default function AiShowcase() {
                   playsInline
                   className="h-full w-full object-cover transition-transform group-hover:scale-105"
                 >
-                  <source src={v.src} type="video/mp4" />
+                  <source src={cdnUrl(v.src)} type="video/mp4" />
                 </video>
                 {/* Play icon overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
@@ -177,7 +178,7 @@ export default function AiShowcase() {
       {/* Image Lightbox */}
       {selectedImage && (
         <ImageModal
-          src={selectedImage.src}
+          src={cdnUrl(selectedImage.src)}
           alt={selectedImage.alt}
           onClose={() => setSelectedImage(null)}
         />
@@ -186,7 +187,7 @@ export default function AiShowcase() {
       {/* Video Modal */}
       {selectedVideo && (
         <VideoModal
-          src={selectedVideo.src}
+          src={cdnUrl(selectedVideo.src)}
           title={selectedVideo.title}
           onClose={() => setSelectedVideo(null)}
         />
