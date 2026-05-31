@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Lightbox from "./lightbox";
 import CtaButton from "./cta-button";
+import { cdnUrl } from "@/config/cdn";
 
 type Image = { src: string; alt: string };
 
@@ -196,7 +197,7 @@ export default function PortfolioCarousel({
                 className="group aspect-[5/6] w-56 flex-none snap-start overflow-hidden rounded-lg bg-[var(--background)] sm:w-64"
               >
                 <img
-                  src={img.src}
+                  src={cdnUrl(img.src)}
                   alt={img.alt}
                   className="h-full w-full object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
@@ -255,7 +256,7 @@ export default function PortfolioCarousel({
       <Lightbox open={!!lightboxImg} onClose={() => setLightboxImg(null)}>
         {lightboxImg && (
           <img
-            src={lightboxImg.src}
+            src={cdnUrl(lightboxImg.src)}
             alt={lightboxImg.alt}
             className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
           />
