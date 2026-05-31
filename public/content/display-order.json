@@ -1,0 +1,147 @@
+{
+  "photoCategories": {
+    "womens-fashion": [
+      "/works/photo/womens-fashion/womens-fashion_1.jpg",
+      "/works/photo/womens-fashion/womens-fashion_2.jpg",
+      "/works/photo/womens-fashion/womens-fashion_3.jpg",
+      "/works/photo/womens-fashion/womens-fashion_4.jpg",
+      "/works/photo/womens-fashion/womens-fashion_5.jpg",
+      "/works/photo/womens-fashion/womens-fashion_6.jpg",
+      "/works/photo/womens-fashion/womens-fashion_7.jpg",
+      "/works/photo/womens-fashion/womens-fashion_8.jpg",
+      "/works/photo/womens-fashion/womens-fashion_9.jpg",
+      "/works/photo/womens-fashion/womens-fashion_11.jpg",
+      "/works/photo/womens-fashion/womens-fashion_12.jpg",
+      "/works/photo/womens-fashion/womens-fashion_13.jpg",
+      "/works/photo/womens-fashion/womens-fashion_14.jpg",
+      "/works/photo/womens-fashion/womens-fashion_15.jpg",
+      "/works/photo/womens-fashion/womens-fashion_16.jpg",
+      "/works/photo/womens-fashion/womens-fashion_17.jpg",
+      "/works/photo/womens-fashion/womens-fashion_18.jpg",
+      "/works/photo/womens-fashion/womens-fashion_19.jpg",
+      "/works/photo/womens-fashion/womens-fashion_20.jpg",
+      "/works/photo/womens-fashion/womens-fashion_21.jpg"
+    ],
+    "womens-clothing": [
+      "/works/photo/womens-clothing/womens-clothing_1.jpg",
+      "/works/photo/womens-clothing/womens-clothing_2.jpg",
+      "/works/photo/womens-clothing/womens-clothing_3.jpg",
+      "/works/photo/womens-clothing/womens-clothing_4.jpg",
+      "/works/photo/womens-clothing/womens-clothing_5.jpg",
+      "/works/photo/womens-clothing/womens-clothing_6.jpg",
+      "/works/photo/womens-clothing/womens-clothing_7.jpg",
+      "/works/photo/womens-clothing/womens-clothing_8.jpg",
+      "/works/photo/womens-clothing/womens-clothing_9.jpg",
+      "/works/photo/womens-clothing/womens-clothing_11.jpg",
+      "/works/photo/womens-clothing/womens-clothing_12.jpg",
+      "/works/photo/womens-clothing/womens-clothing_13.jpg",
+      "/works/photo/womens-clothing/womens-clothing_14.jpg",
+      "/works/photo/womens-clothing/womens-clothing_15.jpg",
+      "/works/photo/womens-clothing/womens-clothing_16.jpg",
+      "/works/photo/womens-clothing/womens-clothing_17.jpg",
+      "/works/photo/womens-clothing/womens-clothing_18.jpg",
+      "/works/photo/womens-clothing/womens-clothing_19.jpg",
+      "/works/photo/womens-clothing/womens-clothing_20.jpg",
+      "/works/photo/womens-clothing/womens-clothing_21.jpg"
+    ],
+    "mens": [
+      "/works/photo/mens/mens_1.jpg",
+      "/works/photo/mens/mens_2.jpg",
+      "/works/photo/mens/mens_4.jpg",
+      "/works/photo/mens/mens_5.jpg",
+      "/works/photo/mens/mens_6.jpg",
+      "/works/photo/mens/mens_7.jpg",
+      "/works/photo/mens/mens_8.jpg",
+      "/works/photo/mens/mens_9.jpg",
+      "/works/photo/mens/mens_10.jpg",
+      "/works/photo/mens/mens_11.jpg",
+      "/works/photo/mens/mens_12.jpg"
+    ],
+    "kids": [
+      "/works/photo/kids/kids_1.jpg",
+      "/works/photo/kids/kids_2.jpg",
+      "/works/photo/kids/kids_3.jpg",
+      "/works/photo/kids/kids_4.jpg",
+      "/works/photo/kids/kids_5.jpg",
+      "/works/photo/kids/kids_7.jpg",
+      "/works/photo/kids/kids_8.jpg",
+      "/works/photo/kids/kids_9.jpg",
+      "/works/photo/kids/kids_10.jpg",
+      "/works/photo/kids/kids_11.jpg",
+      "/works/photo/kids/kids_12.jpg",
+      "/works/photo/kids/kids_13.jpg"
+    ],
+    "accessories": [
+      "/works/photo/accessories/accessories_1.jpg",
+      "/works/photo/accessories/accessories_2.jpg",
+      "/works/photo/accessories/accessories_3.jpg",
+      "/works/photo/accessories/accessories_4.jpg",
+      "/works/photo/accessories/accessories_5.jpg",
+      "/works/photo/accessories/accessories_6.jpg",
+      "/works/photo/accessories/accessories_7.jpg",
+      "/works/photo/accessories/accessories_8.jpg",
+      "/works/photo/accessories/accessories_9.jpg"
+    ],
+    "products": [
+      "/works/photo/products/products_1.jpg",
+      "/works/photo/products/products_2.jpg",
+      "/works/photo/products/products_3.jpg",
+      "/works/photo/products/products_4.jpg",
+      "/works/photo/products/products_5.jpg"
+    ],
+    "sports": [
+      "/works/photo/sports/sports_1.jpg",
+      "/works/photo/sports/sports_2.jpg",
+      "/works/photo/sports/sports_3.jpg",
+      "/works/photo/sports/sports_4.jpg",
+      "/works/photo/sports/sports_5.jpg"
+    ],
+    "womens-underwear": [
+      "/works/photo/womens-underwear/womens-underwear_1.jpg",
+      "/works/photo/womens-underwear/womens-underwear_2.jpg",
+      "/works/photo/womens-underwear/womens-underwear_4.jpg",
+      "/works/photo/womens-underwear/womens-underwear_5.jpg",
+      "/works/photo/womens-underwear/womens-underwear_6.jpg"
+    ],
+    "other": [
+      "/works/photo/other/other_1.jpg",
+      "/works/photo/other/other_7.jpg",
+      "/works/photo/other/other_8.jpg"
+    ]
+  },
+  "videoCategories": {
+    "electronics": [
+      "/works/video/Electronics/product-video-09.m4v",
+      "/works/video/Electronics/product-video-10.m4v",
+      "/works/video/Electronics/product-video-06.mp4",
+      "/works/video/Electronics/product-video-05.mp4"
+    ],
+    "fashion": [
+      "/works/video/Fashion & Apparel/product-video-01.mp4"
+    ],
+    "video-kids": [
+      "/works/video/Kids & Toys/product-video-03.mp4",
+      "/works/video/Kids & Toys/product-video-10.mp4",
+      "/works/video/Kids & Toys/product-video-11.mp4",
+      "/works/video/Kids & Toys/product-video-12.m4v",
+      "/works/video/Kids & Toys/product-video-13.m4v",
+      "/works/video/Kids & Toys/product-video-14.m4v",
+      "/works/video/Kids & Toys/product-video-15.m4v"
+    ],
+    "home-kitchen": [
+      "/works/video/Home & Kitchen/product-video-02.mp4",
+      "/works/video/Home & Kitchen/product-video-03.m4v"
+    ],
+    "video-sports": [
+      "/works/video/Sports & Fitness/product-video-08.m4v",
+      "/works/video/Sports & Fitness/product-video-07.m4v",
+      "/works/video/Sports & Fitness/product-video-04.mp4",
+      "/works/video/Sports & Fitness/product-video-05.m4v"
+    ],
+    "video-others": [
+      "/works/video/Others/product-video-09.mp4",
+      "/works/video/Others/product-video-12.mp4",
+      "/works/video/Others/product-video-13.m4v"
+    ]
+  }
+}
