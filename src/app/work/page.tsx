@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import WorkSectionToggle from "@/components/work-section-toggle";
 import WorkCategoryPills from "@/components/work-category-pills";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
@@ -51,7 +52,6 @@ const allVideos = getVideosFromConfig();
 // Build photo sources from config
 const getPhotosForCategory = (slug: string | null) => {
   if (!slug || slug === "all") {
-    // "All" - get first 4 from each category
     return photoCategories.flatMap(cat =>
       (photoSources[cat.slug] || []).slice(0, 4).map(p => ({
         ...p,
@@ -71,6 +71,9 @@ export default async function WorkPage({
   searchParams: Promise<{ category?: string; videocategory?: string }>;
 }) {
   const params = await searchParams;
+  const photoOpen = params.category !== undefined;
+  const videoOpen = params.videocategory !== undefined;
+
   const activeCategory = params.category || "all";
   const activeVideoCategory = params.videocategory || "all";
   const currentCat = photoTabs.find(c => c.slug === activeCategory);
@@ -99,16 +102,22 @@ export default async function WorkPage({
           </Link>
         </div>
 
-        {/* Category filter tabs */}
-        <WorkCategoryPills
-          tabs={photoTabs}
-          activeCategory={activeCategory}
-          targetId="photos-section"
-          queryParam="category"
-        />
+        {/* Section toggles */}
+        <div className="mt-8 flex flex-wrap gap-3">
+          <WorkSectionToggle
+            label="Videos"
+            queryParam="videocategory"
+            otherQueryParam="category"
+          />
+          <WorkSectionToggle
+            label="Photography"
+            queryParam="category"
+            otherQueryParam="videocategory"
+          />
+        </div>
 
         {/* Videos section */}
-        <section id="videos-section" className="mt-16 scroll-mt-24">
+        <section id="videos-section" className="mt-12 scroll-mt-24">
           <h2 className="text-xl font-semibold">
             Videos
             {currentVideoCat && currentVideoCat.slug !== "all" && (
@@ -117,12 +126,14 @@ export default async function WorkPage({
               </span>
             )}
           </h2>
-          <WorkCategoryPills
-            tabs={videoTabs}
-            activeCategory={activeVideoCategory}
-            targetId="videos-section"
-            queryParam="videocategory"
-          />
+          {videoOpen && (
+            <WorkCategoryPills
+              tabs={videoTabs}
+              activeCategory={activeVideoCategory}
+              targetId="videos-section"
+              queryParam="videocategory"
+            />
+          )}
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {videos.map((v, i) => (
               <div
@@ -153,6 +164,14 @@ export default async function WorkPage({
               </span>
             )}
           </h2>
+          {photoOpen && (
+            <WorkCategoryPills
+              tabs={photoTabs}
+              activeCategory={activeCategory}
+              targetId="photos-section"
+              queryParam="category"
+            />
+          )}
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {photos.map((p, i) => (
               <div
@@ -184,7 +203,7 @@ export default async function WorkPage({
               Get a quote
             </Link>
             <Link
-              href="/work?category=all"
+              href="/work"
               className="inline-flex items-center justify-center rounded-lg border border-[var(--amber)] px-7 py-3 text-sm font-medium text-[var(--amber)] transition-colors hover:bg-[var(--amber)] hover:text-black"
             >
               View all categories

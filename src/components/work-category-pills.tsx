@@ -29,10 +29,8 @@ export default function WorkCategoryPills({
 
   const buildHref = (slug: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (slug === "all") params.delete(queryParam);
-    else params.set(queryParam, slug);
-    const qs = params.toString();
-    return qs ? `${pathname}?${qs}` : pathname;
+    params.set(queryParam, slug);
+    return `${pathname}?${params.toString()}`;
   };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
@@ -54,6 +52,17 @@ export default function WorkCategoryPills({
         pending ? "opacity-60" : ""
       }`}
     >
+      <a
+        href={buildHref("all")}
+        onClick={(e) => handleClick(e, "all")}
+        className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+          activeCategory === "all"
+            ? "bg-[var(--amber)] text-black"
+            : "bg-[var(--surface)] text-[var(--muted)] hover:text-white"
+        }`}
+      >
+        All
+      </a>
       {tabs.map((cat) => (
         <a
           key={cat.slug}
