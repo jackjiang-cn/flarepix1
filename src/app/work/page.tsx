@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import WorkCategoryPills from "@/components/work-category-pills";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
 import { cdnUrl } from "@/config/cdn";
@@ -21,6 +22,13 @@ const photoTabs = photoCategories.map(cat => ({
   label: cat.label,
   folder: cat.slug,
   count: photoSources[cat.slug]?.length || 0,
+}));
+
+// Build video tabs from config
+const videoTabs = videoProductionCategories.map(cat => ({
+  slug: cat.slug,
+  label: cat.label,
+  count: videoProductionSources[cat.slug]?.length || 0,
 }));
 
 // Build video list from config
@@ -60,12 +68,17 @@ const getPhotosForCategory = (slug: string | null) => {
 export default async function WorkPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ category?: string; videocategory?: string }>;
 }) {
   const params = await searchParams;
   const activeCategory = params.category || "all";
+  const activeVideoCategory = params.videocategory || "all";
   const currentCat = photoTabs.find(c => c.slug === activeCategory);
+  const currentVideoCat = videoTabs.find(c => c.slug === activeVideoCategory);
   const photos = getPhotosForCategory(activeCategory === "all" ? null : activeCategory);
+  const videos = activeVideoCategory === "all"
+    ? allVideos
+    : allVideos.filter(v => v.category === activeVideoCategory);
 
   return (
     <>
@@ -87,28 +100,31 @@ export default async function WorkPage({
         </div>
 
         {/* Category filter tabs */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          {photoTabs.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={cat.slug === "all" ? "/work" : `/work?category=${cat.slug}`}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                activeCategory === cat.slug
-                  ? "bg-[var(--amber)] text-black"
-                  : "bg-[var(--surface)] text-[var(--muted)] hover:text-white"
-              }`}
-            >
-              {cat.label}
-              {cat.count > 0 && <span className="ml-1 opacity-60">({cat.count})</span>}
-            </Link>
-          ))}
-        </div>
+        <WorkCategoryPills
+          tabs={photoTabs}
+          activeCategory={activeCategory}
+          targetId="photos-section"
+          queryParam="category"
+        />
 
         {/* Videos section */}
-        <section className="mt-16">
-          <h2 className="text-xl font-semibold">Videos</h2>
+        <section id="videos-section" className="mt-16 scroll-mt-24">
+          <h2 className="text-xl font-semibold">
+            Videos
+            {currentVideoCat && currentVideoCat.slug !== "all" && (
+              <span className="ml-3 text-base font-normal text-[var(--muted)]">
+                — {currentVideoCat.label}
+              </span>
+            )}
+          </h2>
+          <WorkCategoryPills
+            tabs={videoTabs}
+            activeCategory={activeVideoCategory}
+            targetId="videos-section"
+            queryParam="videocategory"
+          />
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {allVideos.map((v, i) => (
+            {videos.map((v, i) => (
               <div
                 key={`${v.src}-${i}`}
                 className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
@@ -128,7 +144,7 @@ export default async function WorkPage({
         </section>
 
         {/* Photography section */}
-        <section className="mt-16">
+        <section id="photos-section" className="mt-16 scroll-mt-24">
           <h2 className="text-xl font-semibold">
             Photography
             {currentCat && currentCat.slug !== "all" && (
