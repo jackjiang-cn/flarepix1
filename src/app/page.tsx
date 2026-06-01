@@ -11,6 +11,7 @@ import WhyUs from "@/components/why-us";
 import FeatureCards from "@/components/feature-cards";
 import BrandMarquee from "@/components/brand-marquee";
 import SeoContent from "@/components/seo-content";
+import WhatWeDo from "@/components/what-we-do";
 import FaqSection from "@/components/faq-section";
 import StatsSection from "@/components/stats-section";
 import Footer from "@/components/footer";
@@ -48,6 +49,7 @@ export default function Home() {
         <StatsSection />
         <BrandMarquee />
         <SeoContent />
+        <WhatWeDo />
         <FaqSection />
       </main>
       <Footer />
