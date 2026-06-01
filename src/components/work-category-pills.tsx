@@ -58,7 +58,7 @@ export default function WorkCategoryPills({
         className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
           activeCategory === "all"
             ? "bg-[var(--amber)] text-black"
-            : "bg-[var(--surface)] text-[var(--muted)] hover:text-white"
+            : "bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--foreground)]"
         }`}
       >
         All
@@ -71,7 +71,7 @@ export default function WorkCategoryPills({
           className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
             activeCategory === cat.slug
               ? "bg-[var(--amber)] text-black"
-              : "bg-[var(--surface)] text-[var(--muted)] hover:text-white"
+              : "bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--foreground)]"
           }`}
         >
           {cat.label}

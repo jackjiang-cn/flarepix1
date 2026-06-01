@@ -15,7 +15,7 @@ export default function CtaButton({
 }: Props) {
   const base =
     "inline-flex items-center justify-center rounded-lg px-7 py-3 text-sm font-medium transition-colors";
-  const filled = "bg-[var(--amber)] text-black hover:bg-amber-400";
+  const filled = "bg-[var(--amber)] text-black hover:bg-[#a37e4a]";
   const outline =
     "border border-[var(--amber)] text-[var(--amber)] hover:bg-[var(--amber)] hover:text-black";
 

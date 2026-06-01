@@ -28,7 +28,7 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <div className="mt-16 border-t border-white/[0.06] pt-8">
+        <div className="mt-16 border-t border-black/[0.08] pt-8">
           <p className="text-sm text-[var(--muted)]">
             Or email us directly at{" "}
             <a

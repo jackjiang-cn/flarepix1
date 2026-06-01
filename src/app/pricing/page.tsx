@@ -100,7 +100,7 @@ export default function PricingPage() {
           {plans.map((p) => (
             <div
               key={p.title}
-              className="rounded-2xl border border-white/[0.06] bg-[var(--surface)] p-6"
+              className="rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-6"
             >
               <h2 className="text-sm font-medium text-[var(--muted)]">
                 {p.title}

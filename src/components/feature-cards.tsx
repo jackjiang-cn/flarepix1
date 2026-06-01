@@ -27,7 +27,7 @@ export default function FeatureCards() {
               className="flex flex-col justify-center rounded-xl border border-[var(--amber)]/20 bg-[var(--amber)]/5 px-8 py-10"
             >
               <h3 className="text-xl font-semibold text-[var(--amber)]">{f.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">{f.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{f.description}</p>
             </div>
           ))}
           {/* CTA card with background image */}

@@ -20,7 +20,7 @@ export default function AiVideoPage() {
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
           href="/services#ai-video"
-          className="text-sm text-[var(--muted)] hover:text-white transition-colors"
+          className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
         >
           &larr; All services
         </Link>
@@ -47,7 +47,7 @@ export default function AiVideoPage() {
           />
         </section>
 
-        <div className="mt-16 rounded-2xl border border-dashed border-white/[0.08] bg-[var(--surface)] p-8 text-center">
+        <div className="mt-16 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
           <p className="text-[var(--muted)]">
             More AI video examples coming soon.
           </p>

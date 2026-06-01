@@ -39,7 +39,7 @@ export default function ContactForm() {
           <input
             type="text"
             name="name"
-            className="mt-1 block w-full rounded-lg border border-white/[0.08] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
+            className="mt-1 block w-full rounded-lg border border-black/[0.10] bg-[var(--surface)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
             placeholder="Your name"
           />
         </label>
@@ -49,7 +49,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             required
-            className="mt-1 block w-full rounded-lg border border-white/[0.08] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
+            className="mt-1 block w-full rounded-lg border border-black/[0.10] bg-[var(--surface)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
             placeholder="you@company.com"
           />
         </label>
@@ -58,7 +58,7 @@ export default function ContactForm() {
         <span className="text-sm text-[var(--muted)]">Service needed</span>
         <select
           name="service"
-          className="mt-1 block w-full rounded-lg border border-white/[0.08] bg-[var(--surface)] px-4 py-2.5 text-sm text-white focus:border-[var(--amber)] focus:outline-none"
+          className="mt-1 block w-full rounded-lg border border-black/[0.10] bg-[var(--surface)] px-4 py-2.5 text-sm text-[var(--foreground)] focus:border-[var(--amber)] focus:outline-none"
         >
           <option>Product photography</option>
           <option>Product video</option>
@@ -73,7 +73,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="mt-1 block w-full rounded-lg border border-white/[0.08] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
+          className="mt-1 block w-full rounded-lg border border-black/[0.10] bg-[var(--surface)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--amber)] focus:outline-none"
           placeholder="Tell us about your products, quantity, timeline..."
         />
       </label>

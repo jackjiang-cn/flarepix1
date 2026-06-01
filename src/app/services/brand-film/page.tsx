@@ -22,7 +22,7 @@ export default function BrandFilmPage() {
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
           href="/services#brand-film"
-          className="text-sm text-[var(--muted)] hover:text-white transition-colors"
+          className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
         >
           &larr; All services
         </Link>
@@ -54,15 +54,15 @@ export default function BrandFilmPage() {
 
         {/* Stats */}
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/[0.06] bg-[var(--surface)] p-6 text-center">
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
             <p className="text-3xl font-bold text-[var(--amber)]">4K</p>
             <p className="mt-1 text-sm text-[var(--muted)]">Production quality</p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-[var(--surface)] p-6 text-center">
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
             <p className="text-3xl font-bold text-[var(--amber)]">2-4</p>
             <p className="mt-1 text-sm text-[var(--muted)]">Weeks delivery</p>
           </div>
-          <div className="rounded-xl border border-white/[0.06] bg-[var(--surface)] p-6 text-center">
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
             <p className="text-3xl font-bold text-[var(--amber)]">100%</p>
             <p className="mt-1 text-sm text-[var(--muted)]">Brand ownership</p>
           </div>

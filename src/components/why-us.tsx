@@ -66,7 +66,7 @@ export default function WhyUs() {
 
           <div className="mt-10">
             {items.map((item, i) => (
-              <div key={item.question} className="border-b border-white/[0.06]">
+              <div key={item.question} className="border-b border-black/[0.08]">
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="flex w-full items-center justify-between py-4 text-left"

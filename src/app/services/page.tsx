@@ -66,7 +66,7 @@ export default function ServicesPage() {
                 <Link
                   key={cat.slug}
                   href={`/services/${cat.slug}`}
-                  className="group block rounded-2xl border border-white/[0.06] bg-[var(--surface)] overflow-hidden transition-colors hover:border-white/[0.12]"
+                  className="group block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15]"
                 >
                   <div className="bg-[var(--background)] p-2">
                     <video
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                 <Link
                   key={cat.slug}
                   href={`/services/${cat.slug}`}
-                  className="group block rounded-2xl border border-white/[0.06] bg-[var(--surface)] overflow-hidden transition-colors hover:border-white/[0.12] mb-4 break-inside-avoid"
+                  className="group block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15] mb-4 break-inside-avoid"
                 >
                   <div className="bg-[var(--background)] p-2">
                     <img
@@ -142,7 +142,7 @@ export default function ServicesPage() {
         <section className="mt-8" id="brand-film">
           <Link
             href="/services/brand-film"
-            className="group block overflow-hidden rounded-2xl border border-white/[0.06] bg-[var(--surface)] transition-colors hover:border-white/[0.12]"
+            className="group block overflow-hidden rounded-2xl border border-black/[0.08] bg-[var(--surface)] transition-colors hover:border-black/[0.15]"
           >
             <div className="grid items-center gap-8 p-8 lg:grid-cols-2 lg:p-12">
               <div>
@@ -182,7 +182,7 @@ export default function ServicesPage() {
         <section className="mt-16" id="ai-imagery">
           <Link
             href="/services/ai-imagery"
-            className="group block overflow-hidden rounded-2xl border border-white/[0.06] bg-[var(--surface)] transition-colors hover:border-white/[0.12]"
+            className="group block overflow-hidden rounded-2xl border border-black/[0.08] bg-[var(--surface)] transition-colors hover:border-black/[0.15]"
           >
             <div className="grid items-center gap-8 p-8 lg:grid-cols-2 lg:p-12">
               <div>
@@ -227,7 +227,7 @@ export default function ServicesPage() {
         <section className="mt-8" id="ai-video">
           <Link
             href="/services/ai-video"
-            className="group block overflow-hidden rounded-2xl border border-white/[0.06] bg-[var(--surface)] transition-colors hover:border-white/[0.12]"
+            className="group block overflow-hidden rounded-2xl border border-black/[0.08] bg-[var(--surface)] transition-colors hover:border-black/[0.15]"
           >
             <div className="grid items-center gap-8 p-8 lg:grid-cols-2 lg:p-12">
               <div>

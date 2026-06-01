@@ -113,7 +113,7 @@ export default async function WorkPage({
           </div>
           <Link
             href="/contact"
-            className="shrink-0 inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-amber-400"
+            className="shrink-0 inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#a37e4a]"
           >
             Get a quote
           </Link>
@@ -280,7 +280,7 @@ export default async function WorkPage({
         )}
 
         {/* CTA */}
-        <div className="mt-16 text-center rounded-2xl border border-white/[0.06] bg-[var(--surface)] p-8">
+        <div className="mt-16 text-center rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-8">
           <h3 className="text-xl font-semibold">Need visuals for your products?</h3>
           <p className="mt-2 text-[var(--muted)]">
             We work with brands across all categories — from electronics to fashion, home goods to kids toys.
@@ -288,7 +288,7 @@ export default async function WorkPage({
           <div className="mt-6 flex justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-7 py-3 text-sm font-medium text-black transition-colors hover:bg-amber-400"
+              className="inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-7 py-3 text-sm font-medium text-black transition-colors hover:bg-[#a37e4a]"
             >
               Get a quote
             </Link>

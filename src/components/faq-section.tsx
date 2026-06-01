@@ -40,7 +40,7 @@ export default function FaqSection() {
         </h2>
         <div className="mt-10">
           {faqs.map((faq, i) => (
-            <div key={faq.q} className="border-b border-white/[0.06]">
+            <div key={faq.q} className="border-b border-black/[0.08]">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="flex w-full items-center justify-between py-4 text-left"

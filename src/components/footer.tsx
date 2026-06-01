@@ -59,7 +59,7 @@ const footerServices = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-[var(--surface)]">
+    <footer className="border-t border-black/[0.08] bg-[var(--surface)]">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -74,13 +74,13 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="mb-3 text-sm font-medium text-white">Navigation</p>
+            <p className="mb-3 text-sm font-medium text-[var(--foreground)]">Navigation</p>
             <nav className="flex flex-col gap-2">
               {navigation.footer.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm text-[var(--muted)] transition-colors hover:text-white"
+                  className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
                 >
                   {item.label}
                 </Link>
@@ -90,13 +90,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <p className="mb-3 text-sm font-medium text-white">Services</p>
+            <p className="mb-3 text-sm font-medium text-[var(--foreground)]">Services</p>
             <nav className="flex flex-col gap-2">
               {footerServices.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm text-[var(--muted)] transition-colors hover:text-white"
+                  className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
                 >
                   {item.label}
                 </Link>
@@ -106,10 +106,10 @@ export default function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <p className="mb-3 text-sm font-medium text-white">Get in touch</p>
+            <p className="mb-3 text-sm font-medium text-[var(--foreground)]">Get in touch</p>
             <a
               href={`mailto:${contact.email}`}
-              className="block text-sm text-[var(--muted)] transition-colors hover:text-white mb-6"
+              className="block text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)] mb-6"
             >
               {contact.email}
             </a>
@@ -132,11 +132,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted)]">
+        <div className="mt-12 border-t border-black/[0.08] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted)]">
           <span>&copy; {new Date().getFullYear()} FlarePix. All rights reserved.</span>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-[var(--foreground)] transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-[var(--foreground)] transition-colors">Terms</Link>
           </div>
         </div>
       </div>

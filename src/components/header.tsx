@@ -38,7 +38,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--background)]/80 backdrop-blur border-b border-white/[0.06]">
+    <header className="sticky top-0 z-50 bg-[var(--background)]/80 backdrop-blur border-b border-black/[0.08]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-semibold tracking-tight">
           Flare<span className="text-[var(--amber)]">Pix</span>
@@ -51,7 +51,7 @@ export default function Header() {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               onMouseEnter={showDropdown}
               onMouseLeave={hideDropdown}
-              className="flex items-center gap-1 text-sm font-medium tracking-wide text-[var(--muted)] transition-colors hover:text-white"
+              className="flex items-center gap-1 text-sm font-medium tracking-wide text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
             >
               Services
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}>
@@ -60,7 +60,7 @@ export default function Header() {
             </button>
             {dropdownOpen && (
               <div
-                className="absolute left-0 top-full z-50 mt-2 w-56 rounded-xl border border-white/[0.06] bg-[var(--surface)] p-2 shadow-lg shadow-black/40"
+                className="absolute left-0 top-full z-50 mt-2 w-56 rounded-xl border border-black/[0.08] bg-[var(--surface)] p-2 shadow-lg shadow-[var(--foreground)]/10"
                 onMouseEnter={cancelHide}
                 onMouseLeave={hideDropdown}
               >
@@ -68,7 +68,7 @@ export default function Header() {
                   <Link
                     key={s.label}
                     href={s.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm text-[var(--muted)] transition-colors hover:text-white hover:bg-white/[0.04]"
+                    className="block rounded-lg px-4 py-2.5 text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)] hover:bg-black/[0.04]"
                     onClick={() => setDropdownOpen(false)}
                   >
                     {s.label}
@@ -83,7 +83,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-[var(--muted)] transition-colors hover:text-white"
+                className="text-sm font-medium tracking-wide text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
               >
                 {item.label}
               </Link>
@@ -100,22 +100,22 @@ export default function Header() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-px w-5 bg-white transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`}
+            className={`block h-px w-5 bg-[var(--foreground)] transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`}
           />
-          <span className={`block h-px w-5 bg-white ${open ? "opacity-0" : ""}`} />
+          <span className={`block h-px w-5 bg-[var(--foreground)] ${open ? "opacity-0" : ""}`} />
           <span
-            className={`block h-px w-5 bg-white transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+            className={`block h-px w-5 bg-[var(--foreground)] transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-4 border-t border-white/[0.06] bg-[var(--background)] px-6 py-6 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-black/[0.08] bg-[var(--background)] px-6 py-6 md:hidden">
           {navigation.main.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm text-[var(--muted)] transition-colors hover:text-white"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
               onClick={() => setOpen(false)}
             >
               {item.label}

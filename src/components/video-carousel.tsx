@@ -189,14 +189,14 @@ export default function VideoCarousel({ configUrl = "/content/display-order.json
         </p>
 
         {/* Tabs */}
-        <nav className="mt-8 flex gap-4 overflow-x-auto no-scrollbar border-b border-white/[0.06] sm:gap-6">
+        <nav className="mt-8 flex gap-4 overflow-x-auto no-scrollbar border-b border-black/[0.08] sm:gap-6">
           {videoTabs.map((tab, i) => (
             <button
               key={tab.slug}
               onClick={() => setActiveTab(i)}
-              className={`shrink-0 pb-3 text-sm transition-colors hover:text-white ${
+              className={`shrink-0 pb-3 text-sm transition-colors hover:text-[var(--foreground)] ${
                 activeTab === i
-                  ? "border-b-2 border-[var(--amber)] text-white"
+                  ? "border-b-2 border-[var(--amber)] text-[var(--foreground)]"
                   : "text-[var(--muted)]"
               }`}
             >

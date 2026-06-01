@@ -55,7 +55,7 @@ export default function AiToolsPage() {
           {tools.map((t) => (
             <div
               key={t.title}
-              className="rounded-2xl border border-white/[0.06] bg-[var(--surface)] p-8"
+              className="rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-8"
             >
               <div className="text-3xl">{t.icon}</div>
               <h2 className="mt-4 text-xl font-semibold">{t.title}</h2>

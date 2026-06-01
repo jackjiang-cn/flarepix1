@@ -52,7 +52,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article
               key={post.title}
-              className="border-b border-white/[0.06] pb-10"
+              className="border-b border-black/[0.08] pb-10"
             >
               <p className="text-xs text-[var(--muted)]">{post.date}</p>
               <h2 className="mt-1 text-lg font-semibold">{post.title}</h2>

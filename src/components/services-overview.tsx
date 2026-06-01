@@ -11,7 +11,7 @@ export default function ServicesOverview() {
           </p>
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/[0.06] bg-[var(--background)] p-8">
+          <div className="rounded-2xl border border-black/[0.08] bg-[var(--background)] p-8">
             <p className="text-xs font-medium uppercase tracking-wider text-[var(--amber)]">
               Traditional
             </p>

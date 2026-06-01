@@ -38,7 +38,7 @@ export default function WorkSectionToggle({
       className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-medium transition-colors ${
         isOpen
           ? "border-[var(--amber)] bg-[var(--amber)] text-black"
-          : "border-white/[0.08] bg-[var(--surface)] text-[var(--muted)] hover:text-white"
+          : "border-black/[0.10] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--foreground)]"
       }`}
     >
       {label}
