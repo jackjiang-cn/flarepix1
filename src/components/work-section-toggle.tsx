@@ -5,13 +5,13 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 type Props = {
   label: string;
   queryParam: string;
-  otherQueryParam: string;
+  clearParams: string[];
 };
 
 export default function WorkSectionToggle({
   label,
   queryParam,
-  otherQueryParam,
+  clearParams,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -24,7 +24,7 @@ export default function WorkSectionToggle({
     if (isOpen) {
       params.delete(queryParam);
     } else {
-      params.delete(otherQueryParam);
+      clearParams.forEach((p) => params.delete(p));
       params.set(queryParam, "all");
     }
     const qs = params.toString();

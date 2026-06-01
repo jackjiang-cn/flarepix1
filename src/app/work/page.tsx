@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Build photo tabs from config
 const photoTabs = photoCategories.map(cat => ({
   slug: cat.slug,
   label: cat.label,
@@ -25,15 +24,18 @@ const photoTabs = photoCategories.map(cat => ({
   count: photoSources[cat.slug]?.length || 0,
 }));
 
-// Build video tabs from config
 const videoTabs = videoProductionCategories.map(cat => ({
   slug: cat.slug,
   label: cat.label,
   count: videoProductionSources[cat.slug]?.length || 0,
 }));
 
-// Build video list from config
-const getVideosFromConfig = () => {
+const aiTabs = [
+  { slug: "ai-images", label: "AI Images", count: 6 },
+  { slug: "ai-videos", label: "AI Videos", count: 4 },
+];
+
+const getAllVideos = () => {
   const videos: { src: string; label: string; category: string }[] = [];
   videoProductionCategories.forEach(cat => {
     const sources = videoProductionSources[cat.slug] || [];
@@ -47,38 +49,53 @@ const getVideosFromConfig = () => {
   });
   return videos;
 };
-const allVideos = getVideosFromConfig();
+const allVideos = getAllVideos();
 
-// Build photo sources from config
-const getPhotosForCategory = (slug: string | null) => {
-  if (!slug || slug === "all") {
-    return photoCategories.flatMap(cat =>
-      (photoSources[cat.slug] || []).slice(0, 4).map(p => ({
-        ...p,
-        alt: `${cat.label} product photography`,
-      }))
-    );
-  }
-  return (photoSources[slug] || []).map(p => ({
-    ...p,
-    alt: `${slug.replace('-', ' ')} product photography`,
-  }));
-};
+const getAllPhotos = () =>
+  photoCategories.flatMap(cat =>
+    (photoSources[cat.slug] || []).slice(0, 4).map(p => ({
+      ...p,
+      alt: `${cat.label} product photography`,
+    }))
+  );
+
+const aiImages = [
+  { src: "/works/ai/images/ai-image-01.webp", alt: "AI-generated product image" },
+  { src: "/works/ai/images/ai-image-02.webp", alt: "AI-generated product image" },
+  { src: "/works/ai/images/ai-image-03.webp", alt: "AI-generated product image" },
+  { src: "/works/ai/images/ai-image-04.webp", alt: "AI-generated product image" },
+  { src: "/works/ai/images/ai-image-05.webp", alt: "AI-generated product image" },
+  { src: "/works/ai/images/ai-image-06.webp", alt: "AI-generated product image" },
+];
+
+const aiVideos = [
+  { src: "/works/ai/videos/ai-video-01.mp4", label: "AI video 1" },
+  { src: "/works/ai/videos/ai-video-02.mp4", label: "AI video 2" },
+  { src: "/works/ai/videos/ai-video-03.mp4", label: "AI video 3" },
+  { src: "/works/ai/videos/ai-video-04.mp4", label: "AI video 4" },
+];
 
 export default async function WorkPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; videocategory?: string }>;
+  searchParams: Promise<{ category?: string; videocategory?: string; aicategory?: string }>;
 }) {
   const params = await searchParams;
   const photoOpen = params.category !== undefined;
   const videoOpen = params.videocategory !== undefined;
+  const aiOpen = params.aicategory !== undefined;
+  const anyOpen = photoOpen || videoOpen || aiOpen;
 
   const activeCategory = params.category || "all";
   const activeVideoCategory = params.videocategory || "all";
-  const currentCat = photoTabs.find(c => c.slug === activeCategory);
-  const currentVideoCat = videoTabs.find(c => c.slug === activeVideoCategory);
-  const photos = getPhotosForCategory(activeCategory === "all" ? null : activeCategory);
+  const activeAiCategory = params.aicategory || "all";
+
+  const photos = activeCategory === "all"
+    ? getAllPhotos()
+    : (photoSources[activeCategory] || []).map(p => ({
+        ...p,
+        alt: `${activeCategory.replace('-', ' ')} product photography`,
+      }));
   const videos = activeVideoCategory === "all"
     ? allVideos
     : allVideos.filter(v => v.category === activeVideoCategory);
@@ -102,92 +119,165 @@ export default async function WorkPage({
           </Link>
         </div>
 
-        {/* Section toggles */}
+        {/* 3 main toggles (accordion: only one open at a time) */}
         <div className="mt-8 flex flex-wrap gap-3">
           <WorkSectionToggle
             label="Videos"
             queryParam="videocategory"
-            otherQueryParam="category"
+            clearParams={["category", "aicategory"]}
           />
           <WorkSectionToggle
             label="Photography"
             queryParam="category"
-            otherQueryParam="videocategory"
+            clearParams={["videocategory", "aicategory"]}
+          />
+          <WorkSectionToggle
+            label="AI"
+            queryParam="aicategory"
+            clearParams={["videocategory", "category"]}
           />
         </div>
 
-        {/* Videos section */}
-        <section id="videos-section" className="mt-12 scroll-mt-24">
-          <h2 className="text-xl font-semibold">
-            Videos
-            {currentVideoCat && currentVideoCat.slug !== "all" && (
-              <span className="ml-3 text-base font-normal text-[var(--muted)]">
-                — {currentVideoCat.label}
-              </span>
-            )}
-          </h2>
-          {videoOpen && (
+        {/* When a section is open: sub-categories (top) + content (right below) */}
+        {videoOpen && (
+          <div className="mt-6">
             <WorkCategoryPills
               tabs={videoTabs}
               activeCategory={activeVideoCategory}
-              targetId="videos-section"
               queryParam="videocategory"
+              targetId=""
             />
-          )}
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {videos.map((v, i) => (
-              <div
-                key={`${v.src}-${i}`}
-                className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {videos.map((v, i) => (
+                <div
+                  key={`${v.src}-${i}`}
+                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
                 >
-                  <source src={cdnUrl(v.src)} type="video/mp4" />
-                </video>
-              </div>
-            ))}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={cdnUrl(v.src)} type="video/mp4" />
+                  </video>
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
+        )}
 
-        {/* Photography section */}
-        <section id="photos-section" className="mt-16 scroll-mt-24">
-          <h2 className="text-xl font-semibold">
-            Photography
-            {currentCat && currentCat.slug !== "all" && (
-              <span className="ml-3 text-base font-normal text-[var(--muted)]">
-                — {currentCat.label}
-              </span>
-            )}
-          </h2>
-          {photoOpen && (
+        {photoOpen && (
+          <div className="mt-6">
             <WorkCategoryPills
               tabs={photoTabs}
               activeCategory={activeCategory}
-              targetId="photos-section"
               queryParam="category"
+              targetId=""
             />
-          )}
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {photos.map((p, i) => (
-              <div
-                key={`${p.src}-${i}`}
-                className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
-              >
-                <img
-                  src={cdnUrl(p.src)}
-                  alt={p.alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {photos.map((p, i) => (
+                <div
+                  key={`${p.src}-${i}`}
+                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                >
+                  <img
+                    src={cdnUrl(p.src)}
+                    alt={p.alt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
+        )}
+
+        {aiOpen && (
+          <div className="mt-6">
+            <WorkCategoryPills
+              tabs={aiTabs}
+              activeCategory={activeAiCategory}
+              queryParam="aicategory"
+              targetId=""
+            />
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {activeAiCategory === "ai-images" || activeAiCategory === "all" ? (
+                aiImages.map((img, i) => (
+                  <div
+                    key={img.src}
+                    className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                  >
+                    <img
+                      src={cdnUrl(img.src)}
+                      alt={img.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))
+              ) : null}
+              {activeAiCategory === "ai-videos" || activeAiCategory === "all" ? (
+                aiVideos.map((v) => (
+                  <div
+                    key={v.src}
+                    className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
+                  >
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full object-cover"
+                    >
+                      <source src={cdnUrl(v.src)} type="video/mp4" />
+                    </video>
+                  </div>
+                ))
+              ) : null}
+            </div>
+          </div>
+        )}
+
+        {/* Default state: no section open, show all photos and all videos */}
+        {!anyOpen && (
+          <div className="mt-6 space-y-12">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {getAllPhotos().map((p, i) => (
+                <div
+                  key={`${p.src}-${i}`}
+                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                >
+                  <img
+                    src={cdnUrl(p.src)}
+                    alt={p.alt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {allVideos.map((v, i) => (
+                <div
+                  key={`${v.src}-${i}`}
+                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full object-cover"
+                  >
+                    <source src={cdnUrl(v.src)} type="video/mp4" />
+                  </video>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-16 text-center rounded-2xl border border-white/[0.06] bg-[var(--surface)] p-8">
