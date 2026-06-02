@@ -151,17 +151,30 @@ export default async function WorkPage({
               {videos.map((v, i) => (
                 <div
                   key={`${v.src}-${i}`}
-                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
+                  className="relative overflow-hidden rounded-lg aspect-video"
                 >
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={cdnUrl(v.src)} type="video/mp4" />
-                  </video>
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
+                    }}
+                  />
+                  <div
+                    className="absolute inset-0 opacity-30 mix-blend-overlay"
+                    style={{
+                      background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
+                        <polygon points="6 3 20 12 6 21 6 3"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                    <p className="text-xs font-medium text-white/90">{v.label}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -219,20 +232,33 @@ export default async function WorkPage({
                 ))
               ) : null}
               {activeAiCategory === "ai-videos" || activeAiCategory === "all" ? (
-                aiVideos.map((v) => (
+                aiVideos.map((v, i) => (
                   <div
                     key={v.src}
-                    className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
+                    className="relative overflow-hidden rounded-lg aspect-video"
                   >
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="h-full w-full object-cover"
-                    >
-                      <source src={cdnUrl(v.src)} type="video/mp4" />
-                    </video>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(${135 + i * 30}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
+                      }}
+                    />
+                    <div
+                      className="absolute inset-0 opacity-30 mix-blend-overlay"
+                      style={{
+                        background: `radial-gradient(circle at ${35 + i * 10}% ${45 + i * 5}%, rgba(184,151,92,0.4), transparent 60%)`,
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
+                          <polygon points="6 3 20 12 6 21 6 3"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                      <p className="text-xs font-medium text-white/90">{v.label}</p>
+                    </div>
                   </div>
                 ))
               ) : null}
@@ -262,17 +288,30 @@ export default async function WorkPage({
               {allVideos.map((v, i) => (
                 <div
                   key={`${v.src}-${i}`}
-                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-video"
+                  className="relative overflow-hidden rounded-lg aspect-video"
                 >
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={cdnUrl(v.src)} type="video/mp4" />
-                  </video>
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
+                    }}
+                  />
+                  <div
+                    className="absolute inset-0 opacity-30 mix-blend-overlay"
+                    style={{
+                      background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
+                        <polygon points="6 3 20 12 6 21 6 3"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                    <p className="text-xs font-medium text-white/90">{v.label}</p>
+                  </div>
                 </div>
               ))}
             </div>

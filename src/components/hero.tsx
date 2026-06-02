@@ -26,18 +26,16 @@ const heroImages = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background video — 16:9 source, fills section via object-cover */}
+      {/* Background poster image (replaces 18MB autoplay video) */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={cdnUrl("/works/hero-reel.jpg")}
+        <img
+          src={cdnUrl("/works/hero-reel.jpg")}
+          alt=""
+          aria-hidden="true"
           className="h-full w-full object-cover opacity-30"
-        >
-          <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
-        </video>
+          loading="eager"
+          fetchPriority="high"
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:pb-40 pt-20 sm:pt-28">
@@ -72,7 +70,8 @@ export default function Hero() {
                   src={cdnUrl(img.src)}
                   alt={img.alt}
                   className="w-full h-auto block"
-                  loading="eager"
+                  loading={i < 3 ? "eager" : "lazy"}
+                  fetchPriority={i < 3 ? "high" : "auto"}
                 />
               </div>
             ))}

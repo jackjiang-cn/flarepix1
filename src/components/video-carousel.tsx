@@ -215,24 +215,33 @@ export default function VideoCarousel({ configUrl = "/content/display-order.json
               <button
                 key={`${v.src}-${i}`}
                 onClick={() => setSelectedVideo(v)}
-                className="group relative aspect-video w-64 flex-none snap-start overflow-hidden rounded-xl bg-[var(--background)] sm:w-80"
+                className="group relative aspect-video w-64 flex-none snap-start overflow-hidden rounded-xl sm:w-80"
               >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                >
-                  <source src={cdnUrl(v.src)} type="video/mp4" />
-                </video>
-                {/* Play icon overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 backdrop-blur">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                {/* Placeholder gradient (replaces autoplay video — videos load only when clicked) */}
+                <div
+                  className="absolute inset-0 transition-transform group-hover:scale-105"
+                  style={{
+                    background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
+                  }}
+                />
+                {/* Subtle radial highlight for visual variety */}
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-overlay"
+                  style={{
+                    background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
+                  }}
+                />
+                {/* Centered play icon (always visible since no video preview) */}
+                <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
                       <polygon points="6 3 20 12 6 21 6 3"/>
                     </svg>
                   </div>
+                </div>
+                {/* Title label */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-left">
+                  <p className="text-xs font-medium text-white/90">{v.title}</p>
                 </div>
               </button>
             ))}

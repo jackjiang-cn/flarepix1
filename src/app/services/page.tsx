@@ -59,9 +59,7 @@ export default function ServicesPage() {
         <section className="mt-16 scroll-mt-24" id="video-production">
           <h2 className="text-xl font-semibold">Video Production</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {videoProductionCategories.map((cat) => {
-              const videos = videoProductionSources[cat.slug] || [];
-              const previewVideo = videos[0] || "";
+            {videoProductionCategories.map((cat, i) => {
               return (
                 <Link
                   key={cat.slug}
@@ -69,15 +67,27 @@ export default function ServicesPage() {
                   className="group block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15]"
                 >
                   <div className="bg-[var(--background)] p-2">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full aspect-video object-cover"
-                    >
-                      <source src={cdnUrl(previewVideo)} type="video/mp4" />
-                    </video>
+                    <div className="relative w-full aspect-video overflow-hidden rounded">
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
+                        }}
+                      />
+                      <div
+                        className="absolute inset-0 opacity-30 mix-blend-overlay"
+                        style={{
+                          background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
+                        }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1b3b2f">
+                            <polygon points="6 3 20 12 6 21 6 3"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="p-4">
                     <h3 className="text-base font-semibold group-hover:text-[var(--amber)] transition-colors">
@@ -162,17 +172,23 @@ export default function ServicesPage() {
                   <span aria-hidden="true">&rarr;</span>
                 </span>
               </div>
-              {/* Preview video */}
-              <div className="overflow-hidden rounded-lg bg-[var(--background)] aspect-video">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
-                >
-                  <source src={cdnUrl("/works/brand-film/brand-film-07.m4v")} type="video/mp4" />
-                </video>
+              {/* Preview video placeholder (replaces 80MB autoplay video) */}
+              <div className="relative overflow-hidden rounded-lg aspect-video">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22]" />
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-overlay"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#1b3b2f">
+                      <polygon points="6 3 20 12 6 21 6 3"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </Link>
@@ -244,20 +260,29 @@ export default function ServicesPage() {
                   <span aria-hidden="true">&rarr;</span>
                 </span>
               </div>
-              {/* Preview video */}
-              <div className="overflow-hidden rounded-lg bg-[var(--background)] aspect-video">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
-                >
-                  <source
-                    src={cdnUrl("/works/ai/videos/ai-video-01.mp4")}
-                    type="video/mp4"
-                  />
-                </video>
+              {/* Preview video placeholder (loads only on click via the parent link) */}
+              <div className="relative overflow-hidden rounded-lg aspect-video">
+                <div
+                  className="absolute inset-0 transition-transform group-hover:scale-105"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)",
+                  }}
+                />
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-overlay"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#1b3b2f">
+                      <polygon points="6 3 20 12 6 21 6 3"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </Link>

@@ -54,20 +54,22 @@ export default function VideoSection() {
           onClick={() => setShowModal(true)}
           className="group relative flex w-full overflow-hidden aspect-video lg:aspect-[21/9]"
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
-          >
-            <source src={cdnUrl("/works/brand-film/brand-film-07.m4v")} type="video/mp4" />
-          </video>
+          {/* Placeholder background (replaces 80MB autoplay video) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22] transition-transform group-hover:scale-105" />
 
-          {/* Play icon overlay */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+          {/* Subtle film-grain pattern using SVG */}
+          <div
+            className="absolute inset-0 opacity-20 mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 30% 40%, rgba(184,151,92,0.15), transparent 50%), radial-gradient(circle at 70% 60%, rgba(184,151,92,0.1), transparent 50%)",
+            }}
+          />
+
+          {/* Centered large play button */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110 lg:h-24 lg:w-24">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#1b3b2f">
                 <polygon points="6 3 20 12 6 21 6 3"/>
               </svg>
             </div>
