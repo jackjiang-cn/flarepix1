@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import ValueProp from "@/components/value-prop";
@@ -17,6 +18,20 @@ import StatsSection from "@/components/stats-section";
 import Footer from "@/components/footer";
 import { photoCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+
+export const metadata: Metadata = {
+  title: "FlarePix — Product Photography, Video & AI Visuals for Ecommerce",
+  description:
+    "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Studio in Miami, remote-friendly, fast turnaround.",
+  alternates: { canonical: "https://flarepix.com" },
+  openGraph: {
+    title: "FlarePix — Product Photography, Video & AI Visuals",
+    description:
+      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands.",
+    url: "https://flarepix.com",
+    type: "website",
+  },
+};
 
 // Product photography tabs from photoCategories
 const productTabs = photoCategories.map((cat) => ({

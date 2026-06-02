@@ -13,6 +13,27 @@ export const metadata: Metadata = {
   },
 };
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "FlarePix Blog",
+  url: "https://flarepix.com/blog",
+  description:
+    "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
+  publisher: {
+    "@type": "Organization",
+    name: "FlarePix",
+    url: "https://flarepix.com",
+  },
+  blogPost: blogPosts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    url: `https://flarepix.com/blog/${p.slug}`,
+    datePublished: p.date,
+    author: { "@type": "Organization", name: p.author },
+  })),
+};
+
 const formatDate = (iso: string) => {
   const d = new Date(iso);
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -21,6 +42,10 @@ const formatDate = (iso: string) => {
 export default function BlogPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-24">
         <h1 className="text-3xl font-semibold tracking-tight">Blog</h1>
