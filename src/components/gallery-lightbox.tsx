@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 type GalleryItem = {
   src: string;
@@ -71,18 +71,15 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
             >
               {item.type === "video" ? (
                 <>
-                  <div
-                    className="w-full aspect-video"
-                    style={{
-                      background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 opacity-30 mix-blend-overlay"
-                    style={{
-                      background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
-                    }}
-                  />
+                  {/* Poster thumbnail (first frame of video) — masonry variant keeps 16:9 aspect */}
+                  <div className="relative w-full aspect-video">
+                    <img
+                      src={cdnUrl(posterFor(item.src))}
+                      alt={item.title || ""}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
@@ -138,17 +135,12 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
           >
             {item.type === "video" ? (
               <>
-                <div
-                  className="absolute inset-0 transition-transform group-hover:scale-105"
-                  style={{
-                    background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                  }}
-                />
-                <div
-                  className="absolute inset-0 opacity-30 mix-blend-overlay"
-                  style={{
-                    background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
-                  }}
+                {/* Poster thumbnail (first frame of video) — grid variant fills 16:9 button */}
+                <img
+                  src={cdnUrl(posterFor(item.src))}
+                  alt={item.title || ""}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">

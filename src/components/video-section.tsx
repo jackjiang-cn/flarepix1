@@ -2,7 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import CtaButton from "./cta-button";
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
+
+const BRAND_FILM_SRC = "/works/brand-film/brand-film-07.m4v";
 
 function VideoModal({ src, title, onClose }: { src: string; title: string; onClose: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -54,17 +56,16 @@ export default function VideoSection() {
           onClick={() => setShowModal(true)}
           className="group relative flex w-full overflow-hidden aspect-video lg:aspect-[21/9]"
         >
-          {/* Placeholder background (replaces 80MB autoplay video) */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22] transition-transform group-hover:scale-105" />
-
-          {/* Subtle film-grain pattern using SVG */}
-          <div
-            className="absolute inset-0 opacity-20 mix-blend-overlay"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 30% 40%, rgba(184,151,92,0.15), transparent 50%), radial-gradient(circle at 70% 60%, rgba(184,151,92,0.1), transparent 50%)",
-            }}
+          {/* Poster thumbnail (first frame of video) */}
+          <img
+            src={cdnUrl(posterFor(BRAND_FILM_SRC))}
+            alt="Brand Film Production sample"
+            className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+            loading="lazy"
           />
+
+          {/* Subtle darkening overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
 
           {/* Centered large play button */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -75,8 +76,7 @@ export default function VideoSection() {
             </div>
           </div>
 
-          {/* Gradient overlay + text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
+          {/* Title + CTA */}
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-start justify-end p-8 lg:p-16">
             <div className="w-full max-w-md">
               <p className="mb-3 text-sm font-medium text-[var(--amber)]">
@@ -103,7 +103,7 @@ export default function VideoSection() {
 
       {showModal && (
         <VideoModal
-          src={cdnUrl("/works/brand-film/brand-film-07.m4v")}
+          src={cdnUrl(BRAND_FILM_SRC)}
           title="Brand Film Production"
           onClose={() => setShowModal(false)}
         />

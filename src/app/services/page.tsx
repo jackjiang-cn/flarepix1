@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { videoCategories, photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 // Video production categories from config
 // videoProductionCategories imported from @/config/categories
@@ -172,15 +172,13 @@ export default function ServicesPage() {
                   <span aria-hidden="true">&rarr;</span>
                 </span>
               </div>
-              {/* Preview video placeholder (replaces 80MB autoplay video) */}
+              {/* Preview poster thumbnail (first frame of brand film) */}
               <div className="relative overflow-hidden rounded-lg aspect-video">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22]" />
-                <div
-                  className="absolute inset-0 opacity-30 mix-blend-overlay"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
-                  }}
+                <img
+                  src={cdnUrl(posterFor("/works/brand-film/brand-film-07.m4v"))}
+                  alt="Brand Film Production sample"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
@@ -260,21 +258,13 @@ export default function ServicesPage() {
                   <span aria-hidden="true">&rarr;</span>
                 </span>
               </div>
-              {/* Preview video placeholder (loads only on click via the parent link) */}
+              {/* Preview poster thumbnail (first frame of AI video) */}
               <div className="relative overflow-hidden rounded-lg aspect-video">
-                <div
-                  className="absolute inset-0 transition-transform group-hover:scale-105"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)",
-                  }}
-                />
-                <div
-                  className="absolute inset-0 opacity-30 mix-blend-overlay"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
-                  }}
+                <img
+                  src={cdnUrl(posterFor("/works/ai/videos/ai-video-02.mp4"))}
+                  alt="AI-generated product video sample"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">

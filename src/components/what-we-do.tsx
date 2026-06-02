@@ -1,4 +1,4 @@
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 type ImageItem = {
   kind: "image";
@@ -83,14 +83,12 @@ export default function WhatWeDo() {
                 />
               ) : (
                 <div className="relative h-full w-full">
-                  {/* Placeholder gradient (replaces autoplay video — saves ~30MB per video) */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22]" />
-                  <div
-                    className="absolute inset-0 opacity-30 mix-blend-overlay"
-                    style={{
-                      background:
-                        "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
-                    }}
+                  {/* Poster thumbnail (first frame of video) */}
+                  <img
+                    src={cdnUrl(posterFor(item.src))}
+                    alt={item.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
