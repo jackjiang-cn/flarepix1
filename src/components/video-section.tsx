@@ -52,6 +52,7 @@ export default function VideoSection() {
   return (
     <section className="relative overflow-hidden bg-[var(--background)] py-20 sm:py-40">
       <div className="relative mx-auto max-w-7xl">
+        {/* Video button (full-bleed on all viewports) */}
         <button
           onClick={() => setShowModal(true)}
           className="group relative flex w-full overflow-hidden aspect-video lg:aspect-[21/9]"
@@ -69,8 +70,8 @@ export default function VideoSection() {
             <source src={cdnUrl(BRAND_FILM_SRC)} type="video/mp4" />
           </video>
 
-          {/* Subtle darkening overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
+          {/* Subtle darkening overlay for text legibility (desktop only — mobile text sits outside) */}
+          <div className="absolute inset-0 hidden lg:block bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
 
           {/* Centered large play button */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -80,30 +81,30 @@ export default function VideoSection() {
               </svg>
             </div>
           </div>
+        </button>
 
-          {/* Title + CTA */}
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-start justify-end p-8 lg:p-16">
-            <div className="w-full max-w-md">
-              <p className="mb-3 text-sm font-medium text-[var(--amber)]">
-                Premium tier
-              </p>
-              <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
-                Brand Film Production
-              </h2>
-              <p className="mt-4 text-[var(--muted)] lg:text-lg">
-                Cinematic brand films and commercial productions for your biggest
-                launches. Full creative direction, professional lighting, and
-                post-production included — everything you need for your hero products.
-              </p>
-              <div className="mt-6 flex justify-center gap-4">
-                <CtaButton href="/contact">Get a quote</CtaButton>
-                <CtaButton href="/services/brand-film" variant="outline">
-                  View showcase
-                </CtaButton>
-              </div>
+        {/* Title + CTA — mobile: flow below video. Desktop: absolute overlay on video bottom. */}
+        <div className="mt-6 px-2 lg:mt-0 lg:absolute lg:bottom-0 lg:left-0 lg:right-0 lg:flex lg:flex-col lg:items-start lg:justify-end lg:p-16 lg:pointer-events-none">
+          <div className="w-full max-w-md lg:pointer-events-auto">
+            <p className="mb-3 text-sm font-medium text-[var(--amber)]">
+              Premium tier
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
+              Brand Film Production
+            </h2>
+            <p className="mt-4 text-[var(--muted)] lg:text-lg">
+              Cinematic brand films and commercial productions for your biggest
+              launches. Full creative direction, professional lighting, and
+              post-production included — everything you need for your hero products.
+            </p>
+            <div className="mt-6 flex justify-center gap-4 lg:justify-start">
+              <CtaButton href="/contact">Get a quote</CtaButton>
+              <CtaButton href="/services/brand-film" variant="outline">
+                View showcase
+              </CtaButton>
             </div>
           </div>
-        </button>
+        </div>
       </div>
 
       {showModal && (
