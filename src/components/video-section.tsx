@@ -56,13 +56,18 @@ export default function VideoSection() {
           onClick={() => setShowModal(true)}
           className="group relative flex w-full overflow-hidden aspect-video lg:aspect-[21/9]"
         >
-          {/* Poster thumbnail (first frame of video) */}
-          <img
-            src={cdnUrl(posterFor(BRAND_FILM_SRC))}
-            alt="Brand Film Production sample"
+          {/* Auto-playing background video (muted, loop) — click to open modal with sound */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={cdnUrl(posterFor(BRAND_FILM_SRC))}
             className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
-            loading="lazy"
-          />
+          >
+            <source src={cdnUrl(BRAND_FILM_SRC)} type="video/mp4" />
+          </video>
 
           {/* Subtle darkening overlay for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
