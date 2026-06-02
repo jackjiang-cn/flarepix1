@@ -26,16 +26,19 @@ const heroImages = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background poster image (replaces 18MB autoplay video) */}
+      {/* Background video — autoplay muted loop, with poster for instant first paint */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={cdnUrl("/works/hero-reel.jpg")}
-          alt=""
-          aria-hidden="true"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster={cdnUrl("/works/posters/hero-reel.jpg")}
           className="h-full w-full object-cover opacity-30"
-          loading="eager"
-          fetchPriority="high"
-        />
+        >
+          <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
+        </video>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:pb-40 pt-20 sm:pt-28">

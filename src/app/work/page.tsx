@@ -6,7 +6,7 @@ import WorkSectionToggle from "@/components/work-section-toggle";
 import WorkCategoryPills from "@/components/work-category-pills";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 export const metadata: Metadata = {
   title: "Our Work — FlarePix",
@@ -153,17 +153,12 @@ export default async function WorkPage({
                   key={`${v.src}-${i}`}
                   className="relative overflow-hidden rounded-lg aspect-video"
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 opacity-30 mix-blend-overlay"
-                    style={{
-                      background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
-                    }}
+                  {/* Poster thumbnail (first frame of video) */}
+                  <img
+                    src={cdnUrl(posterFor(v.src))}
+                    alt={v.label}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
@@ -237,17 +232,12 @@ export default async function WorkPage({
                     key={v.src}
                     className="relative overflow-hidden rounded-lg aspect-video"
                   >
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `linear-gradient(${135 + i * 30}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                      }}
-                    />
-                    <div
-                      className="absolute inset-0 opacity-30 mix-blend-overlay"
-                      style={{
-                        background: `radial-gradient(circle at ${35 + i * 10}% ${45 + i * 5}%, rgba(184,151,92,0.4), transparent 60%)`,
-                      }}
+                    {/* Poster thumbnail (first frame of video) */}
+                    <img
+                      src={cdnUrl(posterFor(v.src))}
+                      alt={v.label}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
@@ -290,17 +280,12 @@ export default async function WorkPage({
                   key={`${v.src}-${i}`}
                   className="relative overflow-hidden rounded-lg aspect-video"
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(${135 + (i * 23) % 90}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 opacity-30 mix-blend-overlay"
-                    style={{
-                      background: `radial-gradient(circle at ${30 + (i * 17) % 40}% ${40 + (i * 13) % 30}%, rgba(184,151,92,0.4), transparent 60%)`,
-                    }}
+                  {/* Poster thumbnail (first frame of video) */}
+                  <img
+                    src={cdnUrl(posterFor(v.src))}
+                    alt={v.label}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">

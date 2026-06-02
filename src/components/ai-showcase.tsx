@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import CtaButton from "./cta-button";
-import { cdnUrl } from "@/config/cdn";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 const aiImages = [
   { src: "/works/ai/images/ai-image-01.webp", alt: "AI product image" },
@@ -152,18 +152,12 @@ export default function AiShowcase() {
                 onClick={() => setSelectedVideo(v)}
                 className="group relative overflow-hidden rounded-lg aspect-video"
               >
-                {/* Placeholder gradient (replaces autoplay video — loads only when clicked) */}
-                <div
-                  className="absolute inset-0 transition-transform group-hover:scale-105"
-                  style={{
-                    background: `linear-gradient(${135 + i * 30}deg, #1b3b2f 0%, #2d5a47 50%, #0f2a22 100%)`,
-                  }}
-                />
-                <div
-                  className="absolute inset-0 opacity-30 mix-blend-overlay"
-                  style={{
-                    background: `radial-gradient(circle at ${35 + i * 10}% ${45 + i * 5}%, rgba(184,151,92,0.5), transparent 60%)`,
-                  }}
+                {/* Poster thumbnail (first frame of video) */}
+                <img
+                  src={cdnUrl(posterFor(v.src))}
+                  alt={v.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  loading="lazy"
                 />
                 {/* Centered play icon */}
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">

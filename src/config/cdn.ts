@@ -9,3 +9,10 @@ export const cdnUrl = (path: string) => {
   // Otherwise prepend CDN base
   return `${CDN_BASE}${path}`;
 };
+
+// Derive a poster thumbnail path from a video src.
+// e.g. "/works/video/Electronics/foo.m4v" -> "/works/posters/foo.jpg"
+export const posterFor = (videoSrc: string): string => {
+  const base = videoSrc.split("/").pop()?.replace(/\.[^.]+$/, "");
+  return `/works/posters/${base}.jpg`;
+};
