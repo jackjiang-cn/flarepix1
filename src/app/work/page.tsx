@@ -4,9 +4,10 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import WorkSectionToggle from "@/components/work-section-toggle";
 import WorkCategoryPills from "@/components/work-category-pills";
+import ClickableVideoCard from "@/components/clickable-video-card";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
-import { cdnUrl, posterFor } from "@/config/cdn";
+import { cdnUrl } from "@/config/cdn";
 
 export const metadata: Metadata = {
   title: "Our Work — FlarePix",
@@ -149,28 +150,7 @@ export default async function WorkPage({
             />
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {videos.map((v, i) => (
-                <div
-                  key={`${v.src}-${i}`}
-                  className="relative overflow-hidden rounded-lg aspect-video"
-                >
-                  {/* Poster thumbnail (first frame of video) */}
-                  <img
-                    src={cdnUrl(posterFor(v.src))}
-                    alt={v.label}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
-                        <polygon points="6 3 20 12 6 21 6 3"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                    <p className="text-xs font-medium text-white/90">{v.label}</p>
-                  </div>
-                </div>
+                <ClickableVideoCard key={`${v.src}-${i}`} src={v.src} label={v.label} />
               ))}
             </div>
           </div>
@@ -228,28 +208,7 @@ export default async function WorkPage({
               ) : null}
               {activeAiCategory === "ai-videos" || activeAiCategory === "all" ? (
                 aiVideos.map((v, i) => (
-                  <div
-                    key={v.src}
-                    className="relative overflow-hidden rounded-lg aspect-video"
-                  >
-                    {/* Poster thumbnail (first frame of video) */}
-                    <img
-                      src={cdnUrl(posterFor(v.src))}
-                      alt={v.label}
-                      className="absolute inset-0 h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
-                          <polygon points="6 3 20 12 6 21 6 3"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                      <p className="text-xs font-medium text-white/90">{v.label}</p>
-                    </div>
-                  </div>
+                  <ClickableVideoCard key={v.src} src={v.src} label={v.label} />
                 ))
               ) : null}
             </div>
@@ -276,28 +235,7 @@ export default async function WorkPage({
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {allVideos.map((v, i) => (
-                <div
-                  key={`${v.src}-${i}`}
-                  className="relative overflow-hidden rounded-lg aspect-video"
-                >
-                  {/* Poster thumbnail (first frame of video) */}
-                  <img
-                    src={cdnUrl(posterFor(v.src))}
-                    alt={v.label}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1b3b2f">
-                        <polygon points="6 3 20 12 6 21 6 3"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                    <p className="text-xs font-medium text-white/90">{v.label}</p>
-                  </div>
-                </div>
+                <ClickableVideoCard key={`${v.src}-${i}`} src={v.src} label={v.label} />
               ))}
             </div>
           </div>
