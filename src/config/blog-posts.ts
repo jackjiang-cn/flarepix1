@@ -4,6 +4,11 @@ export type ContentBlock =
   | { type: "list"; ordered?: boolean; items: string[] }
   | { type: "quote"; text: string; cite?: string };
 
+export type RelatedService = {
+  label: string;
+  href: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -12,8 +17,11 @@ export type BlogPost = {
   heroImage: string; // path under /works/...
   heroAlt: string;
   author: string;
+  authorRole: string;
+  authorBio: string;
   readTime: string;
   content: ContentBlock[];
+  relatedServices: RelatedService[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -22,11 +30,19 @@ export const blogPosts: BlogPost[] = [
     title: "Why AI Product Images Convert Better in 2026",
     date: "2026-06-02",
     excerpt:
-      "AI-generated lifestyle imagery is outperforming traditional product photos. Here's what the data shows and how to use it for your Amazon listings.",
+      "AI-generated lifestyle imagery now matches studio-shot lifestyle on conversion metrics. When it works, when it doesn't, and how to combine both in a 7-image Amazon listing.",
     heroImage: "/works/ai/images/ai-image-03.webp",
     heroAlt: "AI-generated lifestyle product image",
-    author: "FlarePix Team",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
     readTime: "6 min read",
+    relatedServices: [
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+      { label: "Product Photography", href: "/services#product-photography" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     content: [
       {
         type: "paragraph",
@@ -74,11 +90,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Aggregated industry benchmarks consistently show lifestyle imagery outperforming pure white-background shots on engagement metrics: 30-40% higher click-through on sponsored placements, and measurable lift in add-to-cart rates for products with at least three lifestyle images in the gallery. AI-generated lifestyle images match studio-shot lifestyle images on these metrics — the gap is no longer about source, it's about creative quality and iteration speed.",
-      },
-      {
-        type: "quote",
-        text: "The brands that win on Amazon in 2026 aren't the ones with the best single image. They're the ones with the most relevant image for each search context.",
+        text: "Aggregated industry benchmarks show lifestyle imagery outperforming pure white-background shots on engagement metrics: 30-40% higher click-through on sponsored placements, and measurable lift in add-to-cart rates for products with at least three lifestyle images in the gallery. AI-generated lifestyle images match studio-shot lifestyle images on these metrics — the gap is no longer about source, it's about creative quality and iteration speed.",
       },
       {
         type: "heading",
@@ -110,7 +122,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Want to see what AI imagery looks like for your products? Send us one product photo and we'll generate a free sample set of lifestyle variations — usually 4-6 scenes within 48 hours.",
+        text: "Curious how AI handles your specific product? Most studios test a sample set first — we send 4-6 lifestyle scenes from one photo in 48 hours, free, no contract. If the look fits your brand, we scale from there. Reach out via the contact form and we'll run a sample on your actual product.",
       },
     ],
   },
@@ -122,8 +134,16 @@ export const blogPosts: BlogPost[] = [
       "Both are essential for apparel brands, but they serve different purposes. A practical guide to choosing the right format for each product type.",
     heroImage: "/works/photo/womens-fashion/womens-fashion_1.jpg",
     heroAlt: "Apparel product photography",
-    author: "FlarePix Team",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
     readTime: "5 min read",
+    relatedServices: [
+      { label: "Product Photography", href: "/services#product-photography" },
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     content: [
       {
         type: "paragraph",
@@ -215,7 +235,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Need help deciding which format fits your catalog? Send us your SKU list and we'll recommend the right format for each product type — usually within a day.",
+        text: "For a 50+ SKU catalog, format choice is the biggest lever on returns. We offer a free per-SKU audit — forward your line sheet to hello@flarepix.com and we'll mark each product as ghost mannequin, flat lay, or on-model, with bundled pricing. Standard turnaround on audits is one business day.",
       },
     ],
   },
@@ -224,11 +244,19 @@ export const blogPosts: BlogPost[] = [
     title: "How to Prepare Your Products for a Photo Shoot",
     date: "2026-05-15",
     excerpt:
-      "Shipping products to a studio? Here's a checklist to make sure your items arrive ready to photograph — no delays, no reshoots.",
+      "Most shoot delays come from products arriving unprepared. A pre-shipment checklist from a studio that's seen every common mistake twice.",
     heroImage: "/works/photo/products/products_1.jpg",
     heroAlt: "Products prepared for photo shoot",
-    author: "FlarePix Team",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
     readTime: "5 min read",
+    relatedServices: [
+      { label: "Product Photography", href: "/services#product-photography" },
+      { label: "Brand Film", href: "/services/brand-film" },
+      { label: "Contact", href: "/contact" },
+    ],
     content: [
       {
         type: "paragraph",
@@ -321,7 +349,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "A well-prepared shipment can save you a week of back-and-forth. Most of our clients who follow this checklist have their final images within 5-7 business days of shipping. Ready to start? Send us your product list and we'll send back a quote and prep checklist tailored to your specific products.",
+        text: "A well-prepared shipment is the difference between a 5-day shoot and a 10-day shoot. The full prep checklist (PDF) covers apparel, electronics, beauty, and multi-piece kits — request it via the contact form when you book. If you'd rather skip the prep work, our product photography service includes in-house steaming, tag removal, and minor cleanup before the shoot.",
       },
     ],
   },
@@ -333,12 +361,20 @@ export const blogPosts: BlogPost[] = [
       "Amazon's image guidelines keep evolving. Stay compliant and optimize your listings with the latest technical and creative requirements.",
     heroImage: "/works/photo/accessories/accessories_1.jpg",
     heroAlt: "Amazon-ready product photography",
-    author: "FlarePix Team",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
     readTime: "6 min read",
+    relatedServices: [
+      { label: "Product Photography", href: "/services#product-photography" },
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     content: [
       {
         type: "paragraph",
-        text: "Amazon updates its product image requirements every year, sometimes more often. Most sellers don't notice the changes until their listings get suppressed or their search rank drops. Here's a current, accurate rundown of what Amazon expects in 2026, plus the creative best practices that go beyond minimum compliance to actually win the buy box.",
+        text: "Amazon updates its product image requirements every year, sometimes more often. Most sellers don't notice the changes until their listings get suppressed or their search rank drops. What follows is the current 2026 spec for main image, secondary gallery, A+ Content, and video — including the rejection reasons we see most often and the creative choices that move buy box share.",
       },
       {
         type: "heading",
@@ -432,7 +468,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Need Amazon-ready images? We shoot and export to Amazon's exact specs — main image compliance, lifestyle gallery, video, and A+ modules. Send us a sample product and we'll return a test set within 48 hours.",
+        text: "Amazon's automated image check rejects more listings in 2026 than in any prior year. If you want a free compliance review of your current gallery, send one product link to hello@flarepix.com — we audit the main image and secondary set within a day, no charge.",
       },
     ],
   },

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
-import { blogPosts, getPostBySlug, getRelatedPosts, type ContentBlock } from "@/config/blog-posts";
+import { blogPosts, getPostBySlug, getRelatedPosts, type ContentBlock, type RelatedService } from "@/config/blog-posts";
 import { cdnUrl } from "@/config/cdn";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,12 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} — FlarePix Blog`,
     description: post.excerpt,
+    authors: [{ name: post.author }],
     alternates: { canonical: `https://flarepix.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
+      authors: [post.author],
       images: [cdnUrl(post.heroImage)],
     },
   };
@@ -108,7 +110,11 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     image: cdnUrl(post.heroImage),
     datePublished: post.date,
-    author: { "@type": "Organization", name: post.author },
+    author: {
+      "@type": "Organization",
+      name: post.author,
+      description: post.authorRole,
+    },
     publisher: {
       "@type": "Organization",
       name: "FlarePix",
@@ -141,6 +147,13 @@ export default async function BlogPostPage({ params }: Props) {
               {post.title}
             </h1>
             <p className="mt-4 text-lg text-[var(--muted)]">{post.excerpt}</p>
+            <p className="mt-4 text-sm text-[var(--muted)]">
+              By{" "}
+              <span className="font-semibold text-[var(--foreground)]">
+                {post.author}
+              </span>{" "}
+              · {post.authorRole}
+            </p>
           </header>
 
           <div className="mt-10 overflow-hidden rounded-2xl bg-[var(--surface)]">
@@ -155,6 +168,38 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="prose-content">
             {post.content.map((block, i) => renderBlock(block, i))}
           </div>
+
+          <div className="mt-16 rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-6 sm:p-8">
+            <p className="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
+              About the author
+            </p>
+            <p className="mt-2 text-base font-semibold text-[var(--foreground)]">
+              {post.author}
+            </p>
+            <p className="text-sm text-[var(--muted)]">{post.authorRole}</p>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+              {post.authorBio}
+            </p>
+          </div>
+
+          {post.relatedServices.length > 0 && (
+            <div className="mt-6 rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-6 sm:p-8">
+              <p className="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
+                Related services
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {post.relatedServices.map((s: RelatedService) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="rounded-full border border-black/[0.12] bg-[var(--background)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--amber)] hover:text-[var(--amber)]"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-16 rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-8 text-center">
             <h2 className="text-xl font-semibold">Need visuals for your products?</h2>
