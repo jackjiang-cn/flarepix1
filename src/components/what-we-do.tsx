@@ -82,15 +82,36 @@ export default function WhatWeDo() {
                   loading="lazy"
                 />
               ) : (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
-                >
-                  <source src={cdnUrl(item.src)} type="video/mp4" />
-                </video>
+                <div className="relative h-full w-full">
+                  {/* Placeholder gradient (replaces autoplay video — saves ~30MB per video) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1b3b2f] via-[#2d5a47] to-[#0f2a22]" />
+                  <div
+                    className="absolute inset-0 opacity-30 mix-blend-overlay"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 35% 45%, rgba(184,151,92,0.4), transparent 60%)",
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="#1b3b2f"
+                      >
+                        <polygon points="6 3 20 12 6 21 6 3" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-xs font-medium uppercase tracking-wider text-white/70">
+                      Sample reel
+                    </p>
+                    <p className="mt-1 text-sm text-white/90">{item.title}</p>
+                  </div>
+                </div>
               )}
             </div>
             <div
