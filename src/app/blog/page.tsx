@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { blogPosts } from "@/config/blog-posts";
 
 export const metadata: Metadata = {
   title: "Blog — FlarePix",
@@ -11,32 +13,10 @@ export const metadata: Metadata = {
   },
 };
 
-const posts = [
-  {
-    title: "Why AI Product Images Convert Better in 2026",
-    date: "May 20, 2026",
-    excerpt:
-      "AI-generated lifestyle imagery is outperforming traditional product photos. Here's what the data shows and how to use it for your Amazon listings.",
-  },
-  {
-    title: "Ghost Mannequin vs Flat Lay: Which One for Your Brand?",
-    date: "May 10, 2026",
-    excerpt:
-      "Both are essential for apparel brands, but they serve different purposes. A practical guide to choosing the right format for each product type.",
-  },
-  {
-    title: "How to Prepare Your Products for a Photo Shoot",
-    date: "April 28, 2026",
-    excerpt:
-      "Shipping products to a studio? Here's a checklist to make sure your items arrive ready to photograph — no delays, no reshoots.",
-  },
-  {
-    title: "Amazon Product Photography Requirements in 2026",
-    date: "April 15, 2026",
-    excerpt:
-      "Amazon's image guidelines keep evolving. Stay compliant and optimize your listings with the latest technical and creative requirements.",
-  },
-];
+const formatDate = (iso: string) => {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+};
 
 export default function BlogPage() {
   return (
@@ -49,13 +29,22 @@ export default function BlogPage() {
         </p>
 
         <div className="mt-12 space-y-10">
-          {posts.map((post) => (
+          {blogPosts.map((post) => (
             <article
-              key={post.title}
+              key={post.slug}
               className="border-b border-black/[0.08] pb-10"
             >
-              <p className="text-xs text-[var(--muted)]">{post.date}</p>
-              <h2 className="mt-1 text-lg font-semibold">{post.title}</h2>
+              <p className="text-xs text-[var(--muted)]">
+                {formatDate(post.date)} · {post.readTime}
+              </p>
+              <h2 className="mt-1 text-lg font-semibold">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="hover:text-[var(--amber)] transition-colors"
+                >
+                  {post.title}
+                </Link>
+              </h2>
               <p className="mt-2 text-sm text-[var(--muted)]">
                 {post.excerpt}
               </p>
