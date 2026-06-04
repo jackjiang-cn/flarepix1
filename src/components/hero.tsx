@@ -6,8 +6,8 @@ import { cdnUrl } from "@/config/cdn";
  * Hero image workflow
  * ──────────────────
  * To change images:
- * 1. Put new files in public/works/photo/real/  (photos)
- *    or public/works/ai/images/                 (AI images)
+ * 1. Put new files in public/works/photo/  (photos)
+ *    or public/works/ai/images/            (AI images)
  * 2. Edit the heroImages array below.
  *
  * Layout: CSS columns masonry — images render at their original
@@ -27,11 +27,10 @@ const heroImages = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background video — autoplay muted loop, with poster for instant first paint */}
+      {/* Background poster — local file, no CDN round-trip, optimized by Next.js Image */}
       <div className="absolute inset-0 z-0">
-        {/* Poster loaded via Next.js Image for automatic WebP + CDN optimization */}
         <Image
-          src={cdnUrl("/works/posters/hero-reel.jpg")}
+          src="/works/posters/hero-reel.jpg"
           alt=""
           fill
           className="object-cover opacity-30"
@@ -81,14 +80,14 @@ export default function Hero() {
           <div className="[column-fill:_balance] columns-2 sm:columns-3 gap-4">
             {heroImages.map((img, i) => (
               <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
-                <img
-                  src={cdnUrl(img.src)}
+                <Image
+                  src={img.src}
                   alt={img.alt}
                   className="w-full h-auto block"
+                  width={600}
+                  height={400}
                   loading={i < 3 ? "eager" : "lazy"}
-                  fetchPriority={i < 3 ? "high" : "auto"}
-                  width="600"
-                  height="400"
+                  priority={i < 3}
                 />
               </div>
             ))}
