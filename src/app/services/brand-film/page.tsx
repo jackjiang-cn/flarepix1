@@ -1,10 +1,31 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+
+export const metadata: Metadata = {
+  title: "Brand Film Production for Ecommerce — Hybrid Production with Real Footage + AI | FlarePix",
+  description:
+    "Cinematic brand films and commercial productions for Amazon and ecommerce brands. Hybrid approach: real footage blended with AI post-production — professional quality at a fraction of full production cost.",
+  alternates: { canonical: "https://flarepix.com/services/brand-film" },
+  openGraph: {
+    title: "Brand Film Production for Ecommerce — Hybrid Production | FlarePix",
+    description:
+      "Cinematic brand films using a hybrid approach: real footage + AI post-production. Full creative direction for Amazon and ecommerce brands.",
+    url: "https://flarepix.com/services/brand-film",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brand Film Production for Ecommerce" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brand Film Production for Ecommerce | FlarePix",
+    description:
+      "Cinematic brand films using hybrid production: real footage + AI. Professional quality at lower cost.",
+    images: ["/og-image.jpg"],
+  },
+};
 
 const brandFilms = [
   { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01" },
@@ -15,10 +36,24 @@ const brandFilms = [
   { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06" },
 ];
 
+const brandFilmSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Brand Film Production — FlarePix",
+  description:
+    "Cinematic brand films and commercial productions for Amazon and ecommerce brands using a hybrid production approach: real footage combined with AI-assisted post-production.",
+  thumbnailUrl: "https://flarepix.com/works/posters/brand-film.jpg",
+  uploadDate: "2026-01-15",
+};
+
 export default function BrandFilmPage() {
   return (
     <>
       <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(brandFilmSchema) }}
+      />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
           href="/services#brand-film"
@@ -35,8 +70,9 @@ export default function BrandFilmPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
           Cinematic brand films and commercial productions for your biggest
-          launches. Full creative direction, professional lighting, and
-          post-production included — everything you need for your hero products.
+          launches. We use a hybrid approach — real footage combined with
+          AI-assisted post-production — delivering the visual impact of a full
+          studio shoot at a more accessible price point.
         </p>
 
         <div className="mt-6 flex gap-4">
@@ -71,15 +107,15 @@ export default function BrandFilmPage() {
         {/* SEO content */}
         <section className="mt-16 grid gap-12 sm:grid-cols-2">
           <div>
-            <h2 className="text-xl font-semibold">What is a brand film?</h2>
+            <h2 className="text-xl font-semibold">What is a brand film — and why hybrid production?</h2>
             <p className="mt-3 text-[var(--muted)]">
-              A brand film is a cinematic video that tells your brand story — not a product demo, but an emotional narrative that connects your product to your audience. It is the content you use for your biggest product launches, homepage hero, trade shows, investor decks, and paid social campaigns.
+              A brand film is a cinematic video that tells your brand story — not a product demo, but an emotional narrative that connects your product to your audience. It is the content you use for your biggest product launches, homepage hero, trade shows, and paid social campaigns.
             </p>
             <p className="mt-3 text-[var(--muted)]">
-              Unlike AI-generated content or quick turnaround video, a brand film involves creative direction, script development, professional talent, controlled studio or location shoots, and multi-week post-production. The result is a premium asset that reflects the quality of your brand and can be used across every channel for years.
+              Unlike AI-only tools or traditional full-production shoots, we use a hybrid approach: real footage (professional talent, real studio or location) blended with AI-assisted post-production. The result is cinematic quality at a fraction of traditional production cost — and faster turnaround than a full shoot.
             </p>
             <p className="mt-3 text-[var(--muted)]">
-              Based in Qingdao, China — the world's manufacturing hub — we produce brand films for sellers worldwide who source their products from China and want visuals that match the quality of their brand.
+              Based in Qingdao, China — the world's manufacturing hub — we produce brand films for Amazon and ecommerce sellers worldwide. Your products are already here. Your visuals should match the quality of your brand.
             </p>
           </div>
           <div>

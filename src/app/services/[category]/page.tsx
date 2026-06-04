@@ -39,10 +39,23 @@ export async function generateMetadata({
   const videoCat = videoProductionCategories.find((c) => c.slug === category);
   if (videoCat) {
     return {
-      title: `${videoCat.label} Video — FlarePix`,
+      title: `${videoCat.label} Video Production — FlarePix`,
       description: videoCat.description,
       alternates: {
         canonical: `https://flarepix.com/services/${category}`,
+      },
+      openGraph: {
+        title: `${videoCat.label} Video Production — FlarePix`,
+        description: videoCat.description,
+        url: `https://flarepix.com/services/${category}`,
+        type: "website",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${videoCat.label} Video Production` }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${videoCat.label} Video Production — FlarePix`,
+        description: videoCat.description,
+        images: ["/og-image.jpg"],
       },
     };
   }
@@ -69,9 +82,35 @@ export default async function CategoryPage({
   const displayPhotos = photos.slice(0, 12);
   const displayVideos = (videoProductionSources[category] || []).slice(0, 6);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
+      { "@type": "ListItem", position: 3, name: cat.label, item: `https://flarepix.com/services/${category}` },
+    ],
+  };
+
+  // VideoObject schema only for video category pages
+  const videoSchema = isPhotoCategory ? null : {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: `${cat.label} Video Production — FlarePix`,
+    description: `Professional ${cat.label.toLowerCase()} video production for Amazon and ecommerce sellers. Real footage combined with AI-assisted post-production.`,
+    thumbnailUrl: `https://flarepix.com/works/posters/${category}.jpg`,
+    uploadDate: "2026-01-15",
+  };
+
+  const schemas = videoSchema ? [breadcrumbSchema, videoSchema] : [breadcrumbSchema];
+
   return (
     <>
       <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+      />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
           href={`/services#${isPhotoCategory ? "product-photography" : "video-production"}`}
