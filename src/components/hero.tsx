@@ -71,7 +71,7 @@ export default function Hero() {
             {heroImages.map((img, i) => (
               <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
                 <img
-                  src={img.src}
+                  src={cdnUrl(img.src)}
                   alt={img.alt}
                   className="w-full h-auto block"
                   loading={i < 3 ? "eager" : "lazy"}
