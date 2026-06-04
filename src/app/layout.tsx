@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flarepix.com"),
-  title: "FlarePix — AI-Powered Product Photography & Video for Ecommerce",
+  title: "Product Photography Studio for Amazon — FlarePix",
   description:
     "Professional product photography, video, AI-generated imagery, and AI video for Amazon and ecommerce brands. Ship your products or generate visuals remotely.",
   icons: { icon: "/favicon.svg" },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: "https://flarepix.com",
   },
   openGraph: {
-    title: "FlarePix — AI-Powered Product Photography & Video",
+    title: "Product Photography Studio for Amazon — FlarePix",
     description:
       "Photo, video, AI imagery, and AI video — one studio for all your ecommerce visuals.",
     siteName: "FlarePix",
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "FlarePix — AI-Powered Product Photography & Video",
+        alt: "Product Photography Studio for Amazon — FlarePix",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlarePix — AI-Powered Product Photography & Video",
+    title: "Product Photography Studio for Amazon — FlarePix",
     description:
       "Photo, video, AI imagery, and AI video — one studio for all your ecommerce visuals.",
     images: ["/og-image.jpg"],
@@ -70,50 +70,16 @@ const organizationJsonLd = {
   },
 };
 
-// ProfessionalService schema — serves global ecommerce brands from Qingdao, China
-const localBusinessJsonLd = {
+// VideoObject schema — describes the hero brand film
+const videoJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://flarepix.com/#business",
-  name: "FlarePix",
-  url: "https://flarepix.com",
-  logo: "https://flarepix.com/favicon.svg",
-  email: "hello@flarepix.com",
+  "@type": "VideoObject",
+  name: "FlarePix Hero Reel",
   description:
-    "AI-powered product photography and video services for Amazon and ecommerce brands. Based in Qingdao, China — serving sellers worldwide.",
-  // address populated from contact.ts
-  ...(contact.address
-    ? {
-        address: {
-          "@type": "PostalAddress" as const,
-          addressLocality: "Qingdao",
-          addressRegion: "Shandong",
-          addressCountry: "CN" as const,
-        },
-      }
-    : {}),
-  ...(contact.phone ? { telephone: contact.phone } : {}),
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  priceRange: "$$",
-  areaServed: "Worldwide",
-  serviceType: [
-    "Product Photography",
-    "Video Production",
-    "AI Imagery",
-    "AI Video",
-  ],
-  sameAs: [
-    "https://youtube.com/@flarepix",
-    "https://instagram.com/flarepix",
-    "https://x.com/flarepix",
-    "https://linkedin.com/company/flarepix",
-    "https://tiktok.com/@flarepix",
-  ],
+    "Product photography, video and AI imagery showreel for ecommerce and Amazon brands",
+  thumbnailUrl: "https://flarepix.com/works/posters/hero-reel.jpg",
+  contentUrl: "https://media.flarepix.com/works/hero-reel.mp4",
+  uploadDate: "2026-01-15",
 };
 
 export default function RootLayout({
@@ -130,7 +96,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd, localBusinessJsonLd]),
+            __html: JSON.stringify([organizationJsonLd, videoJsonLd]),
           }}
         />
         {children}
