@@ -63,11 +63,29 @@ Reference from v1 (do not copy blindly — review during design phase):
 src/
 ├── app/              # page.tsx, layout.tsx, globals.css + sub-pages
 ├── components/       # Shared components
-├── config/           # contact.ts, site config
+├── config/           # contact.ts, cdn.ts, categories.ts
 public/
 ├── logo/             # Logo assets
-├── works/            # Portfolio media (video, photo, ai)
+├── works/            # Portfolio media (video, photo, ai) — NOT in git
 ```
+
+---
+
+## 3b. Media / CDN (CRITICAL)
+
+**All portfolio media lives in Cloudflare R2 — NOT in the git repo.**
+
+| Item | Value |
+|------|-------|
+| CDN Base URL | `https://media.flarepix.com` |
+| R2 Bucket | Cloudflare R2 |
+| local `public/works/` | `.gitignore` — not pushed to GitHub |
+
+**CDN helper:** use `cdnUrl(path)` from `@/config/cdn` — prepends `media.flarepix.com` to any path.
+- `cdnUrl("/works/photo/foo.jpg")` → `https://media.flarepix.com/works/photo/foo.jpg`
+- `posterFor("/works/video/bar.m4v")` → `/works/posters/bar.jpg`
+
+When writing code that references media (images, videos, posters), **always use `cdnUrl()`** so it points to the CDN, not the missing local files.
 
 ---
 
