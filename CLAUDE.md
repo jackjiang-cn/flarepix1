@@ -87,6 +87,17 @@ public/
 
 When writing code that references media (images, videos, posters), **always use `cdnUrl()`** so it points to the CDN, not the missing local files.
 
+### Image Compression for R2 Upload
+
+When replacing/updating images on R2:
+
+1. **Compress images** — use `scripts/compress-hero-images.mjs` or Squoosh
+   - target: masonry images < 80KB, AI images < 50KB
+2. **Upload to R2** — replace old files with new ones (same filename/path)
+3. **Purge CDN cache** — Cloudflare Dashboard → R2 → upload new file to auto-purge old cached version
+
+Compression script location: `scripts/compress-hero-images.mjs`
+
 ---
 
 ## 4. Contact Config
