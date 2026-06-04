@@ -142,6 +142,71 @@ export default async function CategoryPage({
           )}
         </section>
 
+        {/* Use cases */}
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold">What this is used for</h2>
+          <p className="mt-2 max-w-2xl text-[var(--muted)]">
+            {cat.label} video content serves multiple purposes across your ecommerce and marketing channels.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {isPhotoCategory ? (
+              <>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Amazon listing images</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Main gallery images and A+ content visuals that meet Amazon&apos;s image requirements and drive click-through.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Ecommerce storefronts</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Shopify, WooCommerce, and other platform imagery with consistent styling that fits your brand identity.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Social media content</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Platform-ready visuals for Instagram, Facebook, and Pinterest that stop the scroll and drive engagement.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Paid advertising</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    High-converting ad creatives for Amazon Sponsored Products, Meta, and Google Display campaigns.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Amazon listing video</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Hero video on your Amazon listing — directly impacts conversion rate and buy box performance.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Social media advertising</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Short-form content for TikTok, Instagram Reels, and Facebook feed — optimised for each platform&apos;s format.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Brand film &amp; launch video</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Cinematic brand storytelling for product launches, trade shows, and investor presentations.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+                  <p className="font-medium">Retail &amp; wholesale pitch</p>
+                  <p className="mt-1 text-sm text-[var(--muted)]">
+                    Professional visual assets for retailer submissions and B2B sales conversations.
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+
         {/* Stats or more info */}
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
           <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">

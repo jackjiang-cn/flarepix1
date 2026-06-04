@@ -1,10 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+
+export const metadata: Metadata = {
+  title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
+  description:
+    "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce — fast turnaround, no shipping required.",
+  alternates: { canonical: "https://flarepix.com/services/ai-imagery" },
+};
 
 const aiImages = [
   { src: "/works/ai/images/ai-image-01.webp", alt: "AI product image" },

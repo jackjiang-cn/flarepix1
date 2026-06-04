@@ -105,39 +105,41 @@ export default function BrandFilmPage() {
         </div>
 
         {/* SEO content */}
-        <section className="mt-16 grid gap-12 sm:grid-cols-2">
-          <div>
-            <h2 className="text-xl font-semibold">What is a brand film — and why hybrid production?</h2>
-            <p className="mt-3 text-[var(--muted)]">
-              A brand film is a cinematic video that tells your brand story — not a product demo, but an emotional narrative that connects your product to your audience. It is the content you use for your biggest product launches, homepage hero, trade shows, and paid social campaigns.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              Unlike AI-only tools or traditional full-production shoots, we use a hybrid approach: real footage (professional talent, real studio or location) blended with AI-assisted post-production. The result is cinematic quality at a fraction of traditional production cost — and faster turnaround than a full shoot.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              Based in Qingdao, China — the world's manufacturing hub — we produce brand films for Amazon and ecommerce sellers worldwide. Your products are already here. Your visuals should match the quality of your brand.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold">What you get</h2>
-            <ul className="mt-3 space-y-2 text-[var(--muted)]">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Creative concept and script</strong> — We develop the narrative direction based on your brand brief</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Professional shoot</strong> — Studio or location with professional lighting, talent, and direction</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Multi-week post-production</strong> — Color grading, motion graphics, sound design, music licensing</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Multiple deliverables</strong> — 30s, 60s, 90s cuts plus social crop variants</span>
-              </li>
-            </ul>
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold">Why the hybrid approach delivers better brand films</h2>
+          <div className="mt-6 grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="text-[var(--muted)]">
+                A full-production shoot — professional talent, multi-day studio rental, full crew — delivers cinematic results. But the cost and lead time are prohibitive for most Amazon sellers launching multiple products per quarter.
+              </p>
+              <p className="mt-4 text-[var(--muted)]">
+                AI-only tools solve for cost and speed — but the output often looks generic, with that characteristic &ldquo;AI feel&rdquo; that savvy consumers immediately recognise. When your brand film looks like everyone else&apos;s AI output, it undermines the brand credibility you&apos;re trying to build.
+              </p>
+              <p className="mt-4 text-[var(--muted)]">
+                Our hybrid approach combines real footage (professional talent, real studio or location) with AI-assisted post-production (colour grading, motion graphics, upscaling). The result: cinematic quality at a fraction of traditional cost, with turnaround that fits your product launch calendar. Based in Qingdao — the world&apos;s manufacturing hub — we work with sellers worldwide who source from Chinese manufacturers. Your products are already here. Your visuals should match your brand.
+              </p>
+            </div>
+            <div>
+              <p className="font-medium text-[var(--foreground)]">What you get with every brand film</p>
+              <ul className="mt-4 space-y-3 text-[var(--muted)]">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Creative concept and script</strong> — Narrative direction developed from your brand brief before a single frame is shot</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Professional shoot</strong> — Studio or location with professional lighting, talent, and creative direction</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>AI-assisted post-production</strong> — Color grading, motion graphics, sound design, music licensing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Multiple deliverables</strong> — 30s, 60s, 90s cuts plus social crop variants, all in your required formats</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 

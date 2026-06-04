@@ -84,69 +84,41 @@ export default function AiVideoPage() {
         </section>
 
         {/* SEO content */}
-        <section className="mt-16 grid gap-12 sm:grid-cols-2">
-          <div>
-            <h2 className="text-xl font-semibold">
-              Why AI product video needs a professional team
-            </h2>
-            <p className="mt-3 text-[var(--muted)]">
-              AI video tools promise "one-click production" — but the reality is
-              different. AI-generated product videos still require professional
-              oversight: the product needs to look accurate, the motion needs to
-              feel natural, and the final output needs to reflect your brand
-              quality. Without a team managing the process, you get generic-feeling
-              content that hurts rather than helps your listing conversion.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              FlarePix uses AI as a production tool — our team handles generation,
-              quality review, and any necessary adjustments. You receive a
-              finished video that's ready for your Amazon listing, not a file you
-              need to figure out how to use.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              This is the difference between AI as a product and AI as a tool in
-              the right hands. We work with sellers in the US and Europe who
-              source products from manufacturers in China — including electronics,
-              children's toys, and consumer goods. Your visuals should match the
-              quality of your brand.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold">
-              Where AI video drives results for Amazon sellers
-            </h2>
-            <ul className="mt-3 space-y-2 text-[var(--muted)]">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span>
-                  <strong>Amazon A+ Content</strong> — Video thumbnails on product
-                  detail pages increase conversion rates when the video is
-                  professionally produced
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span>
-                  <strong>Social media ads</strong> — Generate hundreds of video
-                  variants for Meta and TikTok campaigns, all reviewed before delivery
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span>
-                  <strong>Email and display ads</strong> — Campaign visuals
-                  generated in days, not weeks — with professional quality
-                  review included
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span>
-                  <strong>Product retargeting</strong> — Scale creative
-                  production without depleting your media budget
-                </span>
-              </li>
-            </ul>
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold">What is AI product video — and why it&apos;s not a自助工具</h2>
+          <div className="mt-6 grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="text-[var(--muted)]">
+                Most AI video tools are sold as self-serve products: upload your product image, click generate, download a video. The problem is that approach produces generic-looking content — and when every seller using the same tool outputs the same style, your listing looks exactly like your competitor&apos;s.
+              </p>
+              <p className="mt-4 text-[var(--muted)]">
+                The truth about AI video: the model outputs are only as good as the prompts, the reference assets, and the quality review applied by someone who understands what &ldquo;professional&rdquo; looks like on an Amazon listing. Without that human layer, you get motion that feels artificial, product angles that don&apos;t showcase real value, and visual artifacts that hurt credibility.
+              </p>
+              <p className="mt-4 text-[var(--muted)]">
+                FlarePix runs AI generation as a managed production service. We handle prompt design, reference material curation, and human QC on every output. You receive a finished video ready for your listing — not a file to experiment with.
+              </p>
+            </div>
+            <div>
+              <p className="font-medium text-[var(--foreground)]">Where AI video works for Amazon sellers</p>
+              <ul className="mt-4 space-y-3 text-[var(--muted)]">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Amazon A+ video</strong> — Video on detail pages lifts conversion, but only when the quality matches your product. AI video at scale, with QC, fills this gap.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Social and display ads</strong> — Batch-generate creative variants for Meta, TikTok, and Google — each reviewed before delivery.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Retail and wholesale pitch</strong> — Visual assets for buyer meetings and retailer submissions — fast turnaround that fits launch timelines.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                  <span><strong>Email and newsletter content</strong> — Product video embedded in email campaigns drives engagement that static images can&apos;t match.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 

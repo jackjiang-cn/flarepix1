@@ -4,9 +4,9 @@ import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 
 export const metadata: Metadata = {
-  title: "Pricing — FlarePix",
+  title: "How We Quote — FlarePix",
   description:
-    "Transparent pricing for product photography, video, and AI visuals. Volume discounts available.",
+    "FlarePix quotes each project individually. No fixed packages — we tailor pricing based on your product type, volume, and use case. Get a proposal within 24 hours.",
   alternates: {
     canonical: "https://flarepix.com/pricing",
   },
@@ -29,54 +29,22 @@ const pricingSchema = {
   },
 };
 
-const plans = [
+const factors = [
   {
-    title: "Product Photography",
-    price: "From $25",
-    unit: "/ photo",
-    items: [
-      "White background or lifestyle",
-      "Basic retouching included",
-      "6–8 business day turnaround",
-      "Rush delivery available",
-      "Volume discounts from 50+ photos",
-    ],
+    title: "Product type and category",
+    desc: "A kitchen scale has different visual requirements than a child&apos;s toy or a fashion dress. Complexity and setup requirements affect the quote.",
   },
   {
-    title: "Product Video",
-    price: "From $150",
-    unit: "/ video",
-    items: [
-      "15–30 second product video",
-      "Music & sound design",
-      "Amazon & social optimized",
-      "Multiple formats delivered",
-      "Bundle discount with photo",
-    ],
+    title: "Volume and frequency",
+    desc: "A single product shoot is priced differently than a catalog of 50 SKUs. Ongoing relationships get preferential rates.",
   },
   {
-    title: "AI Imagery",
-    price: "From $30",
-    unit: "/ image",
-    items: [
-      "AI on-model generation",
-      "Lifestyle scene placement",
-      "Campaign visual creation",
-      "Based on real product photo",
-      "Bulk pricing available",
-    ],
+    title: "Content type and output format",
+    desc: "Studio photography, AI imagery, product video, and brand film production involve different production costs.",
   },
   {
-    title: "AI Video",
-    price: "From $100",
-    unit: "/ video",
-    items: [
-      "AI-generated product clips",
-      "Scene & motion generation",
-      "Social-ready formats",
-      "Quick turnaround",
-      "Volume discounts available",
-    ],
+    title: "Delivery timeline",
+    desc: "Standard turnaround is 6–8 business days. Rush delivery in 3–4 days is available at a premium.",
   },
 ];
 
@@ -90,46 +58,34 @@ export default function PricingPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
         />
         <h1 className="text-3xl font-semibold tracking-tight">
-          Transparent pricing
+          How we quote
         </h1>
-        <p className="mt-4 text-[var(--muted)]">
-          No hidden fees. Volume discounts available for larger orders.
+        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
+          Every project is different. We don&apos;t have fixed packages because your product,
+          volume, and goals are specific to you. Send us your brief and we&apos;ll put together
+          a tailored proposal — typically within 24 hours.
+        </p>
+        <p className="mt-4 max-w-2xl text-[var(--muted)]">
+          No hidden fees. No surprise line items. The quote you receive is what you pay.
         </p>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((p) => (
-            <div
-              key={p.title}
-              className="rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-6"
-            >
-              <h2 className="text-sm font-medium text-[var(--muted)]">
-                {p.title}
-              </h2>
-              <p className="mt-2 text-3xl font-semibold">{p.price}</p>
-              <p className="text-sm text-[var(--muted)]">{p.unit}</p>
-              <ul className="mt-6 space-y-2">
-                {p.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 text-sm text-[var(--muted)]"
-                  >
-                    <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-[var(--amber)]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+          {factors.map((f) => (
+            <div key={f.title} className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+              <h2 className="text-base font-semibold">{f.title}</h2>
+              <p className="mt-2 text-sm text-[var(--muted)]" dangerouslySetInnerHTML={{ __html: f.desc }} />
             </div>
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-[var(--amber)]/20 bg-[var(--surface)] p-8 text-center">
-          <h2 className="text-xl font-semibold">Large volume order?</h2>
+        <div className="mt-12 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
+          <h2 className="text-xl font-semibold">Ready for a quote?</h2>
           <p className="mt-2 text-[var(--muted)]">
-            500+ photos or 50+ videos — contact us for custom pricing and
-            dedicated production support.
+            Tell us about your product and what you&apos;re trying to achieve. We&apos;ll send a tailored
+            proposal within 24 hours.
           </p>
           <div className="mt-6">
-            <CtaButton href="/contact">Request a quote</CtaButton>
+            <CtaButton href="/contact">Get a proposal</CtaButton>
           </div>
         </div>
       </main>

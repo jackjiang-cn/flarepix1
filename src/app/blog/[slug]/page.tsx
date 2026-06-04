@@ -119,7 +119,12 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "Organization",
       name: "FlarePix",
       url: "https://flarepix.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://flarepix.com/logo/flarpix-logo-800.png",
+      },
     },
+    dateModified: post.date,
   };
 
   return (

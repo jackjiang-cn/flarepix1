@@ -42,6 +42,29 @@ export default function ContactPage() {
           hours.
         </p>
 
+        {/* Trust signals */}
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+            <p className="text-sm font-medium text-[var(--amber)]">Phone</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">{contact.phone}</p>
+          </div>
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+            <p className="text-sm font-medium text-[var(--amber)]">Email</p>
+            <p className="mt-2 text-sm">
+              <a
+                href={`mailto:${contact.email}`}
+                className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {contact.email}
+              </a>
+            </p>
+          </div>
+          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
+            <p className="text-sm font-medium text-[var(--amber)]">Location</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">{contact.address}</p>
+          </div>
+        </div>
+
         <div className="mt-10">
           <ContactForm />
         </div>

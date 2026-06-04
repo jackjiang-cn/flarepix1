@@ -15,6 +15,7 @@ import SeoContent from "@/components/seo-content";
 import WhatWeDo from "@/components/what-we-do";
 import FaqSection from "@/components/faq-section";
 import StatsSection from "@/components/stats-section";
+import TrustSignals from "@/components/trust-signals";
 import Footer from "@/components/footer";
 import { photoCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
@@ -46,6 +47,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <TrustSignals />
         <ServicesOverview />
         <ValueProp />
         <VideoCarousel />

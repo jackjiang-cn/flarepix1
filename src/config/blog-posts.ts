@@ -26,6 +26,212 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ai-product-videos-cannot-be-fully-automated",
+    title: "Why AI-Generated Product Videos Can't Be Fully Automated (And Why That Matters for Your Amazon Listing)",
+    date: "2026-06-04",
+    excerpt:
+      "Every AI video tool on the market promises one-click output. The reality is different — and if you're using these tools without a professional review layer, your Amazon listing is probably paying for it.",
+    heroImage: "/works/ai/images/ai-image-04.webp",
+    heroAlt: "AI-generated product video for Amazon",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "5 min read",
+    relatedServices: [
+      { label: "AI Video", href: "/services/ai-video" },
+      { label: "Brand Film", href: "/services/brand-film" },
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Search for 'AI product video' and you'll find a list of tools that promise to transform your product images into listing-ready video in minutes. Upload a photo, click generate, download the result. It sounds efficient. It sounds affordable. And if you've used one of these tools, you probably noticed the output looks like everyone else's output.",
+      },
+      {
+        type: "paragraph",
+        text: "That's not a coincidence. It's a structural problem with treating AI video as a self-serve tool rather than a production process.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What 'one-click AI video' actually produces",
+        id: "output",
+      },
+      {
+        type: "paragraph",
+        text: "The output from a self-serve AI video tool has a recognizable look: slightly unnatural motion (products that float rather than move, backgrounds that drift without physics), visual artifacts around the product edge, generic scene transitions, and a feel that experienced online shoppers immediately register as AI-generated. This isn't just an aesthetic issue — it's a conversion issue. Shoppers in 2026 are increasingly sophisticated about AI content, and products that look AI-generated can actively hurt brand credibility.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Why the model can't fix this itself",
+        id: "model",
+      },
+      {
+        type: "paragraph",
+        text: "AI video models are trained on large datasets of motion, product presentations, and scene transitions. They know what video 'looks like' in a general sense. But they don't know what your product looks like, what your brand voice is, what aspect ratio performs best on your specific category, or what motion would actually communicate your product's value. The model works from prompts and reference inputs — if those inputs are generic, the output is generic.",
+      },
+      {
+        type: "paragraph",
+        text: "The gap between a usable AI video and a professional one is entirely in the human layer: prompt design, reference curation, product alignment review, artifact correction, and format optimization for each destination platform. Without that layer, the AI model is doing its best — and its best isn't good enough for a listing competing against sellers who are using the same model.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The specific failure modes on Amazon",
+        id: "amazon",
+      },
+      {
+        type: "paragraph",
+        text: "Amazon's detail page video plays automatically — muted, in the main image slot — for shoppers who have autoplay enabled. A video that starts with 2 seconds of generic floating-motion, visible seams between product and background, or an obviously AI aesthetic sends a signal before the product's benefits have been communicated. The scroll stops, but the add-to-cart doesn't follow.",
+      },
+      {
+        type: "list",
+        items: [
+          "Visual artifacts: product edges that don't blend cleanly into generated scenes",
+          "Generic motion: product rotations and transitions that look templated",
+          "Wrong product emphasis: the AI model's interpretation of the product, not the seller's",
+          "Format mismatch: video optimized for a general aspect ratio, not Amazon's player",
+          "No brand continuity: the output doesn't match the aesthetic of the rest of the listing",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What professional AI video production looks like",
+        id: "professional",
+      },
+      {
+        type: "paragraph",
+        text: "At FlarePix, AI video generation is a managed production process — not a self-serve tool. When you send us your product, here's what happens: we review your actual product image to define the geometry and color profile for accurate placement, design prompts that describe your specific scene and motion intent rather than generic defaults, run the generation with multiple variations, review every output for product accuracy and visual artifacts, correct issues before delivery, and deliver in the formats required by Amazon, Meta, TikTok, and any other platform in your plan.",
+      },
+      {
+        type: "paragraph",
+        text: "The extra steps add time (2-5 business days for most AI video projects) and cost ($100-300 per video depending on complexity and volume). But the output is a finished video — not a draft that needs to be reviewed, iterated on, and potentially rejected.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How to evaluate an AI video vendor",
+        id: "evaluate",
+      },
+      {
+        type: "paragraph",
+        text: "Before you sign with any AI video vendor — FlarePix included — ask these questions: Who reviews the outputs, and what are their qualifications? What happens if the output has artifacts or product inaccuracy — is there a revision process, and what's the timeline? Do they deliver in Amazon's required format, or do you have to re-export? Do they have examples in your specific product category? A vendor that can't answer all four with specificity is probably reselling a model API with no production layer.",
+      },
+      {
+        type: "paragraph",
+        text: "If you want to see what professional AI video production looks like for your product category, send us one product photo and we'll generate 3-4 sample scenes within 48 hours. No contract, no commitment. The samples show you exactly what the output looks like before you commit to a full project.",
+      },
+    ],
+  },
+  {
+    slug: "hybrid-production-behind-the-scenes",
+    title: "How We Shot a Real Amazon Product Video: A Behind-the-Scenes Look at Our Hybrid Production Process",
+    date: "2026-06-04",
+    excerpt:
+      "A real Amazon product video for a kitchen scale brand — from brief to delivery. How hybrid production (real footage + AI post) works in practice, and why it produces better results than either approach alone.",
+    heroImage: "/works/ai/images/ai-image-06.webp",
+    heroAlt: "Behind the scenes of hybrid product video production",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "6 min read",
+    relatedServices: [
+      { label: "Brand Film", href: "/services/brand-film" },
+      { label: "AI Video", href: "/services/ai-video" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Every production studio has a portfolio. Most portfolios show the finished work — clean cuts, polished output, final deliverables. This post is different. It's a behind-the-scenes look at how we actually produced a product video for a kitchen scale brand in Qingdao, using our hybrid process. Real brief, real constraints, real decisions made along the way.",
+      },
+      {
+        type: "paragraph",
+        text: "The brand sells premium kitchen scales on Amazon — US market, mostly private label, competing against established names in the $30-60 price range. Their brief: one hero product video for the Amazon listing, 30 seconds, clean and premium feeling, lifestyle context (kitchen setting), deliverables in 2 weeks.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The brief and the production constraint",
+        id: "brief",
+      },
+      {
+        type: "paragraph",
+        text: "A traditional full-production shoot for this brief would have meant: studio rental in the US or Europe ($1,500-4,000/day), professional talent ($500-1,500/day), a kitchen set build or location rental, multi-day shoot to cover all the angles, and post-production at $150-300/hour. The final cost for a 30-second hero video lands in the $4,000-8,000 range with a 4-6 week timeline.",
+      },
+      {
+        type: "paragraph",
+        text: "That's a reasonable budget for a major brand. For a private label seller with a kitchen scale at $40 retail, it's not. We proposed a hybrid approach: real studio footage (the actual product on white, in a real kitchen setup we have access to in Qingdao) combined with AI-assisted post-production (motion graphics, color grading, upscaling). Total cost was under $800. Timeline was 10 business days from brief to delivery.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Step 1 — Studio footage",
+        id: "studio",
+      },
+      {
+        type: "paragraph",
+        text: "We shot the kitchen scale in our Qingdao studio on a white sweep. One day, two cameras (a Sony A7IV for the product detail work and a second camera for wider angles). The product arrived from the manufacturer with full retail packaging — we shot without the packaging, as Amazon requires for the main listing image.",
+      },
+      {
+        type: "paragraph",
+        text: "Key decisions in the shoot: the scale needed to be shown weighing actual food (not empty, not with a placeholder weight), we filmed both a digital readout close-up and a full-kitchen wide shot in the same session, and we captured 3 angles of the product for AI-assisted motion generation — the scale tilting, the weighing action, and the display readout changing.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Step 2 — AI-assisted post-production",
+        id: "post",
+      },
+      {
+        type: "paragraph",
+        text: "With the raw footage in hand, we moved to post. The real studio footage gave us accurate product geometry and color. The AI layer handled three things the footage alone couldn't: (1) motion upscaling — we shot at 4K but the footage had camera shake on the tilt shots; AI upscaling handled stabilization and frame interpolation, (2) background extension — the white sweep background was clean but static; we used AI-assisted motion graphics to add a slow parallax to the background that gives the kitchen setting depth, and (3) output variants — we generated social-ready 1:1 and 9:16 formats from the hero 16:9 using AI frame generation, so the client had Amazon listing video, Meta feed, and Instagram Reels versions from a single shoot.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Step 3 — Quality review",
+        id: "review",
+      },
+      {
+        type: "paragraph",
+        text: "Every output went through a human review before delivery. This is where the hybrid approach earns its name — the AI does the scaling and generation, a team member reviews for product accuracy, visual consistency, and brand fit. We caught two instances where the AI frame interpolation added a ghosting artifact on the scale's LED display and corrected them in the edit. No algorithm caught that; a team member did.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The delivered result",
+        id: "result",
+      },
+      {
+        type: "paragraph",
+        text: "The client received: one 30-second Amazon listing video (16:9, 4K, H.264 MP4), three social variants (1:1 for Facebook, 9:16 for Instagram Reels, 9:16 for TikTok), all in Amazon's required format, ready to upload. Timeline: 10 business days from brief confirmation to delivery. Total cost: under $800.",
+      },
+      {
+        type: "paragraph",
+        text: "Three weeks after launch, the client's Amazon listing had a 22% higher conversion rate than their previous best-performing month — the video was cited in their follow-up email as the primary change. That's not a controlled A/B test, but the timing is consistent with what we see from clients who invest in quality listing video.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What this means for your project",
+        id: "your-project",
+      },
+      {
+        type: "paragraph",
+        text: "Hybrid production isn't the right fit for every project — if you need a cinematic brand film with complex talent and location work, a full-production shoot is still the right call. But for product video at the listing level, especially at scale across multiple SKUs, hybrid production delivers 80% of the visual impact at 20% of the cost. And with turnaround that fits a product launch calendar.",
+      },
+      {
+        type: "paragraph",
+        text: "If you want to see how hybrid production would work for your specific product, send us your product and a brief — we'll put together a production plan and a quote within 24 hours. No commitment required.",
+      },
+    ],
+  },
+  {
     slug: "ai-product-images-convert-better-2026",
     title: "Why AI Product Images Convert Better in 2026",
     date: "2026-06-02",
@@ -350,6 +556,118 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         text: "A well-prepared shipment is the difference between a 5-day shoot and a 10-day shoot. The full prep checklist (PDF) covers apparel, electronics, beauty, and multi-piece kits — request it via the contact form when you book. If you'd rather skip the prep work, our product photography service includes in-house steaming, tag removal, and minor cleanup before the shoot.",
+      },
+    ],
+  },
+  {
+    slug: "amazon-product-video-requirements-guide",
+    title: "Amazon Product Video Requirements: What Every Seller Needs to Know Before Hiring a Studio",
+    date: "2026-06-04",
+    excerpt:
+      "Technical specs, creative best practices, and the questions most sellers forget to ask before committing to a product video studio. A practical guide to getting a video that actually converts.",
+    heroImage: "/works/photo/products/products_1.jpg",
+    heroAlt: "Amazon product video production",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "5 min read",
+    relatedServices: [
+      { label: "AI Video", href: "/services/ai-video" },
+      { label: "Brand Film", href: "/services/brand-film" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Most sellers know they need a product video. Fewer know what separates a video that converts from one that looks like every other listing in their category. The difference isn't budget — it's preparation. This guide covers the technical requirements, the creative questions most sellers forget to ask, and the mistakes we see most often when reviewing a new client's brief.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Amazon's technical requirements for 2026",
+        id: "technical",
+      },
+      {
+        type: "list",
+        items: [
+          "Format: MP4 (H.264 codec) — most studios deliver this by default",
+          "Resolution: minimum 480p, recommended 1080p or 4K",
+          "Aspect ratio: 16:9 (Amazon's player is optimized for this), though 1:1 and 9:16 are accepted",
+          "Maximum file size: 5GB (far above what any listing video will be)",
+          "Length: 30 seconds minimum, 10 minutes maximum — most brand films are 60-90 seconds",
+          "Color space: sRGB (Amazon's player converts other color spaces, but results vary)",
+          "Audio: AAC, 44100 Hz sample rate — some sellers forget this if they have a voiceover",
+          "File naming: no special characters, underscores or hyphens only",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The most common technical mistake we see: studios that deliver ProRes or MOV files, or that export at a non-standard frame rate (23.976fps instead of 29.97fps). Amazon accepts these in some regions but rejects them in others — usually right before a product launch, when there's no time to fix it.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The creative questions most sellers forget to ask",
+        id: "questions",
+      },
+      {
+        type: "paragraph",
+        text: "Before you brief any studio — FlarePix included — answer these five questions: What is the single most important thing this video needs to communicate? (If you can't answer this in one sentence, the brief isn't ready.) Which platforms will this run on, and do they need different aspect ratios? (Amazon, Meta, and TikTok all have different player specs.) Who is the target viewer — a parent looking for a kitchen tool, a fitness enthusiast, a gift buyer? (Different audiences respond to different visual language.) What does your product do that the current listing photos can't show as effectively? (Motion communicates function better than any static image for most products.) What is the production timeline — and does it fit your launch date?",
+      },
+      {
+        type: "paragraph",
+        text: "Studios that ask these questions before quoting are studios that understand how to produce something that converts. Studios that quote without asking are studios that are selling a service, not solving a business problem.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The production types and when each fits",
+        id: "types",
+      },
+      {
+        type: "paragraph",
+        text: "Not all product videos are the same. Understanding the production type you need before you start getting quotes prevents scope creep, budget surprises, and videos that don't fit your listing.",
+      },
+      {
+        type: "list",
+        items: [
+          "Studio product video: product on white or simple background, shot in a studio, 30-60 seconds. Best for: products where the physical form is the primary purchase driver, utility products, kitchen tools, electronics. Cost range: $150-500.",
+          "Lifestyle product video: product in a real setting, often with talent or staging. Best for: apparel, beauty, home goods where context matters as much as the product. Cost range: $500-2,000.",
+          "AI-generated product video: product placed into AI-generated scenes or given AI-assisted motion. Best for: high-volume catalogs, products where lifestyle shooting is impractical, rapid creative iteration. Cost range: $100-300 per video.",
+          "Brand film / hero video: cinematic production with creative direction, script, and full post-production. Best for: flagship products, brand launches, premium positioning. Cost range: $2,000-10,000+.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Mistakes that kill the video before it launches",
+        id: "mistakes",
+      },
+      {
+        type: "list",
+        items: [
+          "No brief or vague brief: 'make it look professional' doesn't give the studio enough to work with",
+          "Wrong aspect ratio for the platform: delivering 9:16 for an Amazon listing, or 16:9 for a TikTok ad",
+          "Audio issues: voiceover recorded without a noise floor, music that exceeds Amazon's loudness limits",
+          "Color profile mismatch: CMYK export instead of sRGB, or branded assets delivered in the wrong color space",
+          "Not specifying delivery formats: the studio delivers one master file instead of platform-specific exports",
+          "Timeline mismatch: quoting a 2-week turnaround for a project that needs 4 weeks",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What to ask any studio before signing",
+        id: "ask",
+      },
+      {
+        type: "paragraph",
+        text: "Ask for examples in your specific product category. A studio that makes excellent electronics product videos may not have the lifestyle video expertise your apparel brand needs. Ask what delivery formats they include — you want Amazon MP4, Meta-ready H.264, and if applicable TikTok-ready files in a single project. Ask about their revision policy. Most studios include 1-2 rounds; if you need more, clarify the cost before the project starts. Ask who reviews the final output — and whether that review includes Amazon compliance. A studio that doesn't understand Amazon's spec can produce a beautiful video that gets rejected from your listing.",
+      },
+      {
+        type: "paragraph",
+        text: "If you'd like a pre-brief consultation on your product video project — no commitment — send us your product details and launch timeline to hello@flarepix.com. We'll tell you directly whether our production capability fits your brief, or recommend a better fit if it doesn't.",
       },
     ],
   },

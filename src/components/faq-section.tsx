@@ -27,6 +27,22 @@ const faqs = [
     q: "What's the difference between AI generation and traditional photography?",
     a: "Traditional photography captures your actual product in our studio under controlled lighting. AI generation takes a reference photo and creates lifestyle scenes, on-model shots, and campaign visuals around it. Many brands use both for different needs.",
   },
+  {
+    q: "Does AI video look AI-generated?",
+    a: "Without professional oversight, yes — AI-generated video often has telltale signs: unnatural motion, visual artifacts, generic-looking scenes. FlarePix runs every AI output through human quality review before delivery. We fix artifacts, correct product angles, and ensure the final video looks professional on your Amazon listing.",
+  },
+  {
+    q: "What's included in your human quality review?",
+    a: "Every AI video and image we produce is reviewed by a team member before delivery. That means checking product accuracy, visual quality, brand consistency, and Amazon compliance. You receive finished files — not a draft to review and send back.",
+  },
+  {
+    q: "What's the difference between AI video and brand film production?",
+    a: "AI video is generated from reference assets — fast, scalable, and suited for batch content (Amazon A+ video, social ad variants, display campaigns). Brand film production involves a real shoot with professional talent, creative direction, and a multi-week post-production process. Brand films are built for your biggest launches and highest-stakes visual moments.",
+  },
+  {
+    q: "How does your hybrid production workflow work?",
+    a: "For brand films: we plan the creative concept, shoot real footage with professional talent, then use AI-assisted post-production for colour grading, motion graphics, and upscaling. For AI video: we manage the generation process end-to-end — prompt design, reference curation, output review. Either way, you work with a team, not a tool.",
+  },
 ];
 
 export default function FaqSection() {
