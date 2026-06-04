@@ -2,34 +2,24 @@
 
 # FlarePix v2 — Project Guide
 
-> Last updated: 2026-05-29 | **Status: DIRECTION LOCK PHASE — no code yet**
+> Last updated: 2026-06-04
 
 ---
 
-## 0. v1 Post-Mortem — Rules This Project Must Follow
+## 0. Project Rules
 
-From the cagent4 project, confirmed in memory:
-
-### Pre-Build Gates (MANDATORY — do NOT skip)
-1. **Design review BEFORE code** — spec walkthrough with visual critique, AI-slop detection, color rhythm check. Use `/plan-design-review` before any component is written.
-2. **Market/language locked in writing** — English or Chinese? US/Europe or CN? This decision must be explicit and cannot change mid-stream. Every file, every meta tag, every label follows it.
-3. **Mobile spec per-component** — not just breakpoint numbers. Each component states how it collapses at <768px and <640px.
-4. **Competitor comparison gate** — compare proposed spec against real competitor sites before building. If it looks like a generic AI template, stop and redesign before code.
+### Pre-Build Gates
+1. **Design review BEFORE code** — visual critique, AI-slop detection, color rhythm check
+2. **Mobile spec per-component** — each component states how it collapses at <768px and <640px
 
 ### Content Rules
-- **English ONLY** for all user-facing content (unless market decision says otherwise)
-- **English-only file/directory names** — no Chinese characters in paths (caused ByteString encoding crash in v1)
+- **English ONLY** for all user-facing content
+- **English-only file/directory names** — no Chinese characters in paths
 - **Real portfolio assets only** — no stock photos, no pravatar.cc, no fake avatars
-- **No AI-slop patterns**: 3-column icon grids, 01/02/03 numbered steps, centered hero text, blurred decorative circles, fake testimonial grids
-
-### Motion Rules
-- `whileInView` stagger: max 2 items, not whole sections
-- Prefer CSS transitions over Framer Motion for micro-interactions
-- Ask for every animation: "If removed, does UX suffer?" — if no, remove
+- **No AI-slop patterns**: 3-column icon grids, 01/02/03 numbered steps, centered hero text
 
 ### Build Rules
 - `npm run build` must pass before any commit
-- No Pages Router patterns — App Router only
 - Server Components by default — `"use client"` only when strictly necessary
 
 ---
@@ -40,8 +30,7 @@ From the cagent4 project, confirmed in memory:
 |-------|------------|
 | Framework | Next.js 16.2.6 (App Router) |
 | Styling | Tailwind CSS v4 + CSS `@theme` |
-| Animation | Framer Motion (TBD — install when needed) |
-| Icons | lucide-react (TBD — install when needed) |
+| Icons | Inline SVG only (no icon library) |
 
 ---
 
@@ -128,14 +117,3 @@ All contact/social info centralized in `src/config/contact.ts` — never hardcod
 Target keywords will center on: product photography, AI product images, AI video for ecommerce, Amazon listing visuals.
 
 Every page must have: `<title>`, `meta description`, OG tags, Twitter Card tags, Schema structured data.
-
----
-
-## 7. Current Phase: Design Spec
-
-Next steps in order:
-1. ~~Lock market/language~~ ✅ English, US+Europe
-2. Collect brand assets (logo, real portfolio media) → TBD
-3. Design spec walkthrough with visual critique
-4. Engineering review
-5. Implementation
