@@ -9,9 +9,9 @@ import { cdnUrl, posterFor } from "@/config/cdn";
 // videoProductionCategories imported from @/config/categories
 
 export const metadata: Metadata = {
-  title: "Services — FlarePix",
+  title: "Product Photography & Video Services for Ecommerce — FlarePix",
   description:
-    "Product photography, video, AI imagery, and AI video services for ecommerce brands.",
+    "Product photography, video production, AI imagery, and AI video for Amazon and ecommerce brands. From white background shots to cinematic brand films — one studio, one workflow.",
   alternates: {
     canonical: "https://flarepix.com/services",
   },
@@ -53,6 +53,9 @@ export default function ServicesPage() {
         <p className="mt-4 max-w-2xl text-[var(--muted)]">
           Professional product visuals for ecommerce — organized by product
           category. Click through to see examples and learn about our process.
+        </p>
+        <p className="mt-4 max-w-2xl text-[var(--muted)]">
+          Whether you need <strong>product photography</strong> for Amazon listings, <strong>video production</strong> for social media, or <strong>AI-generated imagery</strong> at scale, we handle everything in one studio workflow. Based in Qingdao, China — serving Amazon and ecommerce sellers worldwide.
         </p>
 
         {/* Video Production */}

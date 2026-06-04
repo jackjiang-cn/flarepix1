@@ -22,7 +22,7 @@ import { photoSources } from "@/config/photo-sources";
 export const metadata: Metadata = {
   title: "FlarePix — Product Photography, Video & AI Visuals for Ecommerce",
   description:
-    "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Studio in Miami, remote-friendly, fast turnaround.",
+    "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China. Remote-friendly, worldwide shipping.",
   alternates: { canonical: "https://flarepix.com" },
   openGraph: {
     title: "FlarePix — Product Photography, Video & AI Visuals",

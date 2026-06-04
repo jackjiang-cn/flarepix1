@@ -7,15 +7,33 @@ import { contact } from "@/config/contact";
 export const metadata: Metadata = {
   title: "Contact — FlarePix",
   description:
-    "Get in touch with FlarePix for product photography, video, and AI visuals.",
+    "Get in touch with FlarePix for product photography, video, and AI visuals. Get a quote within 24 hours.",
   alternates: {
     canonical: "https://flarepix.com/contact",
+  },
+};
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact FlarePix",
+  url: "https://flarepix.com/contact",
+  description: "Get in touch for product photography, video, and AI visuals quotes.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "FlarePix",
+    email: contact.email,
+    url: "https://flarepix.com",
   },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-24">
         <h1 className="text-3xl font-semibold tracking-tight">Get in touch</h1>
