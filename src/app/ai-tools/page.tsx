@@ -4,9 +4,9 @@ import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 
 export const metadata: Metadata = {
-  title: "AI Tools — FlarePix",
+  title: "AI Tools — Try AI Product Imagery & Video Generators | FlarePix",
   description:
-    "AI-powered product imagery and video generation tools for ecommerce brands.",
+    "AI-powered product imagery and video generation tools for ecommerce brands. Upload a product photo and generate on-model shots, lifestyle scenes, and video clips.",
   alternates: {
     canonical: "https://flarepix.com/ai-tools",
   },

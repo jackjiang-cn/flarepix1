@@ -1,7 +1,7 @@
 export const contact = {
   email: "hello@flarepix.com",
-  phone: "",
-  address: "",
+  phone: "+86-156-6682-0406",
+  address: "Qingdao, Shandong, China",
   social: {
     youtube: "https://youtube.com/@flarepix",
     instagram: "https://instagram.com/flarepix",

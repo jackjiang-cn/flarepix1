@@ -28,14 +28,25 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       {/* Background video — autoplay muted loop, with poster for instant first paint */}
       <div className="absolute inset-0 z-0">
+        {/* Poster loads eagerly as the LCP element — small (28KB) and already optimized */}
+        <img
+          src={cdnUrl("/works/posters/hero-reel.jpg")}
+          alt=""
+          className="h-full w-full object-cover opacity-30"
+          width="1920"
+          height="1080"
+          loading="eager"
+          fetchPriority="high"
+          aria-hidden="true"
+        />
+        {/* Video loads only after page interaction — not needed for LCP */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
-          poster={cdnUrl("/works/posters/hero-reel.jpg")}
-          className="h-full w-full object-cover opacity-30"
+          preload="none"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
         >
           <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
         </video>
@@ -75,6 +86,8 @@ export default function Hero() {
                   className="w-full h-auto block"
                   loading={i < 3 ? "eager" : "lazy"}
                   fetchPriority={i < 3 ? "high" : "auto"}
+                  width="600"
+                  height="400"
                 />
               </div>
             ))}

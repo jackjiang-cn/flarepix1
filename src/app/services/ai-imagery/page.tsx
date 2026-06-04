@@ -49,11 +49,76 @@ export default function AiImageryPage() {
           />
         </section>
 
+        {/* SEO content — explains the service in depth */}
+        <section className="mt-16 grid gap-12 sm:grid-cols-2">
+          <div>
+            <h2 className="text-xl font-semibold">What is AI product imagery?</h2>
+            <p className="mt-3 text-[var(--muted)]">
+              AI product imagery uses artificial intelligence to generate lifestyle scenes, on-model shots, and campaign visuals from a single reference photo of your product. Unlike traditional photography, it requires no studio time, no models, and no shipping — just upload your product image and let AI do the rest.
+            </p>
+            <p className="mt-3 text-[var(--muted)]">
+              The result is photorealistic imagery that places your product in aspirational contexts — a living room, a beach, a city street — while maintaining accurate product geometry and color. Every image is brand-safe and on-model, without the logistics of a traditional shoot.
+            </p>
+            <p className="mt-3 text-[var(--muted)]">
+              Based in Qingdao, China — the world's manufacturing hub — we work with Amazon and ecommerce sellers globally. Your products are already here. Your visuals should be too.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold">Use cases for AI imagery</h2>
+            <ul className="mt-3 space-y-2 text-[var(--muted)]">
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                <span><strong>Amazon listings</strong> — Lifestyle images that convert better than white background shots alone</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                <span><strong>Social media campaigns</strong> — On-model content at scale without booking models</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                <span><strong>Email and display ads</strong> — Campaign visuals generated in hours, not weeks</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
+                <span><strong>Seasonal refreshes</strong> — Update imagery for holidays and trends without reshoots</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <div className="mt-16 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
           <p className="text-[var(--muted)]">
             More AI imagery examples coming soon.
           </p>
         </div>
+
+        {/* Cross-links to related services */}
+        <section className="mt-16 grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/services/ai-video"
+            className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
+          >
+            <p className="text-sm text-[var(--muted)]">Explore also</p>
+            <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
+              AI Video →
+            </p>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              Turn product images into short videos for social and ads.
+            </p>
+          </Link>
+          <Link
+            href="/services/brand-film"
+            className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
+          >
+            <p className="text-sm text-[var(--muted)]">Looking for something bigger?</p>
+            <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
+              Brand Film Production →
+            </p>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              Cinematic brand films for hero product launches.
+            </p>
+          </Link>
+        </section>
       </main>
       <Footer />
     </>
