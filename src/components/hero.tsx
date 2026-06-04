@@ -70,14 +70,13 @@ export default function Hero() {
           <div className="[column-fill:_balance] columns-2 sm:columns-3 gap-4">
             {heroImages.map((img, i) => (
               <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
-                <Image
+                <img
                   src={img.src}
                   alt={img.alt}
                   className="w-full h-auto block"
+                  loading={i < 3 ? "eager" : "lazy"}
                   width={600}
                   height={400}
-                  loading={i < 3 ? "eager" : "lazy"}
-                  priority={i < 3}
                 />
               </div>
             ))}
