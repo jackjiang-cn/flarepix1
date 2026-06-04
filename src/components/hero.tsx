@@ -27,26 +27,16 @@ const heroImages = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background poster — local file, no CDN round-trip, optimized by Next.js Image */}
+      {/* Background video — poster shows briefly before play, then video plays */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/works/posters/hero-reel.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-30"
-          loading="eager"
-          priority
-          sizes="100vw"
-          aria-hidden="true"
-        />
-        {/* Video loads only after page interaction — not needed for LCP */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
+          preload="metadata"
+          poster="/works/posters/hero-reel.jpg"
+          className="h-full w-full object-cover opacity-30"
         >
           <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
         </video>
