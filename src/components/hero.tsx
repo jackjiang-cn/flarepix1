@@ -1,4 +1,5 @@
 import CtaButton from "./cta-button";
+import Image from "next/image";
 import { cdnUrl } from "@/config/cdn";
 
 /*
@@ -28,15 +29,15 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       {/* Background video — autoplay muted loop, with poster for instant first paint */}
       <div className="absolute inset-0 z-0">
-        {/* Poster loads eagerly as the LCP element — small (28KB) and already optimized */}
-        <img
+        {/* Poster loaded via Next.js Image for automatic WebP + CDN optimization */}
+        <Image
           src={cdnUrl("/works/posters/hero-reel.jpg")}
           alt=""
-          className="h-full w-full object-cover opacity-30"
-          width="1920"
-          height="1080"
+          fill
+          className="object-cover opacity-30"
           loading="eager"
-          fetchPriority="high"
+          priority
+          sizes="100vw"
           aria-hidden="true"
         />
         {/* Video loads only after page interaction — not needed for LCP */}
