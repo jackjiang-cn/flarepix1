@@ -28,12 +28,12 @@ export const metadata: Metadata = {
 };
 
 const brandFilms = [
-  { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01", poster: "/works/posters/brand-film-07.jpg" },
-  { src: "/works/brand-film/brand-film-02.m4v", title: "Brand Film 02", poster: "/works/posters/brand-film-07.jpg" },
-  { src: "/works/brand-film/brand-film-03.m4v", title: "Brand Film 03", poster: "/works/posters/brand-film-07.jpg" },
-  { src: "/works/brand-film/brand-film-04.m4v", title: "Brand Film 04", poster: "/works/posters/brand-film-07.jpg" },
-  { src: "/works/brand-film/brand-film-05.m4v", title: "Brand Film 05", poster: "/works/posters/brand-film-07.jpg" },
-  { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01", poster: "/works/posters/brand-film-01.jpg" },
+  { src: "/works/brand-film/brand-film-02.m4v", title: "Brand Film 02", poster: "/works/posters/brand-film-02.jpg" },
+  { src: "/works/brand-film/brand-film-03.m4v", title: "Brand Film 03", poster: "/works/posters/brand-film-03.jpg" },
+  { src: "/works/brand-film/brand-film-04.m4v", title: "Brand Film 04", poster: "/works/posters/brand-film-04.jpg" },
+  { src: "/works/brand-film/brand-film-05.m4v", title: "Brand Film 05", poster: "/works/posters/brand-film-05.jpg" },
+  { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06", poster: "/works/posters/brand-film-06.jpg" },
 ];
 
 const brandFilmSchema = {
@@ -118,7 +118,7 @@ export default function BrandFilmPage() {
         <section className="mt-16">
           <h2 className="text-xl font-semibold">Showcase</h2>
           <GalleryLightbox
-            items={brandFilms.map((film) => ({ src: film.src, type: "video" as const, title: film.title }))}
+            items={brandFilms.map((film) => ({ src: film.src, type: "video" as const, title: film.title, poster: film.poster }))}
             columns={2}
           />
         </section>
