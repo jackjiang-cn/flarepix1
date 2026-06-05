@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/pricing",
   },
+  openGraph: {
+    title: "How We Quote — FlarePix",
+    description:
+      "FlarePix quotes each project individually. No fixed packages — tailored pricing based on your product type, volume, and use case.",
+    url: "https://flarepix.com/pricing",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Pricing" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How We Quote — FlarePix",
+    description:
+      "Custom quotes for product photography, video, and AI visuals — no fixed packages.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const pricingSchema = {
@@ -17,16 +32,7 @@ const pricingSchema = {
   "@type": "WebPage",
   name: "FlarePix Pricing",
   url: "https://flarepix.com/pricing",
-  description: "Transparent pricing for product photography, video, and AI visuals",
-  mainEntity: {
-    "@type": "ItemList",
-    itemListElement: [
-      { "@type": "Offer", name: "Product Photography", price: "25", priceCurrency: "USD", description: "Per photo, from" },
-      { "@type": "Offer", name: "Product Video", price: "150", priceCurrency: "USD", description: "Per video, from" },
-      { "@type": "Offer", name: "AI Imagery", price: "30", priceCurrency: "USD", description: "Per image, from" },
-      { "@type": "Offer", name: "AI Video", price: "100", priceCurrency: "USD", description: "Per video, from" },
-    ],
-  },
+  description: "Custom quotes for product photography, video, and AI visuals — every project is priced individually",
 };
 
 const factors = [

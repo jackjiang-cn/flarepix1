@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import WorkSectionToggle from "@/components/work-section-toggle";
@@ -168,12 +169,13 @@ export default async function WorkPage({
               {photos.map((p, i) => (
                 <div
                   key={`${p.src}-${i}`}
-                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                  className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
                 >
-                  <img
+                  <Image
                     src={cdnUrl(p.src)}
                     alt={p.alt}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -195,12 +197,13 @@ export default async function WorkPage({
                 aiImages.map((img, i) => (
                   <div
                     key={img.src}
-                    className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                    className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
                   >
-                    <img
+                    <Image
                       src={cdnUrl(img.src)}
                       alt={img.alt}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                       loading="lazy"
                     />
                   </div>
@@ -222,12 +225,13 @@ export default async function WorkPage({
               {getAllPhotos().map((p, i) => (
                 <div
                   key={`${p.src}-${i}`}
-                  className="overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
+                  className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
                 >
-                  <img
+                  <Image
                     src={cdnUrl(p.src)}
                     alt={p.alt}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -255,10 +259,10 @@ export default async function WorkPage({
               Get a quote
             </Link>
             <Link
-              href="/work"
+              href="/services"
               className="inline-flex items-center justify-center rounded-lg border border-[var(--amber)] px-7 py-3 text-sm font-medium text-[var(--amber)] transition-colors hover:bg-[var(--amber)] hover:text-black"
             >
-              View all categories
+              View all services
             </Link>
           </div>
         </div>

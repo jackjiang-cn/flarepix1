@@ -47,7 +47,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustSignals />
         <ServicesOverview />
         <ValueProp />
         <VideoCarousel />
@@ -68,6 +67,7 @@ export default function Home() {
         <SeoContent />
         <WhatWeDo />
         <FaqSection />
+        <TrustSignals />
       </main>
       <Footer />
     </>

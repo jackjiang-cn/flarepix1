@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const aboutSchema = {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
+  "@type": "WebPage",
   name: "About FlarePix",
   description:
     "Professional video production studio for Amazon and ecommerce brands, using a hybrid approach: real footage combined with AI-assisted post-production.",

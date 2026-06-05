@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { videoCategories, photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
@@ -142,10 +143,11 @@ export default function ServicesPage() {
                   className="group block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15] mb-4 break-inside-avoid"
                 >
                   <div className="bg-[var(--background)] p-2">
-                    <img
+                    <Image
                       src={cdnUrl(previewImg)}
                       alt={cat.label}
-                      className="w-full h-auto"
+                      fill
+                      className="object-cover"
                       loading="lazy"
                     />
                   </div>
@@ -189,10 +191,11 @@ export default function ServicesPage() {
               </div>
               {/* Preview poster thumbnail (first frame of brand film) */}
               <div className="relative overflow-hidden rounded-lg aspect-video">
-                <img
+                <Image
                   src={cdnUrl(posterFor("/works/brand-film/brand-film-07.m4v"))}
                   alt="Brand Film Production sample"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -237,12 +240,13 @@ export default function ServicesPage() {
                 ].map((src) => (
                   <div
                     key={src}
-                    className="overflow-hidden rounded-lg bg-[var(--background)] aspect-[4/5]"
+                    className="relative overflow-hidden rounded-lg bg-[var(--background)] aspect-[4/5]"
                   >
-                    <img
+                    <Image
                       src={cdnUrl(src)}
                       alt=""
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                       loading="lazy"
                     />
                   </div>

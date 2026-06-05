@@ -32,6 +32,19 @@ export async function generateMetadata({
       alternates: {
         canonical: `https://flarepix.com/services/${category}`,
       },
+      openGraph: {
+        title: `${photoCat.label} Photography — FlarePix`,
+        description: photoCat.description,
+        url: `https://flarepix.com/services/${category}`,
+        type: "website",
+        images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${photoCat.label} Photography` }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${photoCat.label} Photography — FlarePix`,
+        description: photoCat.description,
+        images: ["/og-image.jpg"],
+      },
     };
   }
 

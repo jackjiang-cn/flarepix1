@@ -69,11 +69,11 @@ export default function Hero() {
           {/* 6-image masonry — images render at original ratios */}
           <div className="[column-fill:_balance] columns-2 sm:columns-3 gap-4">
             {heroImages.map((img, i) => (
-              <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
-                <img
+               <div key={i} className="mb-4 overflow-hidden rounded-xl bg-[var(--surface)] break-inside-avoid">
+                <Image
                   src={cdnUrl(img.src)}
                   alt={img.alt}
-                  className="w-full h-auto block"
+                  className="w-full h-auto block object-cover"
                   loading={i < 3 ? "eager" : "lazy"}
                   width={600}
                   height={400}

@@ -71,6 +71,19 @@ export default function FaqSection() {
               )}
             </div>
           ))}
+          {/* CTA row */}
+          <div className="mt-8 rounded-xl border border-[var(--amber)] bg-[var(--background)] p-6 text-center">
+            <p className="text-base font-medium">Ready to get started?</p>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              Send us your product details and we&apos;ll put together a proposal within 24 hours.
+            </p>
+            <a
+              href="/contact"
+              className="mt-4 inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#a37e4a]"
+            >
+              Get a quote
+            </a>
+          </div>
         </div>
       </div>
     </section>

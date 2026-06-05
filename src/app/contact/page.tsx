@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/contact",
   },
+  openGraph: {
+    title: "Contact FlarePix — Get a Quote",
+    description:
+      "Get in touch with FlarePix for product photography, video, and AI visuals. Get a quote within 24 hours.",
+    url: "https://flarepix.com/contact",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact FlarePix" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact FlarePix — Get a Quote",
+    description:
+      "Get in touch with FlarePix for product photography, video, and AI visuals.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const contactSchema = {
