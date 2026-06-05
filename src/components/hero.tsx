@@ -74,7 +74,7 @@ export default function Hero() {
                   src={cdnUrl(img.src)}
                   alt={img.alt}
                   className="w-full h-auto block object-cover"
-                  loading={i < 3 ? "eager" : "lazy"}
+                  loading={i === 0 ? "eager" : "lazy"}
                   width={600}
                   height={400}
                 />

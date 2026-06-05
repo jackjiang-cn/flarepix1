@@ -51,6 +51,7 @@ export default function WhyUs() {
             src={cdnUrl("/works/photo/mens/mens_9.jpg")}
             alt="FlarePix studio workflow"
             className="h-full w-full object-cover object-center"
+            loading="lazy"
           />
         </div>
 
