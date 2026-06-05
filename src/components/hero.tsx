@@ -35,7 +35,7 @@ export default function Hero() {
           muted
           playsInline
           preload="metadata"
-          poster="/works/posters/hero-reel.jpg"
+          poster={cdnUrl("/works/posters/hero-reel.jpg")}
           className="h-full w-full object-cover opacity-30"
         >
           <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />

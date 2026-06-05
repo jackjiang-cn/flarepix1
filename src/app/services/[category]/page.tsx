@@ -98,7 +98,7 @@ export default async function CategoryPage({
     "@type": "VideoObject",
     name: `${cat.label} Video Production — FlarePix`,
     description: `Professional ${cat.label.toLowerCase()} video production for Amazon and ecommerce sellers. Real footage combined with AI-assisted post-production.`,
-    thumbnailUrl: `https://flarepix.com/works/posters/${category}.jpg`,
+    thumbnailUrl: `https://media.flarepix.com/works/posters/${category}.jpg`,
     uploadDate: "2026-01-15",
   };
 

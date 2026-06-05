@@ -42,7 +42,7 @@ const brandFilmSchema = {
   name: "Brand Film Production — FlarePix",
   description:
     "Cinematic brand films and commercial productions for Amazon and ecommerce brands using a hybrid production approach: real footage combined with AI-assisted post-production.",
-  thumbnailUrl: "https://flarepix.com/works/posters/brand-film.jpg",
+  thumbnailUrl: "https://media.flarepix.com/works/posters/brand-film.jpg",
   uploadDate: "2026-01-15",
 };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { contact } from "@/config/contact";
+import { cdnUrl } from "@/config/cdn";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -84,8 +85,8 @@ const videoJsonLd = {
   name: "FlarePix Hero Reel",
   description:
     "Product photography, video and AI imagery showreel for ecommerce and Amazon brands",
-  thumbnailUrl: "https://flarepix.com/works/posters/hero-reel.jpg",
-  contentUrl: "https://media.flarepix.com/works/hero-reel.mp4",
+  thumbnailUrl: cdnUrl("/works/posters/hero-reel.jpg"),
+  contentUrl: cdnUrl("/works/hero-reel.mp4"),
   uploadDate: "2026-01-15",
 };
 
