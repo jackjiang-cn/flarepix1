@@ -807,6 +807,100 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "arboleaf-product-video-case-study",
+    title: "Arboleaf Body Composition Scale — Product Video Case Study",
+    date: "2026-06-06",
+    excerpt:
+      "A second body composition scale project for a product brand under the same parent company as our GE Smart Scale case — same production workflow, same quality standard, different product context.",
+    heroImage: cdnUrl("/works/Case screenshots/Arboleaf-Smart-Scale-compressed.jpg"),
+    heroAlt: "Arboleaf body composition scale product video",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "5 min read",
+    relatedServices: [
+      { label: "AI Video", href: "/services/ai-video" },
+      { label: "Brand Film", href: "/services/brand-film" },
+      { label: "Pricing", href: "/pricing" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "This is the second project we completed for a product brand under the same parent company as our GE Smart Scale case study. After the first project, the client came back with a different SKU — an Arboleaf dual-frequency body composition scale.",
+      },
+      {
+        type: "paragraph",
+        text: "Both projects came from the same source: a client who was satisfied with the first delivery and returned for a second product. That's the kind of result we find most meaningful — not a one-time transaction, but a recurring production relationship.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Project brief",
+        id: "brief",
+      },
+      {
+        type: "paragraph",
+        text: "Arboleaf dual-frequency body composition scale — a premium 8-electrode bathroom scale with dual-frequency analysis technology, Bluetooth connectivity, and a full-body composition readout. Similar product category to the GE Smart Scale, but different enough in design language and technical specification to require its own visual treatment.",
+      },
+      {
+        type: "paragraph",
+        text: "Production scope: product video, Amazon listing format, 5-day turnaround. Price: $600 for video (simpler production, fewer deliverables). Photography billed separately.",
+      },
+      {
+        type: "video",
+        src: "https://media.flarepix.com/works/Case%20screenshots/Arboleaf%20Smart%20Scale.mp4",
+        title: "Arboleaf Smart Scale — FlarePix Product Video",
+      },
+      {
+        type: "paragraph",
+        text: "You can also view the finished video on Amazon: https://www.amazon.com/Arboleaf-8-Electrode-Dual-Frequency-Bathroom-Composition/dp/B0GKNGT58N",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What we produced",
+        id: "produced",
+      },
+      {
+        type: "paragraph",
+        text: "The production ran exactly as the first project did: one day in our Qingdao studio, Sony A7IV for product detail work, clean white background for the video, additional angles for the photography set. The scale was filmed at ground level, showing the electrode surface, the display panel, and the handle attachment in context.",
+      },
+      {
+        type: "paragraph",
+        text: "No AI scene extension was needed for this project — the studio set we used for the Arboleaf was a living room environment we already had access to, which matched the product's intended use context more directly than what we could have generated.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The recurring client relationship",
+        id: "relationship",
+      },
+      {
+        type: "paragraph",
+        text: "The Arboleaf project came in after the client had already seen our work on the GE Smart Scale. They knew what they were getting: a structured production process, a single day of filming, and delivery in Amazon-ready formats within a week.",
+      },
+      {
+        type: "paragraph",
+        text: "For us, recurring clients like this are the clearest signal that the production model is working. We're not winning every project we bid on — we're winning the ones where the brief matches what we actually do well.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What this means for your project",
+        id: "your-project",
+      },
+      {
+        type: "paragraph",
+        text: "If you have multiple SKUs in the same category — body composition scales, kitchen appliances, fitness devices — working with the same production team across all of them means each project benefits from what we learned on the last one. We know your brief format, your preferred delivery formats, and your product category context. That's less back-and-forth and a faster timeline.",
+      },
+      {
+        type: "paragraph",
+        text: "If you'd like to discuss a multi-SKU production plan, reach out at hello@flarepix.com with your product list and current timeline. We can usually put together a production sequence that runs multiple SKUs through the same shoot day.",
+      },
+    ],
+  },
 ];
 
 export const getPostBySlug = (slug: string) =>
