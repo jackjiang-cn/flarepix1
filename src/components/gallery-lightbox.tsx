@@ -8,6 +8,7 @@ type GalleryItem = {
   type: "image" | "video";
   alt?: string;
   title?: string;
+  poster?: string;
 };
 
 function ImageModal({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
@@ -74,7 +75,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
                   {/* Poster thumbnail (first frame of video) — masonry variant keeps 16:9 aspect */}
                   <div className="relative w-full aspect-video">
                     <img
-                      src={cdnUrl(posterFor(item.src))}
+                      src={cdnUrl(item.poster ?? posterFor(item.src))}
                       alt={item.title || ""}
                       className="absolute inset-0 h-full w-full object-cover"
                       loading="lazy"
@@ -137,7 +138,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
               <>
                 {/* Poster thumbnail (first frame of video) — grid variant fills 16:9 button */}
                 <img
-                  src={cdnUrl(posterFor(item.src))}
+                  src={cdnUrl(item.poster ?? posterFor(item.src))}
                   alt={item.title || ""}
                   className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
                   loading="lazy"

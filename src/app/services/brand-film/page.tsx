@@ -28,12 +28,12 @@ export const metadata: Metadata = {
 };
 
 const brandFilms = [
-  { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01" },
-  { src: "/works/brand-film/brand-film-02.m4v", title: "Brand Film 02" },
-  { src: "/works/brand-film/brand-film-03.m4v", title: "Brand Film 03" },
-  { src: "/works/brand-film/brand-film-04.m4v", title: "Brand Film 04" },
-  { src: "/works/brand-film/brand-film-05.m4v", title: "Brand Film 05" },
-  { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06" },
+  { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-02.m4v", title: "Brand Film 02", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-03.m4v", title: "Brand Film 03", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-04.m4v", title: "Brand Film 04", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-05.m4v", title: "Brand Film 05", poster: "/works/posters/brand-film-07.jpg" },
+  { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06", poster: "/works/posters/brand-film-07.jpg" },
 ];
 
 const brandFilmSchema = {
