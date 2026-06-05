@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Our Qingdao studio is functional, but not large. For a full-length body composition scale — the kind with a large base and handle attachment — getting a wide enough shot to communicate 'premium home appliance in context' was a physical limitation. We had two options: find an alternate location, or use the space we had and extend it digitally.",
+        text: "Our Qingdao studio is large, but we didn't have a full living room set built for this specific product context. For a body composition scale — the kind with a large base and handle attachment — showing it in a real living room setting required a wider shot than our current set could provide. We had two options: build out a new set, or use the space we had and extend it digitally.",
       },
       {
         type: "paragraph",
