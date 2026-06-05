@@ -201,3 +201,119 @@ P2（下一阶段）：
 
 *审计时间：2026-06-05*
 *工具：seo-audit skill + 逐文件代码扫描*
+---
+
+## 五、六大竞品全景分析（2026-06-05）
+
+*来源：用户提供的竞品调研数据 + 代码分析*
+
+### 竞品总览
+
+| 维度 | ProductVideoStudio | Filma | Vidico | Hi-Light AI | Neverframe | C&I Studios |
+|------|-------------------|-------|--------|-------------|------------|-------------|
+| **定位** | 亚马逊产品视频专家 | 全球化视频制作网络 | 数据驱动电商视频 | AI原生视频生成 | 电影级商业智能 | 创意代理+影棚 |
+| **核心卖点** | 视频+摄影+A+内容一站式 | 六大洲全球制作网络 | 14亿播放+ROI验证 | 成本削减90%+多智能体 | Cinematic Intelligence | 增长导向+全链路 |
+| **价格** | 未公开（咨询） | 未公开（咨询） | 照片$24/张，视频$24/张，$63/视频起 | 未公开（咨询） | 未公开（高端定制） | 未公开（咨询） |
+| **目标客户** | 亚马逊消费电子卖家 | 跨国电商品牌 | 电商+科技/SaaS | 跨境电商小团队 | 高端全球化品牌 | 电商品牌 |
+| **实拍能力** | ✅ 有 | ✅ 有 | ✅ 有 | ❌纯AI | ✅ 有 | ✅ 有 |
+| **AI能力** | ❌ 无 | ✅ 辅助 | ✅ 加速流程 | ✅ 核心 | ✅ CEO Avatar | ❌ 无 |
+| **差异化信号** | Trustpilot 4.9 + 16品牌案例 | 全球数百城市本地制作 | ROI数据背书+免费脚本 | 90%降本+RAG知识库 | Engineered UGC | 自有影棚 |
+
+### 关键洞察
+
+**洞察1：定价黑洞**
+几乎所有竞品（除 Vidico 子品牌 vidi.so 外）都不公开定价。这说明：
+- 客单价不低（需要"教育"客户后才报价）
+- 行业信息不对称，客户难以比价
+- FlarePix 如果能做透明定价（如"Starting from $XX"），能建立差异化信任
+
+**洞察2：市场定位空白**
+目前没有竞品同时做到：
+- ✅ 实拍能力
+- ✅ AI能力
+- ✅ 专攻亚马逊卖家
+
+最接近的是：
+- ProductVideoStudio（实拍为主，无AI）
+- Hi-Light AI（纯AI，无实拍）
+
+**FlarePix 的独特定位 = 中间地带无人占据**
+
+### FlarePix 竞争优势矩阵
+
+| 你的优势 | 对标竞品弱点 |
+|----------|-------------|
+| 实拍 + AI 融合 | Hi-Light 无实拍；ProductVideoStudio 无AI |
+| 透明定价 | 几乎所有竞品都不公开价格 |
+| 专攻跨境卖家 | Filma/Vidico 太泛，不聚焦 |
+| 中文团队 + 深圳供应链 | 西方竞品做不到的性价比和速度 |
+
+---
+
+## 六、战略行动建议（基于竞品分析）
+
+### 6.1 定位语言重构（最优先级）
+
+**当前问题：** 首页标题 "Product Photography, Video & AI Visuals for Ecommerce" 太泛
+**竞品对标：** ProductVideoStudio 直接打"Amazon product video"，Vidico 打"14亿播放"
+**建议标题方向：**
+> "Amazon Product Video & Photography Studio — Real Footage + AI Production"
+
+在 Title、H1、Meta description 中强化：
+- "Amazon" — 明确垂类
+- "Real Footage + AI" — 差异化
+- "Studio" — 专业感（非平台/工具）
+
+### 6.2 定价透明化
+
+**竞品现状：** 几乎全部咨询报价，客户体验差
+**机会点：** 在 Pricing 页面加价格起点，让客户自评是否值得询盘
+**建议：**
+```
+Product Photography: starting from $XX / image
+Product Video: starting from $XX / video
+AI Video: starting from $XX / video
+Brand Film: contact for quote
+```
+参考 Vidico 子品牌 vidi.so 的透明定价策略
+
+### 6.3 信任信号强化（对标 ProductVideoStudio）
+
+ProductVideoStudio 有 Trustpilot 4.9 + 16品牌案例，FlarePix 缺：
+- 无客户评价展示
+- 无数字化的交付成果
+- 无第三方评分
+
+**建议（需你提供素材）：**
+- 客户 Logo（需授权）
+- 真实评价 Testimonial
+- 交付数据（如"已为 XXX 个 Amazon 卖家交付"）
+
+**过渡方案（可直接做）：**
+- About 页面加电话号码（contact.ts 已有）
+- 展示合作品类（已有：电子秤、儿童玩具、纸巾）
+- 展示交付数量/客户数量估算
+
+### 6.4 AI 差异化强化（对标 Hi-Light 但不打价格战）
+
+Hi-Light 的核心诉求是"成本削减90%"，如果 FlarePix 也打价格，会输。
+**正确打法：** 强调"AI 是工具，专业团队才是核心"
+
+USP 语言：
+> "AI video tools are everywhere. Professional review is not."
+
+在 AI Video 页面已有这个方向，继续强化，不要降价竞争。
+
+### 6.5 内容关键词布局（基于竞品关键词）
+
+| 竞品占位词 | 机会 | FlarePix 落地页 |
+|------------|------|-----------------|
+| `amazon product video production` | 基本空白 | AI Video + Brand Film |
+| `product video for amazon listing` | 低竞争 | AI Video 页面 |
+| `ai product video amazon` | 中竞争 | AI Video 页面 |
+| `brand film ecommerce` | Neverframe 占位 | Brand Film 页面 |
+| `amazon listing video` | 机会词 | AI Video 页面 |
+
+---
+
+*竞品分析补充：2026-06-05*
