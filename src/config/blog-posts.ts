@@ -4,7 +4,8 @@ export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; level: 2 | 3; text: string; id?: string }
   | { type: "list"; ordered?: boolean; items: string[] }
-  | { type: "quote"; text: string; cite?: string };
+  | { type: "quote"; text: string; cite?: string }
+  | { type: "video"; src: string; title: string };
 
 export type RelatedService = {
   label: string;
@@ -159,7 +160,16 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "GE's product team needed a product video for their Smart Scale body fat monitor — a premium 8-electrode bathroom scale with Bluetooth sync and full body composition analysis. The listing already had strong photography. What it needed was a video that showed the product in use: the step-on experience, the handle display reading, the app sync in action. 30 seconds, clean and premium. Timeline: 5 business days. Budget: $2,500.",
+        text: "GE's product team needed a product video for their Smart Scale body fat monitor — a premium 8-electrode body composition scale with Bluetooth sync and full body composition analysis. The listing already had strong photography. What it needed was a video that showed the product in use: the step-on experience, the handle display reading, the app sync in action. 30 seconds, clean and premium. Timeline: 5 business days. Budget: $2,500.",
+      },
+      {
+        type: "video",
+        src: "https://media.flarepix.com/works/brand-film/brand-film-08.m4v",
+        title: "GE Smart Scale — FlarePix Hybrid Production",
+      },
+      {
+        type: "paragraph",
+        text: "You can also view the finished video on Amazon: https://www.amazon.com/dp/B0G1YVWXL5/",
       },
       {
         type: "heading",
@@ -169,7 +179,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Our Qingdao studio is functional, but not large. For a full-length body composition scale — the kind with a large base and handle attachment — getting a wide enough shot to communicate 'premium bathroom appliance at home' was a physical limitation. We had two options: find an alternate location, or use the space we had and extend it digitally.",
+        text: "Our Qingdao studio is functional, but not large. For a full-length body composition scale — the kind with a large base and handle attachment — getting a wide enough shot to communicate 'premium home appliance in context' was a physical limitation. We had two options: find an alternate location, or use the space we had and extend it digitally.",
       },
       {
         type: "paragraph",
@@ -187,7 +197,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The wide shot — the one that needed the expanded scene — showed the scale in a partial bathroom environment. We had the product, the light, and about 40% of the background we needed. AI scene extension filled the rest: the same floor material extended, the same wall tone carried through, the same light source providing context. What the viewer sees is a real studio product shot, not an AI-generated scene with a product dropped in.",
+        text: "The wide shot — the one that needed the expanded scene — showed the scale in a partial living room environment. We had the product, the light, and about 40% of the background we needed. AI scene extension filled the rest: the same floor material extended, the same wall tone carried through, the same light source providing context. What the viewer sees is a real studio product shot, not an AI-generated scene with a product dropped in.",
       },
       {
         type: "heading",
@@ -197,7 +207,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "AI scene extension is not a replacement for a good studio setup. It's a tool for solving a specific spatial constraint: you have the right product, the right lighting, and the right angle — but not enough room to show the intended environment. In this case, the viewer needed to understand this scale belongs in a home, not a lab. The AI extension made that legible without forcing us to find and rent a full bathroom set.",
+        text: "AI scene extension is not a replacement for a good studio setup. It's a tool for solving a specific spatial constraint: you have the right product, the right lighting, and the right angle — but not enough room to show the intended environment. In this case, the viewer needed to understand this scale belongs in a home setting, not a lab. The AI extension made that legible without forcing us to find and rent a full living room set.",
       },
       {
         type: "paragraph",

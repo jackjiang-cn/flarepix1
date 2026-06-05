@@ -94,6 +94,17 @@ const renderBlock = (block: ContentBlock, i: number) => {
           )}
         </blockquote>
       );
+    case "video":
+      return (
+        <video
+          key={i}
+          controls
+          preload="metadata"
+          className="mt-6 w-full rounded-xl"
+          src={block.src}
+          title={block.title}
+        />
+      );
   }
 };
 
