@@ -165,19 +165,19 @@ export default async function WorkPage({
               queryParam="category"
               targetId=""
             />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 [column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 gap-4">
               {photos.map((p, i) => (
-                <div
-                  key={`${p.src}-${i}`}
-                  className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
-                >
-                  <Image
-                    src={cdnUrl(p.src)}
-                    alt={p.alt}
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                  />
+                <div key={`${p.src}-${i}`} className="mb-4 break-inside-avoid">
+                  <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
+                    <Image
+                      src={cdnUrl(p.src)}
+                      alt={p.alt}
+                      width={400}
+                      height={267}
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -192,20 +192,20 @@ export default async function WorkPage({
               queryParam="aicategory"
               targetId=""
             />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+             <div className="mt-6 [column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 gap-4">
               {activeAiCategory === "ai-images" || activeAiCategory === "all" ? (
                 aiImages.map((img, i) => (
-                  <div
-                    key={img.src}
-                    className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
-                  >
-                    <Image
-                      src={cdnUrl(img.src)}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                    />
+                  <div key={img.src} className="mb-4 break-inside-avoid">
+                    <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
+                      <Image
+                        src={cdnUrl(img.src)}
+                        alt={img.alt}
+                        width={400}
+                        height={500}
+                        className="object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 ))
               ) : null}
@@ -218,28 +218,30 @@ export default async function WorkPage({
           </div>
         )}
 
-        {/* Default state: no section open, show all photos and all videos */}
+        {/* Default state: no section open, show all videos and all photos */}
         {!anyOpen && (
           <div className="mt-6 space-y-12">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {getAllPhotos().map((p, i) => (
-                <div
-                  key={`${p.src}-${i}`}
-                  className="relative overflow-hidden rounded-lg bg-[var(--surface)] aspect-[4/3]"
-                >
-                  <Image
-                    src={cdnUrl(p.src)}
-                    alt={p.alt}
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+            {/* Videos first */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {allVideos.map((v, i) => (
                 <ClickableVideoCard key={`${v.src}-${i}`} src={v.src} label={v.label} />
+              ))}
+            </div>
+            {/* Photos in masonry layout */}
+            <div className="[column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 gap-4">
+              {getAllPhotos().map((p, i) => (
+                <div key={`${p.src}-${i}`} className="mb-4 break-inside-avoid">
+                  <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
+                    <Image
+                      src={cdnUrl(p.src)}
+                      alt={p.alt}
+                      width={400}
+                      height={267}
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
