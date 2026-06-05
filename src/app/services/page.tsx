@@ -33,10 +33,10 @@ const serviceSchema = {
     "@type": "OfferCatalog",
     name: "Product Visual Services",
     itemListElement: [
-      { "@type": "Offer", name: "Product Photography", price: "25", priceCurrency: "USD" },
-      { "@type": "Offer", name: "Product Video", price: "150", priceCurrency: "USD" },
-      { "@type": "Offer", name: "AI Imagery", price: "30", priceCurrency: "USD" },
-      { "@type": "Offer", name: "AI Video", price: "100", priceCurrency: "USD" },
+      { "@type": "Offer", name: "Product Photography" },
+      { "@type": "Offer", name: "Product Video Production" },
+      { "@type": "Offer", name: "AI Imagery" },
+      { "@type": "Offer", name: "AI Video" },
     ],
   },
 };

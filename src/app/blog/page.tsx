@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/blog",
   },
+  openGraph: {
+    title: "Blog — FlarePix",
+    description:
+      "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
+    url: "https://flarepix.com/blog",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Blog" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — FlarePix",
+    description:
+      "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const blogSchema = {
