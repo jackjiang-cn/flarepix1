@@ -115,7 +115,7 @@ export default function AiVideoPage() {
 
         {/* SEO content */}
         <section className="mt-16">
-          <h2 className="text-xl font-semibold">What is AI product video — and why it&apos;s not a自助工具</h2>
+          <h2 className="text-xl font-semibold">What is AI product video — and why it&apos;s not a self-serve tool</h2>
           <div className="mt-6 grid gap-8 sm:grid-cols-2">
             <div>
               <p className="text-[var(--muted)]">

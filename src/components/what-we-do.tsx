@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cdnUrl, posterFor } from "@/config/cdn";
 
 type ImageItem = {
@@ -75,19 +76,21 @@ export default function WhatWeDo() {
               } ${item.align === "right" ? "lg:order-2" : "lg:order-1"}`}
             >
               {item.kind === "image" ? (
-                <img
+                <Image
                   src={cdnUrl(item.src)}
                   alt={item.alt}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
                   loading="lazy"
                 />
               ) : (
                 <div className="relative h-full w-full">
                   {/* Poster thumbnail (first frame of video) */}
-                  <img
+                  <Image
                     src={cdnUrl(posterFor(item.src))}
                     alt={item.title}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">

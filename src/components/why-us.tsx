@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cdnUrl } from "@/config/cdn";
 
 const items = [
@@ -44,13 +45,14 @@ export default function WhyUs() {
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
         {/* Left — image, height matches right content */}
         <div
-          className="overflow-hidden rounded-2xl bg-[var(--surface)]"
+          className="relative overflow-hidden rounded-2xl bg-[var(--surface)]"
           style={{ minHeight: openIndex !== null ? `${400 + openIndex * 50}px` : "400px" }}
         >
-          <img
+          <Image
             src={cdnUrl("/works/photo/mens/mens_9.jpg")}
             alt="FlarePix studio workflow"
-            className="h-full w-full object-cover object-center"
+            fill
+            className="object-cover object-center"
             loading="lazy"
           />
         </div>

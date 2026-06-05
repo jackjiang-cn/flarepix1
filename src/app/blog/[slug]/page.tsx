@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -187,12 +188,13 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           </header>
 
-          <div className="mt-10 overflow-hidden rounded-2xl bg-[var(--surface)]">
-            <img
+          <div className="mt-10 overflow-hidden rounded-2xl bg-[var(--surface)] relative aspect-[16/9]">
+            <Image
               src={cdnUrl(post.heroImage)}
               alt={post.heroAlt}
-              className="h-auto w-full"
-              loading="eager"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
 

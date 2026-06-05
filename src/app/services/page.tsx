@@ -74,10 +74,11 @@ export default function ServicesPage() {
                   <div className="bg-[var(--background)] p-2">
                     <div className="relative w-full aspect-video overflow-hidden rounded">
                       {firstVideo ? (
-                        <img
+                        <Image
                           src={cdnUrl(posterFor(firstVideo))}
                           alt={cat.label}
-                          className="absolute inset-0 h-full w-full object-cover"
+                          fill
+                          className="object-cover"
                           loading="lazy"
                         />
                       ) : (

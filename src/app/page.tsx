@@ -32,6 +32,13 @@ export const metadata: Metadata = {
     url: "https://flarepix.com",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "FlarePix — Product Photography, Video & AI Visuals",
+    description:
+      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 // Product photography tabs from photoCategories
