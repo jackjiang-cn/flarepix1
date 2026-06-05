@@ -40,13 +40,6 @@ const blogSchema = {
     name: "FlarePix",
     url: "https://flarepix.com",
   },
-  blogPost: blogPosts.map((p) => ({
-    "@type": "BlogPosting",
-    headline: p.title,
-    url: `https://flarepix.com/blog/${p.slug}`,
-    datePublished: p.date,
-    author: { "@type": "Organization", name: p.author },
-  })),
 };
 
 const formatDate = (iso: string) => {

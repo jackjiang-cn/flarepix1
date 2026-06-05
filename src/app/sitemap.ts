@@ -27,6 +27,8 @@ const staticPages: Entry[] = [
   { path: "faq", priority: 0.7, changeFrequency: "monthly" },
   { path: "blog", priority: 0.7, changeFrequency: "weekly" },
   { path: "ai-tools", priority: 0.8, changeFrequency: "monthly" },
+  { path: "privacy-policy", priority: 0.5, changeFrequency: "yearly" },
+  { path: "terms", priority: 0.5, changeFrequency: "yearly" },
 ];
 
 const photoServicePages: Entry[] = photoCategories.map((c) => ({

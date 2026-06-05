@@ -41,6 +41,15 @@ const serviceSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
+  ],
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -48,7 +57,7 @@ export default function ServicesPage() {
       <main className="mx-auto max-w-7xl px-6 py-24">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }}
         />
         <h1 className="text-3xl font-semibold tracking-tight">Services</h1>
         <p className="mt-4 max-w-2xl text-[var(--muted)]">

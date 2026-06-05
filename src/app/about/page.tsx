@@ -54,6 +54,15 @@ const aboutSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://flarepix.com/about" },
+  ],
+};
+
 const teamExpertise = [
   {
     label: "Amazon Product Video",
@@ -84,7 +93,7 @@ export default function AboutPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([aboutSchema, breadcrumbSchema]) }}
       />
       <Header />
       <main className="mx-auto max-w-7xl px-6 py-24">
