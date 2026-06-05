@@ -1,3 +1,5 @@
+import { cdnUrl } from "@/config/cdn";
+
 export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; level: 2 | 3; text: string; id?: string }
@@ -131,9 +133,9 @@ export const blogPosts: BlogPost[] = [
     title: "How We Shot a Real Amazon Product Video: A Behind-the-Scenes Look at Our Hybrid Production Process",
     date: "2026-06-04",
     excerpt:
-      "A real Amazon product video for a kitchen scale brand — from brief to delivery. How hybrid production (real footage + AI post) works in practice, and why it produces better results than either approach alone.",
-    heroImage: "/works/ai/images/ai-image-06.webp",
-    heroAlt: "Behind the scenes of hybrid product video production",
+      "A real Amazon product video for a GE body fat scale — from brief to delivery. How hybrid production (real footage + AI scene extension) works in practice, and why the AI layer exists to solve a real studio constraint, not to replace real filming.",
+    heroImage: cdnUrl("/works/Case screenshots/ai-1-compressed.jpg"),
+    heroAlt: "GE body fat scale product video — real footage with AI-enhanced scene",
     author: "FlarePix Studio",
     authorRole: "Photo, video, and AI production",
     authorBio:
@@ -147,87 +149,92 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "paragraph",
-        text: "Every production studio has a portfolio. Most portfolios show the finished work — clean cuts, polished output, final deliverables. This post is different. It's a behind-the-scenes look at how we actually produced a product video for a kitchen scale brand in Qingdao, using our hybrid process. Real brief, real constraints, real decisions made along the way.",
-      },
-      {
-        type: "paragraph",
-        text: "The brand sells premium kitchen scales on Amazon — US market, mostly private label, competing against established names in the $30-60 price range. Their brief: one hero product video for the Amazon listing, 30 seconds, clean and premium feeling, lifestyle context (kitchen setting), deliverables in 2 weeks.",
+        text: "Most product video portfolios show the finished result. This post shows the actual production — a real project for a GE body fat scale, from the brief we received to the final delivery. The numbers are real. The process is real. The only thing we cleaned up was the studio floor between takes.",
       },
       {
         type: "heading",
         level: 2,
-        text: "The brief and the production constraint",
+        text: "The brief",
         id: "brief",
       },
       {
         type: "paragraph",
-        text: "A traditional full-production shoot for this brief would have meant: studio rental in the US or Europe ($1,500-4,000/day), professional talent ($500-1,500/day), a kitchen set build or location rental, multi-day shoot to cover all the angles, and post-production at $150-300/hour. The final cost for a 30-second hero video lands in the $4,000-8,000 range with a 4-6 week timeline.",
-      },
-      {
-        type: "paragraph",
-        text: "That's a reasonable budget for a major brand. For a private label seller with a kitchen scale at $40 retail, it's not. We proposed a hybrid approach: real studio footage (the actual product on white, in a real kitchen setup we have access to in Qingdao) combined with AI-assisted post-production (motion graphics, color grading, upscaling). Total cost was under $800. Timeline was 10 business days from brief to delivery.",
+        text: "GE's product team needed a product video for their Smart Scale body fat monitor — a premium 8-electrode bathroom scale with Bluetooth sync and full body composition analysis. The listing already had strong photography. What it needed was a video that showed the product in use: the step-on experience, the handle display reading, the app sync in action. 30 seconds, clean and premium. Timeline: 5 business days. Budget: $2,500.",
       },
       {
         type: "heading",
         level: 2,
-        text: "Step 1 — Studio footage",
-        id: "studio",
+        text: "The studio constraint",
+        id: "constraint",
       },
       {
         type: "paragraph",
-        text: "We shot the kitchen scale in our Qingdao studio on a white sweep. One day, two cameras (a Sony A7IV for the product detail work and a second camera for wider angles). The product arrived from the manufacturer with full retail packaging — we shot without the packaging, as Amazon requires for the main listing image.",
+        text: "Our Qingdao studio is functional, but not large. For a full-length body composition scale — the kind with a large base and handle attachment — getting a wide enough shot to communicate 'premium bathroom appliance at home' was a physical limitation. We had two options: find an alternate location, or use the space we had and extend it digitally.",
       },
       {
         type: "paragraph",
-        text: "Key decisions in the shoot: the scale needed to be shown weighing actual food (not empty, not with a placeholder weight), we filmed both a digital readout close-up and a full-kitchen wide shot in the same session, and we captured 3 angles of the product for AI-assisted motion generation — the scale tilting, the weighing action, and the display readout changing.",
+        text: "We chose the second option — not because AI generation is faster or cheaper, but because for this specific shot, it was the most honest way to show the product in the intended environment without compromising on what we actually filmed.",
       },
       {
         type: "heading",
         level: 2,
-        text: "Step 2 — AI-assisted post-production",
-        id: "post",
+        text: "What we actually filmed",
+        id: "filmed",
       },
       {
         type: "paragraph",
-        text: "With the raw footage in hand, we moved to post. The real studio footage gave us accurate product geometry and color. The AI layer handled three things the footage alone couldn't: (1) motion upscaling — we shot at 4K but the footage had camera shake on the tilt shots; AI upscaling handled stabilization and frame interpolation, (2) background extension — the white sweep background was clean but static; we used AI-assisted motion graphics to add a slow parallax to the background that gives the kitchen setting depth, and (3) output variants — we generated social-ready 1:1 and 9:16 formats from the hero 16:9 using AI frame generation, so the client had Amazon listing video, Meta feed, and Instagram Reels versions from a single shoot.",
+        text: "One day in the studio. Sony A7IV for product detail, a second camera for wider context. We filmed the scale at ground level to show the base profile and electrode surface, the step-on moment with feet making contact, the handle display reading out composition data, and the Bluetooth sync animation on a phone screen held beside the product. Clean white background, controlled lighting, real product.",
+      },
+      {
+        type: "paragraph",
+        text: "The wide shot — the one that needed the expanded scene — showed the scale in a partial bathroom environment. We had the product, the light, and about 40% of the background we needed. AI scene extension filled the rest: the same floor material extended, the same wall tone carried through, the same light source providing context. What the viewer sees is a real studio product shot, not an AI-generated scene with a product dropped in.",
       },
       {
         type: "heading",
         level: 2,
-        text: "Step 3 — Quality review",
-        id: "review",
+        text: "When AI scene extension works — and when it doesn't",
+        id: "when-ai",
       },
       {
         type: "paragraph",
-        text: "Every output went through a human review before delivery. This is where the hybrid approach earns its name — the AI does the scaling and generation, a team member reviews for product accuracy, visual consistency, and brand fit. We caught two instances where the AI frame interpolation added a ghosting artifact on the scale's LED display and corrected them in the edit. No algorithm caught that; a team member did.",
+        text: "AI scene extension is not a replacement for a good studio setup. It's a tool for solving a specific spatial constraint: you have the right product, the right lighting, and the right angle — but not enough room to show the intended environment. In this case, the viewer needed to understand this scale belongs in a home, not a lab. The AI extension made that legible without forcing us to find and rent a full bathroom set.",
+      },
+      {
+        type: "paragraph",
+        text: "It doesn't work when you have the wrong product shot to begin with. A product shot with inaccurate color, wrong proportions, or poor lighting will produce an AI extension that amplifies those problems rather than solving them. The AI layer requires accurate source material — it extends what's there, it doesn't fix what's wrong.",
       },
       {
         type: "heading",
         level: 2,
-        text: "The delivered result",
+        text: "Delivery and client response",
         id: "result",
       },
       {
         type: "paragraph",
-        text: "The client received: one 30-second Amazon listing video (16:9, 4K, H.264 MP4), three social variants (1:1 for Facebook, 9:16 for Instagram Reels, 9:16 for TikTok), all in Amazon's required format, ready to upload. Timeline: 10 business days from brief confirmation to delivery. Total cost: under $800.",
+        text: "Final delivery: one 30-second Amazon listing video (16:9, 4K H.264 MP4), formatted for Amazon's player. Total production time: 5 business days from brief confirmation. Price: $2,500.",
       },
       {
         type: "paragraph",
-        text: "Three weeks after launch, the client's Amazon listing had a 22% higher conversion rate than their previous best-performing month — the video was cited in their follow-up email as the primary change. That's not a controlled A/B test, but the timing is consistent with what we see from clients who invest in quality listing video.",
+        text: "The client was satisfied with the production quality — so satisfied that they referred us to at least three other product teams within their organization. That's the metric we find most meaningful: not a conversion rate claim, but a client who trusted the output enough to recommend us to colleagues.",
       },
       {
         type: "heading",
         level: 2,
-        text: "What this means for your project",
-        id: "your-project",
+        text: "When hybrid production makes sense",
+        id: "when-hybrid",
+      },
+      {
+        type: "list",
+        items: [
+          "Product video for Amazon listings — when you need a real product shot with a contextual environment you can't physically access",
+          "High-volume catalog work — multiple SKUs, same studio setup, AI extends the scene library without additional shoots",
+          "Scale-phase creative — when you're testing multiple lifestyle contexts before committing to a full production",
+          "Products where the real environment is impractical to film in (outdoor gear in actual outdoor conditions, large furniture in actual living rooms)",
+        ],
       },
       {
         type: "paragraph",
-        text: "Hybrid production isn't the right fit for every project — if you need a cinematic brand film with complex talent and location work, a full-production shoot is still the right call. But for product video at the listing level, especially at scale across multiple SKUs, hybrid production delivers 80% of the visual impact at 20% of the cost. And with turnaround that fits a product launch calendar.",
-      },
-      {
-        type: "paragraph",
-        text: "If you want to see how hybrid production would work for your specific product, send us your product and a brief — we'll put together a production plan and a quote within 24 hours. No commitment required.",
+        text: "When full production is the better call: cinematic brand films with complex talent and location work, products where physical scale and texture are the entire selling proposition, or anytime you need a specific real-world location that AI can't convincingly replicate. AI scene extension is not a substitute for a great studio shoot — it's a complement for the constraints that make a great studio shoot impractical.",
       },
     ],
   },
