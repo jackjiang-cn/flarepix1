@@ -71,7 +71,7 @@ export default function WhatWeDo() {
             className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"
           >
             <div
-              className={`overflow-hidden rounded-2xl bg-[var(--surface)] ${
+              className={`relative overflow-hidden rounded-2xl bg-[var(--surface)] ${
                 item.kind === "video" ? "aspect-video" : "aspect-[4/3]"
               } ${item.align === "right" ? "lg:order-2" : "lg:order-1"}`}
             >

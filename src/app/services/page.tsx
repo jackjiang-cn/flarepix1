@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 <Link
                   key={cat.slug}
                   href={`/services/${cat.slug}`}
-                  className="group block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15]"
+                  className="group relative block rounded-2xl border border-black/[0.08] bg-[var(--surface)] overflow-hidden transition-colors hover:border-black/[0.15]"
                 >
                   <div className="bg-[var(--background)] p-2">
                     <div className="relative w-full aspect-video overflow-hidden rounded">
@@ -156,7 +156,8 @@ export default function ServicesPage() {
                     <Image
                       src={cdnUrl(previewImg)}
                       alt={cat.label}
-                      fill
+                      width={400}
+                      height={267}
                       className="object-cover"
                       loading="lazy"
                     />
