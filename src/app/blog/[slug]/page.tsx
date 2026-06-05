@@ -127,13 +127,28 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.date,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://flarepix.com/blog" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://flarepix.com/blog/${slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-24">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
         />
 
         <Link

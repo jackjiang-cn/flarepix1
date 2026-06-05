@@ -44,13 +44,43 @@ const videoObjectSchema = {
   uploadDate: "2026-01-15",
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Get an AI Product Video for Amazon",
+  description:
+    "Step-by-step guide to commissioning an AI product video from FlarePix — from brief to delivery.",
+  step: [
+    {
+      "@type": "HowToStep",
+      name: "Send your brief",
+      text: "Contact us with your product details, target Amazon listing, and intended use — A+ content, social ad, or hero video. We'll respond within 24 hours.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "We generate the video",
+      text: "Our team uses AI production tools to generate video content from your reference assets. We manage prompts, reference curation, and generation settings — you don't touch any tool.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Human quality review",
+      text: "Every AI output goes through professional review — product accuracy, visual quality, and brand consistency checked before delivery.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Receive your files",
+      text: "Final files delivered in Amazon-ready formats, formatted for upload to your listing or ad platform.",
+    },
+  ],
+};
+
 export default function AiVideoPage() {
   return (
     <>
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([videoObjectSchema, howToSchema]) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
