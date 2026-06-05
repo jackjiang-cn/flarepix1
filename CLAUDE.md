@@ -21,6 +21,7 @@
 ### Build Rules
 - `npm run build` must pass before any commit
 - Server Components by default — `"use client"` only when strictly necessary
+- **Push rule**: commit first, but **DO NOT push** until the user confirms the local/dev page looks correct. Wait for the user's explicit "没问题" / "OK to push" before running `git push`.
 
 ---
 
