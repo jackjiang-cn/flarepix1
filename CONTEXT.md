@@ -1,6 +1,6 @@
 # FlarePix — 项目记忆
 
-> 最后更新：2026-06-04
+> 最后更新：2026-06-05
 
 ---
 
@@ -161,13 +161,26 @@
 
 ---
 
+## claude-seo 插件决策
+
+**日期：** 2026-06-05
+**决策：** 暂不安装
+**原因：** 核心功能与现有 skill 重叠，当前阶段不需要 backlink/drift/cluster 等高级功能
+**未来安装条件：** 开始系统性外链建设 / 需要 SEO 漂移监控 / 关键词库需语义聚类
+**安装命令已记录在：** `DEPLOYMENT-RECORD.md`
+
+---
+
 ## GitHub 部署状态
 
-- **当前问题**：国内网络无法访问 GitHub（443 超时），Gitee 正常
-- **已推送**：Gitee（`https://gitee.com/jianglaosi/flarepix.git`）
-- **待推送**：GitHub（`https://github.com/jackjiang-cn/flarepix1.git`）
-- **触发方式**：开 VPN 后 push 到 GitHub → Vercel 自动部署
-- **待部署 commit**：`65ec2f0` — Day 1-3 SEO 修复
+- **当前状态**：VPN 连接后 GitHub 推送正常（Gitee 已同步）
+- **VPN 必要性**：国内网络直连 GitHub 443 超时，VPN 解决
+- **已推送**：GitHub `jackjiang-cn/flarepix1`
+- **Vercel 自动部署**：Push 到 GitHub main 分支后自动触发（约 1-2 分钟）
+- **待推送改动**：
+  - `layout.tsx` — @vercel/analytics 安装
+  - `.agents/product-marketing.md` — 新生成的产品营销上下文文件
+  - `DEPLOYMENT-RECORD.md` — 本次更新
 
 ---
 
