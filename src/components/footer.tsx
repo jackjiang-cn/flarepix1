@@ -135,7 +135,7 @@ export default function Footer() {
         <div className="mt-12 border-t border-black/[0.08] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted)]">
           <span>&copy; {new Date().getFullYear()} FlarePix. All rights reserved.</span>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-[var(--foreground)] transition-colors">Privacy</Link>
+            <Link href="/privacy-policy" className="hover:text-[var(--foreground)] transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-[var(--foreground)] transition-colors">Terms</Link>
           </div>
         </div>

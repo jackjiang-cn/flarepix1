@@ -33,6 +33,7 @@ const pricingSchema = {
   name: "FlarePix Pricing",
   url: "https://flarepix.com/pricing",
   description: "Custom quotes for product photography, video, and AI visuals — every project is priced individually",
+  priceRange: "$$-$$$$",
 };
 
 const factors = [

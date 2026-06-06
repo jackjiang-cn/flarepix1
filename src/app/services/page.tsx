@@ -16,6 +16,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/services",
   },
+  openGraph: {
+    title: "Product Photography & Video Services for Ecommerce — FlarePix",
+    description:
+      "Product photography, video production, AI imagery, and AI video for Amazon and ecommerce brands.",
+    url: "https://flarepix.com/services",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Services" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Product Photography & Video Services — FlarePix",
+    description:
+      "From white background shots to cinematic brand films — one studio, one workflow.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const serviceSchema = {

@@ -5,7 +5,7 @@ import {
   videoProductionCategories,
 } from "@/config/categories";
 
-const BASE = "https://flarepix.com";
+const BASE = "https://www.flarepix.com";
 const TODAY = new Date().toISOString().split("T")[0];
 
 type Entry = {
@@ -22,6 +22,7 @@ const staticPages: Entry[] = [
   { path: "services/ai-video", priority: 0.8, changeFrequency: "monthly" },
   { path: "services/brand-film", priority: 0.8, changeFrequency: "monthly" },
   { path: "work", priority: 0.9, changeFrequency: "weekly" },
+  { path: "about", priority: 0.7, changeFrequency: "monthly" },
   { path: "pricing", priority: 0.8, changeFrequency: "monthly" },
   { path: "contact", priority: 0.8, changeFrequency: "monthly" },
   { path: "faq", priority: 0.7, changeFrequency: "monthly" },

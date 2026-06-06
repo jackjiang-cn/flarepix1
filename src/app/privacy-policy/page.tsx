@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/privacy-policy",
   },
+  openGraph: {
+    title: "Privacy Policy — FlarePix",
+    description:
+      "Privacy Policy for FlarePix — how we collect, use, and protect your information.",
+    url: "https://flarepix.com/privacy-policy",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Privacy Policy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy — FlarePix",
+    description:
+      "Privacy Policy for FlarePix — how we collect, use, and protect your information.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const privacySchema = {

@@ -38,7 +38,14 @@ const contactSchema = {
     "@type": "Organization",
     name: "FlarePix",
     email: contact.email,
+    telephone: contact.phone,
     url: "https://flarepix.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Qingdao",
+      addressRegion: "Shandong",
+      addressCountry: "CN",
+    },
   },
 };
 

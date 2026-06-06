@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://flarepix.com/work",
   },
+  openGraph: {
+    title: "Our Work — FlarePix",
+    description:
+      "Portfolio of product photography, video, and AI imagery work by FlarePix.",
+    url: "https://flarepix.com/work",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Work Portfolio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Work — FlarePix",
+    description:
+      "Portfolio of product photography, video, and AI imagery work.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const photoTabs = photoCategories.map(cat => ({
@@ -77,6 +92,19 @@ const aiVideos = [
   { src: "/works/ai/videos/ai-video-04.mp4", label: "AI video 4" },
 ];
 
+const workSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Our Work — FlarePix",
+  description: "Portfolio of product photography, video, and AI imagery work by FlarePix.",
+  url: "https://flarepix.com/work",
+  mainEntity: {
+    "@type": "Organization",
+    name: "FlarePix",
+    url: "https://flarepix.com",
+  },
+};
+
 export default async function WorkPage({
   searchParams,
 }: {
@@ -104,6 +132,10 @@ export default async function WorkPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
       <Header />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

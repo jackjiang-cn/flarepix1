@@ -49,6 +49,7 @@ const aboutSchema = {
     contactPoint: {
       "@type": "ContactPoint",
       email: "hello@flarepix.com",
+      telephone: "+86-156-6682-0406",
       contactType: "customer service",
     },
   },

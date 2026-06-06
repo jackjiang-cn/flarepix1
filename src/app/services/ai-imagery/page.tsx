@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   description:
     "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce — fast turnaround, no shipping required.",
   alternates: { canonical: "https://flarepix.com/services/ai-imagery" },
+  openGraph: {
+    title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
+    description:
+      "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce.",
+    url: "https://flarepix.com/services/ai-imagery",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AI Product Imagery for Amazon" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Product Imagery for Amazon | FlarePix",
+    description:
+      "Generate lifestyle scenes and on-model shots from a single product photo. AI imagery for ecommerce brands.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const aiImages = [
@@ -21,9 +36,38 @@ const aiImages = [
   { src: "/works/ai/images/ai-image-06.webp", alt: "AI virtual try-on" },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "AI Product Imagery — FlarePix",
+  description:
+    "AI-generated lifestyle scenes, on-model shots, and campaign visuals from a single product photo. For Amazon and ecommerce brands.",
+  provider: {
+    "@type": "Organization",
+    name: "FlarePix",
+    url: "https://flarepix.com",
+  },
+  areaServed: "Worldwide",
+  thumbnailUrl: "https://media.flarepix.com/works/ai/images/ai-image-01.webp",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
+    { "@type": "ListItem", position: 3, name: "AI Imagery", item: "https://flarepix.com/services/ai-imagery" },
+  ],
+};
+
 export default function AiImageryPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }}
+      />
       <Header />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
