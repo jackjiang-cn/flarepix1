@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import CtaButton from "./cta-button";
 import { cdnUrl, posterFor } from "@/config/cdn";
 
@@ -43,9 +44,11 @@ function ImageModal({ src, alt, onClose }: { src: string; alt: string; onClose: 
             <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
           </svg>
         </button>
-        <img
+        <Image
           src={cdnUrl(src)}
           alt={alt}
+          width={1920}
+          height={1080}
           className="max-h-[85vh] w-auto rounded-lg object-contain"
         />
         <p className="mt-2 text-center text-white">{alt}</p>
@@ -124,11 +127,13 @@ export default function AiShowcase() {
               onClick={() => setSelectedImage(img)}
               className="group relative overflow-hidden rounded-lg bg-[var(--background)] aspect-[4/5]"
             >
-              <img
+              <Image
                 src={cdnUrl(img.src)}
                 alt={img.alt}
-                className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                fill
+                className="object-cover transition-transform group-hover:scale-105"
                 loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               {/* Zoom icon overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
@@ -153,11 +158,13 @@ export default function AiShowcase() {
                 className="group relative overflow-hidden rounded-lg aspect-video"
               >
                 {/* Poster thumbnail (first frame of video) */}
-                <img
+                <Image
                   src={cdnUrl(posterFor(v.src))}
                   alt={v.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 {/* Centered play icon */}
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">

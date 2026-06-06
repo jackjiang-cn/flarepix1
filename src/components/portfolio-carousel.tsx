@@ -1,16 +1,17 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Lightbox from "./lightbox";
 import CtaButton from "./cta-button";
 import { cdnUrl } from "@/config/cdn";
 
-type Image = { src: string; alt: string };
+type PortfolioImage = { src: string; alt: string };
 
 type Tab = {
   label: string;
   slug: string;
-  images: Image[];
+  images: PortfolioImage[];
 };
 
 type Props = {
@@ -30,7 +31,7 @@ export default function PortfolioCarousel({
   linkPattern = "query",
   configUrl = "/content/display-order.json",
 }: Props) {
-  const [lightboxImg, setLightboxImg] = useState<Image | null>(null);
+  const [lightboxImg, setLightboxImg] = useState<PortfolioImage | null>(null);
   const [activeTab, setActiveTab] = useState(0);
   const [displayOrder, setDisplayOrder] = useState<Record<string, string[]> | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -196,11 +197,13 @@ export default function PortfolioCarousel({
                 onClick={() => setLightboxImg(img)}
                 className="group aspect-[5/6] w-56 flex-none snap-start overflow-hidden rounded-lg bg-[var(--background)] sm:w-64"
               >
-                <img
+                <Image
                   src={cdnUrl(img.src)}
                   alt={img.alt}
-                  className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
               </button>
             ))}
@@ -255,9 +258,11 @@ export default function PortfolioCarousel({
 
       <Lightbox open={!!lightboxImg} onClose={() => setLightboxImg(null)}>
         {lightboxImg && (
-          <img
+          <Image
             src={cdnUrl(lightboxImg.src)}
             alt={lightboxImg.alt}
+            width={1920}
+            height={1080}
             className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
           />
         )}

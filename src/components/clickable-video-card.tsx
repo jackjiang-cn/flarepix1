@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { cdnUrl, posterFor } from "@/config/cdn";
 
 function VideoModal({ src, title, onClose }: { src: string; title: string; onClose: () => void }) {
@@ -43,11 +44,13 @@ export default function ClickableVideoCard({
         onClick={() => setOpen(true)}
         className="group relative overflow-hidden rounded-lg aspect-video"
       >
-        <img
+        <Image
           src={cdnUrl(posterFor(src))}
           alt={label}
-          className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+          fill
+          className="object-cover transition-transform group-hover:scale-105"
           loading="lazy"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">

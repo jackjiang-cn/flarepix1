@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cdnUrl } from "@/config/cdn";
 
 const logos = [
@@ -32,10 +33,12 @@ export default function BrandMarquee() {
       <div className="mt-10 flex gap-16 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
         <div className="flex animate-marquee gap-16 whitespace-nowrap">
           {[...logos, ...logos].map((logo, i) => (
-            <img
+            <Image
               key={`${logo.alt}-${i}`}
               src={cdnUrl(logo.src)}
               alt={logo.alt}
+              width={80}
+              height={32}
               className="h-8 w-auto object-contain opacity-50 invert brightness-0"
               loading="lazy"
             />

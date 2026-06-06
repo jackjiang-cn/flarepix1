@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import CtaButton from "./cta-button";
 import { videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { cdnUrl, posterFor } from "@/config/cdn";
@@ -218,11 +219,13 @@ export default function VideoCarousel({ configUrl = "/content/display-order.json
                 className="group relative aspect-video w-64 flex-none snap-start overflow-hidden rounded-xl sm:w-80"
               >
                 {/* Poster thumbnail (first frame of video) */}
-                <img
+                <Image
                   src={cdnUrl(posterFor(v.src))}
                   alt={v.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 {/* Centered play icon */}
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
