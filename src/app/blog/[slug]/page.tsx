@@ -224,7 +224,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.relatedServices.map((s: RelatedService) => (
                   <Link
                     key={s.href}
-                    href={s.href}
+                    href={`${s.href}?utm_source=blog&utm_medium=internal_link&utm_content=${post.slug}&utm_campaign=blog_cta`}
                     className="rounded-full border border-black/[0.12] bg-[var(--background)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--amber)] hover:text-[var(--amber)]"
                   >
                     {s.label}
@@ -240,7 +240,12 @@ export default async function BlogPostPage({ params }: Props) {
               We help ecommerce and Amazon brands ship photo, video, and AI imagery fast.
             </p>
             <div className="mt-6">
-              <CtaButton href="/contact">Get a quote</CtaButton>
+              <Link
+                href={`/contact?utm_source=blog&utm_medium=cta&utm_content=${post.slug}&utm_campaign=blog_cta`}
+                className="inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-7 py-3 text-sm font-medium text-black transition-colors hover:bg-[#a37e4a]"
+              >
+                Get a quote
+              </Link>
             </div>
           </div>
         </article>
