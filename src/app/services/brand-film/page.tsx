@@ -7,7 +7,7 @@ import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
-  title: "Brand Film Production for Ecommerce — Hybrid Production with Real Footage + AI | FlarePix",
+  title: "Brand Film for Ecommerce — Cinematic Production for Amazon & Online Brands | FlarePix",
   description:
     "Cinematic brand films and commercial productions for Amazon and ecommerce brands. Hybrid approach: real footage blended with AI post-production — professional quality at a fraction of full production cost.",
   alternates: { canonical: "https://flarepix.com/services/brand-film" },

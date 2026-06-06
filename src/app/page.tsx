@@ -21,7 +21,7 @@ import { photoCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
 
 export const metadata: Metadata = {
-  title: "FlarePix — Product Photography, Video & AI Visuals for Ecommerce",
+  title: "FlarePix — Amazon Product Photography, Video & AI Visuals for Ecommerce",
   description:
     "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China. Remote-friendly, worldwide shipping.",
   alternates: { canonical: "https://flarepix.com" },
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FlarePix — Product Photography, Video & AI Visuals",
+    title: "FlarePix — Amazon Product Photography, Video & AI Visuals",
     description:
-      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands.",
+      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China.",
     images: ["/og-image.jpg"],
   },
 };

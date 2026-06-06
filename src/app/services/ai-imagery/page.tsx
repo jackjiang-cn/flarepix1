@@ -7,7 +7,7 @@ import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
-  title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
+  title: "AI Product Imagery for Ecommerce — Lifestyle Scenes & On-Model Shots | FlarePix",
   description:
     "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce — fast turnaround, no shipping required.",
   alternates: { canonical: "https://flarepix.com/services/ai-imagery" },
