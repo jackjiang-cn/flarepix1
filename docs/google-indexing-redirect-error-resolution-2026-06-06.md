@@ -1,6 +1,14 @@
 # Google 索引 Redirect Error — 完整排查与修复记录
 **日期：** 2026-06-06
-**问题状态：** 已修复，等待 Vercel 部署验证
+**问题状态：** ✅ 已修复，已验证（2026-06-06 10:56 AM）
+
+---
+
+## 一句话总结
+
+Sitemap 中的 URL 使用了裸域 `https://flarepix.com` 而非 `https://www.flarepix.com`，导致 Google 抓取时触发 Vercel 的裸域→www redirect（307），Google 无法完成索引。
+
+**修复：Sitemap BASE URL 改为 www 版本，Google 索引恢复正常。**
 
 ---
 
@@ -132,7 +140,10 @@ Vercel Dashboard → Domains 设置中：
 | Commit | 内容 |
 |--------|------|
 | `3d6c703` | 删除 next.config.ts 中的 HTTP→HTTPS redirect 规则 |
-| `8efced5` | P0+P1 SEO 修复（OG/Twitter/schema）+ sitemap base URL 改为 www |
+| `f7e1571` | 修正 sitemap.ts BASE URL（flarepix.com → www.flarepix.com）+ 所有 P0+P1 SEO 修复 |
+| `04709f7` | 后续 SEO 修复（FAQPage、首页 schema、robots sitemap URL） |
+
+> ⚠️ `f7e1571` 包含了一个关键修复：`sitemap.ts` 的 BASE URL 修改在 `8efced5` 时未正确 staged，amend 后才真正提交进仓库。
 
 ---
 
@@ -173,12 +184,37 @@ Sitemap 中的所有 URL 应该使用**你希望 Google 索引的主域名版本
 
 ---
 
-## 待验证清单（明天）
+## 验证结果（2026-06-06）
 
-- [ ] Vercel deploy `8efced5` 状态为 "Ready"
-- [ ] `https://www.flarepix.com/blog` URL Inspection 显示 "Successful"
-- [ ] 其他页面 redirect error 全部消失
-- [ ] 如果仍有问题，检查 Cloudflare 是否有额外的 redirect 规则
+### Vercel 部署状态
+- Deploy `f7e1571` 状态：**Ready**（11 min ago）
+- 部署完成时间：约 10:56 AM
+
+### Google Search Console 验证
+- 检查 URL：`https://www.flarepix.com/blog`
+- **结果：** ✅ `Page is indexed`
+- **Video 检测：** 1 valid item detected（VideoObject schema 工作正常）
+- **Redirect error：** 完全消失
+
+### 修复时间线
+```
+~20h 前  问题开始（Sitemap 使用裸域 URL）
+06-06 09:xx   开始排查
+06-06 10:20   发现 next.config.ts redirect 问题，commit 3d6c703
+06-06 10:xx   发现 sitemap BASE URL 是根本原因
+06-06 10:xx   修改 sitemap.ts BASE → www（未正确 staged）
+06-06 10:xx   --amend 修正 commit → f7e1571
+06-06 10:xx   force push
+06-06 10:56   Vercel deploy 完成
+06-06 10:56   GSC 请求索引
+06-06 10:56   ✅ Page is indexed — Redirect error 消失
+```
+
+### 关键教训
+1. `git add` 有变更的文件后要 `git status` 确认 staged 内容
+2. `--amend` 可以补救未正确 staged 的修改
+3. Sitemap URL 必须使用最终主域名版本（带 www），否则触发 Vercel 裸域 redirect
+4. 307 redirect Google 不合并索引权重 — 必须是 301
 
 ---
 
