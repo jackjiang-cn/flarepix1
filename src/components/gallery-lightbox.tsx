@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { cdnUrl, posterFor } from "@/config/cdn";
 
 type GalleryItem = {
@@ -25,7 +26,7 @@ function ImageModal({ src, alt, onClose }: { src: string; alt: string; onClose: 
             <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
           </svg>
         </button>
-        <img src={src} alt={alt} className="max-h-[85vh] w-auto rounded-lg object-contain" />
+        <Image src={src} alt={alt} width={1920} height={1080} className="max-h-[85vh] w-auto rounded-lg object-contain" />
         <p className="mt-2 text-center text-white">{alt}</p>
       </div>
     </div>
@@ -74,11 +75,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
                 <>
                   {/* Poster thumbnail (first frame of video) — masonry variant keeps 16:9 aspect */}
                   <div className="relative w-full aspect-video">
-                    <img
+                    <Image
                       src={cdnUrl(item.poster ?? posterFor(item.src))}
                       alt={item.title || ""}
-                      className="absolute inset-0 h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                       loading="lazy"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
@@ -91,11 +94,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
                 </>
               ) : (
                 <>
-                  <img
+                  <Image
                     src={cdnUrl(item.src)}
                     alt={item.alt || ""}
-                    className="w-full h-auto"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
                     loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -137,11 +142,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
             {item.type === "video" ? (
               <>
                 {/* Poster thumbnail (first frame of video) — grid variant fills 16:9 button */}
-                <img
+                <Image
                   src={cdnUrl(item.poster ?? posterFor(item.src))}
                   alt={item.title || ""}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 flex items-center justify-center transition-opacity group-hover:opacity-90">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110">
@@ -153,11 +160,13 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
               </>
             ) : (
               <>
-                <img
+                <Image
                   src={cdnUrl(item.src)}
                   alt={item.alt || ""}
-                  className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
                   loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
