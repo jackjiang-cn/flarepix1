@@ -225,3 +225,70 @@ P2-1: src/app/ai-tools/page.tsx — Emoji → inline SVG
 *审计时间：2026-06-06*
 *工具：逐文件代码扫描 + 竞品对比分析*
 *版本：v1.0*
+
+---
+
+## 十一、执行进度记录
+
+### 已完成（2026-06-06 当天）
+
+**P0 修复（commit `8efced5` + `f7e1571`）：**
+- ✅ AI Imagery：补 OG + Twitter Card + Service + BreadcrumbList schema
+- ✅ Sitemap：加入 /about 条目，BASE URL 改为 www
+- ✅ Footer：/privacy → /privacy-policy
+
+**P1 修复（commit `8efced5` + `f7e1571`）：**
+- ✅ Services 页面：补 OG + Twitter Card
+- ✅ Blog [slug]：修正 publisher logo URL（flarepix.com → media.flarepix.com）
+- ✅ About：Organization schema 补 telephone
+- ✅ Contact：Organization schema 补 telephone + PostalAddress
+- ✅ Work：补 OG + Twitter Card + CollectionPage schema
+- ✅ Privacy-policy：补 OG + Twitter Card
+- ✅ Terms：补 OG + Twitter Card
+- ✅ Pricing：WebPage schema 补 priceRange
+
+**P2 修复（commit `04709f7`）：**
+- ✅ AI Tools：Emoji → inline SVG
+- ✅ Homepage：补 Organization schema + OG image
+- ✅ AI Video：FAQ 内容区 + FAQPage schema
+- ✅ Brand Film：FAQ 内容区 + FAQPage schema
+- ✅ AI Imagery：FAQ 内容区 + FAQPage schema
+- ✅ robots.ts：sitemap URL 改为 www 版本
+
+**索引修复（commit `f7e1571`，Vercel deploy 后验证）：**
+- ✅ `https://www.flarepix.com/blog` — Page fetch 从 "Redirect error" → "Page is indexed"
+- ✅ Video schema 被 Google 识别（1 valid video item）
+
+**新建文件：**
+- `src/components/service-faq.tsx` — 可复用的 FAQ 手风琴组件
+- `docs/google-indexing-redirect-error-resolution-2026-06-06.md` — 索引问题完整排查记录
+
+### 待完成
+
+**关键词 Title 重写（下一阶段）：**
+- [ ] /services/ai-video — Title 加入 `product video for amazon listing`
+- [ ] /services/ai-imagery — Title 加入 `ai product imagery ecommerce`
+- [ ] /services/brand-film — Title 加入 `brand film ecommerce`
+- [ ] 首页 — Title 加入 `amazon product photography`
+
+**robots.ts 需 push：**
+- robots.ts sitemap URL 已在 `04709f7` 中修正（push 已完成）
+
+---
+
+## 十二、技术知识点（本次修复）
+
+### Sitemap BASE URL 与 Google 索引的关系
+- Sitemap 中的 URL 必须使用**最终希望 Google 索引的主域名版本**
+- 如果 Vercel 配置了裸域→www redirect，sitemap 应使用 www 版本，避免 Google 抓取时遇到 redirect
+- 307 临时 redirect：Google 不合并权重，不更新索引
+- 301 永久 redirect：Google 合并权重，更新索引
+
+### 为什么首页没有 Redirect error？
+- `next.config.ts` 中 `/:path*` 这个 pattern **不匹配根路径 `/`**
+- `https://flarepix.com/` → 不匹配 `/:path*` → 不 redirect → Google 正常抓取
+- `https://flarepix.com/blog` → 匹配 `/:path*` → 触发 redirect → Google 报错
+
+### next/image 的 OG image 要求
+- 所有页面的 `openGraph.images` 应包含 `width`、`height`、`alt` 字段
+- `og-image.jpg` 应存在于 `/public/` 目录（CDN 路径 `/og-image.jpg` 会解析为 `https://flarepix.com/og-image.jpg`）
