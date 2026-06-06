@@ -247,13 +247,26 @@ P2-1: src/app/ai-tools/page.tsx — Emoji → inline SVG
 - ✅ Terms：补 OG + Twitter Card
 - ✅ Pricing：WebPage schema 补 priceRange
 
-**P2 修复（commit `04709f7`）：**
+**P2 修复（commit `04709f7` + `e39cc46` + `06c0878` + `d123392` + `3aad56a` + `15b7a2d`）：**
 - ✅ AI Tools：Emoji → inline SVG
 - ✅ Homepage：补 Organization schema + OG image
 - ✅ AI Video：FAQ 内容区 + FAQPage schema
 - ✅ Brand Film：FAQ 内容区 + FAQPage schema
 - ✅ AI Imagery：FAQ 内容区 + FAQPage schema
 - ✅ robots.ts：sitemap URL 改为 www 版本
+- ✅ 关键词 Title 重写（commit `e39cc46`）
+  - AI Video：`Amazon Product Video Production — AI Video for Amazon Listings | FlarePix`
+  - AI Imagery：`AI Product Imagery for Ecommerce — Lifestyle Scenes & On-Model Shots | FlarePix`
+  - Brand Film：`Brand Film for Ecommerce — Cinematic Production for Amazon & Online Brands | FlarePix`
+  - Homepage：`FlarePix — Amazon Product Photography, Video & AI Visuals for Ecommerce`
+- ✅ 全站 `<img>` → `<Image>`（commit `06c0878` + `d123392`）
+  - gallery-lightbox、brand-marquee、clickable-video-card、ai-showcase、video-carousel、portfolio-carousel
+  - 作用：修复 CLS，提升 Core Web Vitals
+- ✅ 博客 CTA + 相关链接加 UTM 参数（commit `3aad56a`）
+  - 所有 `/contact` 和服务页链接追加 `utm_source=blog&utm_medium=...`
+- ✅ Work 页面照片加点击 Lightbox + hover 放大效果（commit `15b7a2d`）
+  - 新建 `PhotoGallery` 组件，替代原有静态 `<Image>` 渲染
+- ✅ 全站 404 内链扫描：无死链
 
 **索引修复（commit `f7e1571`，Vercel deploy 后验证）：**
 - ✅ `https://www.flarepix.com/blog` — Page fetch 从 "Redirect error" → "Page is indexed"
@@ -261,18 +274,20 @@ P2-1: src/app/ai-tools/page.tsx — Emoji → inline SVG
 
 **新建文件：**
 - `src/components/service-faq.tsx` — 可复用的 FAQ 手风琴组件
+- `src/components/photo-gallery.tsx` — Work 页面照片点击+hover 组件
 - `docs/google-indexing-redirect-error-resolution-2026-06-06.md` — 索引问题完整排查记录
 
 ### 待完成
 
-**关键词 Title 重写（下一阶段）：**
-- [ ] /services/ai-video — Title 加入 `product video for amazon listing`
-- [ ] /services/ai-imagery — Title 加入 `ai product imagery ecommerce`
-- [ ] /services/brand-film — Title 加入 `brand film ecommerce`
-- [ ] 首页 — Title 加入 `amazon product photography`
+**内容营销（需提供素材）：**
+- [ ] 4 篇博客文章（审计报告 Section 九、Part 1）
+  - "Why AI-Generated Product Videos Can't Be Fully Automated"
+  - "How We Shot a Real Amazon Product Video: Behind the Scenes"
+  - "Amazon Product Video Requirements: What Every Seller Needs to Know"
+  - "10 Questions to Ask Before Hiring a Product Video Studio"
 
-**robots.ts 需 push：**
-- robots.ts sitemap URL 已在 `04709f7` 中修正（push 已完成）
+**GSC 持续验证（用户自行操作）：**
+- [ ] 各服务页（/services、/services/ai-video 等）Request Indexing 后验证 Page fetch 状态
 
 ---
 
@@ -292,3 +307,8 @@ P2-1: src/app/ai-tools/page.tsx — Emoji → inline SVG
 ### next/image 的 OG image 要求
 - 所有页面的 `openGraph.images` 应包含 `width`、`height`、`alt` 字段
 - `og-image.jpg` 应存在于 `/public/` 目录（CDN 路径 `/og-image.jpg` 会解析为 `https://flarepix.com/og-image.jpg`）
+
+### CLS 修复原理
+- `<img>` 无尺寸，浏览器下载完才知道多大，图片加载时页面跳动
+- `<Image>` 要求声明尺寸（width/height/fill），浏览器提前留空间，加载时页面不跳动
+- CLS < 0.1 是 Google Core Web Vitals 指标，影响 SEO 排名
