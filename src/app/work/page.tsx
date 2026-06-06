@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import WorkSectionToggle from "@/components/work-section-toggle";
 import WorkCategoryPills from "@/components/work-category-pills";
 import ClickableVideoCard from "@/components/clickable-video-card";
+import PhotoGallery from "@/components/photo-gallery";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
 import { cdnUrl } from "@/config/cdn";
@@ -197,21 +198,8 @@ export default async function WorkPage({
               queryParam="category"
               targetId=""
             />
-            <div className="mt-6 [column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 gap-4">
-              {photos.map((p, i) => (
-                <div key={`${p.src}-${i}`} className="mb-4 break-inside-avoid">
-                  <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
-                    <Image
-                      src={cdnUrl(p.src)}
-                      alt={p.alt}
-                      width={400}
-                      height={267}
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              ))}
+            <div className="mt-6">
+              <PhotoGallery photos={photos} />
             </div>
           </div>
         )}
@@ -260,22 +248,7 @@ export default async function WorkPage({
               ))}
             </div>
             {/* Photos in masonry layout */}
-            <div className="[column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 gap-4">
-              {getAllPhotos().map((p, i) => (
-                <div key={`${p.src}-${i}`} className="mb-4 break-inside-avoid">
-                  <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
-                    <Image
-                      src={cdnUrl(p.src)}
-                      alt={p.alt}
-                      width={400}
-                      height={267}
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+            <PhotoGallery photos={getAllPhotos()} />
           </div>
         )}
 
