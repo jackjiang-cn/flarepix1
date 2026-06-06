@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
   title: "AI Product Video Production for Amazon — Professional Team, Not a Tool | FlarePix",
@@ -74,13 +75,46 @@ const howToSchema = {
   ],
 };
 
+const aiVideoFaqs = [
+  {
+    q: "Does AI video look AI-generated?",
+    a: "Without professional oversight, yes — AI-generated video often has telltale signs: unnatural motion, visual artifacts, generic-looking scenes. FlarePix runs every AI output through human quality review before delivery. We fix artifacts, correct product angles, and ensure the final video looks professional on your Amazon listing.",
+  },
+  {
+    q: "What's included in your human quality review?",
+    a: "Every AI video we produce is reviewed by a team member before delivery. That means checking product accuracy, visual quality, brand consistency, and Amazon compliance. You receive finished files — not a draft to review and send back.",
+  },
+  {
+    q: "What's the difference between AI video and brand film production?",
+    a: "AI video is generated from reference assets — fast, scalable, and suited for batch content (Amazon A+ video, social ad variants, display campaigns). Brand film production involves a real shoot with professional talent, creative direction, and a multi-week post-production process. Brand films are built for your biggest launches and highest-stakes visual moments.",
+  },
+  {
+    q: "What file formats do you deliver?",
+    a: "We deliver MP4 and MOV files in standard Amazon, TikTok, and Instagram specs — optimised for upload to your listing, ad platform, or social channel. No conversion needed on your end.",
+  },
+  {
+    q: "How long does AI video production take?",
+    a: "Standard turnaround is 6–8 business days. For AI video specifically, turnaround can be faster depending on volume — often 3–5 business days for a single video. Rush delivery available.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: aiVideoFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function AiVideoPage() {
   return (
     <>
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([videoObjectSchema, howToSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([videoObjectSchema, howToSchema, faqSchema]) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
@@ -185,6 +219,8 @@ export default function AiVideoPage() {
             </p>
           </Link>
         </section>
+
+        <ServiceFaq faqs={aiVideoFaqs} />
       </main>
       <Footer />
     </>

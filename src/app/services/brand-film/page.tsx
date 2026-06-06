@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
   title: "Brand Film Production for Ecommerce — Hybrid Production with Real Footage + AI | FlarePix",
@@ -81,13 +82,46 @@ const howToSchema = {
   ],
 };
 
+const brandFilmFaqs = [
+  {
+    q: "What's the difference between brand film production and AI video production?",
+    a: "Brand film production involves a real shoot — professional talent, studio or location, full creative direction — with AI-assisted post-production. AI video generation is entirely digital, faster, and lower cost. Brand films are built for your biggest launches and highest-stakes visual moments; AI video is better suited for batch content at scale.",
+  },
+  {
+    q: "How long does a brand film production take?",
+    a: "Brand film production typically takes 2–4 weeks from creative brief to final delivery. This includes concept development, pre-production planning, shoot days, and professional post-production. The hybrid approach reduces traditional production cost without sacrificing quality.",
+  },
+  {
+    q: "What formats do you deliver?",
+    a: "We deliver in all standard formats: 4K MP4, ProRes for broadcast use, and optimised web variants. Every deliverable includes social crops (9:16, 1:1, 16:9) for Amazon Brand Store, YouTube, Instagram Reels, TikTok, and paid social.",
+  },
+  {
+    q: "Can you shoot if my products are in China?",
+    a: "Yes — we're based in Qingdao, Shandong, China, which is the heart of global manufacturing. If your products are already here or you're sourcing from Chinese manufacturers, we can shoot directly without international shipping logistics.",
+  },
+  {
+    q: "Is the final film fully owned by my brand?",
+    a: "100% — you own all final deliverables with full commercial rights. No usage restrictions, no recurring fees, no third-party licensing concerns.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: brandFilmFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function BrandFilmPage() {
   return (
     <>
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([brandFilmSchema, howToSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([brandFilmSchema, howToSchema, faqSchema]) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
@@ -205,6 +239,8 @@ export default function BrandFilmPage() {
             </p>
           </Link>
         </section>
+
+        <ServiceFaq faqs={brandFilmFaqs} />
       </main>
       <Footer />
     </>

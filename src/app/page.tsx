@@ -26,11 +26,12 @@ export const metadata: Metadata = {
     "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China. Remote-friendly, worldwide shipping.",
   alternates: { canonical: "https://flarepix.com" },
   openGraph: {
-    title: "FlarePix — Product Photography, Video & AI Visuals",
+    title: "FlarePix — Product Photography, Video & AI Visuals for Ecommerce",
     description:
-      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands.",
+      "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China.",
     url: "https://flarepix.com",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix — Product Photography, Video & AI Visuals" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,9 +49,36 @@ const productTabs = photoCategories.map((cat) => ({
   images: photoSources[cat.slug] || [],
 }));
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "FlarePix",
+  url: "https://flarepix.com",
+  description: "Professional product photography, video, and AI visuals for Amazon and ecommerce brands. Based in Qingdao, China.",
+  email: "hello@flarepix.com",
+  telephone: "+86-156-6682-0406",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Qingdao",
+    addressRegion: "Shandong",
+    addressCountry: "CN",
+  },
+  sameAs: [
+    "https://youtube.com/@flarepix",
+    "https://instagram.com/flarepix",
+    "https://x.com/flarepix",
+    "https://linkedin.com/company/flarepix",
+    "https://tiktok.com/@flarepix",
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <Header />
       <main>
         <Hero />

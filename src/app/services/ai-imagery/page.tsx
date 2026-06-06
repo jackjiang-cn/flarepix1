@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
   title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
@@ -61,12 +62,45 @@ const breadcrumbSchema = {
   ],
 };
 
+const aiImageryFaqs = [
+  {
+    q: "What does the AI imagery process look like?",
+    a: "Send us your product photo — a clean white background shot or flat lay works best. Tell us the target use case (Amazon lifestyle images, social campaign, email visual) and any style references. We generate the images, run them through human quality review, and deliver finished files ready for upload.",
+  },
+  {
+    q: "Will the AI images look realistic?",
+    a: "Without professional review, AI-generated images often show artifacts: unnatural fabric draping, incorrect product proportions, or generic-looking scenes that hurt brand credibility. FlarePix reviews every output before delivery — checking product accuracy, visual quality, and brand consistency. You receive finished images, not a draft to experiment with.",
+  },
+  {
+    q: "What file formats do you deliver?",
+    a: "We deliver JPG and WebP files in high resolution, optimised for Amazon upload, web, email, and print. No conversion needed — files are ready to upload directly.",
+  },
+  {
+    q: "Do I need to ship my products to you?",
+    a: "No — for AI imagery, you only need to send a reference photo of your product. No shipping, no studio appointment, no logistics. We work with sellers worldwide who source from Chinese manufacturers or Dropship directly.",
+  },
+  {
+    q: "Can AI imagery replace traditional product photography?",
+    a: "For lifestyle contexts, social content, and seasonal refreshes, yes — AI imagery is a fast, scalable alternative to traditional studio shoots. For exact product representation (white background Amazon images, precise color matching), traditional photography may still be preferred. Many brands use both: traditional shots for the main listing images, AI imagery for lifestyle and campaign content.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: aiImageryFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function AiImageryPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema, faqSchema]) }}
       />
       <Header />
       <main className="mx-auto max-w-7xl px-6 py-24">
@@ -169,6 +203,8 @@ export default function AiImageryPage() {
             </p>
           </Link>
         </section>
+
+        <ServiceFaq faqs={aiImageryFaqs} />
       </main>
       <Footer />
     </>
