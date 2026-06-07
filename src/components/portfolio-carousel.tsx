@@ -192,10 +192,10 @@ export default function PortfolioCarousel({
             className="flex gap-6 overflow-x-auto no-scrollbar snap-x-mandatory sm:gap-8"
           >
             {currentImages.map((img, idx) => (
-              <button
+               <button
                 key={`${img.src}-${idx}`}
                 onClick={() => setLightboxImg(img)}
-                className="group aspect-[5/6] w-56 flex-none snap-start overflow-hidden rounded-lg bg-[var(--background)] sm:w-64"
+                className="group relative aspect-[5/6] w-56 flex-none snap-start overflow-hidden rounded-lg bg-[var(--background)] sm:w-64"
               >
                 <Image
                   src={cdnUrl(img.src)}

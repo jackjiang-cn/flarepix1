@@ -110,7 +110,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        {gaId && (
+        {gaId ? (
           <>
             <script
               async
@@ -127,7 +127,7 @@ export default function RootLayout({
               }}
             />
           </>
-        )}
+        ) : null}
       </head>
       <body className="min-h-full flex flex-col">
         <script
