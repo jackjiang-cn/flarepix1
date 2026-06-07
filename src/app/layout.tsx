@@ -94,7 +94,7 @@ const videoJsonLd = {
     "Product photography, video and AI imagery showreel for ecommerce and Amazon brands",
   thumbnailUrl: cdnUrl("/works/posters/hero-reel.jpg"),
   contentUrl: cdnUrl("/works/hero-reel.mp4"),
-  uploadDate: "2026-01-15",
+  uploadDate: "2026-01-15T00:00:00Z",
 };
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "";

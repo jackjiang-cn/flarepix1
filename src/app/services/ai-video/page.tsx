@@ -42,7 +42,7 @@ const videoObjectSchema = {
   description:
     "Professional AI-assisted product video production for Amazon sellers and ecommerce brands. Our team generates, reviews, and delivers AI videos that meet professional standards.",
   thumbnailUrl: "https://media.flarepix.com/works/posters/ai-video.jpg",
-  uploadDate: "2026-01-15",
+  uploadDate: "2026-01-15T00:00:00Z",
 };
 
 const howToSchema = {

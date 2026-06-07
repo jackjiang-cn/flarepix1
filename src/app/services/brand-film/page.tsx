@@ -44,7 +44,7 @@ const brandFilmSchema = {
   description:
     "Cinematic brand films and commercial productions for Amazon and ecommerce brands using a hybrid production approach: real footage combined with AI-assisted post-production.",
   thumbnailUrl: "https://media.flarepix.com/works/posters/brand-film.jpg",
-  uploadDate: "2026-01-15",
+  uploadDate: "2026-01-15T00:00:00Z",
 };
 
 const howToSchema = {
