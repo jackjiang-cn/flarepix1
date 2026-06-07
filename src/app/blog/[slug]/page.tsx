@@ -188,12 +188,13 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           </header>
 
-          <div className="mt-10 overflow-hidden rounded-2xl bg-[var(--surface)] relative aspect-[16/9]">
+          <div className="mt-10 w-full overflow-hidden rounded-2xl bg-[var(--surface)]">
             <Image
               src={cdnUrl(post.heroImage)}
               alt={post.heroAlt}
-              fill
-              className="object-cover"
+              width={1200}
+              height={630}
+              className="w-full h-auto rounded-2xl"
               priority
             />
           </div>
