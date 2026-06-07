@@ -62,7 +62,9 @@ export default function BlogPage() {
         </p>
 
         <div className="mt-12 space-y-10">
-          {blogPosts.map((post) => (
+          {[...blogPosts]
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .map((post) => (
             <article
               key={post.slug}
               className="border-b border-black/[0.08] pb-10"
