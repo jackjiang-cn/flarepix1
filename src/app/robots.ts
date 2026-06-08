@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/api/",
       },
     ],
-    sitemap: "https://www.flarepix.com/sitemap.xml",
+    sitemap: "https://flarepix.com/sitemap.xml",
   };
 }
