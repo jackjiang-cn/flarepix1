@@ -1,0 +1,7 @@
+{
+  "allow": [
+    "WebSearch",
+    "web_fetch",
+    "WebFetch"
+  ]
+}

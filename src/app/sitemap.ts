@@ -5,7 +5,7 @@ import {
   videoProductionCategories,
 } from "@/config/categories";
 
-const BASE = "https://flarepix.com";
+const BASE = "https://www.flarepix.com";
 const TODAY = new Date().toISOString().split("T")[0];
 
 type Entry = {

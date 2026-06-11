@@ -23,20 +23,20 @@ declare global {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://flarepix.com"),
+  metadataBase: new URL("https://www.flarepix.com"),
   title: "Product Photography Studio for Amazon — FlarePix",
   description:
     "Professional product photography, video, AI-generated imagery, and AI video for Amazon and ecommerce brands. Ship your products or generate visuals remotely.",
   icons: { icon: "/favicon.svg" },
   alternates: {
-    canonical: "https://flarepix.com",
+    canonical: "https://www.flarepix.com",
   },
   openGraph: {
     title: "Product Photography Studio for Amazon — FlarePix",
     description:
       "Photo, video, AI imagery, and AI video — one studio for all your ecommerce visuals.",
     siteName: "FlarePix",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
     type: "website",
     images: [
       {
@@ -60,8 +60,8 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "FlarePix",
-  url: "https://flarepix.com",
-  logo: "https://flarepix.com/favicon.svg",
+  url: "https://www.flarepix.com",
+  logo: "https://www.flarepix.com/favicon.svg",
   email: contact.email,
   description:
     "AI-powered product photography and video services for ecommerce brands",
