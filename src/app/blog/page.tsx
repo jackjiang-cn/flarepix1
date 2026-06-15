@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
   alternates: {
-    canonical: "https://flarepix.com/blog",
+    canonical: "https://www.flarepix.com/blog",
   },
   openGraph: {
     title: "Blog — FlarePix",
     description:
       "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
-    url: "https://flarepix.com/blog",
+    url: "https://www.flarepix.com/blog",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Blog" }],
   },
@@ -32,13 +32,13 @@ const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "FlarePix Blog",
-  url: "https://flarepix.com/blog",
+  url: "https://www.flarepix.com/blog",
   description:
     "Tips, guides, and insights on product photography, AI imagery, and ecommerce visuals.",
   publisher: {
     "@type": "Organization",
     name: "FlarePix",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
   },
 };
 

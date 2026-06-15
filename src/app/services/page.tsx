@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description:
     "Product photography, video production, AI imagery, and AI video for Amazon and ecommerce brands. From white background shots to cinematic brand films — one studio, one workflow.",
   alternates: {
-    canonical: "https://flarepix.com/services",
+    canonical: "https://www.flarepix.com/services",
   },
   openGraph: {
     title: "Product Photography & Video Services for Ecommerce — FlarePix",
     description:
       "Product photography, video production, AI imagery, and AI video for Amazon and ecommerce brands.",
-    url: "https://flarepix.com/services",
+    url: "https://www.flarepix.com/services",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Services" }],
   },
@@ -41,7 +41,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "FlarePix",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
   },
   areaServed: "Worldwide",
   hasOfferCatalog: {
@@ -60,8 +60,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.flarepix.com/services" },
   ],
 };
 

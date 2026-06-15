@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "FlarePix is a professional video production studio for Amazon and ecommerce brands. We use a hybrid approach: real footage combined with AI-assisted post-production — professional quality at a fraction of full-production cost.",
   alternates: {
-    canonical: "https://flarepix.com/about",
+    canonical: "https://www.flarepix.com/about",
   },
   openGraph: {
     title: "About FlarePix — Professional Video Production Studio",
     description:
       "Professional video production for Amazon sellers using a hybrid approach: real footage + AI post-production. Based in Qingdao, China.",
-    url: "https://flarepix.com/about",
+    url: "https://www.flarepix.com/about",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Professional Video Production Studio" }],
   },
@@ -34,11 +34,11 @@ const aboutSchema = {
   name: "About FlarePix",
   description:
     "Professional video production studio for Amazon and ecommerce brands, using a hybrid approach: real footage combined with AI-assisted post-production.",
-  url: "https://flarepix.com/about",
+  url: "https://www.flarepix.com/about",
   mainEntity: {
     "@type": "Organization",
     name: "FlarePix",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
     description: "AI-powered product photography and video services for ecommerce brands",
     address: {
       "@type": "PostalAddress",
@@ -59,8 +59,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
-    { "@type": "ListItem", position: 2, name: "About", item: "https://flarepix.com/about" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "About", item: "https://www.flarepix.com/about" },
   ],
 };
 

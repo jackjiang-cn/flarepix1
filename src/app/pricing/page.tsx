@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "FlarePix quotes each project individually. No fixed packages — we tailor pricing based on your product type, volume, and use case. Get a proposal within 24 hours.",
   alternates: {
-    canonical: "https://flarepix.com/pricing",
+    canonical: "https://www.flarepix.com/pricing",
   },
   openGraph: {
     title: "How We Quote — FlarePix",
     description:
       "FlarePix quotes each project individually. No fixed packages — tailored pricing based on your product type, volume, and use case.",
-    url: "https://flarepix.com/pricing",
+    url: "https://www.flarepix.com/pricing",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Pricing" }],
   },
@@ -31,7 +31,7 @@ const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "FlarePix Pricing",
-  url: "https://flarepix.com/pricing",
+  url: "https://www.flarepix.com/pricing",
   description: "Custom quotes for product photography, video, and AI visuals — every project is priced individually",
   priceRange: "$$-$$$$",
 };

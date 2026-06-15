@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   title: "FlarePix — Amazon Product Photography, Video & AI Visuals for Ecommerce",
   description:
     "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China. Remote-friendly, worldwide shipping.",
-  alternates: { canonical: "https://flarepix.com" },
+  alternates: { canonical: "https://www.flarepix.com" },
   openGraph: {
     title: "FlarePix — Product Photography, Video & AI Visuals for Ecommerce",
     description:
       "Photo, video, AI imagery, and AI video for Amazon and ecommerce brands — one studio, one workflow. Based in Qingdao, China.",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix — Product Photography, Video & AI Visuals" }],
   },
@@ -53,7 +53,7 @@ const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "FlarePix",
-  url: "https://flarepix.com",
+  url: "https://www.flarepix.com",
   description: "Professional product photography, video, and AI visuals for Amazon and ecommerce brands. Based in Qingdao, China.",
   email: "hello@flarepix.com",
   telephone: "+86-156-6682-0406",

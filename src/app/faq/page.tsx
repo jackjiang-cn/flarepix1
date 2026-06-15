@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Frequently asked questions about FlarePix product photography, video, and AI services.",
   alternates: {
-    canonical: "https://flarepix.com/faq",
+    canonical: "https://www.flarepix.com/faq",
   },
   openGraph: {
     title: "FAQ — FlarePix",
     description:
       "Frequently asked questions about FlarePix product photography, video, and AI services.",
-    url: "https://flarepix.com/faq",
+    url: "https://www.flarepix.com/faq",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix FAQ" }],
   },

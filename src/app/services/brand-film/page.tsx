@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "Brand Film for Ecommerce — Cinematic Production for Amazon & Online Brands | FlarePix",
   description:
     "Cinematic brand films and commercial productions for Amazon and ecommerce brands. Hybrid approach: real footage blended with AI post-production — professional quality at a fraction of full production cost.",
-  alternates: { canonical: "https://flarepix.com/services/brand-film" },
+  alternates: { canonical: "https://www.flarepix.com/services/brand-film" },
   openGraph: {
     title: "Brand Film Production for Ecommerce — Hybrid Production | FlarePix",
     description:
       "Cinematic brand films using a hybrid approach: real footage + AI post-production. Full creative direction for Amazon and ecommerce brands.",
-    url: "https://flarepix.com/services/brand-film",
+    url: "https://www.flarepix.com/services/brand-film",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brand Film Production for Ecommerce" }],
   },

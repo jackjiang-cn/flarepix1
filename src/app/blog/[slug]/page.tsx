@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} — FlarePix Blog`,
     description: post.excerpt,
     authors: [{ name: post.author }],
-    alternates: { canonical: `https://flarepix.com/blog/${post.slug}` },
+    alternates: { canonical: `https://www.flarepix.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "FlarePix",
-      url: "https://flarepix.com",
+      url: "https://www.flarepix.com",
       logo: {
         "@type": "ImageObject",
         url: "https://media.flarepix.com/logo/flarepix-logo-800.png",
@@ -143,13 +143,13 @@ export default async function BlogPostPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://flarepix.com/blog" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flarepix.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.flarepix.com/blog" },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://flarepix.com/blog/${slug}`,
+        item: `https://www.flarepix.com/blog/${slug}`,
       },
     ],
   };

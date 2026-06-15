@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "AI Product Imagery for Ecommerce — Lifestyle Scenes & On-Model Shots | FlarePix",
   description:
     "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce — fast turnaround, no shipping required.",
-  alternates: { canonical: "https://flarepix.com/services/ai-imagery" },
+  alternates: { canonical: "https://www.flarepix.com/services/ai-imagery" },
   openGraph: {
     title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
     description:
       "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce.",
-    url: "https://flarepix.com/services/ai-imagery",
+    url: "https://www.flarepix.com/services/ai-imagery",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AI Product Imagery for Amazon" }],
   },
@@ -46,7 +46,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "FlarePix",
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
   },
   areaServed: "Worldwide",
   thumbnailUrl: "https://media.flarepix.com/works/ai/images/ai-image-01.webp",
@@ -56,9 +56,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
-    { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
-    { "@type": "ListItem", position: 3, name: "AI Imagery", item: "https://flarepix.com/services/ai-imagery" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flarepix.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.flarepix.com/services" },
+    { "@type": "ListItem", position: 3, name: "AI Imagery", item: "https://www.flarepix.com/services/ai-imagery" },
   ],
 };
 

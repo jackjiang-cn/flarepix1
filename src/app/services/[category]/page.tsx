@@ -30,12 +30,12 @@ export async function generateMetadata({
       title: `${photoCat.label} Photography — FlarePix`,
       description: photoCat.description,
       alternates: {
-        canonical: `https://flarepix.com/services/${category}`,
+        canonical: `https://www.flarepix.com/services/${category}`,
       },
       openGraph: {
         title: `${photoCat.label} Photography — FlarePix`,
         description: photoCat.description,
-        url: `https://flarepix.com/services/${category}`,
+        url: `https://www.flarepix.com/services/${category}`,
         type: "website",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${photoCat.label} Photography` }],
       },
@@ -55,12 +55,12 @@ export async function generateMetadata({
       title: `${videoCat.label} Video Production — FlarePix`,
       description: videoCat.description,
       alternates: {
-        canonical: `https://flarepix.com/services/${category}`,
+        canonical: `https://www.flarepix.com/services/${category}`,
       },
       openGraph: {
         title: `${videoCat.label} Video Production — FlarePix`,
         description: videoCat.description,
-        url: `https://flarepix.com/services/${category}`,
+        url: `https://www.flarepix.com/services/${category}`,
         type: "website",
         images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${videoCat.label} Video Production` }],
       },
@@ -99,9 +99,9 @@ export default async function CategoryPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://flarepix.com" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://flarepix.com/services" },
-      { "@type": "ListItem", position: 3, name: cat.label, item: `https://flarepix.com/services/${category}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flarepix.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.flarepix.com/services" },
+      { "@type": "ListItem", position: 3, name: cat.label, item: `https://www.flarepix.com/services/${category}` },
     ],
   };
 

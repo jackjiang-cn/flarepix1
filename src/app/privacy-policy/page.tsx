@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Privacy Policy for FlarePix — how we collect, use, and protect your information.",
   alternates: {
-    canonical: "https://flarepix.com/privacy-policy",
+    canonical: "https://www.flarepix.com/privacy-policy",
   },
   openGraph: {
     title: "Privacy Policy — FlarePix",
     description:
       "Privacy Policy for FlarePix — how we collect, use, and protect your information.",
-    url: "https://flarepix.com/privacy-policy",
+    url: "https://www.flarepix.com/privacy-policy",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Privacy Policy" }],
   },
@@ -30,7 +30,7 @@ const privacySchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Privacy Policy — FlarePix",
-  url: "https://flarepix.com/privacy-policy",
+  url: "https://www.flarepix.com/privacy-policy",
   description: "Privacy Policy for FlarePix — how we collect, use, and protect your information.",
 };
 
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
         <p className="mt-6 text-[var(--muted)]">
           FlarePix (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy
           explains how we collect, use, and safeguard information when you visit our website at{' '}
-          <a href="https://flarepix.com" className="text-[var(--amber)] hover:underline">
+          <a href="https://www.flarepix.com" className="text-[var(--amber)] hover:underline">
             https://flarepix.com
           </a>{' '}
           and use our services.

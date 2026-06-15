@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Terms of Service for FlarePix — project terms, pricing, intellectual property, and revision policy.",
   alternates: {
-    canonical: "https://flarepix.com/terms",
+    canonical: "https://www.flarepix.com/terms",
   },
   openGraph: {
     title: "Terms of Service — FlarePix",
     description:
       "Terms of Service for FlarePix — project terms, pricing, intellectual property, and revision policy.",
-    url: "https://flarepix.com/terms",
+    url: "https://www.flarepix.com/terms",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Terms of Service" }],
   },
@@ -30,7 +30,7 @@ const termsSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Terms of Service — FlarePix",
-  url: "https://flarepix.com/terms",
+  url: "https://www.flarepix.com/terms",
   description: "Terms of Service for FlarePix — project terms, pricing, intellectual property, and revision policy.",
 };
 

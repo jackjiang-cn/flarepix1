@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "FlarePix uses AI as a production tool — not a self-serve platform. Learn how we integrate AI generation into our photography and video workflow for ecommerce brands.",
   alternates: {
-    canonical: "https://flarepix.com/ai-tools",
+    canonical: "https://www.flarepix.com/ai-tools",
   },
   openGraph: {
     title: "AI Production Tools — FlarePix",
     description:
       "FlarePix uses AI as a production tool — not a self-serve platform. Learn how we integrate AI generation into our studio workflow.",
-    url: "https://flarepix.com/ai-tools",
+    url: "https://www.flarepix.com/ai-tools",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AI Production Tools at FlarePix" }],
   },

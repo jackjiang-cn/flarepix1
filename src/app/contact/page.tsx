@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Get in touch with FlarePix for product photography, video, and AI visuals. Get a quote within 24 hours.",
   alternates: {
-    canonical: "https://flarepix.com/contact",
+    canonical: "https://www.flarepix.com/contact",
   },
   openGraph: {
     title: "Contact FlarePix — Get a Quote",
     description:
       "Get in touch with FlarePix for product photography, video, and AI visuals. Get a quote within 24 hours.",
-    url: "https://flarepix.com/contact",
+    url: "https://www.flarepix.com/contact",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact FlarePix" }],
   },
@@ -32,14 +32,14 @@ const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact FlarePix",
-  url: "https://flarepix.com/contact",
+  url: "https://www.flarepix.com/contact",
   description: "Get in touch for product photography, video, and AI visuals quotes.",
   mainEntity: {
     "@type": "Organization",
     name: "FlarePix",
     email: contact.email,
     telephone: contact.phone,
-    url: "https://flarepix.com",
+    url: "https://www.flarepix.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Qingdao",
