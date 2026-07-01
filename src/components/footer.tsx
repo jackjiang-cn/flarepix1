@@ -50,11 +50,11 @@ const socialIcons = [
 ];
 
 const footerServices = [
-  { label: "Product Photography", href: "/services#photography" },
-  { label: "Product Video", href: "/services#video" },
-  { label: "AI Image Generation", href: "/services#ai-images" },
-  { label: "AI Video Generation", href: "/services#ai-video" },
-  { label: "3D Product Rendering", href: "/services#3d" },
+  { label: "Product Photography", href: "/services#product-photography" },
+  { label: "Product Video", href: "/services#video-production" },
+  { label: "AI Imagery", href: "/services#ai-imagery" },
+  { label: "AI Video", href: "/services#ai-video" },
+  { label: "Brand Film", href: "/services#brand-film" },
 ];
 
 export default function Footer() {

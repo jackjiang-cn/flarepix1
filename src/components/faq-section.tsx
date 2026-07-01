@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ElementType } from "react";
 
 const faqs = [
   {
@@ -45,20 +45,26 @@ const faqs = [
   },
 ];
 
-export default function FaqSection() {
+export default function FaqSection({
+  headingLevel = "h2",
+}: {
+  headingLevel?: ElementType;
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const Heading = headingLevel;
 
   return (
     <section className="bg-[var(--surface)]">
       <div className="mx-auto max-w-2xl px-6 py-24 sm:py-40">
-        <h2 className="text-2xl font-semibold tracking-tight">
+        <Heading className="text-2xl font-semibold tracking-tight">
           Frequently asked questions
-        </h2>
+        </Heading>
         <div className="mt-10">
           {faqs.map((faq, i) => (
             <div key={faq.q} className="border-b border-black/[0.08]">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                aria-expanded={openIndex === i}
                 className="flex w-full items-center justify-between py-4 text-left"
               >
                 <span className="pr-4 font-medium">{faq.q}</span>
@@ -66,9 +72,10 @@ export default function FaqSection() {
                   {openIndex === i ? "−" : "+"}
                 </span>
               </button>
-              {openIndex === i && (
+              {/* Answer always in the HTML for crawlers/AI; visibility toggled via CSS */}
+              <div className={openIndex === i ? "block" : "hidden"}>
                 <p className="pb-4 text-sm text-[var(--muted)]">{faq.a}</p>
-              )}
+              </div>
             </div>
           ))}
           {/* CTA row */}

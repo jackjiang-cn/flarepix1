@@ -1,0 +1,37 @@
+# FlarePix
+
+> FlarePix is a product visual studio for Amazon and ecommerce sellers. Photo, video, AI imagery, and AI video from one studio, one workflow. Based in Qingdao, China; serving sellers worldwide (US + Europe, English).
+
+Positioning: a professional video production studio that uses AI tools — not a self-serve AI tool. AI imagery is lead-gen (self-teachable); AI video is the real moat (needs a professional team for quality control). Real case work includes body composition scales, kids toys, and tissue products.
+
+## Services
+
+- [Product Photography & Video Services](https://www.flarepix.com/services): overview of all service categories (photo + video, by product type)
+- [AI Imagery](https://www.flarepix.com/services/ai-imagery): AI-generated lifestyle/on-model/campaign visuals from a single product photo
+- [AI Video](https://www.flarepix.com/services/ai-video): AI-generated short product video, managed end-to-end with human quality review
+- [Brand Film Production](https://www.flarepix.com/services/brand-film): cinematic real-footage brand films for flagship launches
+
+## Work & case studies
+
+- [Our Work](https://www.flarepix.com/work): portfolio across photo, video, and AI
+- [GE Smart Scale — behind the scenes](https://www.flarepix.com/blog/hybrid-production-behind-the-scenes): real Amazon product video case, hybrid production (real footage + AI scene extension)
+- [Arboleaf scale — product video case study](https://www.flarepix.com/blog/arboleaf-product-video-case-study): recurring-client Amazon product video
+
+## Guides (helpful for Amazon/ecommerce sellers)
+
+- [Amazon Product Video Requirements Guide](https://www.flarepix.com/blog/amazon-product-video-requirements-guide)
+- [Amazon Product Photography Requirements 2026](https://www.flarepix.com/blog/amazon-product-photography-requirements-2026)
+- [Why AI-Generated Product Videos Can't Be Fully Automated](https://www.flarepix.com/blog/ai-product-videos-cannot-be-fully-automated)
+- [Ghost Mannequin vs Flat Lay](https://www.flarepix.com/blog/ghost-mannequin-vs-flat-lay)
+- [How to Prepare Your Products for a Photo Shoot](https://www.flarepix.com/blog/prepare-products-for-photo-shoot)
+
+## About & contact
+
+- [About FlarePix](https://www.flarepix.com/about)
+- [Pricing — how we quote](https://www.flarepix.com/pricing)
+- [FAQ](https://www.flarepix.com/faq)
+- [Contact / get a quote](https://www.flarepix.com/contact)
+
+## Optional
+
+- [Blog index](https://www.flarepix.com/blog)

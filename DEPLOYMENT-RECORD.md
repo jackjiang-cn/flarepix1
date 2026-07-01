@@ -210,6 +210,8 @@ HTTP + HTTPS + www 三个版本同时存在，需要配置 301 重定向统一�
 
 ## 内容诚信问题记录（2026-06-06）
 
+> **✅ 已解决(2026-07-01 更新)**:用户确认当前代码里的 **GE Smart Scale** 和 **Arboleaf** 两个案例都是**真实客户项目**(含真实 Amazon 链接和交付视频)。6/6 记录里标红的"厨房秤假案例"已被替换为真实案例。下方历史记录保留作存档,但 **Post B / Arboleaf 不再需要下线或重写**。
+
 ### 重大错误：Post B 博客内容造假
 
 **文章：** "How We Shot a Real Amazon Product Video: A Behind-the-Scenes Look at Our Hybrid Production Process" (hybrid-production-behind-the-scenes)
@@ -271,7 +273,7 @@ Post A 中的 `$100-300 per video` 价格范围需要客户确认是否为实际
 | 文章 | 状态 |
 |------|------|
 | Post A — AI Video 不能完全自动化 | ⚠️ 待确认价格数据准确性 |
-| Post B — Hybrid Behind the Scenes | 🔴 **必须重写或下线**，当前内容不可用 |
+| Post B — Hybrid Behind the Scenes | ✅ **已解决(2026-07-01)**:GE 案例确认真实,保留 |
 | Post C — Amazon Video Requirements | ✅ 技术规格内容，无造假问题 |
 | Post D — Ghost Mannequin vs Flat Lay | ✅ 通用内容，无造假问题 |
 | Post E — How to Prepare for Photo Shoot | ✅ 通用内容，无造假问题 |

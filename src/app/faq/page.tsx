@@ -91,7 +91,7 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
-      <FaqSection />
+      <FaqSection headingLevel="h1" />
       <Footer />
     </>
   );

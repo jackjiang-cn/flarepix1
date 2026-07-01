@@ -47,41 +47,6 @@ const brandFilmSchema = {
   uploadDate: "2026-01-15T00:00:00Z",
 };
 
-const howToSchema = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Commission a Brand Film for Your Product Launch",
-  description:
-    "Step-by-step guide to commissioning a brand film from FlarePix — from creative brief to final delivery.",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Share your vision",
-      text: "Tell us about your product, brand, target audience, and where the film will be used — product launch, trade show, paid social, or Amazon brand store.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "We plan and budget",
-      text: "Our team creates a creative concept and production plan — including whether real footage, AI generation, or a hybrid approach fits your goals best.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Production begins",
-      text: "Real footage shot with professional equipment and talent, or AI-generated scenes — depending on the agreed scope. Creative direction provided throughout.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Post-production and review",
-      text: "Footage goes through professional post-production — color grading, motion graphics, AI upscaling as needed. Every cut reviewed before approval.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Final delivery",
-      text: "Final film delivered in all required formats — optimized for Amazon Brand Store, YouTube, Instagram, or wherever your audience watches.",
-    },
-  ],
-};
-
 const brandFilmFaqs = [
   {
     q: "What's the difference between brand film production and AI video production?",
@@ -121,7 +86,7 @@ export default function BrandFilmPage() {
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([brandFilmSchema, howToSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([brandFilmSchema, faqSchema]) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
