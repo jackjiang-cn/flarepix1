@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
+import YouTubeEmbed from "@/components/youtube-embed";
 import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
@@ -156,11 +157,29 @@ export default function AiVideoPage() {
           </div>
         </section>
 
-        <div className="mt-16 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
-          <p className="text-[var(--muted)]">
-            More AI video examples coming soon.
+        {/* Featured video — YouTube embed (SEO + YouTube <-> site cross-linking) */}
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold">Watch: The truth about AI product video</h2>
+          <p className="mt-2 text-[var(--muted)]">
+            Why AI-generated product video gets scrolled past — and the
+            AI-plus-real-footage split that actually converts on Amazon. 4 min.
           </p>
-        </div>
+          <div className="mt-6">
+            <YouTubeEmbed
+              id="QoP47g7oHsI"
+              title="Why Your AI Product Video Isn't Converting — And the Fix"
+            />
+          </div>
+          <p className="mt-4 text-sm text-[var(--muted)]">
+            Prefer the written version?{" "}
+            <Link
+              href="/blog/ai-product-videos-cannot-be-fully-automated"
+              className="text-[var(--amber)] hover:underline"
+            >
+              Read the AI + Real playbook →
+            </Link>
+          </p>
+        </section>
 
         {/* Cross-links to related services */}
         <section className="mt-16 grid gap-4 sm:grid-cols-2">
