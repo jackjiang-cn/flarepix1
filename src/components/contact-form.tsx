@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackLead } from "@/lib/analytics";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -34,6 +35,7 @@ export default function ContactForm() {
       }
 
       setStatus("sent");
+      trackLead();
     } catch {
       setErrorMsg("Network error. Please check your connection and try again.");
       setStatus("error");

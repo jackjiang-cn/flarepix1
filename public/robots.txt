@@ -1,5 +1,10 @@
+# FlarePix robots.txt
+# Content Signals (Cloudflare framework, EU Directive 2019/790 Art. 4):
+# We let search engines and AI answer engines read and ground on our content,
+# but we do not permit using it to train AI models.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
 
-Sitemap: https://flarepix.com/sitemap.xml
+Sitemap: https://www.flarepix.com/sitemap.xml
