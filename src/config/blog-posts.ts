@@ -25,6 +25,8 @@ export type BlogPost = {
   readTime: string;
   content: ContentBlock[];
   relatedServices: RelatedService[];
+  dateUpdated?: string; // YYYY-MM-DD — set when content is refreshed (feeds dateModified)
+  faq?: { question: string; answer: string }[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -250,21 +252,44 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ai-product-images-convert-better-2026",
-    title: "Why AI Product Images Convert Better in 2026",
+    title: "AI Product Images: Why They Convert Better in 2026",
     date: "2026-06-02",
     excerpt:
-      "AI-generated lifestyle imagery now matches studio-shot lifestyle on conversion metrics. When it works, when it doesn't, and how to combine both in a 7-image Amazon listing.",
+      "AI product images now match studio-shot lifestyle photography on conversion. When AI imagery works, when it doesn't, and how to combine both in a 7-image Amazon listing.",
     heroImage: "/works/ai/images/ai-image-03.webp",
     heroAlt: "AI-generated lifestyle product image",
     author: "FlarePix Studio",
     authorRole: "Photo, video, and AI production",
     authorBio:
       "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
-    readTime: "6 min read",
+    readTime: "7 min read",
     relatedServices: [
       { label: "AI Imagery", href: "/services/ai-imagery" },
       { label: "Product Photography", href: "/services#product-photography" },
       { label: "Pricing", href: "/pricing" },
+    ],
+    dateUpdated: "2026-07-08",
+    faq: [
+      {
+        question: "Are AI-generated product images allowed on Amazon?",
+        answer:
+          "Yes — for secondary gallery images, A+ Content, and ads. Amazon's main image must still be a real photograph of the actual product on pure white, and the imagery must not misrepresent the product. AI-generated lifestyle imagery belongs in the secondary slots (images 2-7), where lifestyle context and scene variation live. We keep the main image as a real studio shot and use AI for the lifestyle and campaign slots where it converts.",
+      },
+      {
+        question: "How much do AI product images cost?",
+        answer:
+          "Less than an equivalent lifestyle shoot, because there's no studio build, location, model booking, or shipping. We price per project based on SKU count, number of scenes, and delivery formats rather than a fixed per-image rate — and the cost per usable lifestyle image drops sharply once you're generating multiple scenes from a single reference photo. Send a brief and we'll return a tailored proposal within 24 hours.",
+      },
+      {
+        question: "Do AI product images convert better than real photography?",
+        answer:
+          "On lifestyle metrics — click-through on sponsored placements and add-to-cart rate on galleries with multiple lifestyle images — AI-generated lifestyle scenes now match studio-shot lifestyle scenes. They don't beat a real main image, and they shouldn't replace it. The lift comes from combining the two: a real studio main image for trust, AI lifestyle scenes for context and variation.",
+      },
+      {
+        question: "What's the difference between AI product images and AI product photography?",
+        answer:
+          "Mostly terminology. 'AI product photography' is the broader term people search for the service; 'AI product images' refers to the output. Both describe the same workflow: start from a real photo of your product, then generate lifestyle scenes, on-model shots, or campaign visuals around it while preserving the product's real geometry, color, and labeling.",
+      },
     ],
     content: [
       {
@@ -313,7 +338,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Aggregated industry benchmarks show lifestyle imagery outperforming pure white-background shots on engagement metrics: 30-40% higher click-through on sponsored placements, and measurable lift in add-to-cart rates for products with at least three lifestyle images in the gallery. AI-generated lifestyle images match studio-shot lifestyle images on these metrics — the gap is no longer about source, it's about creative quality and iteration speed.",
+        text: "Industry research over the past several years points in the same direction: lifestyle imagery outperforms pure white-background shots on engagement. The exact lift varies by category and study, but published benchmarks routinely place sponsored-placement click-through gains in the tens of percent, and add-to-cart lift for galleries that include at least three lifestyle images. The comparison that matters here is the source comparison: AI-generated lifestyle images now match studio-shot lifestyle images on those same metrics. The gap is no longer about whether the scene was generated or photographed — it's about creative quality, scene relevance, and how fast you can iterate.",
+      },
+      {
+        type: "paragraph",
+        text: "From the production side, we see the same pattern as a demand signal. Sellers who replace a white-background-only gallery with a mixed set that adds AI lifestyle scenes tend to come back to expand — more SKUs, more scenes, more channels — rather than treating it as a one-off. We don't publish per-client conversion numbers, because once files are handed off we can't verify what happens inside a seller's Amazon Brand Analytics. The honest proxy we rely on is repeat work: clients reorder when the imagery performs.",
       },
       {
         type: "heading",

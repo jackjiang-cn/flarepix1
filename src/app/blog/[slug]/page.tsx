@@ -136,8 +136,20 @@ export default async function BlogPostPage({ params }: Props) {
         url: "https://media.flarepix.com/logo/flarepix-logo-800.png",
       },
     },
-    dateModified: post.date,
+    dateModified: post.dateUpdated || post.date,
   };
+
+  const faqSchema = post.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
+    : null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -154,13 +166,15 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
+  const schemas = [articleSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+
   return (
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-24">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
         />
 
         <Link
@@ -174,6 +188,11 @@ export default async function BlogPostPage({ params }: Props) {
           <header>
             <p className="text-sm text-[var(--muted)]">
               {formatDate(post.date)} · {post.readTime}
+              {post.dateUpdated && post.dateUpdated !== post.date && (
+                <span className="ml-2 text-[var(--muted)]/80">
+                  (Updated {formatDate(post.dateUpdated)})
+                </span>
+              )}
             </p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
               {post.title}
@@ -202,6 +221,24 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="prose-content">
             {post.content.map((block, i) => renderBlock(block, i))}
           </div>
+
+          {post.faq && post.faq.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+                Frequently asked questions
+              </h2>
+              <div className="mt-6 space-y-8">
+                {post.faq.map((f, i) => (
+                  <div key={i}>
+                    <h3 className="text-lg font-semibold tracking-tight">{f.question}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+                      {f.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <div className="mt-16 rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-6 sm:p-8">
             <p className="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
