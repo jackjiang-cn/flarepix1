@@ -4,7 +4,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CtaButton from "@/components/cta-button";
 import { blogPosts, getPostBySlug, getRelatedPosts, type ContentBlock, type RelatedService } from "@/config/blog-posts";
 import { cdnUrl } from "@/config/cdn";
 
@@ -18,17 +17,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const url = `https://www.flarepix.com/blog/${post.slug}`;
   return {
     title: `${post.title} — FlarePix Blog`,
     description: post.excerpt,
     authors: [{ name: post.author }],
-    alternates: { canonical: `https://www.flarepix.com/blog/${post.slug}` },
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.dateUpdated || post.date,
       authors: [post.author],
+      images: [cdnUrl(post.heroImage)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
       images: [cdnUrl(post.heroImage)],
     },
   };
@@ -85,9 +93,11 @@ const renderBlock = (block: ContentBlock, i: number) => {
       return (
         <blockquote
           key={i}
-          className="mt-8 border-l-2 border-[var(--amber)] pl-6 italic text-[var(--foreground)]/90"
-        >
-          <p className="text-lg leading-relaxed sm:text-xl">"{block.text}"</p>
+        className="mt-8 border-l-2 border-[var(--amber)] pl-6 italic text-[var(--foreground)]/90"
+      >
+          <p className="text-lg leading-relaxed sm:text-xl">
+            &ldquo;{block.text}&rdquo;
+          </p>
           {block.cite && (
             <cite className="mt-2 block text-sm not-italic text-[var(--muted)]">
               — {block.cite}
@@ -133,9 +143,10 @@ export default async function BlogPostPage({ params }: Props) {
       url: "https://www.flarepix.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://media.flarepix.com/logo/flarepix-logo-800.png",
+        url: "https://www.flarepix.com/favicon.svg",
       },
     },
+    mainEntityOfPage: `https://www.flarepix.com/blog/${post.slug}`,
     dateModified: post.dateUpdated || post.date,
   };
 

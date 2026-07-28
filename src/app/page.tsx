@@ -19,6 +19,7 @@ import TrustSignals from "@/components/trust-signals";
 import Footer from "@/components/footer";
 import { photoCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+import { cdnUrl } from "@/config/cdn";
 
 export const metadata: Metadata = {
   title: "FlarePix — Amazon Product Photography, Video & AI Visuals for Ecommerce",
@@ -49,27 +50,15 @@ const productTabs = photoCategories.map((cat) => ({
   images: photoSources[cat.slug] || [],
 }));
 
-const orgSchema = {
+const videoSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "FlarePix",
-  url: "https://www.flarepix.com",
-  description: "Professional product photography, video, and AI visuals for Amazon and ecommerce brands. Based in Qingdao, China.",
-  email: "hello@flarepix.com",
-  telephone: "+86-156-6682-0406",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Qingdao",
-    addressRegion: "Shandong",
-    addressCountry: "CN",
-  },
-  sameAs: [
-    "https://youtube.com/@flarepix",
-    "https://instagram.com/flarepix",
-    "https://x.com/flarepix",
-    "https://linkedin.com/company/flarepix",
-    "https://tiktok.com/@flarepix",
-  ],
+  "@type": "VideoObject",
+  name: "FlarePix Hero Reel",
+  description:
+    "Product photography, video and AI imagery showreel for ecommerce and Amazon brands",
+  thumbnailUrl: cdnUrl("/works/posters/hero-reel.jpg"),
+  contentUrl: cdnUrl("/works/hero-reel.mp4"),
+  uploadDate: "2026-01-15T00:00:00Z",
 };
 
 export default function Home() {
@@ -77,7 +66,9 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(videoSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <Header />
       <main>

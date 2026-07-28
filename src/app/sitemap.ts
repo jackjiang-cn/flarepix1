@@ -6,7 +6,6 @@ import {
 } from "@/config/categories";
 
 const BASE = "https://www.flarepix.com";
-const TODAY = new Date().toISOString().split("T")[0];
 
 type Entry = {
   path: string;
@@ -48,7 +47,7 @@ const blogPages: Entry[] = blogPosts.map((p) => ({
   path: `blog/${p.slug}`,
   priority: 0.6,
   changeFrequency: "monthly",
-  lastModified: p.date,
+  lastModified: p.dateUpdated || p.date,
 }));
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -60,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   return all.map((e) => ({
     url: `${BASE}/${e.path}`,
-    lastModified: e.lastModified || TODAY,
+    ...(e.lastModified ? { lastModified: e.lastModified } : {}),
     changeFrequency: e.changeFrequency,
     priority: e.priority,
   }));

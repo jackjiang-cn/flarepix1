@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 export const metadata: Metadata = {
   title: "Brand Film for Ecommerce — Cinematic Production for Amazon & Online Brands | FlarePix",
@@ -17,7 +18,6 @@ export const metadata: Metadata = {
       "Cinematic brand films using a hybrid approach: real footage + AI post-production. Full creative direction for Amazon and ecommerce brands.",
     url: "https://www.flarepix.com/services/brand-film",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brand Film Production for Ecommerce" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -43,7 +43,8 @@ const brandFilmSchema = {
   name: "Brand Film Production — FlarePix",
   description:
     "Cinematic brand films and commercial productions for Amazon and ecommerce brands using a hybrid production approach: real footage combined with AI-assisted post-production.",
-  thumbnailUrl: "https://media.flarepix.com/works/posters/brand-film.jpg",
+  thumbnailUrl: cdnUrl(posterFor(brandFilms[0].src)),
+  contentUrl: cdnUrl(brandFilms[0].src),
   uploadDate: "2026-01-15T00:00:00Z",
 };
 

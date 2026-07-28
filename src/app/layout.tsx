@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { contact } from "@/config/contact";
-import { cdnUrl } from "@/config/cdn";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -63,6 +62,7 @@ const organizationJsonLd = {
   url: "https://www.flarepix.com",
   logo: "https://www.flarepix.com/favicon.svg",
   email: contact.email,
+  telephone: contact.phone,
   description:
     "AI-powered product photography and video services for ecommerce brands",
   address: {
@@ -71,30 +71,12 @@ const organizationJsonLd = {
     addressRegion: "Shandong",
     addressCountry: "CN",
   },
-  sameAs: [
-    `https://youtube.com/@flarepix`,
-    `https://instagram.com/flarepix`,
-    `https://x.com/flarepix`,
-    `https://linkedin.com/company/flarepix`,
-    `https://tiktok.com/@flarepix`,
-  ],
+  sameAs: Object.values(contact.social),
   contactPoint: {
     "@type": "ContactPoint",
     email: contact.email,
     contactType: "customer service",
   },
-};
-
-// VideoObject schema — describes the hero brand film
-const videoJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  name: "FlarePix Hero Reel",
-  description:
-    "Product photography, video and AI imagery showreel for ecommerce and Amazon brands",
-  thumbnailUrl: cdnUrl("/works/posters/hero-reel.jpg"),
-  contentUrl: cdnUrl("/works/hero-reel.mp4"),
-  uploadDate: "2026-01-15T00:00:00Z",
 };
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "";
@@ -133,7 +115,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd, videoJsonLd]),
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
           }}
         />
         {children}

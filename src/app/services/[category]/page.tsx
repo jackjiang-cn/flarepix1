@@ -7,6 +7,7 @@ import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+import { cdnUrl, posterFor } from "@/config/cdn";
 
 export function generateStaticParams() {
   const allSlugs = [
@@ -94,6 +95,7 @@ export default async function CategoryPage({
   const photos = photoSources[category] || [];
   const displayPhotos = photos.slice(0, 12);
   const displayVideos = (videoProductionSources[category] || []).slice(0, 6);
+  const featuredVideo = displayVideos[0];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -106,12 +108,13 @@ export default async function CategoryPage({
   };
 
   // VideoObject schema only for video category pages
-  const videoSchema = isPhotoCategory ? null : {
+  const videoSchema = isPhotoCategory || !featuredVideo ? null : {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: `${cat.label} Video Production — FlarePix`,
     description: `Professional ${cat.label.toLowerCase()} video production for Amazon and ecommerce sellers. Real footage combined with AI-assisted post-production.`,
-    thumbnailUrl: `https://media.flarepix.com/works/posters/${category}.jpg`,
+    thumbnailUrl: cdnUrl(posterFor(featuredVideo)),
+    contentUrl: cdnUrl(featuredVideo),
     uploadDate: "2026-01-15T00:00:00Z",
   };
 
@@ -159,7 +162,8 @@ export default async function CategoryPage({
         <section className="mt-16">
           <h2 className="text-xl font-semibold">What this is used for</h2>
           <p className="mt-2 max-w-2xl text-[var(--muted)]">
-            {cat.label} video content serves multiple purposes across your ecommerce and marketing channels.
+            {cat.label} {isPhotoCategory ? "photography" : "video content"} serves
+            multiple purposes across your ecommerce and marketing channels.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {isPhotoCategory ? (

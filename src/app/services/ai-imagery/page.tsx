@@ -17,7 +17,6 @@ export const metadata: Metadata = {
       "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce.",
     url: "https://www.flarepix.com/services/ai-imagery",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AI Product Imagery for Amazon" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -144,7 +143,7 @@ export default function AiImageryPage() {
               The result is photorealistic imagery that places your product in aspirational contexts — a living room, a beach, a city street — while maintaining accurate product geometry and color. Every image is brand-safe and on-model, without the logistics of a traditional shoot.
             </p>
             <p className="mt-3 text-[var(--muted)]">
-              Based in Qingdao, China — the world's manufacturing hub — we work with Amazon and ecommerce sellers globally. Your products are already here. Your visuals should be too.
+              Based in Qingdao, China — the world&apos;s manufacturing hub — we work with Amazon and ecommerce sellers globally. Your products are already here. Your visuals should be too.
             </p>
           </div>
           <div>

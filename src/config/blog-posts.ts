@@ -31,6 +31,170 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-we-keep-ai-product-images-accurate",
+    title: "How We Keep AI Product Images Accurate",
+    date: "2026-07-28",
+    excerpt:
+      "Our AI product image workflow starts with a real product photo and a list of details the model is not allowed to change. Here is how we review the results.",
+    heroImage: "/works/ai/images/ai-image-01.webp",
+    heroAlt:
+      "Accurate AI product image reviewed against the original product photo",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "6 min read",
+    relatedServices: [
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+      { label: "AI Video", href: "/services/ai-video" },
+      { label: "Product Photography", href: "/services" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "A zipper moves to the wrong side. A matte bottle turns glossy. A small button appears where the real product has no button at all. The image may look convincing at first glance, but it is no longer the same product.",
+      },
+      {
+        type: "paragraph",
+        text: "This is the part of AI product images that gets missed in polished demos. Making a good-looking scene is fairly easy now. Keeping the product accurate takes more work, and most of that work happens before and after the model generates anything.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "A realistic image can still be wrong",
+        id: "realistic-but-wrong",
+      },
+      {
+        type: "paragraph",
+        text: "We review AI product imagery in two passes. First, does the scene work? Then, is the product still correct? The second question is stricter. We compare the generated image with the source photos and look for changes in shape, color, material, hardware, labels, packaging, and included parts.",
+      },
+      {
+        type: "paragraph",
+        text: "Some errors are obvious. Extra fingers and broken text are easy to reject. The expensive mistakes are quieter: a seam shifts by two centimetres, the cap becomes taller, or a fabric loses the texture that separates it from a cheaper competitor. Those images can survive an internal review and still confuse a shopper.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Our AI product image workflow starts before generation",
+        id: "workflow",
+      },
+      {
+        type: "paragraph",
+        text: "Before we open an AI tool, we split the brief into two columns. One contains facts. The other contains creative choices. Product dimensions, materials, colours, controls, included parts, and packaging belong in the first column. Location, lighting, styling, camera angle, and mood belong in the second.",
+      },
+      {
+        type: "paragraph",
+        text: "AI can explore the creative column. It cannot guess the facts. If the brief does not say whether an accessory is included, we ask. If the logo file is missing, we do not invent one. That slows the first round down a little, but it saves far more time than correcting a scene built on the wrong product.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The source photos do most of the heavy lifting",
+        id: "source-photos",
+      },
+      {
+        type: "paragraph",
+        text: "A clean white-background photo is a useful start, but one angle is not always enough. Handles, ports, fasteners, translucent parts, reflective surfaces, and repeating patterns often need close-ups. If the product has a shape that is hard to read from the front, we ask for side and back views too.",
+      },
+      {
+        type: "paragraph",
+        text: "We prefer original files over images downloaded from an Amazon or Shopify listing. Marketplace compression can soften the exact edge and texture information the model needs. For AI product photography, better references usually improve the result more than a longer prompt.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The first round is for finding problems",
+        id: "first-round",
+      },
+      {
+        type: "paragraph",
+        text: "We rarely treat the first plausible image as a final. The early round tells us where the model struggles. A reflective bottle may keep changing shape. A clothing item may drape well on one model but lose its stitching on another. A package may stay accurate until the camera angle changes.",
+      },
+      {
+        type: "paragraph",
+        text: "Once we know the weak points, we stop changing everything at once. We lock the product angle and work on the background, or keep the scene and fix the product. This is slower than pressing generate until something looks good. It is also much easier to review.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What makes us reject an image",
+        id: "reject-list",
+      },
+      {
+        type: "paragraph",
+        text: "Our reject list is not complicated. We discard an image if the silhouette changes, the proportions feel off, the material behaves incorrectly, or a product detail cannot be checked against the source. Logos and labels get a separate close review. So do hands, contact points, shadows, and reflections.",
+      },
+      {
+        type: "paragraph",
+        text: "Sometimes an image is beautiful and still gets rejected. That is frustrating, especially after several rounds, but the alternative is worse. A shopper should not receive a product that looks noticeably different from the one shown in the listing.",
+      },
+      {
+        type: "paragraph",
+        text: "We also keep samples separate from case studies. An AI sample can show what a visual direction might look like. It does not prove client results, conversion performance, or a production history that never happened.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where AI product imagery works well",
+        id: "where-it-works",
+      },
+      {
+        type: "paragraph",
+        text: "AI product imagery for ecommerce is useful when the real product is already photographed accurately and the missing piece is context. That may be a lifestyle setting, a seasonal campaign, an on-model variation, or a background for paid social. It is also useful for testing several visual directions before paying for a larger shoot.",
+      },
+      {
+        type: "paragraph",
+        text: "The destination matters. Amazon product images, Shopify galleries, email banners, and social ads need different crops and amounts of empty space. We prepare the final files for the agreed placement rather than handing over one large image and leaving the client to make it fit everywhere.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "When we still choose product photography",
+        id: "when-to-use-photography",
+      },
+      {
+        type: "paragraph",
+        text: "Traditional ecommerce product photography is still the safer choice when exact colour, scale, surface finish, or construction is the main selling point. It is also our default for clean white-background images that need to represent the product with as little interpretation as possible.",
+      },
+      {
+        type: "paragraph",
+        text: "Most projects do not need to choose one method for every image. We often use photography to establish the product truth and AI to build the settings around it. That division is less exciting than claiming AI can replace the studio, but it produces more dependable work.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What to send for a first review",
+        id: "first-review",
+      },
+      {
+        type: "paragraph",
+        text: "Send the highest-resolution product photos you have, the current listing or draft, verified specifications, brand references, and the channels where the images will appear. It also helps to include examples you dislike. A clear rejection reference can tell us more than a mood board full of attractive images.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do you keep AI product images accurate?",
+        answer:
+          "We define the product details that cannot change, use original reference photos from several useful angles, generate controlled variations, and compare selected images with the source material. We reject images when a detail cannot be checked or corrected confidently.",
+      },
+      {
+        question: "What photos work best for AI product image generation?",
+        answer:
+          "High-resolution originals with clean lighting and clear product edges work best. Products with complex shapes, hardware, labels, reflective materials, or fine texture usually need several angles and close-up photos.",
+      },
+      {
+        question: "Can AI product imagery replace ecommerce product photography?",
+        answer:
+          "It can replace some lifestyle and campaign work, but traditional photography is still safer when exact colour, scale, material, or construction must be shown. Many projects use photography for the product itself and AI for additional settings and variations.",
+      },
+      {
+        question: "Are AI-generated samples the same as client case studies?",
+        answer:
+          "No. A generated sample demonstrates a creative capability or direction. It should only be described as a client case study when the project, client relationship, and reported results are real and documented.",
+      },
+    ],
+  },
+  {
     slug: "ai-product-videos-cannot-be-fully-automated",
     title: "Why AI-Generated Product Videos Can't Be Fully Automated (And Why That Matters for Your Amazon Listing)",
     date: "2026-06-04",
