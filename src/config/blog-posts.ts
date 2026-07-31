@@ -31,6 +31,211 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ai-product-images-vs-traditional-photography-amazon",
+    title: "AI Product Images vs Traditional Photography for Amazon",
+    date: "2026-07-31",
+    excerpt:
+      "Use photography for the details shoppers need to trust, then use AI where the setting can change. Here is how we divide the work for Amazon listings.",
+    heroImage: "/works/ai/images/ai-image-06.webp",
+    heroAlt:
+      "AI-generated lifestyle image of a portable power station and solar panels outdoors",
+    author: "FlarePix Studio",
+    authorRole: "Photo, video, and AI production",
+    authorBio:
+      "FlarePix is a product visual studio working with ecommerce and Amazon brands. Our team handles studio shoots, product video, AI lifestyle imagery, and AI video from one workflow, with delivery for Amazon, Shopify, and direct-to-consumer channels.",
+    readTime: "6 min read",
+    relatedServices: [
+      { label: "AI Imagery", href: "/services/ai-imagery" },
+      { label: "Product Photography", href: "/services" },
+      { label: "View Our Work", href: "/work" },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        text: "Take a portable power station. The screen, charging ports, button layout, handle, and included cables are purchase information. We would photograph them. The mountain setting behind the product is a different problem, and AI may be a sensible way to build it.",
+      },
+      {
+        type: "paragraph",
+        text: "That is how we approach the photography versus AI question at FlarePix. We split the listing by what a shopper needs to trust. Some images document the item in the box. Others help the shopper picture using it. They do not need the same production method.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "One listing, several jobs",
+        id: "image-function",
+      },
+      {
+        type: "paragraph",
+        text: "The main image has a fairly strict job: show the product clearly and accurately. Detail images prove things that matter at purchase, such as texture, controls, stitching, scale, or what comes in the package. Lifestyle images do something else. They show context.",
+      },
+      {
+        type: "paragraph",
+        text: "We usually want a camera involved when an image is evidence. We are more open to AI when the background, season, room, or location is the part that needs to change. Amazon rules vary by marketplace, category, and placement, so we also check the current Seller Central requirements before deciding how an image should be produced.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "What we would photograph",
+        id: "choose-photography",
+      },
+      {
+        type: "paragraph",
+        text: "If a small visual difference could cause a return, we photograph it. A fabric that looks smoother than it really is matters. So does a cap that appears taller, a cable that seems to be included, or a control panel with the ports in the wrong order.",
+      },
+      {
+        type: "list",
+        items: [
+          "The Amazon main image and the main product angle.",
+          "Colour, finish, material, texture, and reflective surfaces.",
+          "Fit, drape, seams, closures, hardware, and construction.",
+          "Labels, screens, controls, measurements, packaging, and included parts.",
+          "Any feature a customer might compare with the item that arrives.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Those photographs also give the AI work a reference. Without them, review becomes subjective. With them, we can put the generated image beside the source and check whether the product survived the process.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Where AI earns its place",
+        id: "choose-ai",
+      },
+      {
+        type: "paragraph",
+        text: "AI becomes useful once the product itself is no longer a mystery. It can put the same verified product into a bright kitchen, a winter campaign, or an outdoor scene without building three physical sets. It can also help us test an art direction before a client commits to a larger shoot.",
+      },
+      {
+        type: "paragraph",
+        text: "We would not ask AI to invent the front panel of that power station. We might ask it to change the time of day, the landscape, or the amount of empty space around the product for an ad crop. That boundary sounds conservative. It also saves a lot of time spent correcting attractive images that show the wrong item.",
+      },
+      {
+        type: "paragraph",
+        text: "The source files still matter. Marketplace downloads are often compressed, and one front view rarely explains a handle, port, clasp, or repeating pattern. A few good reference angles usually help more than another paragraph of prompting.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The category changes the risk",
+        id: "category-guide",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Fashion and accessories",
+        id: "fashion-accessories",
+      },
+      {
+        type: "paragraph",
+        text: "A changed neckline or strap is not a styling variation. It is a different product. We photograph fit, fabric, construction, colour, and hardware first. AI can help with additional on-model or campaign ideas, but we reject an output when the hem, pocket, clasp, or pattern repeat has moved.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Packaging, beauty, food, and wellness",
+        id: "packaging-claims",
+      },
+      {
+        type: "paragraph",
+        text: "The pack shot needs a real label, real geometry, and the correct contents. Reflected text is a common weak point in generated images, especially on glossy bottles and pouches. AI can build the bathroom, vanity, table, or seasonal setting around the pack. It should not add an ingredient, benefit, serving result, or package claim.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Electronics, appliances, and home products",
+        id: "hard-goods",
+      },
+      {
+        type: "paragraph",
+        text: "We want front, back, side, interface, accessory, and packaging references for electronics. For furniture and home products, dimensions and joinery need the same care. AI can create an office, living room, campsite, or workshop, but a chair cannot grow twenty percent just because the generated room looks better that way.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "The cheap option can get expensive",
+        id: "cost-and-speed",
+      },
+      {
+        type: "paragraph",
+        text: "A traditional shoot has obvious costs: sample preparation, studio time, crew, props, models, and retouching. AI removes some of those logistics. Then the cost turns up elsewhere, in reference preparation, generation rounds, product correction, and review.",
+      },
+      {
+        type: "paragraph",
+        text: "Simple products in flexible scenes can move quickly. A dark glossy appliance with a screen, six ports, small printed labels, and a hand touching it may take much longer. We have seen enough plausible first generations to know that plausible is not the same as approved.",
+      },
+      {
+        type: "paragraph",
+        text: "So we compare the cost of a finished image set, not the cost of pressing the shutter or pressing Generate. A cheap first image is irrelevant if it takes ten rounds to make the product true again.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How we run a hybrid job",
+        id: "hybrid-workflow",
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Plan the listing first. Each image gets a job, destination, crop, and approval standard.",
+          "Photograph the product truth. We cover the main angle, alternate views, details, scale, packaging, and included parts.",
+          "Generate the flexible layer. Backgrounds, locations, styling, and campaign variations can change while the product reference stays fixed.",
+          "Review the product again. We check shape, proportion, colour, material, hardware, labels, shadows, and contact points before preparing final crops.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "We review composition and product accuracy separately. Mixing those decisions is how a beautiful scene gets waved through even though a button has disappeared. Sometimes we reject the prettiest option. That is part of the job.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "A brief we can actually use",
+        id: "production-brief",
+      },
+      {
+        type: "paragraph",
+        text: "For a first review, we ask for the current listing or planned image order, original product files from useful angles, verified specifications, packaging artwork, and a list of details that cannot change. We also need to know where the images will run. An Amazon main image, a Shopify banner, and a social ad do not want the same crop or the same amount of context.",
+      },
+      {
+        type: "paragraph",
+        text: "Examples you dislike are useful too. A client can spend twenty minutes describing a premium mood, then reject an image because the room feels too polished. Showing us that rejection reference at the start is faster.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "How we make the call",
+        id: "short-answer",
+      },
+      {
+        type: "paragraph",
+        text: "One sentence in the brief often settles it. When the shopper needs to inspect a detail, we put that detail in front of a camera. When a client wants the same product in ten locations, we usually photograph it once and build only the contexts that make sense.",
+      },
+      {
+        type: "paragraph",
+        text: "The photographs stay attached to the project from the first review to the final export. We use AI around them, then reject anything that changes what the customer will receive. That may leave us with fewer final options. We are fine with that. Every image still has to survive a side-by-side check with the real product.",
+      },
+    ],
+    faq: [
+      {
+        question: "Are AI-generated product images allowed on Amazon?",
+        answer:
+          "Requirements vary by marketplace, category, and placement. Check the current Seller Central rules before production and upload. Whatever method you use, the image should not invent features, accessories, claims, or packaging.",
+      },
+      {
+        question: "Should I use AI for my Amazon main image?",
+        answer:
+          "We usually prefer a photographed and carefully retouched main image because it documents the exact item. AI is more useful for secondary lifestyle and campaign images after the product has a reliable reference set.",
+      },
+      {
+        question: "Is AI product imagery cheaper than photography?",
+        answer:
+          "It can reduce the cost of locations, sets, travel, or some model work. Complex products may still need substantial correction and review. Compare the cost of the approved image set, not the cost of the first generation.",
+      },
+    ],
+  },
+  {
     slug: "how-we-keep-ai-product-images-accurate",
     title: "How We Keep AI Product Images Accurate",
     date: "2026-07-28",
