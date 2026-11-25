@@ -1,119 +1,93 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import CtaButton from "./cta-button";
-import { cdnUrl, posterFor } from "@/config/cdn";
+import Lightbox from "./lightbox";
+import VideoDialogPlayer from "./video-dialog-player";
 
 const BRAND_FILM_SRC = "/works/brand-film/brand-film-07.m4v";
-
-function VideoModal({ src, title, onClose }: { src: string; title: string; onClose: () => void }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    videoRef.current?.play();
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-10 text-white hover:text-[var(--amber)]"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-        </svg>
-      </button>
-      <video
-        ref={videoRef}
-        controls
-        autoPlay
-        className="h-auto w-full max-h-[90vh] object-contain"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
-        {title}
-      </div>
-    </div>
-  );
-}
+const BRAND_FILM_PREVIEW_HLS = process.env.NODE_ENV === "development"
+  ? "/works/brand-film/quick-n-body/hls/master.m3u8"
+  : undefined;
+const BRAND_FILM_POSTER = "/home-commercials-brand-films-v1.webp";
+const BRAND_FILM_TITLE = "Commercials & Brand Films";
 
 export default function VideoSection() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--background)] py-20 sm:py-40">
+    <section
+      id="commercials-brand-films"
+      aria-labelledby="commercials-brand-films-title"
+      className="relative scroll-mt-20 overflow-hidden bg-[var(--background)] py-20 sm:py-40"
+    >
       <div className="relative mx-auto max-w-7xl">
-        {/* Video button (full-bleed on all viewports) */}
         <button
-          onClick={() => setShowModal(true)}
-          className="group relative flex w-full overflow-hidden aspect-video lg:aspect-[21/9]"
+          type="button"
+          onClick={(event) => {
+            event.currentTarget.focus({ preventScroll: true });
+            setShowModal(true);
+          }}
+          aria-label="Play Commercials & Brand Films sample"
+          aria-haspopup="dialog"
+          className="group relative flex aspect-video w-full overflow-hidden bg-[#102820] focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white lg:aspect-[21/9]"
         >
-          {/* Auto-playing background video (muted, loop) — click to open modal with sound */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={cdnUrl(posterFor(BRAND_FILM_SRC))}
-            className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
-          >
-            <source src={cdnUrl(BRAND_FILM_SRC)} type="video/mp4" />
-          </video>
-
-          {/* Subtle darkening overlay for text legibility (desktop only — mobile text sits outside) */}
-          <div className="absolute inset-0 hidden lg:block bg-gradient-to-t from-[var(--background)] via-[var(--background)]/60 to-transparent" />
-
-          {/* Centered large play button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform group-hover:scale-110 lg:h-24 lg:w-24">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#1b3b2f">
-                <polygon points="6 3 20 12 6 21 6 3"/>
+          <Image
+            src={BRAND_FILM_POSTER}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="(min-width: 1280px) 1280px, 100vw"
+            className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.035]"
+          />
+          <span className="absolute inset-0 hidden bg-gradient-to-r from-[#102820]/95 via-[#102820]/65 to-transparent lg:block" aria-hidden="true" />
+          <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <span className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--amber)]/90 backdrop-blur transition-transform motion-safe:group-hover:scale-110 lg:h-24 lg:w-24">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="#1b3b2f">
+                <polygon points="6 3 20 12 6 21 6 3" />
               </svg>
-            </div>
-          </div>
+            </span>
+          </span>
         </button>
 
-        {/* Title + CTA — mobile: flow below video. Desktop: absolute overlay on video bottom. */}
-        <div className="mt-6 px-2 lg:mt-0 lg:absolute lg:bottom-0 lg:left-0 lg:right-0 lg:flex lg:flex-col lg:items-start lg:justify-end lg:p-16 lg:pointer-events-none">
-          <div className="w-full max-w-md lg:pointer-events-auto">
-            <p className="mb-3 text-sm font-medium text-[var(--amber)]">
-              Premium tier
+        <div className="mt-6 px-6 lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:p-12 xl:p-16">
+          <div className="w-full max-w-md">
+            <p className="mb-3 text-sm font-medium text-[#896333] lg:text-[#cfb077]">
+              Filmed Production
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
-              Brand Film Production
+            <h2 id="commercials-brand-films-title" className="text-3xl font-semibold tracking-tight lg:text-4xl lg:text-[#f4f2ec]">
+              Commercials &amp; Brand Films
             </h2>
-            <p className="mt-4 text-[var(--muted)] lg:text-lg">
-              Cinematic brand films and commercial productions for your biggest
-              launches. Full creative direction, professional lighting, and
-              post-production included — everything you need for your hero products.
+            <p className="mt-4 text-[var(--muted)] lg:text-lg lg:text-[#e2e6de]">
+              From campaign commercials to launch films, we develop the idea,
+              plan the shoot, and deliver edits for the channels in your brief.
             </p>
-            <div className="mt-6 flex justify-center gap-4 lg:justify-start">
-              <CtaButton href="/contact">Get a quote</CtaButton>
-              <CtaButton href="/services/brand-film" variant="outline">
-                View showcase
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+              <CtaButton href="/contact" className="min-h-12 w-full sm:w-auto lg:pointer-events-auto">
+                Discuss a Project
+              </CtaButton>
+              <CtaButton href="/services/brand-film" variant="outline" className="min-h-12 w-full sm:w-auto lg:pointer-events-auto">
+                Explore Brand Films
               </CtaButton>
             </div>
           </div>
         </div>
       </div>
 
-      {showModal && (
-        <VideoModal
-          src={cdnUrl(BRAND_FILM_SRC)}
-          title="Brand Film Production"
-          onClose={() => setShowModal(false)}
+      <Lightbox
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        label={BRAND_FILM_TITLE}
+        closeLabel="Close video"
+      >
+        <VideoDialogPlayer
+          title={BRAND_FILM_TITLE}
+          src={BRAND_FILM_SRC}
+          hlsSrc={BRAND_FILM_PREVIEW_HLS}
+          poster={BRAND_FILM_POSTER}
         />
-      )}
+      </Lightbox>
     </section>
   );
 }

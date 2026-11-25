@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AnalyticsSettingsButton from "@/components/analytics-settings-button";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -57,9 +58,28 @@ export default function PrivacyPolicyPage() {
 
         <h2 className="mt-10 text-xl font-semibold">Information We Collect</h2>
         <p className="mt-3 text-[var(--muted)]">
-          We collect information you provide directly, including: name, email address, company name,
-          product details, and project specifications when you submit a contact form or communicate
-          with us via email.
+          We collect information you provide in our contact form or by email, including your name,
+          email address, brand or company, requested services, project brief, target date, and
+          reference links. When optional measurement is enabled, we also store your landing page,
+          referring website domain, and campaign parameters (when present) in your browser session.
+          If you submit the form, these attribution details are sent with your inquiry.
+        </p>
+
+        <h2 className="mt-10 text-xl font-semibold">Website Analytics</h2>
+        <p className="mt-3 text-[var(--muted)]">
+          We use Vercel Web Analytics to understand page views, referral sources, approximate location,
+          and device or browser information in aggregate. We use these statistics to improve the
+          website. Vercel describes this service as cookie-free and anonymized.
+        </p>
+        <p className="mt-3 text-[var(--muted)]">
+          Where configured, Google Analytics and Google Ads measurement may be enabled by default for
+          visitors outside the EEA, the UK, and Switzerland. Visitors in those regions must opt in
+          before these optional tools run.
+          They may receive information about page visits and successful contact-form submissions.
+          You can turn them off or change your choice in{" "}
+          <AnalyticsSettingsButton className="font-medium text-[var(--foreground)] underline underline-offset-4" />.
+          A first-party preference cookie may remember your choice when browser storage is unavailable.
+          Turning them off does not affect your ability to contact us.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">How We Use Your Information</h2>
@@ -68,18 +88,25 @@ export default function PrivacyPolicyPage() {
           and communicate about your project. We do not sell or share your personal information with
           third parties for their marketing purposes.
         </p>
+        <p className="mt-3 text-[var(--muted)]">
+          When optional measurement is enabled, we use campaign and referral information to
+          understand which channels lead to project inquiries.
+        </p>
 
         <h2 className="mt-10 text-xl font-semibold">Information Shared with Third Parties</h2>
         <p className="mt-3 text-[var(--muted)]">
-          We may share your information with service providers who assist us in delivering our
-          services (e.g., cloud storage providers, communication tools). These providers are
-          contractually obligated to protect your information.
+          We use Vercel to host the website and provide aggregate analytics, and Resend to deliver
+          contact-form inquiries to our inbox. When optional Google measurement is enabled as
+          described above, Google may receive website visit and contact-form conversion data. We
+          share data with these providers for those stated purposes and do not sell your personal
+          information.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Data Retention</h2>
         <p className="mt-3 text-[var(--muted)]">
-          We retain your information for as long as necessary to provide our services and for a
-          reasonable period thereafter for record-keeping purposes.
+          We keep inquiry records as long as needed to respond and follow up. If an inquiry becomes
+          a project, we keep relevant records as needed to deliver the work, manage billing, and
+          meet applicable recordkeeping obligations.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Your Rights</h2>
@@ -90,6 +117,11 @@ export default function PrivacyPolicyPage() {
             hello@flarepix.com
           </a>
           .
+        </p>
+        <p className="mt-3 text-[var(--muted)]">
+          Depending on applicable law, you may also have the right to restrict or object to certain
+          uses of your personal information, receive a copy in a portable format, or lodge a
+          complaint with the relevant data protection authority.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Contact</h2>

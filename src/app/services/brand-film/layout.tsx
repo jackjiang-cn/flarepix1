@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Brand Film Production",
+  name: "Commercial & Brand Film Production",
   description:
-    "Cinematic brand films and commercial productions for hero product launches. Full creative direction, professional lighting, and post-production included.",
+    "Commercials, launch films, and brand stories for consumer brands and ecommerce teams, from concept and filming to editing and delivery.",
   provider: {
     "@type": "Organization",
     name: "FlarePix",
     url: "https://www.flarepix.com",
   },
   areaServed: "Worldwide",
-  serviceType: "Brand film production",
+  serviceType: "Commercial video and brand film production",
 };
 
 export default function BrandFilmLayout({

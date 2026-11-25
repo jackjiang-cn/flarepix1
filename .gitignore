@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -44,3 +45,18 @@ public/works/
 
 # Video pipeline output (generated videos from E:\flarepix-video-pipeline)
 public/videos/
+
+# claude-seo skill suite (project-local install — third-party, not committed)
+/.claude/skills/seo/
+/.claude/skills/seo-*/
+/.claude/agents/seo-*.md
+
+# Local agent tooling and generated audit output
+/.agents/skills/seo*/
+/.codex/agents/seo-*.toml
+/.claude/settings.local.json
+/.claude/tmp_audit/
+/tmp_audit/
+
+# Local source master for the Quick N Body video preview
+/Brand Film Production/Quick N Body/

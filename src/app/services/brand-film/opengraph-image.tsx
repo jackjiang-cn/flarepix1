@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Brand Film — FlarePix";
+export const alt = "Commercials & Brand Films — FlarePix";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,7 +31,7 @@ export default async function Image() {
             fontWeight: 600,
           }}
         >
-          FlarePix · Premium tier
+          FlarePix / Filmed Production
         </div>
         <div
           style={{
@@ -42,7 +42,7 @@ export default async function Image() {
             marginBottom: 32,
           }}
         >
-          Brand Film
+          Commercials &amp; Brand Films
         </div>
         <div
           style={{
@@ -52,7 +52,7 @@ export default async function Image() {
             maxWidth: 900,
           }}
         >
-          Cinematic brand films and commercial productions for your biggest launches
+          Commercials, launch films, and brand stories for consumer brands.
         </div>
       </div>
     ),

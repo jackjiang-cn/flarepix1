@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { contact } from "@/config/contact";
 import { Analytics } from "@vercel/analytics/next";
+import AnalyticsConsent from "@/components/analytics-consent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,17 +24,17 @@ declare global {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.flarepix.com"),
-  title: "Product Photography Studio for Amazon — FlarePix",
+  title: "Commercial Video & Visual Content for Consumer Brands | FlarePix",
   description:
-    "Professional product photography, video, AI-generated imagery, and AI video for Amazon and ecommerce brands. Ship your products or generate visuals remotely.",
+    "FlarePix creates commercial videos, product demonstrations, advertising creatives, and photography for consumer brands and ecommerce teams.",
   icons: { icon: "/favicon.svg" },
   alternates: {
     canonical: "https://www.flarepix.com",
   },
   openGraph: {
-    title: "Product Photography Studio for Amazon — FlarePix",
+    title: "Commercial Video & Visual Content for Consumer Brands | FlarePix",
     description:
-      "Photo, video, AI imagery, and AI video — one studio for all your ecommerce visuals.",
+      "FlarePix creates commercial videos, product demonstrations, advertising creatives, and photography for consumer brands and ecommerce teams.",
     siteName: "FlarePix",
     url: "https://www.flarepix.com",
     type: "website",
@@ -42,15 +43,15 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Product Photography Studio for Amazon — FlarePix",
+        alt: "Commercial Video & Visual Content for Consumer Brands | FlarePix",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Product Photography Studio for Amazon — FlarePix",
+    title: "Commercial Video & Visual Content for Consumer Brands | FlarePix",
     description:
-      "Photo, video, AI imagery, and AI video — one studio for all your ecommerce visuals.",
+      "FlarePix creates commercial videos, product demonstrations, advertising creatives, and photography for consumer brands and ecommerce teams.",
     images: ["/og-image.jpg"],
   },
 };
@@ -64,14 +65,13 @@ const organizationJsonLd = {
   email: contact.email,
   telephone: contact.phone,
   description:
-    "AI-powered product photography and video services for ecommerce brands",
+    "Commercial video and visual content production for consumer brands and ecommerce teams",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Qingdao",
     addressRegion: "Shandong",
     addressCountry: "CN",
   },
-  sameAs: Object.values(contact.social),
   contactPoint: {
     "@type": "ContactPoint",
     email: contact.email,
@@ -79,7 +79,8 @@ const organizationJsonLd = {
   },
 };
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "";
+const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim() ?? "";
+const adsId = process.env.NEXT_PUBLIC_GADS_CONVERSION_ID?.trim() ?? "";
 
 export default function RootLayout({
   children,
@@ -91,26 +92,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        {gaId ? (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', { page_path: window.location.pathname });
-                `,
-              }}
-            />
-          </>
-        ) : null}
-      </head>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
@@ -120,6 +101,7 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <AnalyticsConsent gaId={gaId} adsId={adsId} />
       </body>
     </html>
   );

@@ -16,8 +16,13 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
         {photos.map((p, i) => (
           <button
             key={`${p.src}-${i}`}
-            onClick={() => setLightboxPhoto(p)}
-            className="group relative mb-4 block w-full break-inside-avoid cursor-zoom-in"
+            type="button"
+            aria-haspopup="dialog"
+            onClick={(event) => {
+              event.currentTarget.focus({ preventScroll: true });
+              setLightboxPhoto(p);
+            }}
+            className="group relative mb-4 block w-full break-inside-avoid cursor-zoom-in rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
           >
             <div className="relative overflow-hidden rounded-lg bg-[var(--surface)]">
               <Image
@@ -41,7 +46,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
         ))}
       </div>
 
-      <Lightbox open={!!lightboxPhoto} onClose={() => setLightboxPhoto(null)}>
+      <Lightbox open={!!lightboxPhoto} onClose={() => setLightboxPhoto(null)} label={lightboxPhoto?.alt}>
         {lightboxPhoto && (
           <Image
             src={cdnUrl(lightboxPhoto.src)}

@@ -7,22 +7,22 @@ import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
 
 export const metadata: Metadata = {
-  title: "AI Product Imagery for Ecommerce — Lifestyle Scenes & On-Model Shots | FlarePix",
+  title: "AI-Assisted Campaign Imagery | FlarePix",
   description:
-    "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce — fast turnaround, no shipping required.",
+    "Explore AI-assisted campaign imagery created from approved product references, with each project's scope and suitability reviewed against the brief.",
   alternates: { canonical: "https://www.flarepix.com/services/ai-imagery" },
   openGraph: {
-    title: "AI Product Imagery for Amazon — Lifestyle Scenes & On-Model Photos | FlarePix",
+    title: "AI-Assisted Campaign Imagery | FlarePix",
     description:
-      "Generate lifestyle scenes, on-model shots, and campaign visuals from a single product photo. AI imagery for Amazon and ecommerce.",
+      "Explore AI-assisted campaign imagery created from approved product references, with each project's scope and suitability reviewed against the brief.",
     url: "https://www.flarepix.com/services/ai-imagery",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Product Imagery for Amazon | FlarePix",
+    title: "AI-Assisted Campaign Imagery | FlarePix",
     description:
-      "Generate lifestyle scenes and on-model shots from a single product photo. AI imagery for ecommerce brands.",
+      "Explore AI-assisted campaign imagery created from approved product references, with each project's scope and suitability reviewed against the brief.",
     images: ["/og-image.jpg"],
   },
 };
@@ -36,21 +36,6 @@ const aiImages = [
   { src: "/works/ai/images/ai-image-06.webp", alt: "AI virtual try-on" },
 ];
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "AI Product Imagery — FlarePix",
-  description:
-    "AI-generated lifestyle scenes, on-model shots, and campaign visuals from a single product photo. For Amazon and ecommerce brands.",
-  provider: {
-    "@type": "Organization",
-    name: "FlarePix",
-    url: "https://www.flarepix.com",
-  },
-  areaServed: "Worldwide",
-  thumbnailUrl: "https://media.flarepix.com/works/ai/images/ai-image-01.webp",
-};
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -63,24 +48,24 @@ const breadcrumbSchema = {
 
 const aiImageryFaqs = [
   {
-    q: "What does the AI imagery process look like?",
-    a: "Send us your product photo — a clean white background shot or flat lay works best. Tell us the target use case (Amazon lifestyle images, social campaign, email visual) and any style references. We generate the images, run them through human quality review, and deliver finished files ready for upload.",
+    q: "What reference materials do you need?",
+    a: "Share approved product photos, specifications, packaging or label details, brand references, and the channels where the images will be used. We confirm what else is needed after reviewing the brief.",
   },
   {
-    q: "Will the AI images look realistic?",
-    a: "Without professional review, AI-generated images often show artifacts: unnatural fabric draping, incorrect product proportions, or generic-looking scenes that hurt brand credibility. FlarePix reviews every output before delivery — checking product accuracy, visual quality, and brand consistency. You receive finished images, not a draft to experiment with.",
+    q: "Is one product photo enough?",
+    a: "A single photo may be enough to explore a simple concept. Products with important details often need images from more angles or additional specifications. We assess feasibility from the references you provide.",
   },
   {
-    q: "What file formats do you deliver?",
-    a: "We deliver JPG and WebP files in high resolution, optimised for Amazon upload, web, email, and print. No conversion needed — files are ready to upload directly.",
+    q: "How do you check product accuracy?",
+    a: "We compare generated results with the approved product references, including visible shape, color, labels, and materials. If a detail must be represented exactly, we may recommend photography.",
   },
   {
-    q: "Do I need to ship my products to you?",
-    a: "No — for AI imagery, you only need to send a reference photo of your product. No shipping, no studio appointment, no logistics. We work with sellers worldwide who source from Chinese manufacturers or Dropship directly.",
+    q: "Do I need to ship a product sample?",
+    a: "Reference-led imagery may not require shipping. If the supplied assets do not show details needed for an accurate result, we may request a sample or recommend a studio photograph.",
   },
   {
-    q: "Can AI imagery replace traditional product photography?",
-    a: "For lifestyle contexts, social content, and seasonal refreshes, yes — AI imagery is a fast, scalable alternative to traditional studio shoots. For exact product representation (white background Amazon images, precise color matching), traditional photography may still be preferred. Many brands use both: traditional shots for the main listing images, AI imagery for lifestyle and campaign content.",
+    q: "How are formats and timing decided?",
+    a: "We agree on image dimensions, file types, variations, review points, and timing in the project proposal before production begins.",
   },
 ];
 
@@ -99,28 +84,29 @@ export default function AiImageryPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, faqSchema]) }}
       />
       <Header />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
-          href="/services#ai-imagery"
+          href="/services"
           className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
         >
           &larr; All services
         </Link>
 
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-          AI Imagery
+          AI-Assisted Campaign Imagery
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
-          AI-generated lifestyle scenes, on-model imagery, and campaign visuals
-          — built from real product photos for accuracy. Fast turnaround, no
-          physical shipping required.
+          For briefs that benefit from generated settings or visual variations,
+          we work from approved product references and review the results for
+          product accuracy and brand fit. When exact details matter, we may
+          recommend photography.
         </p>
 
         <div className="mt-6 flex gap-4">
-          <CtaButton href="/contact">Get a quote</CtaButton>
+          <CtaButton href="/contact">Discuss a Project</CtaButton>
         </div>
 
         {/* Gallery */}
@@ -132,48 +118,34 @@ export default function AiImageryPage() {
           />
         </section>
 
-        {/* SEO content — explains the service in depth */}
         <section className="mt-16 grid gap-12 sm:grid-cols-2">
           <div>
-            <h2 className="text-xl font-semibold">What is AI product imagery?</h2>
+            <h2 className="text-xl font-semibold">When AI-assisted imagery fits</h2>
             <p className="mt-3 text-[var(--muted)]">
-              AI product imagery uses artificial intelligence to generate lifestyle scenes, on-model shots, and campaign visuals from a single reference photo of your product. Unlike traditional photography, it requires no studio time, no models, and no shipping — just upload your product image and let AI do the rest.
+              AI-assisted imagery can help explore campaign settings, seasonal variations, and visual concepts from approved product references. It works best when the surrounding scene can change while the product remains clearly represented.
             </p>
             <p className="mt-3 text-[var(--muted)]">
-              The result is photorealistic imagery that places your product in aspirational contexts — a living room, a beach, a city street — while maintaining accurate product geometry and color. Every image is brand-safe and on-model, without the logistics of a traditional shoot.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              Based in Qingdao, China — the world&apos;s manufacturing hub — we work with Amazon and ecommerce sellers globally. Your products are already here. Your visuals should be too.
+              We review results against the supplied references. Generated images can misrepresent labels, materials, color, or shape; when exact representation matters, we may recommend a photograph.
             </p>
           </div>
           <div>
-            <h2 className="text-xl font-semibold">Use cases for AI imagery</h2>
+            <h2 className="text-xl font-semibold">Possible uses</h2>
             <ul className="mt-3 space-y-2 text-[var(--muted)]">
               <li className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Amazon listings</strong> — Lifestyle images that convert better than white background shots alone</span>
+                <span><strong>Campaign concepts</strong> — Explore settings and visual directions for an agreed brief</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Social media campaigns</strong> — On-model content at scale without booking models</span>
+                <span><strong>Seasonal variations</strong> — Adapt backgrounds and context when the product can be represented accurately</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Email and display ads</strong> — Campaign visuals generated in hours, not weeks</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                <span><strong>Seasonal refreshes</strong> — Update imagery for holidays and trends without reshoots</span>
+                <span><strong>Social and display assets</strong> — Create image variations for the placements agreed in the project</span>
               </li>
             </ul>
           </div>
         </section>
-
-        <div className="mt-16 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
-          <p className="text-[var(--muted)]">
-            More AI imagery examples coming soon.
-          </p>
-        </div>
 
         {/* Cross-links to related services */}
         <section className="mt-16 grid gap-4 sm:grid-cols-2">
@@ -181,24 +153,24 @@ export default function AiImageryPage() {
             href="/services/ai-video"
             className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
           >
-            <p className="text-sm text-[var(--muted)]">Explore also</p>
+            <p className="text-sm text-[var(--muted)]">Explore motion content</p>
             <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
               AI Video →
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Turn product images into short videos for social and ads.
+              AI-assisted scenes and ad variations created from approved product references.
             </p>
           </Link>
           <Link
-            href="/services/brand-film"
+            href="/services#product-photography"
             className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
           >
-            <p className="text-sm text-[var(--muted)]">Looking for something bigger?</p>
+            <p className="text-sm text-[var(--muted)]">Need exact product detail?</p>
             <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
-              Brand Film Production →
+              Product Photography →
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Cinematic brand films for hero product launches.
+              Studio and lifestyle photographs for ecommerce and campaigns.
             </p>
           </Link>
         </section>

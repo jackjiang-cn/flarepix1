@@ -1,96 +1,32 @@
-"use client";
+import Link from "next/link";
+import { featuredFaqs } from "@/config/faqs";
 
-import { useState, type ElementType } from "react";
-
-const faqs = [
-  {
-    q: "How does your product photography work?",
-    a: "Ship your products to our studio, share your brief and specs, and we'll handle everything — styling, shooting, editing, and delivery. For AI generation, just upload a reference photo and we'll create lifestyle scenes, on-model shots, and more.",
-  },
-  {
-    q: "What is your turnaround time?",
-    a: "Standard turnaround is 6–8 business days from receipt of products and payment. Rush delivery in 3–4 business days available. AI generation can be even faster depending on volume.",
-  },
-  {
-    q: "What services do you offer?",
-    a: "We offer product photography (ghost mannequin, flat lay, on-model), product videography, AI on-model imagery, AI lifestyle scenes, AI video generation, and 3D product rendering. All from one studio, one workflow.",
-  },
-  {
-    q: "Can I work with you remotely?",
-    a: "Yes. Our process is fully remote — ship your products to us from anywhere, or use our AI generation service with just reference photos. You receive upload-ready files online.",
-  },
-  {
-    q: "Is retouching included?",
-    a: "Basic retouching is included on all images — color correction, cropping, and background cleanup. Premium retouching is available for advanced edits.",
-  },
-  {
-    q: "What's the difference between AI generation and traditional photography?",
-    a: "Traditional photography captures your actual product in our studio under controlled lighting. AI generation takes a reference photo and creates lifestyle scenes, on-model shots, and campaign visuals around it. Many brands use both for different needs.",
-  },
-  {
-    q: "Does AI video look AI-generated?",
-    a: "Without professional oversight, yes — AI-generated video often has telltale signs: unnatural motion, visual artifacts, generic-looking scenes. FlarePix runs every AI output through human quality review before delivery. We fix artifacts, correct product angles, and ensure the final video looks professional on your Amazon listing.",
-  },
-  {
-    q: "What's included in your human quality review?",
-    a: "Every AI video and image we produce is reviewed by a team member before delivery. That means checking product accuracy, visual quality, brand consistency, and Amazon compliance. You receive finished files — not a draft to review and send back.",
-  },
-  {
-    q: "What's the difference between AI video and brand film production?",
-    a: "AI video is generated from reference assets — fast, scalable, and suited for batch content (Amazon A+ video, social ad variants, display campaigns). Brand film production involves a real shoot with professional talent, creative direction, and a multi-week post-production process. Brand films are built for your biggest launches and highest-stakes visual moments.",
-  },
-  {
-    q: "How does your hybrid production workflow work?",
-    a: "For brand films: we plan the creative concept, shoot real footage with professional talent, then use AI-assisted post-production for colour grading, motion graphics, and upscaling. For AI video: we manage the generation process end-to-end — prompt design, reference curation, output review. Either way, you work with a team, not a tool.",
-  },
-];
-
-export default function FaqSection({
-  headingLevel = "h2",
-}: {
-  headingLevel?: ElementType;
-}) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const Heading = headingLevel;
-
+export default function FaqSection() {
   return (
-    <section className="bg-[var(--surface)]">
-      <div className="mx-auto max-w-2xl px-6 py-24 sm:py-40">
-        <Heading className="text-2xl font-semibold tracking-tight">
-          Frequently asked questions
-        </Heading>
-        <div className="mt-10">
-          {faqs.map((faq, i) => (
-            <div key={faq.q} className="border-b border-black/[0.08]">
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                aria-expanded={openIndex === i}
-                className="flex w-full items-center justify-between py-4 text-left"
-              >
-                <span className="pr-4 font-medium">{faq.q}</span>
-                <span className="text-[var(--amber)]">
-                  {openIndex === i ? "−" : "+"}
-                </span>
-              </button>
-              {/* Answer always in the HTML for crawlers/AI; visibility toggled via CSS */}
-              <div className={openIndex === i ? "block" : "hidden"}>
-                <p className="pb-4 text-sm text-[var(--muted)]">{faq.a}</p>
-              </div>
-            </div>
+    <section className="border-t border-[#1b3b2f]/15 bg-[var(--surface)]" aria-labelledby="home-faq-title">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">Frequently Asked Questions</p>
+          <h2 id="home-faq-title" className="mt-3 max-w-md text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
+            A few things worth knowing.
+          </h2>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+            From planning a shoot to working remotely, find the answers that help you get started.
+          </p>
+          <Link href="/faq" className="mt-7 inline-flex min-h-10 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold transition-colors hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]">
+            View All FAQs <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="border-t border-[#1b3b2f]/20">
+          {featuredFaqs.map((faq) => (
+            <details key={faq.q} className="group border-b border-[#1b3b2f]/20">
+              <summary className="flex min-h-18 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold leading-snug tracking-[-0.025em] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)] [&::-webkit-details-marker]:hidden">
+                <span>{faq.q}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#1b3b2f]/25 text-xl font-normal text-[#896333] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p className="max-w-2xl pb-6 pr-10 text-sm leading-relaxed text-[var(--muted)] sm:text-base">{faq.a}</p>
+            </details>
           ))}
-          {/* CTA row */}
-          <div className="mt-8 rounded-xl border border-[var(--amber)] bg-[var(--background)] p-6 text-center">
-            <p className="text-base font-medium">Ready to get started?</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">
-              Send us your product details and we&apos;ll put together a proposal within 24 hours.
-            </p>
-            <a
-              href="/contact"
-              className="mt-4 inline-flex items-center justify-center rounded-lg bg-[var(--amber)] px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#a37e4a]"
-            >
-              Get a quote
-            </a>
-          </div>
         </div>
       </div>
     </section>

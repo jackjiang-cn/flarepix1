@@ -17,6 +17,8 @@ type Entry = {
 const staticPages: Entry[] = [
   { path: "", priority: 1.0, changeFrequency: "weekly" },
   { path: "services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "product-categories", priority: 0.7, changeFrequency: "monthly" },
+  { path: "how-we-work", priority: 0.7, changeFrequency: "monthly" },
   { path: "services/ai-imagery", priority: 0.8, changeFrequency: "monthly" },
   { path: "services/ai-video", priority: 0.8, changeFrequency: "monthly" },
   { path: "services/brand-film", priority: 0.8, changeFrequency: "monthly" },

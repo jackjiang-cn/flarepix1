@@ -5,69 +5,58 @@ import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
-import { cdnUrl, posterFor } from "@/config/cdn";
+import { brandFilm02Web } from "@/config/cdn";
 
 export const metadata: Metadata = {
-  title: "Brand Film for Ecommerce — Cinematic Production for Amazon & Online Brands | FlarePix",
+  title: "Commercial Video & Brand Film Production | FlarePix",
   description:
-    "Cinematic brand films and commercial productions for Amazon and ecommerce brands. Hybrid approach: real footage blended with AI post-production — professional quality at a fraction of full production cost.",
+    "FlarePix produces commercials, launch films, and brand stories for consumer brands and ecommerce teams, from concept and filming to edit and delivery.",
   alternates: { canonical: "https://www.flarepix.com/services/brand-film" },
   openGraph: {
-    title: "Brand Film Production for Ecommerce — Hybrid Production | FlarePix",
+    title: "Commercial Video & Brand Film Production | FlarePix",
     description:
-      "Cinematic brand films using a hybrid approach: real footage + AI post-production. Full creative direction for Amazon and ecommerce brands.",
+      "FlarePix produces commercials, launch films, and brand stories for consumer brands and ecommerce teams, from concept and filming to edit and delivery.",
     url: "https://www.flarepix.com/services/brand-film",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brand Film Production for Ecommerce | FlarePix",
+    title: "Commercial Video & Brand Film Production | FlarePix",
     description:
-      "Cinematic brand films using hybrid production: real footage + AI. Professional quality at lower cost.",
+      "FlarePix produces commercials, launch films, and brand stories for consumer brands and ecommerce teams, from concept and filming to edit and delivery.",
     images: ["/og-image.jpg"],
   },
 };
 
 const brandFilms = [
   { src: "/works/brand-film/brand-film-01.m4v", title: "Brand Film 01", poster: "/works/posters/brand-film-01.jpg" },
-  { src: "/works/brand-film/brand-film-02.m4v", title: "Brand Film 02", poster: "/works/posters/brand-film-02.jpg" },
+  { ...brandFilm02Web, title: "Brand Film 02" },
   { src: "/works/brand-film/brand-film-03.m4v", title: "Brand Film 03", poster: "/works/posters/brand-film-03.jpg" },
   { src: "/works/brand-film/brand-film-04.m4v", title: "Brand Film 04", poster: "/works/posters/brand-film-04.jpg" },
   { src: "/works/brand-film/brand-film-05.m4v", title: "Brand Film 05", poster: "/works/posters/brand-film-05.jpg" },
   { src: "/works/brand-film/brand-film-06.m4v", title: "Brand Film 06", poster: "/works/posters/brand-film-06.jpg" },
 ];
 
-const brandFilmSchema = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  name: "Brand Film Production — FlarePix",
-  description:
-    "Cinematic brand films and commercial productions for Amazon and ecommerce brands using a hybrid production approach: real footage combined with AI-assisted post-production.",
-  thumbnailUrl: cdnUrl(posterFor(brandFilms[0].src)),
-  contentUrl: cdnUrl(brandFilms[0].src),
-  uploadDate: "2026-01-15T00:00:00Z",
-};
-
 const brandFilmFaqs = [
   {
-    q: "What's the difference between brand film production and AI video production?",
-    a: "Brand film production involves a real shoot — professional talent, studio or location, full creative direction — with AI-assisted post-production. AI video generation is entirely digital, faster, and lower cost. Brand films are built for your biggest launches and highest-stakes visual moments; AI video is better suited for batch content at scale.",
+    q: "How is a brand film different from AI video?",
+    a: "Brand films use planned filming when real footage is needed. AI video can create scenes from approved product references. We recommend an approach based on the brief and the level of product accuracy required.",
   },
   {
-    q: "How long does a brand film production take?",
-    a: "Brand film production typically takes 2–4 weeks from creative brief to final delivery. This includes concept development, pre-production planning, shoot days, and professional post-production. The hybrid approach reduces traditional production cost without sacrificing quality.",
+    q: "How long does a brand film take?",
+    a: "Timing depends on the concept, shoot requirements, sample arrival, and feedback. We include production and review milestones in each proposal.",
   },
   {
-    q: "What formats do you deliver?",
-    a: "We deliver in all standard formats: 4K MP4, ProRes for broadcast use, and optimised web variants. Every deliverable includes social crops (9:16, 1:1, 16:9) for Amazon Brand Store, YouTube, Instagram Reels, TikTok, and paid social.",
+    q: "What formats will I receive?",
+    a: "We agree on aspect ratios, resolution, file types, and any cutdowns for your intended channels before production. The final deliverables are listed in your proposal.",
   },
   {
-    q: "Can you shoot if my products are in China?",
-    a: "Yes — we're based in Qingdao, Shandong, China, which is the heart of global manufacturing. If your products are already here or you're sourcing from Chinese manufacturers, we can shoot directly without international shipping logistics.",
+    q: "Can we work together if my brand is outside China?",
+    a: "Yes. Our team is based in Qingdao and works with clients remotely. We agree on the samples or assets needed before production.",
   },
   {
-    q: "Is the final film fully owned by my brand?",
-    a: "100% — you own all final deliverables with full commercial rights. No usage restrictions, no recurring fees, no third-party licensing concerns.",
+    q: "What usage rights will I receive?",
+    a: "The proposal states the intended use of the final film and any separate terms for music, talent, or other licensed assets.",
   },
 ];
 
@@ -87,7 +76,7 @@ export default function BrandFilmPage() {
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([brandFilmSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
@@ -98,20 +87,19 @@ export default function BrandFilmPage() {
         </Link>
 
         <p className="mt-6 text-sm font-medium text-[var(--amber)]">
-          Premium tier
+          Commercial Video Production
         </p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Brand Film Production
+          Commercials &amp; Brand Films
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
-          Cinematic brand films and commercial productions for your biggest
-          launches. We use a hybrid approach — real footage combined with
-          AI-assisted post-production — delivering the visual impact of a full
-          studio shoot at a more accessible price point.
+          Films for campaigns, launches, and brand storytelling. We develop the
+          concept, plan the shoot, and edit the final film for the channels and
+          deliverables agreed in your brief.
         </p>
 
         <div className="mt-6 flex gap-4">
-          <CtaButton href="/contact">Get a quote</CtaButton>
+          <CtaButton href="/contact">Discuss a Project</CtaButton>
         </div>
 
         {/* Video showcase */}
@@ -123,55 +111,35 @@ export default function BrandFilmPage() {
           />
         </section>
 
-        {/* Stats */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">4K</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Production quality</p>
-          </div>
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">2-4</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Weeks delivery</p>
-          </div>
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">100%</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Brand ownership</p>
-          </div>
-        </div>
-
-        {/* SEO content */}
         <section className="mt-16">
-          <h2 className="text-xl font-semibold">Why the hybrid approach delivers better brand films</h2>
+          <h2 className="text-xl font-semibold">A film shaped around your brief.</h2>
           <div className="mt-6 grid gap-8 sm:grid-cols-2">
             <div>
               <p className="text-[var(--muted)]">
-                A full-production shoot — professional talent, multi-day studio rental, full crew — delivers cinematic results. But the cost and lead time are prohibitive for most Amazon sellers launching multiple products per quarter.
+                We begin with your audience, message, and intended channels. Before production, we agree on the concept, shoot plan, review stages, and final deliverables.
               </p>
               <p className="mt-4 text-[var(--muted)]">
-                AI-only tools solve for cost and speed — but the output often looks generic, with that characteristic &ldquo;AI feel&rdquo; that savvy consumers immediately recognise. When your brand film looks like everyone else&apos;s AI output, it undermines the brand credibility you&apos;re trying to build.
-              </p>
-              <p className="mt-4 text-[var(--muted)]">
-                Our hybrid approach combines real footage (professional talent, real studio or location) with AI-assisted post-production (colour grading, motion graphics, upscaling). The result: cinematic quality at a fraction of traditional cost, with turnaround that fits your product launch calendar. Based in Qingdao — the world&apos;s manufacturing hub — we work with sellers worldwide who source from Chinese manufacturers. Your products are already here. Your visuals should match your brand.
+                Depending on the project, we may use studio or location filming, talent, motion graphics, sound design, or AI-assisted techniques. The proposal sets out what is included.
               </p>
             </div>
             <div>
-              <p className="font-medium text-[var(--foreground)]">What you get with every brand film</p>
+              <p className="font-medium text-[var(--foreground)]">Typical project elements</p>
               <ul className="mt-4 space-y-3 text-[var(--muted)]">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                  <span><strong>Creative concept and script</strong> — Narrative direction developed from your brand brief before a single frame is shot</span>
+                  <span><strong>Concept and script</strong> — Creative direction based on your brief</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                  <span><strong>Professional shoot</strong> — Studio or location with professional lighting, talent, and creative direction</span>
+                  <span><strong>Production plan</strong> — Products, locations, talent, and shoot requirements agreed as needed</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                  <span><strong>AI-assisted post-production</strong> — Color grading, motion graphics, sound design, music licensing</span>
+                  <span><strong>Editing and review</strong> — Feedback points and revision rounds defined in the proposal</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                  <span><strong>Multiple deliverables</strong> — 30s, 60s, 90s cuts plus social crop variants, all in your required formats</span>
+                  <span><strong>Final assets</strong> — Main film and any agreed cutdowns in the required formats</span>
                 </li>
               </ul>
             </div>
@@ -184,24 +152,24 @@ export default function BrandFilmPage() {
             href="/services/ai-video"
             className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
           >
-            <p className="text-sm text-[var(--muted)]">Need something faster?</p>
+            <p className="text-sm text-[var(--muted)]">Explore another approach</p>
             <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
               AI Video →
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Generate product videos at scale without a full production.
+              AI-assisted scenes and ad variations created from approved product references.
             </p>
           </Link>
           <Link
-            href="/services/ai-imagery"
+            href="/services#product-photography"
             className="group rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 hover:border-[var(--amber)] transition-colors"
           >
-            <p className="text-sm text-[var(--muted)]">Pair with</p>
+            <p className="text-sm text-[var(--muted)]">Add still imagery</p>
             <p className="mt-1 font-semibold group-hover:text-[var(--amber)] transition-colors">
-              AI Imagery →
+              Product Photography →
             </p>
             <p className="mt-1 text-sm text-[var(--muted)]">
-              Lifestyle images and on-model shots to extend your campaign.
+              Studio and lifestyle photographs for ecommerce and campaigns.
             </p>
           </Link>
         </section>

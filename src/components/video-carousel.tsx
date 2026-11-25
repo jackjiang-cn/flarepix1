@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import CtaButton from "./cta-button";
 import { videoProductionCategories, videoProductionSources } from "@/config/categories";
-import { cdnUrl, posterFor } from "@/config/cdn";
+import { cdnUrl, posterFor, resolvePosterUrl } from "@/config/cdn";
 
 type Props = {
   configUrl?: string;
@@ -220,7 +220,7 @@ export default function VideoCarousel({ configUrl = "/content/display-order.json
               >
                 {/* Poster thumbnail (first frame of video) */}
                 <Image
-                  src={cdnUrl(posterFor(v.src))}
+                  src={resolvePosterUrl(posterFor(v.src))}
                   alt={v.title}
                   fill
                   className="object-cover transition-transform group-hover:scale-105"

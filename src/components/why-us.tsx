@@ -1,39 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { cdnUrl } from "@/config/cdn";
+import Link from "next/link";
 
 const items = [
   {
-    question: "Quality that matches your brand",
+    question: "Show the details that matter",
     answer:
-      "We work directly from your image references — lighting, angles, styling, and overall direction — and provide a test shot to lock in the look before full production begins. Every category follows a controlled setup to maintain accuracy, consistency, and brand-specific visual standards across all your images.",
+      "For the GE Smart Scale film, we shot at floor level to show the electrodes and used close-ups to show the handle display and phone app.",
   },
   {
-    question: "Consistent at scale",
+    question: "Make the set fit the shot",
     answer:
-      "Every brand receives its own lighting recipes, art direction, and category-specific setups to ensure the same look season after season. With locked-down lighting, uniform retouching, and color accuracy, imagery stays consistent across thousands of SKUs.",
+      "In one wide shot of the GE Smart Scale film, we digitally extended the living-room background around studio footage of the scale.",
   },
   {
-    question: "Specialists in ecommerce workflows",
+    question: "Review what your customers will see",
     answer:
-      "FlarePix is specialized in ecommerce product workflows — white-background product shots, ghost mannequin, flat lay, on-model, lifestyle, and AI-generated imagery. Ideal for brands selling on Amazon, Shopify, and other platforms, handling both small catalogs and high-volume SKU counts with consistent quality.",
-  },
-  {
-    question: "Volume discounts & loyalty programs",
-    answer:
-      "FlarePix offers volume discounts, subscription options, and loyalty programs designed for brands that partner with us long term. This structure reduces ongoing production costs while keeping visual quality consistent across seasons and collections.",
-  },
-  {
-    question: "Easy process",
-    answer:
-      "Ship your products to our studio, share your brief and image specs, and receive upload-ready files — named and cropped to your guidelines. Prefer no shipping? Our AI generation pipeline creates lifestyle and on-model visuals directly from your product photos, with turnaround measured in days, not weeks.",
-  },
-  {
-    question: "All-in-one ecommerce photo studio",
-    answer:
-      "Ghost mannequin, flat lay, on-model, AI on-model/lifestyle, 360/3D, and short product videos — all produced by one team under one streamlined workflow. This keeps your imagery consistent, efficient, and aligned across every product category and content format.",
+      "Before delivery, we check visible product details against the approved samples or references and verify the files against the agreed requirements.",
   },
 ];
 
@@ -41,52 +25,46 @@ export default function WhyUs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 sm:py-40">
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-        {/* Left — image, height matches right content */}
-        <div
-          className="relative overflow-hidden rounded-2xl bg-[var(--surface)]"
-          style={{ minHeight: openIndex !== null ? `${400 + openIndex * 50}px` : "400px" }}
-        >
-          <Image
-            src={cdnUrl("/works/photo/mens/mens_9.jpg")}
-            alt="FlarePix studio workflow"
-            fill
-            className="object-cover object-center"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Right — accordion */}
+    <section id="why-us" aria-labelledby="why-us-title" className="mx-auto max-w-7xl scroll-mt-20 px-6 py-24 sm:py-32">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
         <div>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Why choose us
+          <h2 id="why-us-title" className="text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
+            Why Work With FlarePix
           </h2>
-          <p className="mt-3 text-[var(--muted)]">
-            Everything your product needs to sell — one studio, one brief, one
-            box to ship.
+          <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--muted)]">
+            From our Qingdao studio, we work with brands remotely and plan each shoot around the product details and actions your audience needs to see.
           </p>
-
-          <div className="mt-10">
-            {items.map((item, i) => (
-              <div key={item.question} className="border-b border-black/[0.08]">
+          <Link href="/about#qingdao-studio" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]">
+            How We Film in Qingdao <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="border-t border-[#1b3b2f]/15">
+          {items.map((item, index) => {
+            const expanded = openIndex === index;
+            const panelId = `why-us-detail-${index}`;
+            return (
+              <div key={item.question} className="border-b border-[#1b3b2f]/15">
                 <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="flex w-full items-center justify-between py-4 text-left"
+                  type="button"
+                  aria-expanded={expanded}
+                  aria-controls={panelId}
+                  onClick={() => setOpenIndex(expanded ? null : index)}
+                  className="flex min-h-12 w-full items-center justify-between gap-4 py-4 text-left font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
                 >
-                  <span className="font-medium">{item.question}</span>
-                  <span className="ml-4 shrink-0 text-[var(--amber)] text-lg leading-none">
-                    {openIndex === i ? "−" : "+"}
+                  <span>{item.question}</span>
+                  <span className="shrink-0 text-lg leading-none text-[#896333]" aria-hidden="true">
+                    {expanded ? "−" : "+"}
                   </span>
                 </button>
-                {openIndex === i && (
-                  <p className="pb-4 text-sm leading-relaxed text-[var(--muted)]">
-                    {item.answer}
-                  </p>
-                )}
+                <p id={panelId} hidden={!expanded} className="pb-4 text-sm leading-relaxed text-[var(--muted)]">
+                  {item.answer}
+                </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
+          <Link href="/blog/hybrid-production-behind-the-scenes#filmed" className="mt-5 inline-flex min-h-11 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]">
+            See the GE Filming Breakdown <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </div>
     </section>

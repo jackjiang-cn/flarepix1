@@ -1,56 +1,50 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CtaButton from "@/components/cta-button";
+import ServiceVideoPreview from "@/components/service-video-preview";
+import { brandFilm02Web, cdnUrl } from "@/config/cdn";
+
+const description =
+  "FlarePix is a Qingdao-based video and visual production studio for consumer brands and ecommerce teams, creating commercials, advertising creatives, product demonstrations, photography, and AI video.";
 
 export const metadata: Metadata = {
-  title: "About — FlarePix | Professional Video Production Studio Using AI Tools",
-  description:
-    "FlarePix is a professional video production studio for Amazon and ecommerce brands. We use a hybrid approach: real footage combined with AI-assisted post-production — professional quality at a fraction of full-production cost.",
-  alternates: {
-    canonical: "https://www.flarepix.com/about",
-  },
+  title: "About FlarePix | Video & Visual Production Studio",
+  description,
+  alternates: { canonical: "https://www.flarepix.com/about" },
   openGraph: {
-    title: "About FlarePix — Professional Video Production Studio",
-    description:
-      "Professional video production for Amazon sellers using a hybrid approach: real footage + AI post-production. Based in Qingdao, China.",
+    title: "About FlarePix | Video & Visual Production Studio",
+    description,
     url: "https://www.flarepix.com/about",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix Professional Video Production Studio" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "About FlarePix" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About FlarePix — Professional Video Production Studio",
-    description:
-      "Professional video production for Amazon sellers using a hybrid approach: real footage + AI post-production.",
+    title: "About FlarePix | Video & Visual Production Studio",
+    description,
     images: ["/og-image.jpg"],
   },
 };
 
 const aboutSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "AboutPage",
   name: "About FlarePix",
-  description:
-    "Professional video production studio for Amazon and ecommerce brands, using a hybrid approach: real footage combined with AI-assisted post-production.",
+  description,
   url: "https://www.flarepix.com/about",
   mainEntity: {
     "@type": "Organization",
     name: "FlarePix",
     url: "https://www.flarepix.com",
-    description: "AI-powered product photography and video services for ecommerce brands",
+    description,
+    email: "hello@flarepix.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Qingdao",
       addressRegion: "Shandong",
       addressCountry: "CN",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "hello@flarepix.com",
-      telephone: "+86-156-6682-0406",
-      contactType: "customer service",
     },
   },
 };
@@ -64,198 +58,166 @@ const breadcrumbSchema = {
   ],
 };
 
-const teamExpertise = [
+const responsibilities = [
   {
-    label: "Amazon Product Video",
-    desc: "Listing videos that convert — A+ content, hero shots, lifestyle context",
+    title: "Creative direction",
+    description: "We shape the visual approach around the brief, the audience, and where the content will appear.",
   },
   {
-    label: "Brand Films",
-    desc: "Cinematic brand stories for launches, trade shows, and paid social",
+    title: "Production and editing",
+    description: "We choose the production method that fits the project, then bring the footage and visuals together in the edit.",
   },
   {
-    label: "AI Video Generation",
-    desc: "Scalable video content for Meta and TikTok campaigns — with professional QC",
+    title: "Review and delivery",
+    description: "We check the work against agreed product references, brand direction, and final file requirements.",
   },
-  {
-    label: "AI Product Imagery",
-    desc: "Lifestyle scenes and on-model shots generated with AI, reviewed by humans",
-  },
-];
-
-const caseCategories = [
-  { name: "Electronic scales", note: "kitchen and body weight scales for Amazon listing videos" },
-  { name: "Children's toys", note: "kids toys and play sets for brand films and lifestyle photography" },
-  { name: "Tissue products", note: "facial tissue, paper towels, and household tissue packaging photography" },
-];
+] as const;
 
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([aboutSchema, breadcrumbSchema]) }}
-      />
       <Header />
-      <main className="mx-auto max-w-7xl px-6 py-24">
-        {/* Hero */}
-        <section className="max-w-3xl">
-          <p className="text-sm font-medium text-[var(--amber)]">About FlarePix</p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Professional video production studio using AI tools — not an AI tool you&apos;re using yourself
-          </h1>
-          <p className="mt-5 text-lg text-[var(--muted)]">
-            FlarePix is a professional production studio based in Qingdao, China — the world&apos;s
-            manufacturing hub. We work with Amazon and ecommerce sellers in the US and Europe who
-            source products from manufacturers in China. Our hybrid approach — real footage combined
-            with AI-assisted post-production — delivers cinematic quality at a fraction of traditional
-            production cost, with faster turnaround.
-          </p>
-          <p className="mt-4 text-lg text-[var(--muted)]">
-            Unlike AI-only tools or template studios, we manage the full production process: creative
-            direction, real filming or AI generation, professional review, and delivery. Your product
-            deserves visuals that actually represent your brand — not a generic output that looks like
-            everyone else&apos;s.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <CtaButton href="/contact">Work with us</CtaButton>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center rounded-lg border border-[var(--amber)] px-7 py-3 text-sm font-medium text-[var(--amber)] transition-colors hover:bg-[var(--amber)] hover:text-black"
-            >
-              View services
-            </Link>
+      <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([aboutSchema, breadcrumbSchema]) }}
+        />
+
+        <section className="mx-auto max-w-7xl px-6 pb-14 pt-20 sm:pb-20 sm:pt-28" aria-labelledby="about-title">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">About FlarePix</p>
+          <div className="mt-7 grid gap-9 lg:grid-cols-[minmax(0,1.18fr)_minmax(0,0.82fr)] lg:items-end lg:gap-20">
+            <h1 id="about-title" className="max-w-3xl text-[clamp(3rem,6.2vw,6rem)] font-semibold leading-[1.02] tracking-[-0.065em]">
+              The studio behind the work<span className="text-[#b8975c]">.</span>
+            </h1>
+            <div className="lg:pb-2">
+              <p className="max-w-lg text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+                FlarePix is a video and visual production studio based in Qingdao, China. We create commercials, advertising creatives, product demonstrations, photography, and AI video for consumer brands and ecommerce teams.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/work" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[var(--amber)] px-6 text-sm font-semibold text-[#142e25] transition-colors hover:bg-[#c8aa70] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]">
+                  View Our Work <span className="ml-3" aria-hidden="true">↗</span>
+                </Link>
+                <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[var(--amber)] px-6 text-sm font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]">
+                  Discuss a Project <span className="ml-3" aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Why hybrid */}
-        <section className="mt-20 grid gap-12 sm:grid-cols-2">
-          <div>
-            <h2 className="text-xl font-semibold">Why hybrid production?</h2>
-            <p className="mt-3 text-[var(--muted)]">
-              Full-production shoots (professional talent, studio rental, multi-day scheduling) deliver
-              great results — but they&apos;re expensive and slow. AI-only tools are fast and affordable
-              — but the output often looks generic and hurts your brand perception.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              Hybrid production combines real footage (professional talent, real studio or location)
-              with AI-assisted post-production (color grading, motion graphics, upscaling). The result:
-              cinematic quality at a fraction of traditional cost, with turnaround times that actually
-              fit your product launch schedule.
-            </p>
-            <p className="mt-3 text-[var(--muted)]">
-              Based in Qingdao, we work with sellers worldwide who source from Chinese manufacturers.
-              Your products are already here — your visuals should match the quality of your brand.
+        <section className="border-t border-[#1b3b2f]/15 bg-[var(--surface)] py-10 sm:py-14" aria-labelledby="work-preview-title">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">01 / The Work</p>
+                <h2 id="work-preview-title" className="mt-2 text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">A glimpse of what we make.</h2>
+              </div>
+              <Link href="/work" className="inline-flex min-h-10 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]">
+                Explore All Work <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+            <ServiceVideoPreview
+              title="Selected brand film"
+              {...brandFilm02Web}
+            />
+            <p className="mt-3 text-xs uppercase tracking-[0.14em] text-[var(--muted)]">Selected work / Brand film preview</p>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28" aria-labelledby="production-title">
+          <div className="grid gap-7 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">02 / Production</p>
+              <h2 id="production-title" className="mt-3 max-w-md text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">Different briefs call for different production.</h2>
+            </div>
+            <p className="max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg lg:pt-7">
+              We start with what the content needs to communicate. The production approach follows the idea, the product, and the channels where the work will be used.
             </p>
           </div>
-          <div>
-            <h2 className="text-xl font-semibold">What we do</h2>
-            <div className="mt-4 space-y-4">
-              {teamExpertise.map((item) => (
-                <div key={item.label} className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-[var(--amber)]" />
-                  <div>
-                    <p className="font-medium">{item.label}</p>
-                    <p className="text-sm text-[var(--muted)]">{item.desc}</p>
-                  </div>
+          <div className="mt-10 grid gap-px overflow-hidden rounded-md border border-[#1b3b2f]/15 bg-[#1b3b2f]/15 md:grid-cols-2">
+            <article className="bg-[var(--surface)] p-7 sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#896333]">01 / Filmed production</p>
+              <h3 className="mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Real products. Real movement.</h3>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+                Commercials, campaign films, demonstrations, and photography built around the product and the story the brand wants to tell.
+              </p>
+              <p className="mt-8 border-t border-[#1b3b2f]/15 pt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#896333]">Video production · Photography</p>
+            </article>
+            <article className="bg-[var(--surface)] p-7 sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#896333]">02 / AI video production</p>
+              <h3 className="mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">Another way to create.</h3>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+                AI-assisted scenes and variations developed from approved product and brand references, with creative direction and checks for visual accuracy.
+              </p>
+              <p className="mt-8 border-t border-[#1b3b2f]/15 pt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#896333]">Reference-led · Team reviewed</p>
+            </article>
+          </div>
+          <Link href="/services" className="mt-7 inline-flex min-h-11 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]">
+            Explore Our Services <span aria-hidden="true">↗</span>
+          </Link>
+        </section>
+
+        <section id="qingdao-studio" className="scroll-mt-20 border-t border-[#1b3b2f]/15 bg-[var(--surface)] py-20 sm:py-24" aria-labelledby="team-title">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-20">
+              <div>
+                <h2 id="team-title" className="max-w-md text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">How We Film in Qingdao</h2>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--muted)]">
+                  For the Arboleaf body composition scale, we set the camera at floor level to show the electrodes, display, and handle clearly. We filmed on a living-room set to show the scale in a familiar setting.
+                </p>
+                <Link href="/blog/arboleaf-product-video-case-study#produced" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[var(--foreground)] text-sm font-semibold hover:text-[#896333] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]">
+                  Read the Arboleaf Case Study <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+              <figure>
+                <div className="relative aspect-video overflow-hidden rounded-md bg-[#d8d6cc]">
+                  <Image
+                    src={cdnUrl("/works/Case screenshots/Arboleaf-Smart-Scale-compressed.jpg")}
+                    alt="The Arboleaf scale beside a yoga mat on the living-room set"
+                    fill
+                    sizes="(min-width: 1280px) 700px, (min-width: 1024px) 55vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
+                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-[var(--muted)]">Frame from the finished Arboleaf product video</figcaption>
+              </figure>
+            </div>
+            <ol className="mt-12 grid gap-7 border-t border-[#1b3b2f]/20 pt-8 md:grid-cols-3">
+              {responsibilities.map((item) => (
+                <li key={item.title} className="border-l border-[var(--amber)] pl-5">
+                  <h3 className="text-xl font-semibold tracking-[-0.025em]">{item.title}</h3>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">{item.description}</p>
+                </li>
               ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="bg-[#17382d] py-20 text-[#f4f2ec] sm:py-24" aria-labelledby="remote-title">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-end lg:gap-20">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#cfb077]">04 / Working Together</p>
+              <h2 id="remote-title" className="mt-3 max-w-xl text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">Plan and review your project remotely.</h2>
+            </div>
+            <div>
+              <p className="max-w-xl text-base leading-relaxed text-[#d5ddd5]">
+                We agree on the scope, sample or reference needs, review points, and final formats before production begins. That gives both sides a clear plan for the work.
+              </p>
+              <Link href="/how-we-work" className="mt-7 inline-flex min-h-11 items-center gap-2 border-b border-[#cfb077] text-sm font-semibold text-[#f4f2ec] hover:text-[#cfb077] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                See How We Work <span aria-hidden="true">↗</span>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Industries / case categories */}
-        <section className="mt-20">
-          <h2 className="text-xl font-semibold">Industries we work with</h2>
-          <p className="mt-2 text-[var(--muted)]">
-            We produce content across a wide range of product categories. Examples of recent projects:
-          </p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {caseCategories.map((cat) => (
-              <div
-                key={cat.name}
-                className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6"
-              >
-                <p className="font-medium">{cat.name}</p>
-                <p className="mt-1 text-sm text-[var(--muted)]">{cat.note}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Workflow */}
-        <section className="mt-20">
-          <h2 className="text-xl font-semibold">How we work — from brief to delivery</h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-5">
-            {[
-              {
-                step: "1",
-                title: "Brief",
-                desc: "You send us your product and goals — listing type, target audience, intended use.",
-              },
-              {
-                step: "2",
-                title: "Quote",
-                desc: "We review and send a tailored proposal — typically within 24 hours.",
-              },
-              {
-                step: "3",
-                title: "Production",
-                desc: "Real filming or AI generation — with professional direction and equipment.",
-              },
-              {
-                step: "4",
-                title: "Review",
-                desc: "Our team reviews every output for accuracy, brand fit, and Amazon compliance.",
-              },
-              {
-                step: "5",
-                title: "Delivery",
-                desc: "Final files delivered in your required formats, ready for upload.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[var(--amber)] text-sm font-bold text-black">
-                  {item.step}
-                </div>
-                <p className="mt-2 font-semibold">{item.title}</p>
-                <p className="mt-1 text-sm text-[var(--muted)]">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="mt-20 grid gap-6 sm:grid-cols-4">
-          {[
-            { value: "4K", label: "Production quality" },
-            { value: "2–5", label: "Business days turnaround" },
-            { value: "∞", label: "Revisions included" },
-            { value: "100%", label: "Brand ownership" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center"
-            >
-              <p className="text-3xl font-bold text-[var(--amber)]">{stat.value}</p>
-              <p className="mt-1 text-sm text-[var(--muted)]">{stat.label}</p>
+        <section className="bg-[var(--background)] py-14 sm:py-16">
+          <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">Start a Project</p>
+              <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">Tell us what you need to create.</h2>
             </div>
-          ))}
-        </section>
-
-        {/* CTA */}
-        <section className="mt-20 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-12 text-center">
-          <h2 className="text-xl font-semibold">Ready to work with a team that gets it right?</h2>
-          <p className="mt-3 text-[var(--muted)]">
-            Tell us about your product and we&apos;ll put together a tailored proposal.
-          </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <CtaButton href="/contact">Get a quote</CtaButton>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center rounded-lg border border-[var(--amber)] px-7 py-3 text-sm font-medium text-[var(--amber)] transition-colors hover:bg-[var(--amber)] hover:text-black"
-            >
-              Explore services
+            <Link href="/contact" className="inline-flex min-h-12 shrink-0 items-center justify-center self-start rounded-md bg-[var(--amber)] px-6 text-sm font-semibold text-[#142e25] transition-colors hover:bg-[#c8aa70] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]">
+              Discuss a Project <span className="ml-3" aria-hidden="true">↗</span>
             </Link>
           </div>
         </section>

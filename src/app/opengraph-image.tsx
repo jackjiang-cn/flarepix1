@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "FlarePix — Product Photography, Video & AI Visuals for Ecommerce";
+export const alt = "FlarePix — Commercial Video & Visual Content";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -57,6 +57,8 @@ export default async function Image() {
         </div>
         <div
           style={{
+            display: "flex",
+            flexDirection: "column",
             fontSize: 76,
             fontWeight: 700,
             lineHeight: 1.05,
@@ -65,7 +67,8 @@ export default async function Image() {
             maxWidth: 1000,
           }}
         >
-          Product photography, video & AI visuals
+          <span>Commercial Video</span>
+          <span>&amp; Visual Content</span>
         </div>
         <div
           style={{
@@ -75,7 +78,7 @@ export default async function Image() {
             maxWidth: 900,
           }}
         >
-          Photo, video, AI imagery, and AI video — one studio for ecommerce brands
+          Commercials, brand films, product demos, and photography
         </div>
       </div>
     ),

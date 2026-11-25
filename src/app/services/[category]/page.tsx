@@ -7,7 +7,6 @@ import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
-import { cdnUrl, posterFor } from "@/config/cdn";
 
 export function generateStaticParams() {
   const allSlugs = [
@@ -95,7 +94,6 @@ export default async function CategoryPage({
   const photos = photoSources[category] || [];
   const displayPhotos = photos.slice(0, 12);
   const displayVideos = (videoProductionSources[category] || []).slice(0, 6);
-  const featuredVideo = displayVideos[0];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -107,25 +105,12 @@ export default async function CategoryPage({
     ],
   };
 
-  // VideoObject schema only for video category pages
-  const videoSchema = isPhotoCategory || !featuredVideo ? null : {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: `${cat.label} Video Production — FlarePix`,
-    description: `Professional ${cat.label.toLowerCase()} video production for Amazon and ecommerce sellers. Real footage combined with AI-assisted post-production.`,
-    thumbnailUrl: cdnUrl(posterFor(featuredVideo)),
-    contentUrl: cdnUrl(featuredVideo),
-    uploadDate: "2026-01-15T00:00:00Z",
-  };
-
-  const schemas = videoSchema ? [breadcrumbSchema, videoSchema] : [breadcrumbSchema];
-
   return (
     <>
       <Header />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main className="mx-auto max-w-7xl px-6 py-24">
         <Link
@@ -171,7 +156,7 @@ export default async function CategoryPage({
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
                   <p className="font-medium">Amazon listing images</p>
                   <p className="mt-1 text-sm text-[var(--muted)]">
-                    Main gallery images and A+ content visuals that meet Amazon&apos;s image requirements and drive click-through.
+                    Main gallery and A+ content images prepared around your product and the intended listing format.
                   </p>
                 </div>
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
@@ -183,13 +168,13 @@ export default async function CategoryPage({
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
                   <p className="font-medium">Social media content</p>
                   <p className="mt-1 text-sm text-[var(--muted)]">
-                    Platform-ready visuals for Instagram, Facebook, and Pinterest that stop the scroll and drive engagement.
+                    Visuals prepared for the formats used across your social channels.
                   </p>
                 </div>
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
                   <p className="font-medium">Paid advertising</p>
                   <p className="mt-1 text-sm text-[var(--muted)]">
-                    High-converting ad creatives for Amazon Sponsored Products, Meta, and Google Display campaigns.
+                    Photography and visual assets prepared for paid campaign placements agreed in the brief.
                   </p>
                 </div>
               </>
@@ -198,7 +183,7 @@ export default async function CategoryPage({
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
                   <p className="font-medium">Amazon listing video</p>
                   <p className="mt-1 text-sm text-[var(--muted)]">
-                    Hero video on your Amazon listing — directly impacts conversion rate and buy box performance.
+                    A product video for your Amazon listing that shows the item in use and explains key features.
                   </p>
                 </div>
                 <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6">
@@ -224,26 +209,12 @@ export default async function CategoryPage({
           </div>
         </section>
 
-        {/* Stats or more info */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">
-              {isPhotoCategory ? `${photos.length}+` : "12+"}
-            </p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Projects completed</p>
-          </div>
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">2-5</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Business days turnaround</p>
-          </div>
-          <div className="rounded-xl border border-black/[0.08] bg-[var(--surface)] p-6 text-center">
-            <p className="text-3xl font-bold text-[var(--amber)]">∞</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">Revisions included</p>
-          </div>
-        </div>
+        <p className="mt-16 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">
+          Timeline, deliverables, and revision rounds are confirmed in your project proposal.
+        </p>
 
         <div className="mt-12 flex gap-4">
-          <CtaButton href="/contact">Get a quote</CtaButton>
+          <CtaButton href="/contact">Discuss a Project</CtaButton>
           <Link
             href={`/services#${isPhotoCategory ? "product-photography" : "video-production"}`}
             className="inline-flex items-center justify-center rounded-lg border border-[var(--amber)] px-7 py-3 text-sm font-medium text-[var(--amber)] transition-colors hover:bg-[var(--amber)] hover:text-black"
