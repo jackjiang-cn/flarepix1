@@ -1,4 +1,5 @@
 import { industryVideos } from "./cdn";
+import { portfolioVideoSources } from "./portfolio-videos";
 
 export type CategoryType = "video" | "photo";
 
@@ -54,15 +55,18 @@ export const videoProductionCategories: Category[] = [
 // Keys match videoProductionCategories slugs
 export const videoProductionSources: Record<string, string[]> = {
   "electronics": [
+    ...portfolioVideoSources("electronics"),
     "/works/video/Electronics/product-video-09.m4v",
     "/works/video/Electronics/product-video-10.m4v",
     "/works/video/Electronics/product-video-06.mp4",
     "/works/video/Electronics/product-video-05.mp4",
   ],
   "fashion": [
+    ...portfolioVideoSources("fashion"),
     industryVideos.fashionApparel,
   ],
   "video-kids": [
+    ...portfolioVideoSources("video-kids"),
     "/works/video/Kids & Toys/product-video-03.mp4",
     industryVideos.fashionApparel,
     "/works/video/Kids & Toys/product-video-11.mp4",
@@ -72,18 +76,20 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Kids & Toys/product-video-15.m4v",
   ],
   "home-kitchen": [
+    ...portfolioVideoSources("home-kitchen"),
     industryVideos.smallAppliances,
     "/works/video/Home & Kitchen/product-video-03.m4v",
   ],
   "video-sports": [
+    ...portfolioVideoSources("video-sports"),
     "/works/video/Sports & Fitness/product-video-08.m4v",
     "/works/video/Sports & Fitness/product-video-07.m4v",
     "/works/video/Sports & Fitness/product-video-04.mp4",
     "/works/video/Sports & Fitness/product-video-05.m4v",
   ],
   "video-others": [
+    ...portfolioVideoSources("video-others"),
     "/works/video/Others/product-video-09.mp4",
-    "/works/video/Others/product-video-12.mp4",
     "/works/video/Others/product-video-13.m4v",
   ],
 };

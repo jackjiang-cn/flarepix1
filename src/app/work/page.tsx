@@ -8,6 +8,7 @@ import ServiceVideoPreview from "@/components/service-video-preview";
 import WorkVideoGallery, { type WorkVideo } from "@/components/work-video-gallery";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+import { portfolioVideo, portfolioVideoTitle } from "@/config/portfolio-videos";
 import { cdnUrl, industryVideos, posterFor } from "@/config/cdn";
 
 export const metadata: Metadata = {
@@ -56,6 +57,10 @@ const featuredWork = [
 ] as const;
 
 const browseVideos: WorkVideo[] = [
+  { ...portfolioVideo("outdoor-boots"), type: "advertising", category: "Fashion" },
+  { ...portfolioVideo("rgb-dj-tube-lights"), type: "demonstration", category: "Electronics" },
+  { ...portfolioVideo("kids-basketball-hoop"), type: "advertising", category: "Kids & Toys" },
+  { ...portfolioVideo("bread-slicer"), type: "demonstration", category: "Home & Kitchen" },
   { title: "Kids & toys film", type: "film", category: "Film", src: "/works/brand-film/brand-film-05.m4v" },
   { title: "Kitchenware film", type: "film", category: "Film", src: "/works/brand-film/brand-film-06.m4v" },
   { title: "Consumer electronics", type: "advertising", category: "Electronics", src: "/works/video/Electronics/product-video-09.m4v" },
@@ -240,12 +245,15 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
           <>
             <ArchiveLinks active={videoCategory} param="videocategory" categories={videoProductionCategories} />
             <div className="mt-9 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {visibleVideos.map((video) => (
-                <div key={video.src}>
-                  <ServiceVideoPreview title={`${video.label} video`} src={video.src} poster={posterFor(video.src)} />
-                  <p className="mt-3 text-sm font-semibold">{video.label}</p>
-                </div>
-              ))}
+              {visibleVideos.map((video) => {
+                const title = portfolioVideoTitle(video.src);
+                return (
+                  <div key={video.src}>
+                    <ServiceVideoPreview title={title ?? `${video.label} video`} src={video.src} poster={posterFor(video.src)} />
+                    <p className="mt-3 text-sm font-semibold">{title ?? video.label}</p>
+                  </div>
+                );
+              })}
             </div>
           </>
         )}
