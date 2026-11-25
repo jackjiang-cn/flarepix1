@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Imagery — AI-Generated Lifestyle Photos for Ecommerce | FlarePix",
+  title: "AI-Assisted Campaign Imagery | FlarePix",
   description:
-    "AI-generated lifestyle scenes, on-model imagery, and campaign visuals built from real product photos. Fast turnaround, no shipping required, accurate product geometry.",
+    "Explore AI-assisted campaign imagery created from approved product references, with each project's scope and suitability reviewed against the brief.",
   alternates: { canonical: "https://www.flarepix.com/services/ai-imagery" },
   openGraph: {
-    title: "AI Imagery — FlarePix",
+    title: "AI-Assisted Campaign Imagery | FlarePix",
     description:
-      "AI-generated lifestyle scenes, on-model imagery, and campaign visuals from real product photos.",
+      "Explore AI-assisted campaign imagery created from approved product references, with each project's scope and suitability reviewed against the brief.",
     url: "https://www.flarepix.com/services/ai-imagery",
     type: "website",
   },
@@ -17,16 +17,17 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "AI Imagery",
+  name: "AI-Assisted Campaign Imagery",
   description:
-    "AI-generated lifestyle scenes, on-model imagery, and campaign visuals built from real product photos. No shipping required.",
+    "AI-assisted campaign imagery created from approved product references, with scope and suitability reviewed against each project brief.",
   provider: {
     "@type": "Organization",
     name: "FlarePix",
     url: "https://www.flarepix.com",
   },
   areaServed: "Worldwide",
-  serviceType: "AI product imagery generation",
+  serviceType: "AI-assisted campaign imagery",
+  image: "https://media.flarepix.com/works/ai/images/ai-image-01.webp",
 };
 
 export default function AiImageryLayout({

@@ -2,19 +2,11 @@ export const contact = {
   email: "hello@flarepix.com",
   phone: "+86-156-6682-0406",
   address: "Qingdao, Shandong, China",
-  social: {
-    youtube: "https://youtube.com/@flarepix",
-    instagram: "https://instagram.com/flarepix",
-    x: "https://x.com/flarepix",
-    linkedin: "https://linkedin.com/company/flarepix",
-    tiktok: "https://tiktok.com/@flarepix",
-  },
 } as const;
 
 export const navigation = {
   main: [
     { label: "Services", href: "/services" },
-    { label: "AI Tools", href: "/ai-tools" },
     { label: "Our Work", href: "/work" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
@@ -22,9 +14,10 @@ export const navigation = {
     { label: "Contact", href: "/contact" },
   ],
   footer: [
-    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
+    { label: "How We Work", href: "/how-we-work" },
     { label: "Pricing", href: "/pricing" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "/faq" },

@@ -6,16 +6,23 @@ type Props = {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  label?: string;
+  closeLabel?: string;
 };
 
-export default function Lightbox({ open, onClose, children }: Props) {
+export default function Lightbox({ open, onClose, children, label = "Image preview", closeLabel = "Close image" }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const el = dialogRef.current;
-    if (!el) return;
-    if (open && !el.open) el.showModal();
-    if (!open && el.open) el.close();
+    const dialog = dialogRef.current;
+    if (!open || !dialog) return;
+
+    if (!dialog.open) dialog.showModal();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
 
   if (!open) return null;
@@ -24,17 +31,19 @@ export default function Lightbox({ open, onClose, children }: Props) {
     <dialog
       ref={dialogRef}
       onClose={onClose}
-      onClick={(e) => {
-        if (e.target === dialogRef.current) onClose();
+      onClick={(event) => {
+        if (event.target === event.currentTarget) event.currentTarget.close();
       }}
-      className="fixed inset-0 z-50 m-0 flex h-full w-full max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/80"
+      aria-label={label}
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none items-center justify-center overflow-y-auto border-0 bg-transparent p-4 text-white backdrop:bg-black/85 open:flex sm:p-8"
     >
       <button
-        onClick={onClose}
-        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-        aria-label="Close"
+        type="button"
+        onClick={() => dialogRef.current?.close()}
+        className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-black/60 text-xl text-white hover:bg-black/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        aria-label={closeLabel}
       >
-        ✕
+        <span aria-hidden="true">×</span>
       </button>
       {children}
     </dialog>

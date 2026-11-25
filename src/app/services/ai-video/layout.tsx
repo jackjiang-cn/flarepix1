@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "AI Video",
+  name: "AI Video Production",
   description:
-    "AI-generated short product videos from a single product image. Ideal for social media, paid ads, and product detail pages.",
+    "AI-assisted scenes and advertising variations for consumer brands, planned from approved product references and reviewed by our team for product accuracy and brand fit.",
   provider: {
     "@type": "Organization",
     name: "FlarePix",
     url: "https://www.flarepix.com",
   },
   areaServed: "Worldwide",
-  serviceType: "AI product video generation",
+  serviceType: "AI-assisted video production",
 };
 
 export default function AiVideoLayout({

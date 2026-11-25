@@ -40,28 +40,28 @@ export default function Hero() {
         >
           <source src={cdnUrl("/works/hero-reel.mp4")} type="video/mp4" />
         </video>
+        <div className="pointer-events-none absolute inset-0 bg-[#f7f5ef]/75 lg:bg-transparent lg:bg-gradient-to-r lg:from-[#f7f5ef]/95 lg:via-[#f7f5ef]/55 lg:to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:pb-40 pt-20 sm:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="mb-4 text-sm font-medium text-[var(--amber)]">
-              AI-powered product visuals for ecommerce
+            <p className="mb-4 text-sm font-medium text-[#77542d]">
+              Product Content Studio
             </p>
-            <h1 className="max-w-lg text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              Product photography, video &amp;{" "}
-              <span className="text-[var(--amber)]">AI imagery</span> — all in
-              one place
+            <h1 className="max-w-lg text-4xl font-semibold leading-tight tracking-tight text-[#16392e] sm:text-5xl">
+              Make Your Product{" "}
+              <span className="text-[#896333]">Impossible</span> to Ignore.
             </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-[var(--muted)]">
-              Real studio photography meets AI generation. Send us your products
-              for studio photography — or generate lifestyle visuals remotely with
-              AI. Built for Amazon and ecommerce brands.
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-[#344b42]">
+              Product videos, demonstrations, advertising creatives, and
+              photography for consumer brands. We show what your product does
+              and why it matters.
             </p>
-            <div className="mt-8 flex gap-4">
-              <CtaButton href="/contact">Get a quote</CtaButton>
-              <CtaButton href="/work" variant="outline">
-                View our work
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <CtaButton href="/contact" className="min-h-12 w-full sm:w-auto">Discuss a Project</CtaButton>
+              <CtaButton href="/work" variant="outline" className="min-h-12 w-full sm:w-auto">
+                View Our Work
               </CtaButton>
             </div>
           </div>

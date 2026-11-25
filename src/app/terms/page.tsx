@@ -52,15 +52,17 @@ export default function TermsPage() {
 
         <h2 className="mt-10 text-xl font-semibold">Services</h2>
         <p className="mt-3 text-[var(--muted)]">
-          FlarePix provides professional product photography, video production, AI imagery, and AI
-          video services for ecommerce and Amazon sellers. All services are quoted and delivered on a
-          project-by-project basis.
+          FlarePix provides video and visual content production for consumer brands and ecommerce
+          teams, including commercials, advertising creatives, product demonstrations, AI video, and
+          photography. The scope, deliverables, and price for each project are confirmed in the
+          written proposal.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Quoting and Pricing</h2>
         <p className="mt-3 text-[var(--muted)]">
-          All quotes provided by FlarePix are valid for 30 days from the date of issue. Pricing is
-          customized based on product type, volume, and project scope. No fixed packages are offered.
+          Prices shown on this website are starting prices for the stated scope. Final project
+          pricing, deliverables, any additional production costs, and quote validity are confirmed
+          in the written proposal before work begins.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Client Materials</h2>
@@ -71,20 +73,24 @@ export default function TermsPage() {
 
         <h2 className="mt-10 text-xl font-semibold">Intellectual Property</h2>
         <p className="mt-3 text-[var(--muted)]">
-          Final deliverables are transferred to the client upon full payment. FlarePix reserves the
-          right to display completed work in our portfolio unless otherwise agreed in writing.
+          The written proposal specifies the client&apos;s usage rights in the final deliverables and
+          any separate terms for licensed music, talent, or other third-party assets. Those rights
+          take effect upon full payment unless the proposal states otherwise. FlarePix will feature
+          completed work in its portfolio only with the client&apos;s written agreement.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Revision Policy</h2>
         <p className="mt-3 text-[var(--muted)]">
-          All projects include a defined number of revisions as specified in the project quote.
-          Additional revisions are billed at our standard hourly rate.
+          Revision rounds and review stages are specified in the written proposal. If a request falls
+          outside the agreed scope, we will quote the additional work and seek your approval before
+          proceeding.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Turnaround Time</h2>
         <p className="mt-3 text-[var(--muted)]">
-          Standard turnaround is 6–8 business days from receipt of products and payment. Rush
-          delivery is available at an additional cost.
+          Project timelines are agreed in the written proposal after we review the scope, required
+          materials, and feedback schedule. Any expedited delivery terms, if available, are specified
+          in the proposal.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">Contact</h2>

@@ -1,3 +1,5 @@
+import { industryVideos } from "./cdn";
+
 export type CategoryType = "video" | "photo";
 
 export type Category = {
@@ -58,11 +60,11 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Electronics/product-video-05.mp4",
   ],
   "fashion": [
-    "/works/video/Fashion & Apparel/product-video-01.mp4",
+    industryVideos.fashionApparel,
   ],
   "video-kids": [
     "/works/video/Kids & Toys/product-video-03.mp4",
-    "/works/video/Kids & Toys/product-video-10.mp4",
+    industryVideos.fashionApparel,
     "/works/video/Kids & Toys/product-video-11.mp4",
     "/works/video/Kids & Toys/product-video-12.m4v",
     "/works/video/Kids & Toys/product-video-13.m4v",
@@ -70,7 +72,7 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Kids & Toys/product-video-15.m4v",
   ],
   "home-kitchen": [
-    "/works/video/Home & Kitchen/product-video-02.mp4",
+    industryVideos.smallAppliances,
     "/works/video/Home & Kitchen/product-video-03.m4v",
   ],
   "video-sports": [

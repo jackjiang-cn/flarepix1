@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "AI Video — FlarePix";
+export const alt = "AI Video, Directed for Your Brand — FlarePix";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,10 +31,12 @@ export default async function Image() {
             fontWeight: 600,
           }}
         >
-          FlarePix Service
+          FlarePix / AI Video Production
         </div>
         <div
           style={{
+            display: "flex",
+            flexDirection: "column",
             fontSize: 88,
             fontWeight: 700,
             lineHeight: 1.05,
@@ -42,7 +44,8 @@ export default async function Image() {
             marginBottom: 32,
           }}
         >
-          AI Video
+          <span>AI Video, Directed</span>
+          <span>{"for Your\u00a0Brand."}</span>
         </div>
         <div
           style={{
@@ -52,7 +55,7 @@ export default async function Image() {
             maxWidth: 900,
           }}
         >
-          AI-generated short product videos from a single image. Social, ads, and PDP ready.
+          AI-assisted scenes and ad variations, planned and reviewed by our team.
         </div>
       </div>
     ),

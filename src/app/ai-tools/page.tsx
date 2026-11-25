@@ -1,124 +1,101 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CtaButton from "@/components/cta-button";
+import ServiceVideoPreview from "@/components/service-video-preview";
 
 export const metadata: Metadata = {
-  title: "AI Production Tools — How FlarePix Uses AI in Our Studio | FlarePix",
+  title: "AI-Assisted Video Production | FlarePix",
   description:
-    "FlarePix uses AI as a production tool — not a self-serve platform. Learn how we integrate AI generation into our photography and video workflow for ecommerce brands.",
+    "See how FlarePix creates AI-assisted scenes and advertising variations from approved product references, with team direction and review for product accuracy and brand fit.",
   alternates: {
     canonical: "https://www.flarepix.com/ai-tools",
   },
   openGraph: {
-    title: "AI Production Tools — FlarePix",
+    title: "AI-Assisted Video Production | FlarePix",
     description:
-      "FlarePix uses AI as a production tool — not a self-serve platform. Learn how we integrate AI generation into our studio workflow.",
+      "AI-assisted scenes and ad variations for consumer brands, directed and reviewed by the FlarePix team.",
     url: "https://www.flarepix.com/ai-tools",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AI Production Tools at FlarePix" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "FlarePix AI video production" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Production Tools — FlarePix",
+    title: "AI-Assisted Video Production | FlarePix",
     description:
-      "AI generation at FlarePix is a production capability — not a self-serve platform.",
+      "AI-assisted scenes and ad variations for consumer brands, directed and reviewed by the FlarePix team.",
     images: ["/og-image.jpg"],
   },
 };
-
-const tools = [
-  {
-    title: "AI On-Model Generator",
-    description:
-      "Upload a ghost mannequin or flat lay photo to get realistic on-model shots with diverse AI models. Perfect for fashion and apparel brands.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
-      </svg>
-    ),
-  },
-  {
-    title: "AI Lifestyle Scene Creator",
-    description:
-      "Place your product into AI-generated lifestyle environments — beach, studio, urban, nature. One product photo, endless scenes.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-        <line x1="9" y1="9" x2="9.01" y2="9" strokeWidth="2" />
-        <line x1="15" y1="9" x2="15.01" y2="9" strokeWidth="2" />
-      </svg>
-    ),
-  },
-  {
-    title: "AI Campaign Visuals",
-    description:
-      "Generate editorial-quality campaign images with AI models in real-looking locations. Built from your actual product for accuracy.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="M21 15l-5-5L5 21" />
-      </svg>
-    ),
-  },
-  {
-    title: "AI Video Generator",
-    description:
-      "Turn product images into short-form video clips with AI motion and scene generation. Ready for TikTok, Reels, and Amazon.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <rect x="2" y="7" width="20" height="15" rx="2" />
-        <polygon points="10,12 15,14 10,16" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-];
 
 export default function AiToolsPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-7xl px-6 py-24">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          AI Production Tools
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
-          AI generation at FlarePix is a production capability — not a self-serve platform. You don&apos;t
-          sign up or operate the tools yourself. You send us your product, and our team integrates AI
-          generation into the production workflow as part of our end-to-end service.
-        </p>
-        <p className="mt-4 max-w-2xl text-[var(--muted)]">
-          Every output is reviewed by a team member before delivery. This means you receive finished
-          files — not a draft to experiment with.
-        </p>
-
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {tools.map((t) => (
-            <div
-              key={t.title}
-              className="rounded-2xl border border-black/[0.08] bg-[var(--surface)] p-8"
-            >
-              <div className="text-[var(--amber)]">{t.icon}</div>
-              <h2 className="mt-4 text-xl font-semibold">{t.title}</h2>
-              <p className="mt-3 text-sm text-[var(--muted)]">
-                {t.description}
-              </p>
+      <main>
+        <section className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] md:items-center md:gap-14 md:py-28">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">
+              FlarePix / AI in production
+            </p>
+            <h1 className="mt-6 max-w-2xl text-[clamp(2.75rem,5vw,5rem)] font-semibold leading-[1.05] tracking-[-0.055em] text-[var(--foreground)]">
+              AI video with a production team behind it.
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+              We create AI-assisted scenes and advertising variations from approved product references. Our team directs, edits, and reviews the work for product accuracy and brand fit.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/services/ai-video"
+                className="inline-flex min-h-12 items-center justify-center rounded-md bg-[var(--amber)] px-6 text-sm font-semibold text-[#142e25] transition-colors hover:bg-[#c8aa70] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]"
+              >
+                Explore AI Video <span className="ml-3" aria-hidden="true">↗</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#1b3b2f]/40 px-6 text-sm font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--foreground)]"
+              >
+                Discuss a Project
+              </Link>
             </div>
-          ))}
-        </div>
+          </div>
+          <ServiceVideoPreview
+            title="AI video production"
+            src="/works/ai/videos/ai-video-04.mp4"
+            poster="/works/posters/ai-video-04.jpg"
+          />
+        </section>
 
-        <div className="mt-12 rounded-2xl border border-dashed border-black/[0.10] bg-[var(--surface)] p-8 text-center">
-          <p className="text-sm text-[var(--muted)]">
-            To discuss how AI generation fits your project,{" "}
-            <a href="/contact" className="text-[var(--amber)] hover:underline">
-              get in touch
-            </a>{" "}
-            — we&apos;ll walk you through how we&apos;d approach your specific product and use case.
-          </p>
-        </div>
+        <section className="border-t border-[#1b3b2f]/15 bg-[var(--surface)]">
+          <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">
+              Choosing the right approach
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.045em] text-[var(--foreground)] sm:text-4xl">
+              The method follows the brief.
+            </h2>
+            <div className="mt-10 grid gap-8 border-t border-[#1b3b2f]/20 pt-8 md:grid-cols-2 md:gap-14">
+              <div>
+                <h3 className="text-xl font-semibold text-[var(--foreground)]">AI-assisted scenes</h3>
+                <p className="mt-3 max-w-lg leading-relaxed text-[var(--muted)]">
+                  AI video can help build contextual scenes and ad variations from the product references you provide. We agree on the concept, formats, and review points before production.
+                </p>
+                <Link href="/services/ai-video" className="mt-6 inline-flex min-h-9 items-center border-b border-[var(--foreground)] text-sm font-semibold text-[var(--foreground)] hover:text-[#896333]">
+                  See AI Video Production <span className="ml-2" aria-hidden="true">↗</span>
+                </Link>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-[var(--foreground)]">Filmed production</h3>
+                <p className="mt-3 max-w-lg leading-relaxed text-[var(--muted)]">
+                  When exact product details or functions need to be shown, filming the real product may be the better choice. We can plan commercials, demonstrations, and ad creatives around that need.
+                </p>
+                <Link href="/services" className="mt-6 inline-flex min-h-9 items-center border-b border-[var(--foreground)] text-sm font-semibold text-[var(--foreground)] hover:text-[#896333]">
+                  Explore Our Services <span className="ml-2" aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
