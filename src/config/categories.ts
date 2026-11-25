@@ -74,11 +74,13 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Kids & Toys/product-video-13.m4v",
     "/works/video/Kids & Toys/product-video-14.m4v",
     "/works/video/Kids & Toys/product-video-15.m4v",
+    "/works/video/Home & Kitchen/product-video-03.m4v",
   ],
   "home-kitchen": [
     ...portfolioVideoSources("home-kitchen"),
     industryVideos.smallAppliances,
-    "/works/video/Home & Kitchen/product-video-03.m4v",
+    "/works/video/Fashion & Apparel/product-video-01.mp4",
+    "/works/video/Others/product-video-13.m4v",
   ],
   "video-sports": [
     ...portfolioVideoSources("video-sports"),
@@ -86,11 +88,11 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Sports & Fitness/product-video-07.m4v",
     "/works/video/Sports & Fitness/product-video-04.mp4",
     "/works/video/Sports & Fitness/product-video-05.m4v",
+    "/works/video/Sports & Fitness/product-video-06.m4v",
   ],
   "video-others": [
     ...portfolioVideoSources("video-others"),
     "/works/video/Others/product-video-09.mp4",
-    "/works/video/Others/product-video-13.m4v",
   ],
 };
 

@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 import ServiceVideoPreview from "@/components/service-video-preview";
-import { posterFor } from "@/config/cdn";
-
-export type WorkVideo = {
-  title: string;
-  type: "film" | "advertising" | "demonstration" | "ai";
-  category: string;
-  src: string;
-};
+import type { WorkVideo } from "@/config/work-videos";
 
 const filters = [
   { value: "all", label: "All Video" },
@@ -19,12 +12,15 @@ const filters = [
   { value: "ai", label: "AI Video" },
 ] as const;
 
-export default function WorkVideoGallery({ videos }: { videos: readonly WorkVideo[] }) {
-  const [filter, setFilter] = useState<(typeof filters)[number]["value"]>("all");
-  const visible = filter === "all" ? videos : videos.filter((video) => video.type === filter);
+export default function WorkVideoGallery({ videos, initialFilter }: {
+  videos: readonly WorkVideo[];
+  initialFilter?: string;
+}) {
+  const [filter, setFilter] = useState(filters.find(({ value }) => value === initialFilter)?.value ?? "all");
+  const visible = filter === "all" ? videos : videos.filter((video) => video.types.includes(filter));
 
   return (
-    <section id="browse-video-work" className="border-t border-[#1b3b2f]/15 py-16 sm:py-20" aria-labelledby="browse-work-title">
+    <section id="browse-video-work" className="scroll-mt-24 border-t border-[#1b3b2f]/15 py-16 sm:py-20" aria-labelledby="browse-work-title">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">Browse Work</p>
@@ -47,10 +43,13 @@ export default function WorkVideoGallery({ videos }: { videos: readonly WorkVide
             </button>
           ))}
         </div>
-        <div className="mt-9 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+        <p className="mt-4 text-sm text-[var(--muted)]" role="status">
+          {visible.length} {visible.length === 1 ? "video" : "videos"}
+        </p>
+        <div className="mt-5 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((video) => (
             <article key={video.src}>
-              <ServiceVideoPreview title={video.title} src={video.src} poster={posterFor(video.src)} />
+              <ServiceVideoPreview title={video.title} src={video.src} poster={video.poster} />
               <div className="mt-4 flex items-start justify-between gap-4">
                 <h3 className="text-lg font-semibold tracking-[-0.025em]">{video.title}</h3>
                 <span className="shrink-0 pt-1 text-xs text-[var(--muted)]">{video.category}</span>

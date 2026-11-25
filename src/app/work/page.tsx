@@ -5,10 +5,10 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import PhotoGallery from "@/components/photo-gallery";
 import ServiceVideoPreview from "@/components/service-video-preview";
-import WorkVideoGallery, { type WorkVideo } from "@/components/work-video-gallery";
-import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
+import WorkVideoGallery from "@/components/work-video-gallery";
+import { photoCategories, videoProductionCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
-import { portfolioVideo, portfolioVideoTitle } from "@/config/portfolio-videos";
+import { aiWorkVideos, workVideos, workVideosForCategory } from "@/config/work-videos";
 import { cdnUrl, industryVideos, posterFor } from "@/config/cdn";
 
 export const metadata: Metadata = {
@@ -56,20 +56,6 @@ const featuredWork = [
   },
 ] as const;
 
-const browseVideos: WorkVideo[] = [
-  { ...portfolioVideo("outdoor-boots"), type: "advertising", category: "Fashion" },
-  { ...portfolioVideo("rgb-dj-tube-lights"), type: "demonstration", category: "Electronics" },
-  { ...portfolioVideo("kids-basketball-hoop"), type: "advertising", category: "Kids & Toys" },
-  { ...portfolioVideo("bread-slicer"), type: "demonstration", category: "Home & Kitchen" },
-  { title: "Kids & toys film", type: "film", category: "Film", src: "/works/brand-film/brand-film-05.m4v" },
-  { title: "Kitchenware film", type: "film", category: "Film", src: "/works/brand-film/brand-film-06.m4v" },
-  { title: "Consumer electronics", type: "advertising", category: "Electronics", src: "/works/video/Electronics/product-video-09.m4v" },
-  { title: "Fashion & apparel", type: "advertising", category: "Fashion", src: industryVideos.fashionApparel },
-  { title: "Small appliances", type: "demonstration", category: "Appliances", src: industryVideos.smallAppliances },
-  { title: "AI product scene", type: "ai", category: "AI Video", src: "/works/ai/videos/ai-video-04.mp4" },
-  { title: "AI lifestyle scene", type: "ai", category: "AI Video", src: "/works/ai/videos/ai-video-01.mp4" },
-];
-
 const photographyPreview = [
   { label: "Fashion", href: "/work?category=womens-fashion", src: "/works/photo/womens-fashion/womens-fashion_19.jpg", alt: "Fashion photography preview" },
   { label: "Accessories", href: "/work?category=accessories", src: "/works/photo/accessories/accessories_1.jpg", alt: "Accessory photography preview" },
@@ -81,7 +67,6 @@ const aiImages = [1, 2, 3, 4, 5, 6].map((number) => ({
   src: `/works/ai/images/ai-image-0${number}.webp`,
   alt: "AI-generated visual work",
 }));
-const aiVideos = [1, 2, 3, 4].map((number) => `/works/ai/videos/ai-video-0${number}.mp4`);
 
 const workSchema = {
   "@context": "https://schema.org",
@@ -92,7 +77,7 @@ const workSchema = {
   mainEntity: { "@type": "Organization", name: "FlarePix", url: "https://www.flarepix.com" },
 };
 
-type WorkParams = { category?: string; videocategory?: string; aicategory?: string };
+type WorkParams = { category?: string; videocategory?: string; aicategory?: string; videotype?: string };
 
 export default async function WorkPage({ searchParams }: { searchParams: Promise<WorkParams> }) {
   const params = await searchParams;
@@ -158,7 +143,7 @@ export default async function WorkPage({ searchParams }: { searchParams: Promise
               </div>
             </section>
 
-            <WorkVideoGallery videos={browseVideos} />
+            <WorkVideoGallery key={params.videotype} videos={workVideos} initialFilter={params.videotype} />
 
             <section id="photography-work" className="border-t border-[#1b3b2f]/15 py-16 sm:py-20" aria-labelledby="photography-work-title">
               <div className="mx-auto max-w-7xl px-6">
@@ -223,12 +208,7 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
   const videoCategory = params.videocategory || "all";
   const photoCategory = params.category || "all";
   const aiCategory = params.aicategory || "all";
-  const videos = videoProductionCategories.flatMap((category) =>
-    (videoProductionSources[category.slug] || []).map((src) => ({ src, label: category.label, category: category.slug }))
-  );
-  const visibleVideos = videoCategory === "all"
-    ? videos.filter((video, index) => videos.findIndex(({ src }) => src === video.src) === index)
-    : videos.filter((video) => video.category === videoCategory);
+  const visibleVideos = videoCategory === "all" ? workVideos : workVideosForCategory(videoCategory);
   const visiblePhotos = photoCategory === "all"
     ? photoCategories.flatMap((category) => (photoSources[category.slug] || []).slice(0, 4))
     : photoSources[photoCategory] || [];
@@ -244,16 +224,16 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
         {archive === "video" && (
           <>
             <ArchiveLinks active={videoCategory} param="videocategory" categories={videoProductionCategories} />
-            <div className="mt-9 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {visibleVideos.map((video) => {
-                const title = portfolioVideoTitle(video.src);
-                return (
-                  <div key={video.src}>
-                    <ServiceVideoPreview title={title ?? `${video.label} video`} src={video.src} poster={posterFor(video.src)} />
-                    <p className="mt-3 text-sm font-semibold">{title ?? video.label}</p>
-                  </div>
-                );
-              })}
+            <p className="mt-4 text-sm text-[var(--muted)]">
+              {visibleVideos.length} {visibleVideos.length === 1 ? "video" : "videos"}
+            </p>
+            <div className="mt-5 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              {visibleVideos.map((video) => (
+                <div key={video.src}>
+                  <ServiceVideoPreview title={video.title} src={video.src} poster={video.poster} />
+                  <p className="mt-3 text-sm font-semibold">{video.title}</p>
+                </div>
+              ))}
             </div>
           </>
         )}
@@ -278,7 +258,9 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
             </div>
             {(aiCategory === "all" || aiCategory === "ai-videos") && (
               <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {aiVideos.map((src) => <ServiceVideoPreview key={src} title="AI video" src={src} poster={posterFor(src)} />)}
+                {aiWorkVideos.map((video) => (
+                  <ServiceVideoPreview key={video.src} title={video.title} src={video.src} poster={video.poster} />
+                ))}
               </div>
             )}
             {(aiCategory === "all" || aiCategory === "ai-images") && (
