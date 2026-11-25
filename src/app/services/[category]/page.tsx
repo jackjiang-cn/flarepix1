@@ -7,6 +7,7 @@ import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
+import { portfolioVideoTitle } from "@/config/portfolio-videos";
 
 export function generateStaticParams() {
   const allSlugs = [
@@ -138,7 +139,11 @@ export default async function CategoryPage({
             />
           ) : (
             <GalleryLightbox
-              items={displayVideos.map((src, i) => ({ src, type: "video" as const, title: `${cat.label} video ${i + 1}` }))}
+              items={displayVideos.map((src, i) => ({
+                src,
+                type: "video" as const,
+                title: portfolioVideoTitle(src) ?? `${cat.label} video ${i + 1}`,
+              }))}
             />
           )}
         </section>

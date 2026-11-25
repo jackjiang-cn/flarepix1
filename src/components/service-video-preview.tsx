@@ -53,7 +53,7 @@ export default function ServiceVideoPreview({ title, src, poster }: Props) {
         preload="none"
         poster={posterUrl}
         onError={showPlaybackError}
-        className="h-full w-full bg-black object-cover"
+        className={`h-full w-full bg-black ${playbackState === "playing" ? "object-contain" : "object-cover"}`}
       >
         <source src={cdnUrl(src)} type="video/mp4" onError={showPlaybackError} />
         Your browser does not support video playback.
