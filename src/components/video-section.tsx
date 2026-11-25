@@ -7,9 +7,7 @@ import Lightbox from "./lightbox";
 import VideoDialogPlayer from "./video-dialog-player";
 
 const BRAND_FILM_SRC = "/works/brand-film/brand-film-07.m4v";
-const BRAND_FILM_PREVIEW_HLS = process.env.NODE_ENV === "development"
-  ? "/works/brand-film/quick-n-body/hls/master.m3u8"
-  : undefined;
+const BRAND_FILM_HLS = "/media/quick-n-body/v1/master.m3u8";
 const BRAND_FILM_POSTER = "/home-commercials-brand-films-v1.webp";
 const BRAND_FILM_TITLE = "Commercials & Brand Films";
 
@@ -84,7 +82,7 @@ export default function VideoSection() {
         <VideoDialogPlayer
           title={BRAND_FILM_TITLE}
           src={BRAND_FILM_SRC}
-          hlsSrc={BRAND_FILM_PREVIEW_HLS}
+          hlsSrc={BRAND_FILM_HLS}
           poster={BRAND_FILM_POSTER}
         />
       </Lightbox>
