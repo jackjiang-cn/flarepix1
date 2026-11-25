@@ -7,6 +7,7 @@ import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
 import { premiumAiVideo } from "@/config/ai-video-pricing";
 import { aiVideoPricingFaq } from "@/config/faqs";
+import { aiWorkVideos } from "@/config/work-videos";
 
 export const metadata: Metadata = {
   title: "AI Video Production for Consumer Brands | FlarePix",
@@ -28,13 +29,6 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
 };
-
-const aiVideos = [
-  { src: "/works/ai/videos/ai-video-01.mp4", title: "AI product animation" },
-  { src: "/works/ai/videos/ai-video-02.mp4", title: "AI scene generation" },
-  { src: "/works/ai/videos/ai-video-03.mp4", title: "AI social video" },
-  { src: "/works/ai/videos/ai-video-04.mp4", title: "AI product video" },
-];
 
 const aiVideoFaqs = [
   aiVideoPricingFaq,
@@ -99,7 +93,7 @@ export default function AiVideoPage() {
         <section className="mt-16">
           <h2 className="text-xl font-semibold">AI video examples</h2>
           <GalleryLightbox
-            items={aiVideos.map((v) => ({ src: v.src, type: "video" as const, title: v.title }))}
+            items={aiWorkVideos.map((v) => ({ src: v.src, type: "video" as const, title: v.title, poster: v.poster }))}
             columns={2}
           />
         </section>

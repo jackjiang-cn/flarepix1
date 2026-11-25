@@ -1,40 +1,38 @@
 const videos = {
-  "rgb-dj-tube-lights": ["RGB DJ Tube Lights", "electronics"],
-  "outdoor-boots": ["Outdoor Boots", "fashion"],
-  "kids-basketball-hoop": ["Kids’ Basketball Hoop", "video-kids"],
-  "kids-step-stool": ["Kids’ Step Stool", "video-kids"],
-  "baby-diaper-commercial": ["Baby Diaper Commercial", "video-kids"],
-  "infrared-thermometer": ["Infrared Thermometer", "video-kids"],
-  "baby-care-organizer": ["Baby Care Organizer", "video-kids"],
-  "bread-slicer": ["Bread Slicer", "home-kitchen"],
-  "countertop-blender": ["Countertop Blender", "home-kitchen"],
-  "multi-purpose-vacuum": ["Multi-Purpose Vacuum", "home-kitchen"],
-  "hair-drying-towel-wrap": ["Hair Drying Towel Wrap", "home-kitchen"],
-  "laundry-care-ad-seaside": ["Laundry Care Commercial – Seaside", "home-kitchen"],
-  "laundry-care-ad-lifestyle": ["Laundry Care Commercial – Lifestyle", "home-kitchen"],
-  "electric-kick-scooter": ["F7 Electric Kick Scooter", "video-sports"],
-  "dk38ab-walking-pad": ["DK38AB Walking Pad", "video-sports"],
-  "compact-treadmill": ["Compact Treadmill", "video-sports"],
-  "dog-car-seat-cover": ["Dog Car Seat Cover", "video-others"],
-  "folding-mobility-scooter": ["Folding Mobility Scooter", "video-others"],
-  "portable-mobility-scooter": ["Portable Mobility Scooter", "video-others"],
+  "rgb-dj-tube-lights": ["RGB DJ Tube Lights", "electronics", "demonstration"],
+  "outdoor-boots": ["Outdoor Boots", "fashion", "advertising"],
+  "kids-basketball-hoop": ["Kids’ Basketball Hoop", "video-kids", "advertising"],
+  "kids-step-stool": ["Kids’ Step Stool", "video-kids", "demonstration"],
+  "baby-diaper-commercial": ["Baby Diaper Commercial", "video-kids", "advertising"],
+  "infrared-thermometer": ["Infrared Thermometer", "video-kids", "demonstration"],
+  "baby-care-organizer": ["Baby Care Organizer", "video-kids", "demonstration"],
+  "bread-slicer": ["Bread Slicer", "home-kitchen", "demonstration"],
+  "countertop-blender": ["Countertop Blender", "home-kitchen", "demonstration"],
+  "multi-purpose-vacuum": ["Multi-Purpose Vacuum", "home-kitchen", "demonstration"],
+  "hair-drying-towel-wrap": ["Hair Drying Towel Wrap", "home-kitchen", "demonstration"],
+  "laundry-care-ad-seaside": ["Laundry Care Commercial – Seaside", "home-kitchen", "advertising"],
+  "laundry-care-ad-lifestyle": ["Laundry Care Commercial – Lifestyle", "home-kitchen", "advertising"],
+  "electric-kick-scooter": ["F7 Electric Kick Scooter", "video-sports", "demonstration"],
+  "dk38ab-walking-pad": ["DK38AB Walking Pad", "video-sports", "demonstration"],
+  "compact-treadmill": ["Compact Treadmill", "video-sports", "demonstration"],
+  "dog-car-seat-cover": ["Dog Car Seat Cover", "video-others", "demonstration"],
+  "folding-mobility-scooter": ["Folding Mobility Scooter", "video-others", "demonstration"],
+  "portable-mobility-scooter": ["Portable Mobility Scooter", "video-others", "demonstration"],
 } as const;
 
 const videoPath = (slug: string) => `/works/video/portfolio-2026-11/${slug}-v1.mp4`;
 
-const catalog = Object.entries(videos).map(([slug, [title, category]]) => ({
+const catalog = Object.entries(videos).map(([slug, [title, category, type]]) => ({
   src: videoPath(slug),
   title,
   category,
+  types: [type],
 }));
 
-export const portfolioVideo = (slug: keyof typeof videos) => ({
-  src: videoPath(slug),
-  title: videos[slug][0],
-});
+export const portfolioVideoSource = (slug: keyof typeof videos) => videoPath(slug);
 
 export const portfolioVideoSources = (category: string) =>
   catalog.filter((video) => video.category === category).map((video) => video.src);
 
-export const portfolioVideoTitle = (src: string) =>
-  catalog.find((video) => video.src === src)?.title;
+export const portfolioVideoDetails = (src: string) =>
+  catalog.find((video) => video.src === src);

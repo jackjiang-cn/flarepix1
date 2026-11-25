@@ -5,9 +5,9 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
-import { photoCategories, videoProductionCategories, videoProductionSources } from "@/config/categories";
+import { photoCategories, videoProductionCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
-import { portfolioVideoTitle } from "@/config/portfolio-videos";
+import { workVideosForCategory } from "@/config/work-videos";
 
 export function generateStaticParams() {
   const allSlugs = [
@@ -94,7 +94,7 @@ export default async function CategoryPage({
   const cat = photoCat ?? videoCat!;
   const photos = photoSources[category] || [];
   const displayPhotos = photos.slice(0, 12);
-  const displayVideos = (videoProductionSources[category] || []).slice(0, 6);
+  const displayVideos = workVideosForCategory(category);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -138,13 +138,16 @@ export default async function CategoryPage({
               masonry={true}
             />
           ) : (
-            <GalleryLightbox
-              items={displayVideos.map((src, i) => ({
-                src,
-                type: "video" as const,
-                title: portfolioVideoTitle(src) ?? `${cat.label} video ${i + 1}`,
-              }))}
-            />
+            <>
+              <GalleryLightbox
+                items={displayVideos.slice(0, 6).map(({ src, title, poster }) => ({ src, type: "video" as const, title, poster }))}
+              />
+              {displayVideos.length > 6 && (
+                <Link href={`/work?videocategory=${category}`} className="mt-5 inline-flex text-sm font-semibold underline underline-offset-4 hover:text-[#896333]">
+                  View all {displayVideos.length} videos
+                </Link>
+              )}
+            </>
           )}
         </section>
 
