@@ -17,9 +17,9 @@ const videos = {
   "electric-kick-scooter": ["F7 Electric Kick Scooter", "video-sports", "demonstration"],
   "dk38ab-walking-pad": ["DK38AB Walking Pad", "video-sports", "demonstration"],
   "compact-treadmill": ["Compact Treadmill", "video-sports", "demonstration"],
-  "dog-car-seat-cover": ["Dog Car Seat Cover", "video-others", "demonstration"],
-  "folding-mobility-scooter": ["Folding Mobility Scooter", "video-others", "demonstration"],
-  "portable-mobility-scooter": ["Portable Mobility Scooter", "video-others", "demonstration"],
+  "dog-car-seat-cover": ["Dog Car Seat Cover", "pet-products", "demonstration"],
+  "folding-mobility-scooter": ["Folding Mobility Scooter", "health-mobility", "demonstration"],
+  "portable-mobility-scooter": ["Portable Mobility Scooter", "health-mobility", "demonstration"],
 } as const;
 
 const videoPath = (slug: string) => `/works/video/portfolio-2026-11/${slug}-v1.mp4`;

@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import PhotoGallery from "@/components/photo-gallery";
 import ServiceVideoPreview from "@/components/service-video-preview";
 import WorkVideoGallery from "@/components/work-video-gallery";
-import { photoCategories, videoProductionCategories } from "@/config/categories";
+import { legacyOtherVideoCategory, photoCategories, videoProductionCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
 import { aiWorkVideos, workVideos, workVideosForCategory } from "@/config/work-videos";
 import { cdnUrl } from "@/config/cdn";
@@ -201,17 +201,33 @@ export default async function WorkPage({ searchParams }: { searchParams: Promise
   );
 }
 
+const allProductCategories = { slug: "all", label: "All" };
+const videoMethods = [
+  { slug: "all", label: "All methods" },
+  { slug: "ai", label: "AI Video" },
+];
+
+function videoArchiveHref(category: string, aiOnly: boolean) {
+  return `/work?videocategory=${category}${aiOnly ? "&videotype=ai" : ""}#category-archive`;
+}
+
 function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; params: WorkParams }) {
-  const videoCategory = params.videocategory || "all";
+  const requestedVideoCategory = params.videocategory ?? "all";
+  const legacyVideoCategory = requestedVideoCategory === legacyOtherVideoCategory;
+  const videoCategory = legacyVideoCategory || videoProductionCategories.some(({ slug }) => slug === requestedVideoCategory)
+    ? requestedVideoCategory
+    : "all";
+  const aiOnly = params.videotype === "ai";
   const photoCategory = params.category || "all";
   const aiCategory = params.aicategory || "all";
-  const visibleVideos = videoCategory === "all" ? workVideos : workVideosForCategory(videoCategory);
+  const categoryVideos = videoCategory === "all" ? workVideos : workVideosForCategory(videoCategory);
+  const visibleVideos = aiOnly ? categoryVideos.filter((video) => video.types.includes("ai")) : categoryVideos;
   const visiblePhotos = photoCategory === "all"
     ? photoCategories.flatMap((category) => (photoSources[category.slug] || []).slice(0, 4))
     : photoSources[photoCategory] || [];
 
   return (
-    <section id="category-archive" className="border-t border-[#1b3b2f]/15 py-16 sm:py-20">
+    <section id="category-archive" className="scroll-mt-20 border-t border-[#1b3b2f]/15 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Link href="/work" className="text-sm font-semibold underline underline-offset-4 hover:text-[#896333]">← Selected Work</Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">Browse the Archive</p>
@@ -220,15 +236,39 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
         </h2>
         {archive === "video" && (
           <>
-            <ArchiveLinks active={videoCategory} param="videocategory" categories={videoProductionCategories} />
-            <p className="mt-4 text-sm text-[var(--muted)]">
+            <div className="mt-8 space-y-3">
+              <ArchiveLinks
+                label="Product category"
+                active={videoCategory}
+                items={[allProductCategories, ...videoProductionCategories]}
+                hrefFor={(slug) => videoArchiveHref(slug, aiOnly)}
+              />
+              <ArchiveLinks
+                label="Video production method"
+                active={aiOnly ? "ai" : "all"}
+                items={videoMethods}
+                hrefFor={(slug) => videoArchiveHref(videoCategory, slug === "ai")}
+              />
+            </div>
+            {legacyVideoCategory && (
+              <p className="mt-4 text-sm font-semibold">Pet Products and Health &amp; Mobility</p>
+            )}
+            <p className="mt-4 text-sm text-[var(--muted)]" role="status">
               {visibleVideos.length} {visibleVideos.length === 1 ? "video" : "videos"}
             </p>
+            {visibleVideos.length === 0 && (
+              <p className="mt-3 text-sm text-[var(--muted)]">No AI videos in this category yet.</p>
+            )}
             <div className="mt-5 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
               {visibleVideos.map((video) => (
                 <div key={video.src}>
                   <ServiceVideoPreview title={video.title} src={video.src} poster={video.poster} />
-                  <p className="mt-3 text-sm font-semibold">{video.title}</p>
+                  <div className="mt-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                    <p className="text-sm font-semibold">{video.title}</p>
+                    {video.types.includes("ai") && (
+                      <span className="text-xs text-[var(--muted)]">AI Video</span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -236,7 +276,14 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
         )}
         {archive === "photo" && (
           <>
-            <ArchiveLinks active={photoCategory} param="category" categories={photoCategories} />
+            <div className="mt-8">
+              <ArchiveLinks
+                label="Product category"
+                active={photoCategory}
+                items={[allProductCategories, ...photoCategories]}
+                hrefFor={(slug) => `/work?category=${slug}`}
+              />
+            </div>
             <div className="mt-9"><PhotoGallery photos={visiblePhotos} /></div>
           </>
         )}
@@ -276,21 +323,22 @@ function ArchiveView({ archive, params }: { archive: "video" | "photo" | "ai"; p
   );
 }
 
-function ArchiveLinks({ active, param, categories }: {
+function ArchiveLinks({ label, active, items, hrefFor }: {
+  label: string;
   active: string;
-  param: "videocategory" | "category";
-  categories: { slug: string; label: string }[];
+  items: { slug: string; label: string }[];
+  hrefFor: (slug: string) => string;
 }) {
   return (
-    <nav aria-label="Product category" className="mt-8 flex flex-wrap gap-2">
-      {[{ slug: "all", label: "All" }, ...categories].map((category) => (
+    <nav aria-label={label} className="flex flex-wrap gap-2">
+      {items.map((item) => (
         <Link
-          key={category.slug}
-          href={`/work?${param}=${category.slug}`}
-          aria-current={active === category.slug ? "page" : undefined}
-          className={`rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)] ${active === category.slug ? "border-[#17382d] bg-[#17382d] text-white" : "border-[#1b3b2f]/20 hover:border-[#1b3b2f]/60"}`}
+          key={item.slug}
+          href={hrefFor(item.slug)}
+          aria-current={active === item.slug ? "page" : undefined}
+          className={`rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)] ${active === item.slug ? "border-[#17382d] bg-[#17382d] text-white" : "border-[#1b3b2f]/20 hover:border-[#1b3b2f]/60"}`}
         >
-          {category.label}
+          {item.label}
         </Link>
       ))}
     </nav>

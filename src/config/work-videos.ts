@@ -1,7 +1,7 @@
-import { videoProductionCategories, videoProductionSources } from "./categories";
+import { legacyOtherVideoCategory, videoProductionCategories, videoProductionSources } from "./categories";
 import { brandFilm02Web, industryVideos, posterFor } from "./cdn";
 import { homepageVideos } from "./homepage-videos";
-import { newPortfolioVideo, newPortfolioVideos } from "./new-portfolio-videos";
+import { newPortfolioVideo } from "./new-portfolio-videos";
 import { portfolioVideoDetails, portfolioVideoSource } from "./portfolio-videos";
 
 export type WorkVideoType = "film" | "advertising" | "demonstration" | "ai";
@@ -144,26 +144,23 @@ const existingVideos: Record<string, VideoDetails> = {
     types: ["demonstration"],
     poster: "/work-automatic-pet-feeder-v1.webp",
   },
+  "/works/ai/videos/ai-video-01.mp4": {
+    title: "AI Window Hardware Video",
+    types: ["ai"],
+  },
+  "/works/ai/videos/ai-video-02.mp4": {
+    title: "AI Cookware & Griddle Video",
+    types: ["ai"],
+  },
+  "/works/ai/videos/ai-video-03.mp4": {
+    title: "AI Bathroom Vanity Video",
+    types: ["ai"],
+  },
+  "/works/ai/videos/ai-video-04.mp4": {
+    title: "AI Back Support Cushion Video",
+    types: ["ai"],
+  },
 };
-
-const existingAiWorkVideos: WorkVideo[] = [
-  "AI product animation",
-  "AI scene generation",
-  "AI social video",
-  "AI product video",
-].map((title, index) => {
-  const src = `/works/ai/videos/ai-video-0${index + 1}.mp4`;
-  return { title, types: ["ai"], category: "AI Video", src, poster: posterFor(src) };
-});
-
-export const aiWorkVideos = prioritizeVideos([
-  ...newPortfolioVideos.filter((video) => video.category === "ai").map((video) => ({
-    ...video,
-    category: "AI Video",
-    poster: featuredPosters.get(video.src) ?? video.poster,
-  })),
-  ...existingAiWorkVideos,
-]);
 
 function productWorkVideo(src: string, category: string): WorkVideo {
   const details: VideoDetails = portfolioVideoDetails(src) ?? existingVideos[src] ?? {
@@ -180,17 +177,29 @@ function productWorkVideo(src: string, category: string): WorkVideo {
   };
 }
 
+const categoryVideos = new Map(videoProductionCategories.map(({ slug, label }) => [
+  slug,
+  prioritizeVideos(videoProductionSources[slug].map((src) => productWorkVideo(src, label))),
+]));
+
+function uniquePrioritizedVideos(videos: WorkVideo[]): WorkVideo[] {
+  const uniqueVideos = new Map<string, WorkVideo>();
+  for (const video of videos) {
+    if (!uniqueVideos.has(video.src)) uniqueVideos.set(video.src, video);
+  }
+  return prioritizeVideos(Array.from(uniqueVideos.values()));
+}
+
 export function workVideosForCategory(slug: string): WorkVideo[] {
-  const category = videoProductionCategories.find((item) => item.slug === slug);
-  if (!category) return [];
-  return prioritizeVideos((videoProductionSources[slug] ?? []).map((src) => productWorkVideo(src, category.label)));
+  if (slug === legacyOtherVideoCategory) {
+    return uniquePrioritizedVideos([
+      ...workVideosForCategory("pet-products"),
+      ...workVideosForCategory("health-mobility"),
+    ]);
+  }
+  return categoryVideos.get(slug) ?? [];
 }
 
-const uniqueVideos = new Map<string, WorkVideo>();
-for (const video of [...videoProductionCategories.flatMap(({ slug }) => workVideosForCategory(slug)), ...aiWorkVideos]) {
-  if (!uniqueVideos.has(video.src)) uniqueVideos.set(video.src, video);
-}
-
-export const workVideos = prioritizeVideos(Array.from(uniqueVideos.values()));
-
+export const workVideos = uniquePrioritizedVideos(Array.from(categoryVideos.values()).flat());
+export const aiWorkVideos = workVideos.filter((video) => video.types.includes("ai"));
 export const brandFilmWorkVideos = workVideos.filter((video) => video.types.includes("film"));
