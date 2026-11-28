@@ -90,7 +90,7 @@ export default function AiVideoPage() {
         </div>
 
         {/* Video gallery */}
-        <section className="mt-16">
+        <section id="ai-video-examples" className="mt-16 scroll-mt-24">
           <h2 className="text-xl font-semibold">AI video examples</h2>
           <GalleryLightbox
             items={aiWorkVideos.map((v) => ({ src: v.src, type: "video" as const, title: v.title, poster: v.poster }))}

@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { industryVideos, posterFor, resolvePosterUrl } from "@/config/cdn";
+import { homepageVideos } from "@/config/homepage-videos";
 import Lightbox from "./lightbox";
 import VideoDialogPlayer from "./video-dialog-player";
 
 type Industry = {
   title: string;
   description: string;
-  video: string;
+  video: { title: string; src: string; poster: string };
   href: string;
 };
 
@@ -18,19 +18,19 @@ const industries: Industry[] = [
   {
     title: "Small Appliances",
     description: "Show everyday use, key functions, and the details that make a product worth choosing.",
-    video: industryVideos.smallAppliances,
+    video: homepageVideos.momcozyD8,
     href: "/product-categories#small-appliances",
   },
   {
     title: "Fashion & Apparel",
     description: "Show fit, movement, texture, and styling in context.",
-    video: industryVideos.fashionApparel,
+    video: homepageVideos.degaiaMenswear,
     href: "/product-categories#fashion-apparel",
   },
   {
     title: "Consumer Electronics",
     description: "Make features, interfaces, and real-world use easy to understand.",
-    video: "/works/video/Electronics/product-video-09.m4v",
+    video: homepageVideos.robotDog,
     href: "/product-categories#consumer-electronics",
   },
 ];
@@ -40,7 +40,7 @@ export default function IndustryFocus() {
   const activeIndustry = activeIndex === null ? null : industries[activeIndex];
 
   return (
-    <section id="industries" className="bg-[var(--background)] py-20 sm:py-28" aria-labelledby="industries-title">
+    <section id="industries" className="scroll-mt-20 bg-[var(--background)] py-20 sm:py-28" aria-labelledby="industries-title">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#896333]">
@@ -57,7 +57,6 @@ export default function IndustryFocus() {
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           {industries.map((industry, index) => {
             const featured = index === 0;
-            const poster = resolvePosterUrl(posterFor(industry.video));
 
             return (
               <article
@@ -75,7 +74,7 @@ export default function IndustryFocus() {
                   className="group relative block aspect-video w-full overflow-hidden bg-[#102820] focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white lg:aspect-auto lg:h-[220px]"
                 >
                   <Image
-                    src={poster}
+                    src={industry.video.poster}
                     alt=""
                     fill
                     loading="lazy"
@@ -125,16 +124,11 @@ export default function IndustryFocus() {
       <Lightbox
         open={activeIndustry !== null}
         onClose={() => setActiveIndex(null)}
-        label={activeIndustry?.title}
+        label={activeIndustry?.video.title}
         closeLabel="Close video"
       >
         {activeIndustry && (
-          <VideoDialogPlayer
-            key={activeIndustry.video}
-            title={activeIndustry.title}
-            src={activeIndustry.video}
-            poster={posterFor(activeIndustry.video)}
-          />
+          <VideoDialogPlayer key={activeIndustry.video.src} {...activeIndustry.video} />
         )}
       </Lightbox>
     </section>

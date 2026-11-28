@@ -42,7 +42,10 @@ const newVideos = {
   "luwu-dynamics-wheel-legged-robot": ["Luwu Dynamics Wheel-Legged Robot", "electronics", ["demonstration"]],
 } as const;
 
-export const newPortfolioVideos = Object.entries(newVideos).map(([slug, [title, category, types, videoVersion = 1]]) => {
+export function newPortfolioVideo(slug: keyof typeof newVideos) {
+  const [title, category, types, videoVersion = 1] = newVideos[slug];
   const file = `/works/video/portfolio-2026-11-28/${slug}`;
   return { title, category, types, src: `${file}-v${videoVersion}.mp4`, poster: `${file}-v1.webp` };
-});
+}
+
+export const newPortfolioVideos = (Object.keys(newVideos) as Array<keyof typeof newVideos>).map(newPortfolioVideo);

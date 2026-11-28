@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ServiceVideoPreview from "@/components/service-video-preview";
-import { industryVideos, posterFor } from "@/config/cdn";
+import { homepageVideos } from "@/config/homepage-videos";
 
 export const metadata: Metadata = {
   title: "Product Categories | FlarePix",
@@ -34,8 +34,8 @@ const categories = [
     description:
       "Demonstrate everyday use, key functions, and the details that are easier to understand in motion.",
     formats: "Product demonstrations · Short ads · Lifestyle photography",
-    video: industryVideos.smallAppliances,
-    workHref: "/work",
+    video: homepageVideos.momcozyD8,
+    workHref: "/work?videocategory=home-kitchen#category-archive",
   },
   {
     number: "02",
@@ -45,8 +45,8 @@ const categories = [
     description:
       "Put garments and accessories in context through movement, styling, and close attention to texture.",
     formats: "Campaign films · Social video · On-model photography",
-    video: industryVideos.fashionApparel,
-    workHref: "/work?videocategory=fashion",
+    video: homepageVideos.degaiaMenswear,
+    workHref: "/work?videocategory=fashion#category-archive",
   },
   {
     number: "03",
@@ -56,8 +56,8 @@ const categories = [
     description:
       "Show interfaces, key features, and real-world interaction while keeping the product visually clear.",
     formats: "Product demos · Advertising creatives · Studio photography",
-    video: "/works/video/Electronics/product-video-09.m4v",
-    workHref: "/work?videocategory=electronics",
+    video: homepageVideos.robotDog,
+    workHref: "/work?videocategory=electronics#category-archive",
   },
 ] as const;
 
@@ -117,7 +117,7 @@ export default function ProductCategoriesPage() {
                 </div>
               </div>
               <div className={index === 1 ? "lg:order-1" : ""}>
-                <ServiceVideoPreview title={category.title} src={category.video} poster={posterFor(category.video)} />
+                <ServiceVideoPreview {...category.video} />
               </div>
             </div>
           </section>

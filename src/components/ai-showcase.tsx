@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { homepageVideos } from "@/config/homepage-videos";
 import ServiceVideoPreview from "./service-video-preview";
-import { posterFor } from "@/config/cdn";
 
-const featuredVideo = "/works/ai/videos/ai-video-01.mp4";
+const featuredVideo = homepageVideos.aiToaster;
 
 export default function AiShowcase() {
   return (
@@ -20,20 +20,16 @@ export default function AiShowcase() {
             AI Video in Practice
           </h2>
           <p className="mt-5 max-w-sm text-base leading-relaxed text-[#d5ddd5] sm:text-lg">
-            A wide apartment scene gives way to close-ups of a balcony door handle in use.
+            An AI-made product demo shows how to load bread, choose a setting on the touchscreen, and remove the crumb tray for cleaning.
           </p>
           <Link
-            href="/services/ai-video"
+            href="/services/ai-video#ai-video-examples"
             className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-[#cfb077] text-sm font-semibold text-[#f4f2ec] transition-colors hover:text-[#cfb077] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             See More AI Videos <span aria-hidden="true">↗</span>
           </Link>
         </div>
-        <ServiceVideoPreview
-          title="AI balcony door scene"
-          src={featuredVideo}
-          poster={posterFor(featuredVideo)}
-        />
+        <ServiceVideoPreview key={featuredVideo.src} {...featuredVideo} />
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ type GalleryItem = {
   alt?: string;
   title?: string;
   poster?: string;
+  hlsSrc?: string;
 };
 
 export default function GalleryLightbox({ items, columns = 3, masonry = false }: { items: GalleryItem[]; columns?: number; masonry?: boolean }) {
@@ -75,7 +76,7 @@ export default function GalleryLightbox({ items, columns = 3, masonry = false }:
         closeLabel={selected?.type === "video" ? "Close video" : "Close image"}
       >
         {selected?.type === "video" && (
-          <VideoDialogPlayer key={selected.src} title={label} src={selected.src} poster={selected.poster ?? posterFor(selected.src)} />
+          <VideoDialogPlayer key={selected.src} title={label} src={selected.src} hlsSrc={selected.hlsSrc} poster={selected.poster ?? posterFor(selected.src)} />
         )}
         {selected?.type === "image" && (
           <figure className="max-w-5xl">

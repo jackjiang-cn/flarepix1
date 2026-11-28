@@ -6,6 +6,7 @@ import CtaButton from "@/components/cta-button";
 import GalleryLightbox from "@/components/gallery-lightbox";
 import ServiceFaq from "@/components/service-faq";
 import { brandFilmWorkVideos } from "@/config/work-videos";
+import { homepageVideos } from "@/config/homepage-videos";
 
 export const metadata: Metadata = {
   title: "Commercial Video & Brand Film Production | FlarePix",
@@ -94,7 +95,7 @@ export default function BrandFilmPage() {
         </div>
 
         {/* Video showcase */}
-        <section className="mt-16">
+        <section id="brand-film-examples" className="mt-16 scroll-mt-24">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <h2 className="text-xl font-semibold">Brand film examples</h2>
             <Link href="/work?videotype=film#browse-video-work" className="text-sm font-semibold underline underline-offset-4 hover:text-[#896333]">
@@ -102,7 +103,13 @@ export default function BrandFilmPage() {
             </Link>
           </div>
           <GalleryLightbox
-            items={brandFilmWorkVideos.map((film) => ({ src: film.src, type: "video" as const, title: film.title, poster: film.poster }))}
+            items={brandFilmWorkVideos.map((film) => ({
+              src: film.src,
+              type: "video" as const,
+              title: film.title,
+              poster: film.poster,
+              hlsSrc: film.src === homepageVideos.quickNBody.src ? homepageVideos.quickNBody.hlsSrc : undefined,
+            }))}
             columns={2}
           />
         </section>

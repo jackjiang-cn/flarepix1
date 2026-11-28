@@ -5,7 +5,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ServiceVideoPreview from "@/components/service-video-preview";
 import { photoCategories, videoProductionCategories } from "@/config/categories";
-import { brandFilm02Web, cdnUrl, posterFor } from "@/config/cdn";
+import { cdnUrl } from "@/config/cdn";
+import { homepageVideos } from "@/config/homepage-videos";
 
 export const metadata: Metadata = {
   title: "Video Production & Product Photography for Ecommerce | FlarePix",
@@ -62,22 +63,21 @@ const videoServices = [
     description: "Campaign films, launch videos, and brand stories shaped around the idea you want people to remember.",
     outputs: "Campaign films · Launch videos · Channel cutdowns",
     href: "/services/brand-film", linkLabel: "Explore brand film services",
-    video: brandFilm02Web.src,
-    poster: brandFilm02Web.poster,
+    video: homepageVideos.quickNBody,
   },
   {
     number: "02", id: "advertising-creatives", title: "Advertising Creatives",
     description: "Short-form video concepts and edits made for paid campaigns and social channels.",
     outputs: "Short video ads · Opening hooks · Format variations",
     href: "/work?videotype=advertising#browse-video-work", linkLabel: "View advertising creatives",
-    video: "/works/video/Electronics/product-video-10.m4v",
+    video: homepageVideos.donnerDrums,
   },
   {
     number: "03", id: "product-demonstrations", title: "Product Videos & Demonstrations",
     description: "Show how a product works, where it fits into everyday life, and the details that make it worth choosing.",
     outputs: "Feature demos · Use-case videos · Product films",
     href: "/work?videotype=demonstration#browse-video-work", linkLabel: "View product demonstrations",
-    video: "/works/video/Home & Kitchen/product-video-02.mp4",
+    video: homepageVideos.boardGameTable,
   },
 ] as const;
 
@@ -120,7 +120,7 @@ export default function ServicesPage() {
                   <span className="pt-1 text-xs font-semibold tracking-[0.16em] text-[#896333] md:col-start-1 md:row-start-1">{service.number}</span>
                   <h3 className="max-w-lg text-2xl font-semibold tracking-[-0.035em] sm:text-3xl md:col-start-2 md:row-start-1">{service.title}</h3>
                   <div className="md:col-start-3 md:row-start-1 md:row-span-2">
-                    <ServiceVideoPreview title={service.title} src={service.video} poster={"poster" in service ? service.poster : posterFor(service.video)} />
+                    <ServiceVideoPreview {...service.video} />
                   </div>
                   <div className="md:col-start-2 md:row-start-2">
                     <p className="max-w-xl text-base leading-relaxed text-[var(--muted)]">{service.description}</p>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
             <span className="pt-1 text-xs font-semibold tracking-[0.16em] text-[#896333] md:col-start-1 md:row-start-1">04</span>
             <h2 className="text-2xl font-semibold tracking-[-0.035em] sm:text-3xl md:col-start-2 md:row-start-1">AI Video Production</h2>
             <div className="md:col-start-3 md:row-start-1 md:row-span-2">
-              <ServiceVideoPreview title="AI Video Production" src="/works/ai/videos/ai-video-04.mp4" poster="/works/posters/ai-video-04.jpg" />
+              <ServiceVideoPreview {...homepageVideos.aiToaster} />
             </div>
             <div className="md:col-start-2 md:row-start-2">
               <p className="max-w-xl text-base leading-relaxed text-[var(--muted)]">AI-assisted scenes and ad variations created from product references, with team direction and review for product accuracy and brand fit.</p>

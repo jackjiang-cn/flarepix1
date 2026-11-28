@@ -9,7 +9,8 @@ import WorkVideoGallery from "@/components/work-video-gallery";
 import { photoCategories, videoProductionCategories } from "@/config/categories";
 import { photoSources } from "@/config/photo-sources";
 import { aiWorkVideos, workVideos, workVideosForCategory } from "@/config/work-videos";
-import { cdnUrl, industryVideos, posterFor } from "@/config/cdn";
+import { cdnUrl } from "@/config/cdn";
+import { homepageVideos } from "@/config/homepage-videos";
 
 export const metadata: Metadata = {
   title: "Selected Work | FlarePix",
@@ -33,26 +34,22 @@ export const metadata: Metadata = {
 
 const featuredWork = [
   {
-    type: "Product commercial",
-    title: "Momcozy D8 Baby Bottle Washer",
+    ...homepageVideos.boardGameTable,
+    type: "Product demonstration",
     description:
-      "A kitchen counter crowded with baby bottles sets up a familiar chore. The film shows how the D8 fits into that routine, from loading bottles and accessories to running a wash cycle.",
+      "A modular board game table switches from a lit play surface to a dining table. The film shows how the storage trays and removable panels work.",
     approach:
-      "Live-action kitchen scenes show the washer in use. Close-ups highlight the controls, and cutaway graphics show how water moves through the machine.",
-    featuredCut: "1:46 · 16:9",
-    src: industryVideos.smallAppliances,
-    poster: posterFor(industryVideos.smallAppliances),
+      "Wide shots show the table in a group game. Close-ups show how players arrange the accessories, and an overhead shot reveals both uses side by side.",
+    featuredCut: "1:51 · 16:9",
   },
   {
-    type: "Consumer brand film",
-    title: "A Day at Play",
+    ...homepageVideos.donnerDrums,
+    type: "Product commercial",
     description:
-      "A child runs through the garden, shares a snack, and plays with toys at home. The closing line, “More Joy in Every Moment,” ties those scenes together.",
+      "A drummer puts the Donner electronic kit through a full performance in a white studio.",
     approach:
-      "Wide shots follow the child in motion. Close-ups of hands, faces, and toys pick out small moments before the edit settles on a holiday display.",
-    featuredCut: "0:35 · 16:9",
-    src: "/works/brand-film/brand-film-09.m4v",
-    poster: "/work-a-day-at-play-v1.webp",
+      "The edit cuts between the full kit and close-ups of the drummer’s hands, cymbals, and pads to follow the rhythm.",
+    featuredCut: "0:56 · 16:9",
   },
 ] as const;
 

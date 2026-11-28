@@ -1,6 +1,7 @@
 import { videoProductionCategories, videoProductionSources } from "./categories";
 import { brandFilm02Web, industryVideos, posterFor } from "./cdn";
-import { newPortfolioVideos } from "./new-portfolio-videos";
+import { homepageVideos } from "./homepage-videos";
+import { newPortfolioVideo, newPortfolioVideos } from "./new-portfolio-videos";
 import { portfolioVideoDetails, portfolioVideoSource } from "./portfolio-videos";
 
 export type WorkVideoType = "film" | "advertising" | "demonstration" | "ai";
@@ -19,6 +20,34 @@ export type WorkVideo = {
   src: string;
   poster: string;
 };
+
+const featuredPosters = new Map<string, string>(
+  Object.values(homepageVideos).map(({ src, poster }) => [src, poster]),
+);
+
+const featuredPriority = new Map<string, number>([
+  homepageVideos.boardGameTable.src,
+  homepageVideos.donnerDrums.src,
+  homepageVideos.petWaterFountain.src,
+  homepageVideos.quickNBody.src,
+  homepageVideos.aiToaster.src,
+  homepageVideos.momcozyD8.src,
+  homepageVideos.degaiaMenswear.src,
+  homepageVideos.robotDog.src,
+  newPortfolioVideo("lankeleisi-electric-bike").src,
+  portfolioVideoSource("outdoor-boots"),
+  newPortfolioVideo("aigowl-t1-ed-binoculars").src,
+  portfolioVideoSource("rgb-dj-tube-lights"),
+  portfolioVideoSource("kids-basketball-hoop"),
+  portfolioVideoSource("bread-slicer"),
+].map((src, index) => [src, index]));
+
+function prioritizeVideos(videos: WorkVideo[]): WorkVideo[] {
+  const defaultPriority = featuredPriority.size;
+  return videos.sort((left, right) =>
+    (featuredPriority.get(left.src) ?? defaultPriority) - (featuredPriority.get(right.src) ?? defaultPriority),
+  );
+}
 
 // Product archive source paths identify projects across the product and brand film galleries.
 const existingVideos: Record<string, VideoDetails> = {
@@ -87,9 +116,9 @@ const existingVideos: Record<string, VideoDetails> = {
     poster: "/works/posters/brand-film-06.jpg",
   },
   "/works/video/Sports & Fitness/product-video-08.m4v": {
-    title: "Quick N Body Fitness Commercial",
+    title: homepageVideos.quickNBody.title,
     types: ["film"],
-    poster: "/home-commercials-brand-films-v1.webp",
+    preferredSource: homepageVideos.quickNBody.src,
   },
   "/works/video/Sports & Fitness/product-video-07.m4v": {
     title: "Electric Scooter Lifestyle Film",
@@ -127,50 +156,41 @@ const existingAiWorkVideos: WorkVideo[] = [
   return { title, types: ["ai"], category: "AI Video", src, poster: posterFor(src) };
 });
 
-export const aiWorkVideos: WorkVideo[] = [
+export const aiWorkVideos = prioritizeVideos([
   ...newPortfolioVideos.filter((video) => video.category === "ai").map((video) => ({
     ...video,
     category: "AI Video",
+    poster: featuredPosters.get(video.src) ?? video.poster,
   })),
   ...existingAiWorkVideos,
-];
+]);
 
 function productWorkVideo(src: string, category: string): WorkVideo {
   const details: VideoDetails = portfolioVideoDetails(src) ?? existingVideos[src] ?? {
     title: `${category} video`,
     types: ["demonstration"],
   };
+  const playbackSource = details.preferredSource ?? src;
   return {
     title: details.title,
     types: details.types,
     category,
-    src: details.preferredSource ?? src,
-    poster: details.poster ?? posterFor(src),
+    src: playbackSource,
+    poster: featuredPosters.get(playbackSource) ?? details.poster ?? posterFor(src),
   };
 }
 
 export function workVideosForCategory(slug: string): WorkVideo[] {
   const category = videoProductionCategories.find((item) => item.slug === slug);
   if (!category) return [];
-  return (videoProductionSources[slug] ?? []).map((src) => productWorkVideo(src, category.label));
+  return prioritizeVideos((videoProductionSources[slug] ?? []).map((src) => productWorkVideo(src, category.label)));
 }
-
-const featuredSources = [
-  portfolioVideoSource("outdoor-boots"),
-  portfolioVideoSource("rgb-dj-tube-lights"),
-  portfolioVideoSource("kids-basketball-hoop"),
-  portfolioVideoSource("bread-slicer"),
-];
 
 const uniqueVideos = new Map<string, WorkVideo>();
 for (const video of [...videoProductionCategories.flatMap(({ slug }) => workVideosForCategory(slug)), ...aiWorkVideos]) {
   if (!uniqueVideos.has(video.src)) uniqueVideos.set(video.src, video);
 }
 
-const featuredSourceSet = new Set(featuredSources);
-export const workVideos = [
-  ...featuredSources.flatMap((src) => uniqueVideos.get(src) ?? []),
-  ...Array.from(uniqueVideos.values()).filter((video) => !featuredSourceSet.has(video.src)),
-];
+export const workVideos = prioritizeVideos(Array.from(uniqueVideos.values()));
 
 export const brandFilmWorkVideos = workVideos.filter((video) => video.types.includes("film"));
