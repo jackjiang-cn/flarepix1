@@ -1,5 +1,6 @@
 import { videoProductionCategories, videoProductionSources } from "./categories";
 import { brandFilm02Web, industryVideos, posterFor } from "./cdn";
+import { newPortfolioVideos } from "./new-portfolio-videos";
 import { portfolioVideoDetails, portfolioVideoSource } from "./portfolio-videos";
 
 export type WorkVideoType = "film" | "advertising" | "demonstration" | "ai";
@@ -116,7 +117,7 @@ const existingVideos: Record<string, VideoDetails> = {
   },
 };
 
-export const aiWorkVideos: WorkVideo[] = [
+const existingAiWorkVideos: WorkVideo[] = [
   "AI product animation",
   "AI scene generation",
   "AI social video",
@@ -125,6 +126,14 @@ export const aiWorkVideos: WorkVideo[] = [
   const src = `/works/ai/videos/ai-video-0${index + 1}.mp4`;
   return { title, types: ["ai"], category: "AI Video", src, poster: posterFor(src) };
 });
+
+export const aiWorkVideos: WorkVideo[] = [
+  ...newPortfolioVideos.filter((video) => video.category === "ai").map((video) => ({
+    ...video,
+    category: "AI Video",
+  })),
+  ...existingAiWorkVideos,
+];
 
 function productWorkVideo(src: string, category: string): WorkVideo {
   const details: VideoDetails = portfolioVideoDetails(src) ?? existingVideos[src] ?? {

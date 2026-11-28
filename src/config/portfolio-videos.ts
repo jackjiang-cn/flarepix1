@@ -1,3 +1,5 @@
+import { newPortfolioVideos } from "./new-portfolio-videos";
+
 const videos = {
   "rgb-dj-tube-lights": ["RGB DJ Tube Lights", "electronics", "demonstration"],
   "outdoor-boots": ["Outdoor Boots", "fashion", "advertising"],
@@ -31,8 +33,10 @@ const catalog = Object.entries(videos).map(([slug, [title, category, type]]) => 
 
 export const portfolioVideoSource = (slug: keyof typeof videos) => videoPath(slug);
 
+const productCatalog = [...newPortfolioVideos, ...catalog];
+
 export const portfolioVideoSources = (category: string) =>
-  catalog.filter((video) => video.category === category).map((video) => video.src);
+  productCatalog.filter((video) => video.category === category).map((video) => video.src);
 
 export const portfolioVideoDetails = (src: string) =>
-  catalog.find((video) => video.src === src);
+  productCatalog.find((video) => video.src === src);
