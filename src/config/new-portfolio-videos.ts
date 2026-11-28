@@ -9,7 +9,7 @@ const newVideos = {
   "menswear-country-estate": ["Country Estate Menswear Film", "fashion", ["film"]],
   "degaia-menswear": ["DEGAIA Menswear Film", "fashion", ["film"]],
   "dreame-r20-tanglex-cordless-vacuum": ["Dreame R20 TangleX Cordless Vacuum", "home-kitchen", ["advertising","demonstration"]],
-  "xqiao-treadmill": ["XQIAO Treadmill Film", "video-sports", ["film"]],
+  "xqiao-treadmill": ["XQIAO Treadmill Film", "video-sports", ["film"], 2],
   "renogy-phoenix-500-power-station": ["Renogy Phoenix 500 Portable Power Station", "electronics", ["demonstration"]],
   "andaseat-gaming-chair-black-friday": ["AndaSeat Gaming Chair – Black Friday", "home-kitchen", ["advertising"]],
   "modular-board-game-table": ["Modular Board Game Table", "home-kitchen", ["demonstration"]],
@@ -42,7 +42,7 @@ const newVideos = {
   "luwu-dynamics-wheel-legged-robot": ["Luwu Dynamics Wheel-Legged Robot", "electronics", ["demonstration"]],
 } as const;
 
-export const newPortfolioVideos = Object.entries(newVideos).map(([slug, [title, category, types]]) => {
-  const file = `/works/video/portfolio-2026-11-28/${slug}-v1`;
-  return { title, category, types, src: `${file}.mp4`, poster: `${file}.webp` };
+export const newPortfolioVideos = Object.entries(newVideos).map(([slug, [title, category, types, videoVersion = 1]]) => {
+  const file = `/works/video/portfolio-2026-11-28/${slug}`;
+  return { title, category, types, src: `${file}-v${videoVersion}.mp4`, poster: `${file}-v1.webp` };
 });
