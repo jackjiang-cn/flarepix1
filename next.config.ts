@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         destination: "/privacy-policy",
         permanent: true,
       },
+      {
+        source: "/services/video-others",
+        destination: "/work?videocategory=video-others#category-archive",
+        permanent: true,
+      },
     ];
   },
   images: {

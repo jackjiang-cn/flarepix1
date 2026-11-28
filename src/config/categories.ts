@@ -1,5 +1,5 @@
 import { industryVideos } from "./cdn";
-import { portfolioVideoSources } from "./portfolio-videos";
+import { portfolioVideoSource, portfolioVideoSources } from "./portfolio-videos";
 
 export type CategoryType = "video" | "photo";
 
@@ -10,14 +10,32 @@ export type Category = {
   type: CategoryType;
 };
 
-// Video production categories (for services page)
-// Use "video-" prefix to avoid slug conflicts with photo categories
+export const legacyOtherVideoCategory = "video-others";
+
 export const videoProductionCategories: Category[] = [
   {
-    slug: "electronics",
-    label: "Electronics",
+    slug: "home-kitchen",
+    label: "Home & Kitchen",
     type: "video",
-    description: "Product videos for electronics and tech gadgets.",
+    description: "Product videos for home goods, cookware, furniture, cleaning equipment, and kitchen appliances.",
+  },
+  {
+    slug: "video-kids",
+    label: "Baby & Kids",
+    type: "video",
+    description: "Product videos for baby care, strollers, children's apparel, and toys.",
+  },
+  {
+    slug: "electronics",
+    label: "Electronics & Tech",
+    type: "video",
+    description: "Product videos for consumer electronics, smart devices, software, and technology equipment.",
+  },
+  {
+    slug: "video-sports",
+    label: "Sports & Outdoors",
+    type: "video",
+    description: "Product videos for fitness equipment, cycling, and outdoor gear.",
   },
   {
     slug: "fashion",
@@ -26,47 +44,31 @@ export const videoProductionCategories: Category[] = [
     description: "Fashion and clothing product videos.",
   },
   {
-    slug: "video-kids",
-    label: "Kids & Toys",
+    slug: "pet-products",
+    label: "Pet Products",
     type: "video",
-    description: "Children's products and toys videos.",
+    description: "Product videos for pet care, feeding, travel, and home accessories.",
   },
   {
-    slug: "home-kitchen",
-    label: "Home & Kitchen",
+    slug: "health-mobility",
+    label: "Health & Mobility",
     type: "video",
-    description: "Home goods and kitchen product videos.",
-  },
-  {
-    slug: "video-sports",
-    label: "Sports & Fitness",
-    type: "video",
-    description: "Sports equipment and fitness product videos.",
-  },
-  {
-    slug: "video-others",
-    label: "Others",
-    type: "video",
-    description: "Product videos for general merchandise and other categories.",
+    description: "Product videos for personal health devices, ergonomic support, and mobility aids.",
   },
 ];
 
-// Video sources per category (from /works/video/[category]/ folder)
-// Keys match videoProductionCategories slugs
 export const videoProductionSources: Record<string, string[]> = {
-  "electronics": [
-    ...portfolioVideoSources("electronics"),
-    "/works/video/Electronics/product-video-09.m4v",
-    "/works/video/Electronics/product-video-10.m4v",
-    "/works/video/Electronics/product-video-06.mp4",
-    "/works/video/Electronics/product-video-05.mp4",
-  ],
-  "fashion": [
-    ...portfolioVideoSources("fashion"),
-    industryVideos.fashionApparel,
+  "home-kitchen": [
+    ...portfolioVideoSources("home-kitchen"),
+    "/works/video/Fashion & Apparel/product-video-01.mp4",
+    "/works/video/Others/product-video-13.m4v",
+    "/works/ai/videos/ai-video-01.mp4",
+    "/works/ai/videos/ai-video-02.mp4",
+    "/works/ai/videos/ai-video-03.mp4",
   ],
   "video-kids": [
     ...portfolioVideoSources("video-kids"),
+    industryVideos.smallAppliances,
     "/works/video/Kids & Toys/product-video-03.mp4",
     industryVideos.fashionApparel,
     "/works/video/Kids & Toys/product-video-11.mp4",
@@ -76,12 +78,7 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Kids & Toys/product-video-15.m4v",
     "/works/video/Home & Kitchen/product-video-03.m4v",
   ],
-  "home-kitchen": [
-    ...portfolioVideoSources("home-kitchen"),
-    industryVideos.smallAppliances,
-    "/works/video/Fashion & Apparel/product-video-01.mp4",
-    "/works/video/Others/product-video-13.m4v",
-  ],
+  electronics: portfolioVideoSources("electronics"),
   "video-sports": [
     ...portfolioVideoSources("video-sports"),
     "/works/video/Sports & Fitness/product-video-08.m4v",
@@ -90,9 +87,22 @@ export const videoProductionSources: Record<string, string[]> = {
     "/works/video/Sports & Fitness/product-video-05.m4v",
     "/works/video/Sports & Fitness/product-video-06.m4v",
   ],
-  "video-others": [
-    ...portfolioVideoSources("video-others"),
+  fashion: [
+    ...portfolioVideoSources("fashion"),
+    industryVideos.fashionApparel,
+  ],
+  "pet-products": [
+    ...portfolioVideoSources("pet-products"),
     "/works/video/Others/product-video-09.mp4",
+  ],
+  "health-mobility": [
+    ...portfolioVideoSources("health-mobility"),
+    "/works/video/Electronics/product-video-09.m4v",
+    "/works/video/Electronics/product-video-10.m4v",
+    "/works/video/Electronics/product-video-06.mp4",
+    "/works/video/Electronics/product-video-05.mp4",
+    portfolioVideoSource("infrared-thermometer"),
+    "/works/ai/videos/ai-video-04.mp4",
   ],
 };
 

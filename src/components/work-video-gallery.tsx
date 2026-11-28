@@ -52,7 +52,10 @@ export default function WorkVideoGallery({ videos, initialFilter }: {
               <ServiceVideoPreview title={video.title} src={video.src} poster={video.poster} />
               <div className="mt-4 flex items-start justify-between gap-4">
                 <h3 className="text-lg font-semibold tracking-[-0.025em]">{video.title}</h3>
-                <span className="shrink-0 pt-1 text-xs text-[var(--muted)]">{video.category}</span>
+                <span className="max-w-[45%] shrink-0 pt-1 text-right text-xs text-[var(--muted)]">
+                  {video.category}
+                  {video.types.includes("ai") && <span className="block">AI Video</span>}
+                </span>
               </div>
             </article>
           ))}
