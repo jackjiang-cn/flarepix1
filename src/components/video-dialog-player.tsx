@@ -29,6 +29,7 @@ export default function VideoDialogPlayer({ src, hlsSrc, poster, title }: Props)
     function switchToMp4() {
       if (disposed || hlsFallbackRef.current !== switchToMp4 || !video) return;
       hlsFallbackRef.current = null;
+      stopWaitingForHls();
 
       const playbackTime = video.currentTime;
       hls?.destroy();
@@ -38,29 +39,37 @@ export default function VideoDialogPlayer({ src, hlsSrc, poster, title }: Props)
       if (playbackTime > 0) video.currentTime = playbackTime;
     }
 
-    hlsFallbackRef.current = switchToMp4;
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = hlsSrc;
-    } else {
-      void import("hls.js").then(({ default: HlsPlayer }) => {
-        if (disposed || hlsFallbackRef.current !== switchToMp4) return;
-        if (!HlsPlayer.isSupported()) {
-          switchToMp4();
-          return;
-        }
-
-        hls = new HlsPlayer();
-        hls.on(HlsPlayer.Events.ERROR, (_event, error) => {
-          if (error.fatal) switchToMp4();
-        });
-        hls.loadSource(hlsSrc);
-        hls.attachMedia(video);
-      }).catch(switchToMp4);
+    const startupTimeout = window.setTimeout(switchToMp4, 10_000);
+    function stopWaitingForHls() {
+      window.clearTimeout(startupTimeout);
     }
+
+    video.addEventListener("canplay", stopWaitingForHls, { once: true });
+    hlsFallbackRef.current = switchToMp4;
+    void import("hls.js").then(({ default: HlsPlayer }) => {
+      if (disposed || hlsFallbackRef.current !== switchToMp4) return;
+      if (!HlsPlayer.isSupported()) {
+        if (video.canPlayType("application/vnd.apple.mpegurl")) {
+          video.src = hlsSrc;
+        } else {
+          switchToMp4();
+        }
+        return;
+      }
+
+      hls = new HlsPlayer();
+      hls.on(HlsPlayer.Events.ERROR, (_event, error) => {
+        if (error.fatal) switchToMp4();
+      });
+      hls.loadSource(hlsSrc);
+      hls.attachMedia(video);
+    }).catch(switchToMp4);
 
     return () => {
       disposed = true;
       hlsFallbackRef.current = null;
+      stopWaitingForHls();
+      video.removeEventListener("canplay", stopWaitingForHls);
       hls?.destroy();
       video.removeAttribute("src");
       video.load();
